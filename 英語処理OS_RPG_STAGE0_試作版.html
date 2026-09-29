@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英語処理OS RPG - STAGE 0</title>
+<style>
+body{font-family:Arial,"Yu Gothic",Meiryo,sans-serif;background:#f3f5f8;color:#20252b;margin:0}
+.wrap{max-width:860px;margin:auto;padding:20px}
+header,.card{background:#fff;border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 5px 18px rgba(0,0,0,.08)}
+header{background:#273142;color:#fff}
+h1{margin:0 0 6px}.sub{opacity:.85}
+.status{background:#fff;color:#222;border-radius:12px;padding:14px;margin-top:16px}
+.row{display:flex;justify-content:space-between;font-weight:bold}.bar{height:14px;background:#e5e7eb;border-radius:99px;margin-top:9px;overflow:hidden}.fill{height:100%;width:0;background:#4f46e5}
+.stage{color:#4f46e5;font-weight:bold}.qno{color:#6b7280;font-size:13px}.question{font-size:23px;font-weight:bold;margin:20px 0}
+.choice{display:block;width:100%;border:0;border-radius:11px;background:#f0f2f5;padding:14px;margin:9px 0;text-align:left;font-size:16px;cursor:pointer}
+.choice:hover{background:#e3e7ec}.choice:disabled{cursor:default}
+.feedback{display:none;margin-top:14px;padding:13px;border-radius:11px}.good{background:#eafaf2;color:#075c3a}.bad{background:#fff0f0;color:#8a1515}
+.judge{display:none;border-top:1px solid #ddd;margin-top:18px;padding-top:18px}
+select{width:100%;padding:11px;margin:6px 0 13px;border:1px solid #ccc;border-radius:9px}
+.action{width:100%;border:0;border-radius:11px;padding:13px;background:#4f46e5;color:#fff;font-weight:bold;font-size:16px;cursor:pointer}
+.boss{display:none;border:2px solid #e5a100;background:#fffaf0}
+.unlock{display:none;text-align:center;background:#eef2ff;color:#312e81}
+.small{font-size:13px;color:#666}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>🎮 英語処理OS RPG</h1><div class="sub">英語を「覚える」から、英語を「処理する」へ。</div>
+<div class="status"><div class="row"><span>LEVEL 0　基礎確認</span><span id="xp">0 / 100 EXP</span></div><div class="bar"><div id="fill" class="fill"></div></div></div>
+</header>
+
+<section id="quest" class="card">
+<div class="stage">STAGE 0　基礎確認</div><div id="qno" class="qno"></div>
+<div id="question" class="question"></div><div id="instruction"></div><div id="choices"></div>
+<div id="feedback" class="feedback"></div>
+<div id="judge" class="judge">
+<b>🧠 判断スキルチェック</b>
+<label>① どこを見る？</label>
+<select id="look"><option value="">選んでください</option><option>主語と動詞を見る</option><option>文の最後の単語を見る</option><option>日本語の意味だけを見る</option></select>
+<label>② どう判断する？</label>
+<select id="how"><option value="">選んでください</option><option>動詞の種類・時制を区別する</option><option>単語を日本語に訳して決める</option><option>文の長さで決める</option></select>
+<label>③ どう処理する？</label>
+<select id="proc"><option value="">選んでください</option><option>動詞の種類・時制に合わせて、not / do・does・didなどを使い、必要なら動詞を原形にする</option><option>すべての動詞にnotをつける</option><option>主語を後ろに移動する</option></select>
+<button class="action" onclick="checkJudge()">判断を判定する</button>
+</div>
+</section>
+
+<section id="boss" class="card boss">
+<div class="stage">👑 BOSS BATTLE　STAGE 0</div>
+<p><b>ここまでの判断スキルを、初見問題で再現せよ。</b></p>
+<div class="question">Did he ______ soccer?</div>
+<button class="choice" onclick="boss(false)">played</button>
+<button class="choice" onclick="boss(true)">play</button>
+<div id="bf" class="feedback"></div>
+</section>
+
+<section id="unlock" class="card unlock">
+<h2>🏆 SKILL UNLOCKED!</h2>
+<p><b>「基礎確認」</b>を獲得しました。</p>
+<p>主語と動詞を見つけ、動詞の種類・時制を区別し、適切な形に処理できる。</p>
+</section>
+</div>
+
+<script>
+const data=[
+["③ They are on the soccer team.","否定文にしなさい。",["They not are on the soccer team.","They are not on the soccer team.","They do not are on the soccer team."],1],
+["④ He plays soccer.","否定文にしなさい。",["He not plays soccer.","He does not play soccer.","He is not play soccer."],1],
+["⑤ He played soccer.","疑問文にしなさい。",["Did he played soccer?","Does he play soccer?","Did he play soccer?"],2]
+];
+let n=0,xp=0;
+function show(){
+ const d=data[n];
+ qno.textContent="QUEST "+(n+1)+" / 3";
+ question.textContent=d[0];
+ instruction.textContent=d[1];
+ choices.innerHTML=d[2].map((x,i)=>'<button class="choice" onclick="answer('+i+')">'+x+'</button>').join("");
+ feedback.style.display="none";
+ judge.style.display="none";
+
+ // 判断スキルチェックを毎回初期状態に戻す
+ look.selectedIndex=0;
+ how.selectedIndex=0;
+ proc.selectedIndex=0;
+}
+function add(v){xp=Math.min(100,xp+v);document.getElementById("xp").textContent=xp+" / 100 EXP";fill.style.width=xp+"%"}
+function answer(i){
+ const d=data[n]; document.querySelectorAll("#choices .choice").forEach(b=>b.disabled=true);
+ if(i===d[3]){add(10);feedback.className="feedback good";feedback.innerHTML="✅ 正解！ <b>+10 EXP</b><br>次は判断スキルを確認します。";feedback.style.display="block";judge.style.display="block"}
+ else{feedback.className="feedback bad";feedback.innerHTML="❌ もう一度。主語と動詞に注目しましょう。";feedback.style.display="block";document.querySelectorAll("#choices .choice").forEach(b=>b.disabled=false)}
+}
+function checkJudge(){
+ const ok=look.value==="主語と動詞を見る"&&how.value==="動詞の種類・時制を区別する"&&proc.value==="動詞の種類・時制に合わせて、not / do・does・didなどを使い、必要なら動詞を原形にする";
+ if(ok){add(20);judge.style.display="none";feedback.className="feedback good";feedback.innerHTML="🎯 判断OK！ <b>+20 EXP</b>";feedback.style.display="block";setTimeout(next,500)}
+ else{feedback.className="feedback bad";feedback.innerHTML="🔎 ヒント：主語と動詞→動詞の種類・時制→適切な形、の順に考えます。";feedback.style.display="block"}
+}
+function next(){n++;if(n<3)show();else{quest.style.display="none";boss.style.display="block"}}
+function boss(ok){
+ if(ok){add(40);bf.className="feedback good";bf.innerHTML="🏆 BOSS CLEAR！ <b>+40 EXP</b><br>Didがあるので、後ろの動詞は原形 play。";bf.style.display="block";document.querySelectorAll("#boss .choice").forEach(b=>b.disabled=true);setTimeout(()=>unlock.style.display="block",500)}
+ else{bf.className="feedback bad";bf.innerHTML="❌ Didの後ろの動詞の形に注目しましょう。";bf.style.display="block"}
+}
+show();
+</script>
+</body>
+</html>
