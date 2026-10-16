@@ -430,7 +430,6 @@
       background: var(--danger-color);
       color: white;
     }
-    /* 読解パート固有のユーティリティ */
     .fade-in {
         animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -480,7 +479,6 @@
   <div id="main-content"></div>
 </div>
 <script>
-// 動詞操作判定バトルモードの全20問データ
 const VERB_BATTLE_QUESTIONS = [
   { id: 1, text: "Tom and Ken (  ) in the library.", options: [{ label: "A：is", correct: false }, { label: "B：are", correct: true }], highlightText: "Tom and Ken", comment: "主語が複数" },
   { id: 2, text: "He (  ) soccer last Sunday.", options: [{ label: "A：plays", correct: false }, { label: "B：played", correct: true }], highlightText: "last Sunday", comment: "過去時制" },
@@ -2067,7 +2065,6 @@ const STAGES = [
     ]
   }
 ];
-// STAGE12 BOSS BATTLE タイムトライアル問題データ
 const STAGE12_BOSS_QUESTIONS = [
   { id: 1, text: "This book is (   ) than that one.", options: [{ label: "A：interesting", correct: false }, { label: "B：more interesting", correct: true }], highlightText: "than that one", comment: "２つの比較" },
   { id: 2, text: "Ken can’t swim (   ) as Tom.", options: [{ label: "A：as fast", correct: true }, { label: "B：faster", correct: false }], highlightText: "as Tom", comment: "原級比較" },
@@ -2080,9 +2077,6 @@ const STAGE12_BOSS_QUESTIONS = [
   { id: 9, text: "This park is (   ) as large as that one.", options: [{ label: "A：second", correct: false }, { label: "B：twice", correct: true }], highlightText: "as large", comment: "２倍 → ２回分" },
   { id: 10, text: "I don't like cats as (   ) as dogs.", options: [{ label: "A：good", correct: false }, { label: "B：much", correct: true }], highlightText: "like", comment: "likeの同等比較" }
 ];
-// ----------------------------------------------------
-// 「英語処理の極意書」問題データ
-// ----------------------------------------------------
 const EIGO_SHORI_GOKUI_QUESTIONS = [
   {
     text: "1: 間違いの原因は［  ］を区別して、修正する。",
@@ -2445,7 +2439,7 @@ const LAST_BOSS_QUESTIONS = [
   { text: "24 I have the pictures that (  ) taken in Kyoto.", options: [{label:"A：is",correct:false},{label:"B：was",correct:false},{label:"C：were",correct:true}], highlightText:["the pictures"], comment:"関係代名詞（主格）で先行詞が複数" },
   { text: "25 If I (  ) enough money, I could buy the car.", options: [{label:"A：had",correct:true},{label:"B：have",correct:false},{label:"C：will have",correct:false}], highlightText:["could"], comment:"仮定法過去" }
 ];
-const STORAGE_KEY = 'grammar_quest_save_data_v10';
+const STORAGE_KEY = 'grammar_quest_save_data_v11';
 let gameState = {
   exp: 0,
   unlockedStage: 1,
@@ -2456,12 +2450,10 @@ let gameState = {
   selectedWords: [],
   unlockedSkills: [],
   isAllCleared: false,
-  // 動詞操作判定バトルモード用状態
   verbBattleIndex: 0,
   verbBattleTimeLeft: 60,
   verbBattleSkillActive: false,
   verbBattleDialogActive: false,
-  // STAGE12 タイムトライアル用状態
   stage12BossIndex: 0,
   stage12TimeLeft: 30,
   stage12SkillActive: false,
@@ -2476,7 +2468,6 @@ let gameState = {
   lastBossFailReason: "",
   lastBossCleared: false,
   endrollIndex: 0,
-  // Webアプリ用読解（読解STAGE）用状態
   readingState: {
       currentScreen: 'intro',
       isAnswered: false,
@@ -2486,40 +2477,18 @@ let gameState = {
 let battleTimer = null;
 let stage12Timer = null;
 let lastBossTimer = null;
+
 function loadSaveData() {
   const data = localStorage.getItem(STORAGE_KEY);
   if (data) {
-    try { gameState = JSON.parse(data); } catch(e) {}
+    try { 
+      const parsed = JSON.parse(data);
+      gameState = { ...gameState, ...parsed };
+    } catch(e) {}
   }
-  if (gameState.bossSubStep === undefined) gameState.bossSubStep = 0;
-  if (!gameState.selectedWords) gameState.selectedWords = [];
-  if (gameState.verbBattleIndex === undefined) gameState.verbBattleIndex = 0;
-  if (gameState.verbBattleTimeLeft === undefined) gameState.verbBattleTimeLeft = 60;
-  if (gameState.verbBattleSkillActive === undefined) gameState.verbBattleSkillActive = false;
-  if (gameState.verbBattleDialogActive === undefined) gameState.verbBattleDialogActive = false;
-  
-  if (gameState.stage12BossIndex === undefined) gameState.stage12BossIndex = 0;
-  if (gameState.stage12TimeLeft === undefined) gameState.stage12TimeLeft = 30;
-  if (gameState.stage12SkillActive === undefined) gameState.stage12SkillActive = false;
-  if (gameState.stage12DialogActive === undefined) gameState.stage12DialogActive = false;
-  if (gameState.gokuiIndex === undefined) gameState.gokuiIndex = 0;
-  if (gameState.gokuiCleared === undefined) gameState.gokuiCleared = false;
-  if (gameState.gokuiUnlocked === undefined) {
-    gameState.gokuiUnlocked =
-      gameState.gokuiCleared ||
-      gameState.unlockedSkills.includes("動詞操作統合の眼");
-  }
-  if (gameState.lastBossIndex === undefined) gameState.lastBossIndex = 0;
-  if (gameState.lastBossTimeLeft === undefined) gameState.lastBossTimeLeft = 60;
-  if (gameState.lastBossSkillActive === undefined) gameState.lastBossSkillActive = false;
-  if (gameState.lastBossDialogActive === undefined) gameState.lastBossDialogActive = false;
-  if (gameState.lastBossFailReason === undefined) gameState.lastBossFailReason = "";
-  if (gameState.lastBossCleared === undefined) gameState.lastBossCleared = false;
-  if (gameState.endrollIndex === undefined) gameState.endrollIndex = 0;
   if (!gameState.readingState) {
       gameState.readingState = { currentScreen: 'intro', isAnswered: false, highlightState: 'none' };
   }
-  updateHeader();
 }
 function saveData() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(gameState));
@@ -2572,21 +2541,29 @@ function getRank(exp) {
 }
 function updateHeader() {
   const rank = getRank(gameState.exp);
-  document.getElementById('rank-display').textContent = rank;
-  document.getElementById('exp-display').textContent = gameState.exp;
+  const rankEl = document.getElementById('rank-display');
+  const expEl = document.getElementById('exp-display');
+  const expBarEl = document.getElementById('exp-bar');
+  const skillCountEl = document.getElementById('skill-count');
+  
+  if (rankEl) rankEl.textContent = rank;
+  if (expEl) expEl.textContent = gameState.exp;
   
   const currentLevelExp = gameState.exp % 100;
-  document.getElementById('exp-bar').style.width = currentLevelExp + '%';
+  if (expBarEl) expBarEl.style.width = currentLevelExp + '%';
   const skillContainer = document.getElementById('skills-list');
-  document.getElementById('skill-count').textContent = gameState.unlockedSkills.length;
+  if (skillCountEl) skillCountEl.textContent = gameState.unlockedSkills.length;
   
-  if (gameState.unlockedSkills.length === 0) {
-    skillContainer.innerHTML = '<span style="color: #484f58; font-size: 0.8rem;">まだ判断の眼を獲得していません</span>';
-  } else {
-    skillContainer.innerHTML = gameState.unlockedSkills.map(s => `<span class="skill-badge">🛡 ${s}</span>`).join('');
+  if (skillContainer) {
+    if (gameState.unlockedSkills.length === 0) {
+      skillContainer.innerHTML = '<span style="color: #484f58; font-size: 0.8rem;">まだ判断の眼を獲得していません</span>';
+    } else {
+      skillContainer.innerHTML = gameState.unlockedSkills.map(s => `<span class="skill-badge">🛡 ${s}</span>`).join('');
+    }
   }
 }
 function render() {
+  updateHeader();
   if (gameState.isAllCleared) {
     renderAllClear();
   } else if (gameState.currentStageId === 'verb_battle') {
@@ -2610,6 +2587,7 @@ function renderStageSelect() {
   stopStage12Timer();
   stopLastBossTimer();
   const container = document.getElementById('main-content');
+  if (!container) return;
   let html = '<div class="card"><div class="card-header">★ ステージを選択して挑戦</div>';
   
   const isExtraCleared = gameState.unlockedSkills.includes("処理手順化の眼");
@@ -2666,7 +2644,6 @@ function renderStageSelect() {
     }
   });  
 
-  // 条件3: 読解STAGE（STAGE13の後に配置、STAGE13のクリアが開放条件、EXPポイント加算なし）
   const readingUnlocked = gameState.unlockedStage > 13 || gameState.unlockedSkills.includes("動詞操作統合の眼");
   const readingCleared = !!gameState.readingCleared;
   html += `
@@ -2683,7 +2660,6 @@ function renderStageSelect() {
     </div>
   `;
 
-  // 条件5: 「英語処理の極意書」は、この読解STAGEのクリア後に仕様を変更する
   const gokuiUnlocked = !!gameState.gokuiCleared || readingCleared;
   html += `
     <div style="margin-top:18px; border-top:1px solid #30363d; padding-top:15px;">
@@ -2739,7 +2715,6 @@ function startStage(stageId) {
   window.scrollTo(0, 0);
   saveData();
   render();
-  requestAnimationFrame(() => window.scrollTo(0, 0));
 }
 function exitStage() {
   stopBattleTimer();
@@ -2749,9 +2724,6 @@ function exitStage() {
   render();
 }
 
-// ----------------------------------------------------
-// 読解STAGE（Webアプリ用読解）の統合ロジック
-// ----------------------------------------------------
 function startReadingStage() {
     initAudio();
     gameState.currentStageId = 'reading_stage';
@@ -2761,7 +2733,6 @@ function startReadingStage() {
     window.scrollTo(0, 0);
     saveData();
     render();
-    requestAnimationFrame(() => window.scrollTo(0, 0));
 }
 
 function getBasePassageHTML() {
@@ -2778,6 +2749,7 @@ function getBasePassageHTML() {
 
 function renderReadingStageContainer() {
     const container = document.getElementById('main-content');
+    if (!container) return;
     let html = `
         <div class="card" style="background:#ffffff; color:#1e293b;">
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200">
@@ -3149,7 +3121,6 @@ function checkReproduction(optionKey, isCorrect) {
 
 function renderReadingClear(card) {
     updateReadingProgress('読解STAGE完了！', 100);
-    // 条件4: 読解STAGEはEXPポイントの加算はありません。条件5達成
     gameState.readingCleared = true;
     gameState.gokuiUnlocked = true;
     saveData();
@@ -3178,11 +3149,9 @@ function nextReadingScreen(screenName) {
     renderReadingScreen();
 }
 
-// ----------------------------------------------------
-// 通常ステージの判定処理
-// ----------------------------------------------------
 function renderQuestion() {
   const stage = STAGES.find(s => s.id === gameState.currentStageId);
+  if (!stage) return;
   const isBoss = !stage.noBoss && gameState.currentStep === stage.questions.length;
   
   if (isBoss && stage.boss && stage.boss.isTimeTrial) {
@@ -3190,6 +3159,7 @@ function renderQuestion() {
     return;
   }
   const container = document.getElementById('main-content');
+  if (!container) return;
   let qData;
   if (isBoss) {
     if (stage.boss.type === "normal" || stage.boss.type === "sort") {
@@ -3425,9 +3395,6 @@ function checkAnswer(selectedIndex, isLogicStep) {
   saveData();
 }
 
-// ----------------------------------------------------
-// 「英語処理の極意書」
-// ----------------------------------------------------
 function startGokui() {
   initAudio();
   gameState.currentStageId = 'gokui';
@@ -3437,10 +3404,10 @@ function startGokui() {
   window.scrollTo(0, 0);
   saveData();
   render();
-  requestAnimationFrame(() => window.scrollTo(0, 0));
 }
 function renderGokui() {
   const container = document.getElementById('main-content');
+  if (!container) return;
   const q = EIGO_SHORI_GOKUI_QUESTIONS[gameState.gokuiIndex];
   let html = `
     <div class="card">
@@ -3523,9 +3490,6 @@ function checkGokuiAnswer(selectedIndex) {
   }
 }
 
-// ----------------------------------------------------
-// LAST BATTLE「ヴァーバルアーチデーモン」タイムトライアル
-// ----------------------------------------------------
 function startLastBoss() {
   if (!gameState.gokuiCleared || getRank(gameState.exp) < 42) {
     alert("LAST BATTLEの開放条件は「英語処理の極意書クリア」かつ「ランク42以上」です。");
@@ -3567,6 +3531,7 @@ function stopLastBossTimer() {
 }
 function renderLastBoss() {
   const container = document.getElementById('main-content');
+  if (!container) return;
   const qData = LAST_BOSS_QUESTIONS[gameState.lastBossIndex];
   let html = `
     <div class="battle-scene">
@@ -3667,11 +3632,10 @@ function handleLastBossSkillDialog(useSkill) {
   render();
   startLastBossTimer();
 }
-// ----------------------------------------------------
-// 獲得スキル・エンドロール
-// ----------------------------------------------------
+
 function renderEndroll() {
   const container = document.getElementById('main-content');
+  if (!container) return;
   const skills = gameState.unlockedSkills.slice();
   const stageOrder = STAGES
     .filter(s => typeof s.id === 'number')
@@ -3735,6 +3699,7 @@ function renderEndroll() {
 }
 function renderAllClear() {
   const container = document.getElementById('main-content');
+  if (!container) return;
   container.innerHTML = `
     <div class="all-clear-card">
       <div class="trophy-icon">🏆✨</div>
@@ -3757,10 +3722,15 @@ function resetToStageSelect() {
   saveData();
   render();
 }
+
 document.addEventListener('click', initAudio, { once: true });
-loadSaveData();
-render();
-if (gameState.currentStageId === 'last_boss' && !gameState.lastBossDialogActive) startLastBossTimer();
+
+// 初期化の安全な呼び出し
+window.addEventListener('DOMContentLoaded', () => {
+  loadSaveData();
+  render();
+  if (gameState.currentStageId === 'last_boss' && !gameState.lastBossDialogActive) startLastBossTimer();
+});
 </script>
 </body>
 </html>
