@@ -2535,6 +2535,8 @@ function render() {
     renderLastBoss();
   } else if (gameState.currentStageId === 'endroll') {
     renderEndroll();
+  } else if (gameState.currentStageId === 'reading_stage') {
+    renderReadingStage();
   } else if (gameState.currentStageId === null) {
     renderStageSelect();
   } else {
