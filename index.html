@@ -1338,7 +1338,7 @@ const STAGES = [
         wrongComment: "後ろにSVが2組続く → 接続詞を使います。",
         logicText: "【判断基準】",
         logicOptions: [
-          { label: "後ろにSVが２組続く → 接続詞を使う", correct: true },
+          { label: "２つの文がコンマでつながっている → 接続詞を使う", correct: true },
           { label: "後ろの文に未来の表現がある → While を使う", correct: false }
         ]
       },      
@@ -1426,9 +1426,9 @@ const STAGES = [
       {
         type: "sort",
         text: "① ( soccer / they / the park / play / in / always ).\nこの英文を完成させるときの手順を正しく並べかえなさい。",
-        words: ["ア：追加の情報を組み立てる", "イ：主語と動詞の組み合わせ", "ウ：動詞の後ろの目的語", "エ：文全体を整える", "オ：肯定文・疑問文の確認"],
-        correctAnswer: "イ：主語と動詞の組み合わせ オ：肯定文・疑問文の確認 ウ：動詞の後ろの目的語 ア：追加の情報を組み立てる エ：文全体を整える",
-        wrongComment: "【正しい手順】①主語と動詞の組み合わせ(イ) → ②文の形を確認(オ) → ③動詞の後ろの目的語(ウ) → ④追加の情報(ア) → ⑤文全体を整える(エ)",
+        words: ["追加の情報を組み立てる", "主語と動詞の組み合わせ", "動詞の後ろの目的語", "文全体を整える", "肯定文・疑問文の確認"],
+        correctAnswer: "主語と動詞の組み合わせ 肯定文・疑問文の確認 動詞の後ろの目的語 追加の情報を組み立てる 文全体を整える",
+        wrongComment: "【正しい手順】①主語と動詞の組み合わせ → ②文の形を確認 → ③動詞の後ろの目的語 → ④追加の情報 → ⑤文全体を整える",
         logicText: "【判断基準】",
         logicOptions: [
           { label: "SV構造（they play） → 肯定文 → 目的語（play soccer） → 追加の情報（in the park） → 整える（They always play soccer in the park.）", correct: true },
@@ -1508,9 +1508,9 @@ const STAGES = [
       {
         type: "sort",
         text: "⑦ Tom took these pictures. を受動態にするとき、その手順を正しく並べかえなさい。",
-        words: ["ア：by＋行為者を加える", "イ：be動詞を区別する", "ウ：目的語を主語にする", "エ：動詞を過去分詞にする", "オ：もとの文の動詞の時制確認"],
-        correctAnswer: "ウ：目的語を主語にする オ：もとの文の動詞の時制確認 イ：be動詞を区別する エ：動詞を過去分詞にする ア：by＋行為者を加える",
-        wrongComment: "【受動態の手順】①目的語を主語に(ウ) → ②時制の確認(オ) → ③be動詞の決定(イ) → ④過去分詞(エ) → ⑤by+行為者(ア)",
+        words: ["by＋行為者を加える", "be動詞を区別する", "目的語を主語にする", "動詞を過去分詞にする", "もとの文の動詞の時制確認"],
+        correctAnswer: "目的語を主語にする もとの文の動詞の時制確認 be動詞を区別する 動詞を過去分詞にする by＋行為者を加える",
+        wrongComment: "【受動態の手順】①目的語を主語に → ②時制の確認 → ③be動詞の決定 → ④過去分詞 → ⑤by+行為者",
         logicText: "【判断基準】",
         logicOptions: [
           { label: "文末から前へ戻るように語を並べる → 動詞をbe動詞＋過去分詞の形にする → by＋主語にする", correct: false },
@@ -2099,8 +2099,8 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
   {
     text: "9:　受動態は［　　］で表現される。",
     options: [
-      { label: "A：be動詞＋過去分詞", correct: true },
-      { label: "B：be動詞＋現在分詞", correct: false },
+      { label: "A：be動詞＋現在分詞", correct: false },
+      { label: "B：be動詞＋過去分詞", correct: true },
       { label: "C：have（has）＋過去分詞", correct: false }
     ]
   },
@@ -2115,8 +2115,8 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
   {
     text: "11:　現在完了は［　　］で表現される。",
     options: [
-      { label: "A：be動詞＋過去分詞", correct: false },
-      { label: "B：be動詞＋現在分詞", correct: false },
+      { label: "A：be動詞＋現在分詞", correct: false },
+      { label: "B：be動詞＋過去分詞", correct: false },
       { label: "C：have（has）＋過去分詞", correct: true }
     ]
   },
@@ -2139,29 +2139,21 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
   {
     text: "14:　進行形は［　　］で表現される。",
     options: [
-      { label: "A：be動詞＋過去分詞", correct: false },
-      { label: "B：be動詞＋現在分詞", correct: true },
+      { label: "A：be動詞＋現在分詞", correct: true },
+      { label: "B：be動詞＋過去分詞", correct: false },
       { label: "C：have（has）＋過去分詞", correct: false }
     ]
   },
   {
-    text: "15:　時制と表現の形の組み合わせは、助動詞 → 完了形 →［　　］の順になる。",
-    options: [
-      { label: "A：進行形", correct: false },
-      { label: "B：受動態 → 進行形", correct: false },
-      { label: "C：進行形 → 受動態", correct: true }
-    ]
-  },
-  {
-    text: "16:　文の中心でない動詞の形（不定詞・動名詞・分詞）は、［　　］で判断する。",
+    text: "15:　文の中心でない動詞の形（不定詞・動名詞・分詞）は、［　　］で判断する。",
     options: [
       { label: "A：後ろの語とのつながり", correct: false },
-      { label: "B：語順", correct: false },
-      { label: "C：前の語とのつながり", correct: true }
+      { label: "B：前の語とのつながり", correct: true },
+      { label: "C：語順", correct: false }
     ]
   },
   {
-    text: "17:　名詞を修飾する分詞は、その名詞と分詞の間で［　　］になる。",
+    text: "16:　名詞を修飾する分詞は、その名詞と分詞の間で［　　］になる。",
     options: [
       { label: "A：主語と目的語の関係", correct: false },
       { label: "B：補語と動詞の関係", correct: false },
@@ -2169,7 +2161,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "18:　英文を組み立てるときは、［　　］の順で判断する。",
+    text: "17:　英文を組み立てるときは、［　　］の順で判断する。",
     options: [
       { label: "A：主語 → 動詞 → 日本語の文末から前", correct: false },
       { label: "B：SV関係 → 主語のパーツ → 意味のかたまり → 英文での配置", correct: true },
@@ -2177,15 +2169,15 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "19:　英問英答の答える文では、［　　］を合わす。",
+    text: "18:　英問英答の答える文では、［　　］を合わす。",
     options: [
-      { label: "A：質問文の主語（代名詞）と動詞（時制・表現）の形", correct: true },
+      { label: "A：質問文の主語と時制、動詞", correct: true },
       { label: "B：本文に使われている場所・時・数", correct: false },
       { label: "C：本文に使われている文の形", correct: false }
     ]
   },
   {
-    text: "20:　make / let / have ＋人の後ろは［　　］を使う。",
+    text: "19:　make / let ＋人の後ろは［　　］を使う。",
     options: [
       { label: "A：動詞の原形", correct: true },
       { label: "B：to 動詞の原形", correct: false },
@@ -2193,7 +2185,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "21:　読解のストーリー型（体験・出来事）タイプは、［　　］に注目する。",
+    text: "20:　読解のストーリー型（体験・出来事）タイプは、［　　］に注目する。",
     options: [
       { label: "A：主張・理由・結論", correct: false },
       { label: "B：目的・条件・必要情報", correct: false },
@@ -2201,7 +2193,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "22:　読解の説明文型（社会・科学・文化）タイプは、［　　］に注目する。",
+    text: "21:　読解の説明文型（社会・科学・文化）タイプは、［　　］に注目する。",
     options: [
       { label: "A：主張・理由・結論", correct: true },
       { label: "B：目的・条件・必要情報", correct: false },
@@ -2209,7 +2201,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "23:　読解の資料・実用文型（案内・広告・ポスター・メール）タイプは、［　　］に注目する。",
+    text: "22:　読解の資料・実用文型（案内・広告・ポスター・メール）タイプは、［　　］に注目する。",
     options: [
       { label: "A：主張・理由・結論", correct: false },
       { label: "B：目的・条件・必要情報", correct: true },
@@ -2217,15 +2209,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "24:　読解の因果関係は、［　　］の順で判断する。",
-    options: [
-      { label: "A：行動 → 気持ち → 出来事", correct: false },
-      { label: "B：出来事 → 気持ち → 行動", correct: true },
-      { label: "C：気持ち → 出来事 → 行動", correct: false }
-    ]
-  },  
-  {
-    text: "25:　読解で因果関係を示す印に［　　］がある。",
+    text: "23:　読解で因果関係を示す印に［　　］がある。",
     options: [
       { label: "A：because, so, but, howeverなど", correct: true },
       { label: "B：that, for example, such asなど", correct: false },
@@ -2233,7 +2217,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "26:　読解で正誤の条件は［　　］を確認する。",
+    text: "24:　読解で正誤の条件は［　　］を確認する。",
     options: [
       { label: "A：主張や評価の語句", correct: false },
       { label: "B：一般と例、感情と行動", correct: false },
@@ -2241,7 +2225,7 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "27:　読解で段落の要約をするときは［　　］に注目する。",
+    text: "25:　読解で段落の要約をするときは［　　］に注目する。",
     options: [
       { label: "A：段落の中央あたり", correct: false },
       { label: "B：for exampleの後", correct: false },
@@ -2249,27 +2233,11 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "28:　読解で情報を比較するときは［　　］に分ける。",
+    text: "26:　読解で情報を比較するときは［　　］に分ける。",
     options: [
       { label: "A：意見と事実", correct: true },
       { label: "B：現在と過去", correct: false },
       { label: "C：真実と嘘", correct: false }
-    ]
-  },
-  {
-    text: "29: 「判断基準を自分のものにする５段階」の順を並べかえなさい。\nア：判断・処理する\nイ：時間をおいて再現する\nウ：認識する\nエ：誤りを修正する\nオ：判断基準を説明する",
-    options: [
-      { label: "A：ウ → オ → ア → エ → イ", correct: true },
-      { label: "B：ウ → ア → オ → エ → イ", correct: false },
-      { label: "C：オ → ウ → ア → エ → イ", correct: false }
-    ]
-  },  
-  {
-    text: "30:　学習にあたり大切なことは、［　　］を意識することである。",
-    options: [
-      { label: "A：量と時間", correct: false },
-      { label: "B：目標と計画", correct: false },
-      { label: "C：再現できるか、適用できるか、維持できるか", correct: true }
     ]
   }
 ];
