@@ -2217,11 +2217,11 @@ const EIGO_SHORI_GOKUI_QUESTIONS = [
     ]
   },
   {
-    text: "24:　読解で正誤の条件は［　　］を確認する。",
+    text: "24:　読解で正誤は主語・肯定か否定か・［　　］を確認する。",
     options: [
       { label: "A：主張や評価の語句", correct: false },
       { label: "B：一般と例、感情と行動", correct: false },
-      { label: "C：主語・場所・時・数・肯定か否定か", correct: true }
+      { label: "C：状況・条件・理由", correct: true }
     ]
   },
   {
@@ -2575,7 +2575,7 @@ function renderStageSelect() {
   html += `
     <div style="margin-top:18px; border-top:1px solid #30363d; padding-top:15px;">
       <button class="stage-select-btn extra-stage-btn" ${readingUnlocked ? '' : 'disabled'} onclick="startReadingStage()">
-        <div><strong>【読解STAGE】</strong> 英語読解アルゴリズム
+        <div><strong>【読解STAGE】</strong> 読解OS（理由問題）
           <div style="font-size:0.75rem; color:#8b949e; margin-top:2px;">理由問題の解法 OS：着眼 → 判断 → 処理 → 類題再現</div>
           ${!readingUnlocked ? '<div style="font-size:0.75rem; color:var(--purple-color); margin-top:2px;">🔒 開放条件：STAGE 13 クリア</div>' : ''}
           ${gameState.readingCleared ? ' <span style="color:var(--success-color); font-size:0.8rem;">[CLEAR ★]</span>' : ''}
