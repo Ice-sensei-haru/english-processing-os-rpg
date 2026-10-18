@@ -326,7 +326,7 @@
             },
             grammar2: {
                 title: "① 文法：同意文書き換え（全10問）",
-                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、受動態、間接疑問、接続詞など）をマスター。",
+                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、不定詞、比較、受動態など）をマスター。",
                 items: [
                     {
                         id: 1,
@@ -338,7 +338,7 @@
                             ]},
                             { title: "【判断】第4文型（S V O O）の語順", q: "teach 人 物の形（第4文型）にするための正しい並びはどれ？", opts: [
                                 {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"},
-                                {t: "He teaches science to us.", correct: true, fb: "※こちらも正解ですが、今回は直接目的語が続く語順を選びます。"}
+                                {t: "He teaches science for us.", correct: false, fb: "不正解。teachは to ですが、SVOOの形なら前置詞は不要です。"}
                             ]}
                         ],
                         repro: {
@@ -399,12 +399,12 @@
                         passage: `Q4. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"We have a lot of snow in February."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】天候を表す非人称の It の導入", q: "「雪がたくさん降る」という気象・天候を表す文に書き換えるとき、主語に何を使う？", opts: [
-                                {t: "天候の It （非人称の It）を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
+                                {t: "天候の主語 It を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
                                 {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
                             ]},
                             { title: "【判断】動詞 snow の活用", q: "「雪が降る」という動詞 snow を使った正しい表現は？", opts: [
                                 {t: "It snows a lot in February.", correct: true, fb: "正解！ snows と3単現の s がつきます。"},
-                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snowは一般動詞です。"}
+                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snow は一般動詞です。"}
                             ]}
                         ],
                         repro: {
@@ -496,11 +496,11 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"Mary speaks English well.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"Mary took these pictures.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "English is spoken well by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
-                                {t: "English are spoken well by Mary.", correct: false, fb: "不正解。Englishは単数扱いなので is です。"}
+                                {t: "These pictures were taken by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
+                                {t: "There pictures are taken by Mary.", correct: false, fb: "不正解。元の文が took と過去形なので were です。"}
                             ]
                         }
                     },
@@ -540,7 +540,7 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"This is the desk which was made by my father.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"This is the desk which my father made.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
                                 {t: "This is the desk made by my father.", correct: true, fb: "正解！関係代名詞節から過去分詞による後置修飾への書き換え再現成功です！"},
