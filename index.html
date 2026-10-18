@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校入試英語 思考アルゴリズム・マスター</title>
+    <title>高校入試英語・解法OSアプリ</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -25,8 +25,6 @@
     <style>
         .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .highlight-target { background-color: #fef08a; color: #854d0e; font-weight: 700; padding: 0.1rem 0.3rem; border-radius: 0.25rem; }
-        .highlight-cause { background-color: #bbf7d0; color: #166534; font-weight: 700; padding: 0.1rem 0.3rem; border-radius: 0.25rem; }
     </style>
 </head>
 <body class="h-full font-sans text-slate-800 flex flex-col justify-between selection:bg-indigoCustom-500 selection:text-white">
@@ -292,7 +290,7 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「この本は英語で読まれるべきです。」<br>This book should ( )( ) in English.",
+                            passage: "【類題テスト】<br>\"This book is read in English.\" のような受動態：<br>「この本は英語で読まれるべきです。」<br>This book should ( )( ) in English.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
                                 {t: "be / read", correct: true, fb: "正解！助動詞の受動態の再現成功です！"},
@@ -314,7 +312,7 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「母は私にテレビを見せてくれました（見せてくれました）。」<br>My mother let me ( ) TV.",
+                            passage: "【類題テスト】<br>「母は私にテレビを見せてくれました。」<br>My mother let me ( ) TV.",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
                                 {t: "watch", correct: true, fb: "正解！使役動詞 let の後での動詞の原形の再現成功です！"},
@@ -338,7 +336,7 @@
                             ]},
                             { title: "【判断】第4文型（S V O O）の語順", q: "teach 人 物の形（第4文型）にするための正しい並びはどれ？", opts: [
                                 {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"},
-                                {t: "He teaches science to us.", correct: true, fb: "※こちらも正解ですが、今回は直接目的語が続く語順を選びます。"}
+                                {t: "He teaches science to us.", correct: false, fb: "今回は直接目的語がすぐ後ろに続くSVOOの形を選びます。"}
                             ]}
                         ],
                         repro: {
@@ -643,7 +641,7 @@
                                 {t: "Tom told his science teacher about his discovery.", correct: true, fb: "正解！ shared the news with his teacher と一致します。"},
                                 {t: "Tom kept his discovery a secret from everyone.", correct: false, fb: "先生に共有しているため誤り。"}
                             ]},
-                            { type: "整序英文", title: "問4：整序英文", q: "「彼はそのニュースを先生と共有した」の ( ) 内の正しい語順は？<br>He ( )( )({) with his teacher.", opts: [
+                            { type: "整序英文", title: "問4：整序英文", q: "「彼はそのニュースを先生と共有した」の ( ) 内の正しい語順は？<br>He ( )( )( ) with his teacher.", opts: [
                                 {t: "shared the news", correct: true, fb: "正解！ share A with B の構文です。"},
                                 {t: "the news shared", correct: false, fb: "不正解です。"}
                             ]}
@@ -679,7 +677,7 @@
                                 {t: "EVs contribute to making urban environments better.", correct: true, fb: "正解！ making our urban environment better と一致します。"},
                                 {t: "EVs are noisier than traditional cars.", correct: false, fb: "「quieter」なので誤り。"}
                             ]},
-                            { type: "整序英文", title: "問4：整序英文", q: "「伝統的なガソリン車よりも静かである」の ( ) 内の正しい語順は？<br>They are (t)( )( ) traditional cars.", opts: [
+                            { type: "整序英文", title: "問4：整序英文", q: "「伝統的なガソリン車よりも静かである」の ( ) 内の正しい語順は？<br>They are ( )( )( ) traditional cars.", opts: [
                                 {t: "much quieter than", correct: true, fb: "正解！比較級を強調する much ＋ 比較級 ＋ than です。"},
                                 {t: "quieter much than", correct: false, fb: "不正解です。"}
                             ]}
@@ -740,7 +738,7 @@
                                 {t: "天気や最近のニュースなど雑談から始める", correct: false, fb: "不正解。指定語数が少ないため1文目から主張を書きます。"}
                             ]},
                             { title: "【判断】理由をつなぐ接続詞と第2文の構造", q: "2文目で理由を添える際、最も自然につなぐ接続詞・構文はどれ？", opts: [
-                                {t: "Because... や It is [形容詞] for me to...", correct: true, fb: "正解！ Because ＋ 主語 ＋ 動詞 で理由を説明します。"},
+                                {t: "Because... や It is 形容詞 for me to...", correct: true, fb: "正解！ Because ＋ 主語 ＋ 動詞 で理由を説明します。"},
                                 {t: "But... や However...", correct: false, fb: "不正解。逆接の接続詞は理由になりません。"}
                             ]}
                         ],
@@ -748,8 +746,8 @@
                             passage: "【類題テスト】<br>「私は読書が好きです。なぜなら面白いからです。」を15語程度で書くときの正しい型は？",
                             q: "最も適切な英文構成を選べ。",
                             opts: [
-                                {t: "I like reading books because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
-                                {t: "Reading books is good, so I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
+                                {t: "I like reading books. Because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
+                                {t: "Reading books is good. So I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
                             ]
                         }
                     },
@@ -758,7 +756,7 @@
                         passage: `Q2. 【10語程度・ポスター・呼びかけ命令文型】<br><strong>「公園をきれいに保つためのポスターの呼びかけ文を、10語程度の英語で書きなさい。」</strong>`,
                         steps: [
                             { title: "【着眼】呼びかけ・スローガンの構文選択", q: "ポスターや案内で「〜しましょう」「〜してください」と力強く呼びかける際の基本的な文頭は？", opts: [
-                                {t: "命令文やLet's、Pleaseなどから始める", correct: true, fb: "正解！ポスター・スローガンは命令文や Let's が最も効果的です。"},
+                                {t: "命令文やPleaseなどから始める", correct: true, fb: "正解！ポスター・スローガンは命令文や呼びかけが最も効果的です。"},
                                 {t: "I think that we should...", correct: false, fb: "惜しい！ポスターとしては文が長くなりすぎます。"}
                             ]},
                             { title: "【判断】「〜を綺麗に保つ」の第5文型（S V O C）の活用", q: "「公園を綺麗に保つ」を表す keep を使った正解パターンは？", opts: [
@@ -784,7 +782,7 @@
                                 {t: "I want to do volunteer work.", correct: false, fb: "不正解。個人の願望ではなく「一般論としての意見」を問われています。"}
                             ]},
                             { title: "【判断】理由を補強する具体例（For example...）", q: "主張の後、2文目で具体例や理由を付け加える際の接続フレーズは？", opts: [
-                                {t: "For example, we can clean the park / help local people.", correct: true, fb: "正解！ For example で具体例を添えると25語にピッタリ届きます。"},
+                                {t: "For example, we can clean the park or help local people.", correct: true, fb: "正解！ For example で具体例を添えると25語にピッタリ届きます。"},
                                 {t: "By the way, I like sports.", correct: false, fb: "不正解。脱線してしまいます。"}
                             ]}
                         ],
@@ -802,7 +800,7 @@
                         passage: `Q4. 【25語程度・I hope that型（未来・社会への願い）】<br><strong>「将来どのような社会になってほしいですか。『I hope that...』から始めて25語程度で書きなさい。」</strong>`,
                         steps: [
                             { title: "【着眼】I hope that ＋ 主語 ＋ 動詞 の構造", q: "「〜という社会・世界であってほしい」と願うとき、that 節の中に置く助動詞・動詞は？", opts: [
-                                {t: "all people can live peacefully / we can help each other など can や will", correct: true, fb: "正解！ that 節の中は S ＋ can / will ＋ 動詞の原形 です。"},
+                                {t: "all people can live peacefully など can や will", correct: true, fb: "正解！ that 節の中は S ＋ can / will ＋ 動詞の原形 です。"},
                                 {t: "to live peaceful", correct: false, fb: "不正解。that 節の後ろは S ＋ V の文章が必要です。"}
                             ]},
                             { title: "【判断】理由・具体例の追加", q: "第2文で「なぜなら〜だから」または「そうすれば〜できる」とつなぐ表現は？", opts: [
@@ -842,7 +840,7 @@
                         }
                     }
                 ]
-            }            
+            }
         };
 
         const state = {
