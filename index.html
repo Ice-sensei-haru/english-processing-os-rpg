@@ -96,36 +96,234 @@
 
     <!-- Application Engine -->
     <script>
-        // 問題データベース（ご要望の全ジャンルを網羅）
+        // 問題データベース
         const db = {
             grammar1: {
                 title: "① 文法：空所補充（全10問）",
-                desc: "品詞・動詞の形・接続詞を見抜く着眼・判断プロセスを鍛えます。",
-                items: Array.from({length: 10}, (_, i) => ({
-                    id: i + 1,
-                    passage: `Q${i+1}. 次の英文の空所に最も適当なものを選びなさい。<br><strong>"She has lived in Osaka (  ) three years."</strong>`,
-                    steps: [
-                        { title: "【着眼】文末の構造と前置詞の目的語を確認", q: "文末にある「three years（3年間）」という数字・期間を表す表現に着目したとき、何を確認すべき？", opts: [
-                            {t: "継続的な期間を表す表現なので、時を表す前置詞が必要", correct: true, fb: "正解！期間（〜の間）を表す表現を見抜きました。"},
-                            {t: "過去の一点を表すので、atが必要", correct: false, fb: "惜しい！three yearsは一点ではなく期間です。"},
-                            {t: "未来の予定を表すので、byが必要", correct: false, fb: "不正解です。時制と期間の関係を見直そう。"}
-                        ]},
-                        { title: "【判断】期間を表す前置詞のチョイス", q: "「〜の間」という意味で、後ろに期間（数字）を伴うものはどれ？", opts: [
-                            {t: "during", correct: false, fb: "duringの後ろは特定の間を表す名詞（the vacationなど）がきます。"},
-                            {t: "for", correct: true, fb: "正解！ for ＋ 期間（3 years）のアルゴリズムです。"},
-                            {t: "since", correct: false, fb: "sinceの後ろは起算点（2020など）がきます。"}
-                        ]}
-                    ],
-                    repro: {
-                        passage: "【類題テスト】<br>\"He has studied English (  ) two hours.\"",
-                        q: "空所に入る最も適切なものはどれか？",
-                        opts: [
-                            {t: "for", correct: true, fb: "正解！期間を表す for の再現成功です！"},
-                            {t: "since", correct: false, fb: "惜しい！two hoursは期間なので for です。"},
-                            {t: "during", correct: false, fb: "不正解です。"}
-                        ]
+                desc: "高校入試頻出の重要構文・語法を見抜く着眼・判断プロセスを鍛えます。",
+                items: [
+                    {
+                        id: 1,
+                        passage: `Q1. 「リサはケンに彼の宿題を手伝っているところです。」<br><strong>"Lisa (  )(  ) Ken (  ) his homework."</strong>`,
+                        steps: [
+                            { title: "【着眼】時制と文の構造の把握", q: "「〜しているところです」という現在進行形を表すためには、be動詞と何の組み合わせが必要？", opts: [
+                                {t: "現在分詞（〜ing）", correct: true, fb: "正解！ be ＋ 〜ing で進行形を作ります。"},
+                                {t: "過去分詞", correct: false, fb: "不正解。それは受動態や完了形です。"}
+                            ]},
+                            { title: "【判断】ヘルプ（help）の重要熟語の選択", q: "「人に〜するのを手伝う」という意味の help 人 ( ) 物の形に入る前置詞はどれ？", opts: [
+                                {t: "with", correct: true, fb: "正解！ help A with B（BのことでAを手伝う）のアルゴリズムです。"},
+                                {t: "for", correct: false, fb: "不正解です。"},
+                                {t: "to", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「母は私が料理するのを手伝ってくれました。」<br>My mother helped me ( ) cooking.",
+                            q: "空所に入る最も適切なものはどれか？",
+                            opts: [
+                                {t: "with", correct: true, fb: "正解！ help 人 with 物 の再現成功です！"},
+                                {t: "for", correct: false, fb: "惜しい！ with です。"},
+                                {t: "at", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 2,
+                        passage: `Q2. 「来週のロンドンの天気はどうでしょうか。」<br><strong>"How (  ) the weather (  ) in London next week?"</strong>`,
+                        steps: [
+                            { title: "【着眼】天気を尋ねる決まり文句の確認", q: "「天気がどうなるか」を尋ねる疑問文の2つの定番表現は？", opts: [
+                                {t: "How is the weather? または What is the weather like?", correct: true, fb: "正解！この2つの形を瞬時に思い出すのが着眼のコツです。"},
+                                {t: "How does the weather do?", correct: false, fb: "不正解。このような表現はしません。"}
+                            ]},
+                            { title: "【判断】時制（来週＝未来）の処理", q: "文末に「next week（来週）」とあるため、時制はどうなる？", opts: [
+                                {t: "未来を表す助動詞 will を使う", correct: true, fb: "正解！ will be とすることで「来週どうなるか」を表します。"},
+                                {t: "過去形にする", correct: false, fb: "不正解。next weekは未来です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「明日の東京の天気はどうなるでしょうか。」<br>How ( ) the weather ( ) in Tokyo tomorrow?",
+                            q: "空所に当てはまる正しい語の組み合わせは？",
+                            opts: [
+                                {t: "will / be", correct: true, fb: "正解！未来の天気を尋ねる表現の再現成功です！"},
+                                {t: "is / doing", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 3,
+                        passage: `Q3. 「トムは息子に新しい自転車を買ってあげました。」<br><strong>"Tom (  ) a new bike (  )(  ) son."</strong>`,
+                        steps: [
+                            { title: "【着眼】授与動詞（buy）の文型変換", q: "「人に物を与える・買う」を表すとき、買ってきたものを人にあげるときに使う前置詞は？", opts: [
+                                {t: "for （買ってくるなどの手間がかかるものは for）", correct: true, fb: "正解！ buy, make, cook などは for を使います。"},
+                                {t: "to （giveやteachなどは to）", correct: false, fb: "惜しい！ give なら to ですが buy は for です。"}
+                            ]},
+                            { title: "【判断】代名詞の所有格の選択", q: "「彼の息子」を英語にするための正しいパーツは？", opts: [
+                                {t: "his son", correct: true, fb: "正解！ for his son の形になります。"},
+                                {t: "him son", correct: false, fb: "不正解。所有格にする必要があります。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「メアリーは私に人形を作ってくれました。」<br>Mary made a doll ( )( ) me.",
+                            q: "空所に入る正しい語の組み合わせは？",
+                            opts: [
+                                {t: "for / me", correct: true, fb: "正解！ make 型の授与動詞の書き換え再現成功です！"},
+                                {t: "to / me", correct: false, fb: "不正解。makeは for です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 4,
+                        passage: `Q4. 「野菜を食べることは健康によいことです。」<br><strong>"(  ) vegetables (  ) good (  ) the health."</strong>`,
+                        steps: [
+                            { title: "【着眼】主語の位置に置く動詞の形", q: "「〜すること」という名詞のカタマリを文の主語（一番最初）に置くときの動詞の形は？", opts: [
+                                {t: "動名詞（〜ing）または不定詞（to 〜）", correct: true, fb: "正解！ Eating または To eat が文頭にきます。"},
+                                {t: "動詞の原形", correct: false, fb: "不正解。動詞の原形をそのまま主語には置けません。"}
+                            ]},
+                            { title: "【判断】「〜によい」の熟語の選択", q: "「健康によい」を表すときの定番の表現は be ( ) health のどれ？", opts: [
+                                {t: "good for", correct: true, fb: "正解！ be good for 〜（〜に良い）のアルゴリズムです。"},
+                                {t: "good at", correct: false, fb: "惜しい！ good at は「〜が得意だ」です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「毎日英語を勉強することは大切です。」<br>( ) English every day is important.",
+                            q: "空所に入る最も適切なものはどれか？",
+                            opts: [
+                                {t: "Studying", correct: true, fb: "正解！動名詞を主語にする構文の再現成功です！"},
+                                {t: "Study", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 5,
+                        passage: `Q5. 「何か温かい食べ物を彼に料理してあげましょう。」<br><strong>"We will cook him (  )(  )(  ) eat."</strong>`,
+                        steps: [
+                            { title: "【着眼】代名詞＋形容詞の語順ルール", q: "something や anything などの -thing で終わる代名詞を形容詞（hotなど）が後ろから修飾するときの語順は？", opts: [
+                                {t: "something hot （形容詞は後ろから置く）", correct: true, fb: "正解！ -thing は後ろから修飾する鉄則です。"},
+                                {t: "hot something", correct: false, fb: "不正解。形容詞が前には来ません。"}
+                            ]},
+                            { title: "【判断】不定詞（形容詞的用法）の付加", q: "「食べるための（温かい何か）」とするための不定詞の形は？", opts: [
+                                {t: "to eat", correct: true, fb: "正解！ something hot to eat のカタマリになります。"},
+                                {t: "eating", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「何か冷たい飲み物をいただけますか。」<br>Can I have ( )( ) to drink?",
+                            q: "空所に入る正しい語の組み合わせは？",
+                            opts: [
+                                {t: "something / cold", correct: true, fb: "-thingの後ろからの形容詞修飾の再現成功です！"},
+                                {t: "cold / something", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 6,
+                        passage: `Q6. 「なぜ彼らはそんなに忙しかったのですか。」<br><strong>"What (  )(  ) so busy?"</strong>`,
+                        steps: [
+                            { title: "【着眼】特殊な疑問詞（What ＋ 動詞）の構造", q: "「何が彼らをそんなに忙しくさせたのか」という、主語が疑問詞になる特殊な疑問文の動詞は？", opts: [
+                                {t: "使役動詞 make の過去形 made", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"},
+                                {t: "did they make", correct: false, fb: "惜しい！Whatが主語のときは倒置やdoを使いません。"}
+                            ]},
+                            { title: "【判断】使役動詞の目的格の選択", q: "「彼らを」にあたる目的格の人称代名詞はどれ？", opts: [
+                                {t: "them", correct: true, fb: "正解！ made them so busy のアルゴリズムです。"},
+                                {t: "they", correct: false, fb: "不正解。目的語の位置なのでthemです。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「何があなたをそんなに悲しませたのですか。」<br>What ( )( ) so sad?",
+                            q: "空所に入る最も適切なものはどれか？",
+                            opts: [
+                                {t: "made / you", correct: true, fb: "正解！使役動詞の疑問文の再現成功です！"},
+                                {t: "did / make", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 7,
+                        passage: `Q7. 「私たちにどの電車に乗るべきか教えていただけますか。」<br><strong>"Could you tell us (  )(  )(  ) take?"</strong>`,
+                        steps: [
+                            { title: "【着眼】「疑問詞 ＋ 不定詞」の書き換え", q: "「どの電車に乗るべきか」という表現を「which ＋ 名詞 ＋ to不定詞」で表すときの語順は？", opts: [
+                                {t: "which train to take", correct: true, fb: "正解！ which + 名詞 + to + 動詞の原形 の形です。"},
+                                {t: "to take which train", correct: false, fb: "不正解です。"}
+                            ]},
+                            { title: "【判断】文全体の接続の確認", q: "tell us の後ろに続く目的語として、このカタマリがそのまま綺麗に収まるか確認する。", opts: [
+                                {t: "収まる（which train to take）", correct: true, fb: "正解！完璧な間接疑問の代用表現です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「どちらの本を読むべきか教えてください。」<br>Please tell me ( )( )( ) read.",
+                            q: "空所に入る正しい語の組み合わせは？",
+                            opts: [
+                                {t: "which / book / to", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の再現成功です！"},
+                                {t: "to / read / which", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 8,
+                        passage: `Q8. 「彼は５歳のときからピアノを弾いています。」<br><strong>"He has (  ) the piano (  ) he was five."</strong>`,
+                        steps: [
+                            { title: "【着眼】現在完了継続の文構造", q: "has ＋ 過去分詞 で表す現在完了で、「ずっと〜している」を表すときの動詞 play の過去分詞形は？", opts: [
+                                {t: "played", correct: true, fb: "正解！ has played の形になります。"},
+                                {t: "playing", correct: false, fb: "不正解。現在分詞では完了形が作れません。"}
+                            ]},
+                            { title: "【判断】起算点（〜のときから）を表す接続詞", q: "後ろに「he was five（5歳だった）」という主語・動詞の文が来るとき、その前に置く「〜以来」を表す接続詞は？", opts: [
+                                {t: "since", correct: true, fb: "正解！ since ＋ 節（S+V）のアルゴリズムです。"},
+                                {t: "for", correct: false, fb: "惜しい！forの後ろは期間がきます。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私は子供の頃からずっと英語を勉強しています。」<br>I have ( ) English ( ) I was a child.",
+                            q: "空所に当てはまる正しい語の組み合わせは？",
+                            opts: [
+                                {t: "studied / since", correct: true, fb: "正解！現在完了継続と since の再現成功です！"},
+                                {t: "studied / for", correct: false, fb: "不正解。後ろがS+Vなので since です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 9,
+                        passage: `Q9. 「その山はここから見ることができます。」<br><strong>"The mountain can (  )(  ) from here."</strong>`,
+                        steps: [
+                            { title: "【着眼】助動詞を含む受動態の構造", q: "「〜することができる（can）」と「〜される（受動態）」を組み合わせるときの語順は？", opts: [
+                                {t: "助動詞 ＋ be ＋ 過去分詞", correct: true, fb: "正解！ can be 過去分詞 の形になります。"},
+                                {t: "be ＋ 助動詞 ＋ 過去分詞", correct: false, fb: "不正解。助動詞が常に前です。"}
+                            ]},
+                            { title: "【判断】動詞 see の過去分詞形", q: "see の過去分詞形はどれ？", opts: [
+                                {t: "seen", correct: true, fb: "正解！ can be seen （見ることができる）の完成です。"},
+                                {t: "saw", correct: false, fb: "惜しい！sawは過去形です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「この本は英語で読まれるべきです。」<br>This book should ( )( ) in English.",
+                            q: "空所に入る正しい語の組み合わせは？",
+                            opts: [
+                                {t: "be / read", correct: true, fb: "正解！助動詞の受動態の再現成功です！"},
+                                {t: "read / be", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 10,
+                        passage: `Q10. 「リサの父親は彼女をそこに行かせたくはなかった。」<br><strong>"Lisa's father didn't want to (  ) her (  ) there."</strong>`,
+                        steps: [
+                            { title: "【着眼】使役動詞（let）の語法", q: "「人に〜させてやる（させる）」という意味を表す使役動詞で、want to の後ろの to 不定詞の中に組み込めるものは？", opts: [
+                                {t: "let （let 人 動詞の原形）", correct: true, fb: "正解！ want to let her go の形を作ります。"},
+                                {t: "make", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"}
+                            ]},
+                            { title: "【判断】原幹動詞（動詞の原形）の選択", q: "let 人 の後ろに続く動詞の形はどうなる？", opts: [
+                                {t: "動詞の原形（go）", correct: true, fb: "正解！ let 人 動詞の原形 のルールです。"},
+                                {t: "to go", correct: false, fb: "不正解。letの後ろに to は不要です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「母は私にテレビを見せてくれました（見せてくれました）。」<br>My mother let me ( ) TV.",
+                            q: "空所に入る最も適切なものはどれか？",
+                            opts: [
+                                {t: "watch", correct: true, fb: "正解！使役動詞 let の後での動詞の原形の再現成功です！"},
+                                {t: "to watch", correct: false, fb: "不正解です。"}
+                            ]
+                        }
                     }
-                }))
+                ]
             },
             grammar2: {
                 title: "① 文法：同意文書き換え（全10問）",
@@ -134,7 +332,7 @@
                     id: i + 1,
                     passage: `Q${i+1}. 次の文を書き換えた同義文として正しいものを選びなさい。<br><strong>"This book is more interesting than that one."</strong>`,
                     steps: [
-                        { title: "【着眼】比較級の文構造の把握", q: "元の文の「more interesting than」の比較級を、反対の形容詞（lessなど）や原級（as...as）に書き換える際、主語の入れ替えはどうなる？", opts: [
+                        { title: "【着眼】比較級の文構造の把握", q: "元の文の「more interesting than」の比較級を、原級（as...as）に書き換える際、主語の入れ替えはどうなる？", opts: [
                             {t: "that one を文頭に持ってくる場合、比較級の向きや否定表現に注意する", correct: true, fb: "正解！主語を入れ替えると肯定・否定や比較の向きが変わります。"},
                             {t: "主語を入れ替えても文の形は全く同じままでよい", correct: false, fb: "不正解。主語を入れ替えると語順や表現が変わります。"}
                         ]},
@@ -175,7 +373,7 @@
                                 {t: "Sports help people learn about teamwork and fairness.", correct: true, fb: "正解！内容と完全に一致します。"}
                             ]},
                             { type: "整序英文", title: "問4：整序英文", q: "「スポーツは私たちに大切なことを教えてくれる」を英訳した次の文の ( ) に入る正しい語順は？<br>Sports ( )( )( ) important things.", opts: [
-                                {t: "teach us many", correct: true, fn: "", fb: "正解！ teach ＋ 人 ＋ もの の第4文型です。"},
+                                {t: "teach us many", correct: true, fb: "正解！ teach ＋ 人 ＋ もの の第4文型です。"},
                                 {t: "many teach us", correct: false, fb: "不正解。動詞の位置に注意。"}
                             ]}
                         ],
@@ -224,7 +422,7 @@
                         repro: {
                             passage: "【読解・類題テスト】<br>\"Using bicycles instead of cars reduces air pollution and keeps us healthy.\"",
                             q: "自転車を使うことの利点として正しいものは？",
-                                opts: [
+                            opts: [
                                 {t: "大気汚染を減らし、健康を維持できること", correct: true, fb: "正解！メリット把握の再現に成功しました！"},
                                 {t: "車よりも遠くに早く行けること", correct: false, fb: "不正解。"}
                             ]
@@ -362,15 +560,13 @@
         const state = {
             currentCategory: null,
             currentIndex: 0,
-            currentStepIndex: 0, // 0~steps.length-1: ステップクイズ, steps.length: 類題テスト
-            subQIndex: 0, // 読解用のサブ問題インデックス
-            score: 0
+            currentStepIndex: 0,
+            subQIndex: 0
         };
 
         const container = document.getElementById('app-container');
         const homeBtn = document.getElementById('home-btn');
 
-        // ホーム画面の描画
         function renderHome() {
             state.currentCategory = null;
             homeBtn.classList.add('hidden');
@@ -384,24 +580,22 @@
                             解法アルゴリズム再現トレーニング
                         </h2>
                         <p class="text-sm text-slate-600 max-w-lg mx-auto">
-                            動画解説を見るだけでは終わらない！「着眼・判断・処理」のステップをクイズ形式で自分のものにし、類題で再現できるまで徹底特訓。
+                            「着眼・判断・処理」のステップをクイズ形式で自分のものにし、類題で再現できるまで特訓。
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <!-- 文法1 -->
                         <div onclick="app.startCategory('grammar1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">空所補充（4択式 10問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">品詞・時制・前置詞の選択プロセスを固定化する。</p>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">空所補充（全10問）</h3>
+                                <p class="text-xs text-slate-500 mt-1">入試頻出の重要構文・語法の決定プロセスを鍛える。</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
                                 <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
 
-                        <!-- 文法2 -->
                         <div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
@@ -413,7 +607,6 @@
                             </div>
                         </div>
 
-                        <!-- 読解 -->
                         <div onclick="app.startCategory('reading')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">② 読解問題</span>
@@ -425,7 +618,6 @@
                             </div>
                         </div>
 
-                        <!-- 英作文1 -->
                         <div onclick="app.startCategory('writing1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
@@ -437,7 +629,6 @@
                             </div>
                         </div>
 
-                        <!-- 英作文2 -->
                         <div onclick="app.startCategory('writing2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 sm:col-span-2 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
@@ -453,7 +644,6 @@
             `;
         }
 
-        // カテゴリー開始
         function startCategory(catKey) {
             state.currentCategory = catKey;
             state.currentIndex = 0;
@@ -463,7 +653,6 @@
             renderQuestion();
         }
 
-        // 問題画面の描画
         function renderQuestion() {
             container.classList.remove('fade-in');
             void container.offsetWidth;
@@ -473,17 +662,13 @@
             const item = catData.items[state.currentIndex];
             const totalItems = catData.items.length;
 
-            // 読解問題（reading）の場合の特殊分岐（4組の中に複数のサブ問題がある）
             if (state.currentCategory === 'reading') {
                 renderReadingQuestion(catData, item, totalItems);
                 return;
             }
 
-            // 通常問題（文法・英作文）のステップまたは類題描画
             const steps = item.steps;
             const isRepro = state.currentStepIndex >= steps.length;
-
-            // プログレス計算
             const progressPct = Math.round(((state.currentIndex * (steps.length + 1) + state.currentStepIndex) / (totalItems * (steps.length + 1))) * 100);
 
             let headerHTML = `
@@ -499,12 +684,11 @@
             `;
 
             if (!isRepro) {
-                // 思考ステップクイズ画面
                 const step = steps[state.currentStepIndex];
                 container.innerHTML = `
                     ${headerHTML}
                     <div class="space-y-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm font-serif">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm font-sans">
                             ${item.passage}
                         </div>
                         <div>
@@ -528,7 +712,6 @@
                     </div>
                 `;
             } else {
-                // 類題再現テスト画面
                 const repro = item.repro;
                 container.innerHTML = `
                     ${headerHTML}
@@ -536,9 +719,9 @@
                         <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs font-bold text-amber-800 flex items-center gap-2">
                             <i class="fa-solid fa-fire text-amber-600 text-base"></i> 最終確認：類題での再現テスト
                         </div>
-                        <div class="bg-slate-900 text-white p-5 rounded-xl space-y-3 shadow-inner font-serif">
+                        <div class="bg-slate-900 text-white p-5 rounded-xl space-y-3 shadow-inner font-sans">
                             <p class="text-base text-slate-100 leading-relaxed">${repro.passage}</p>
-                            <p class="font-bold text-teal-300 text-base border-t border-slate-700 pt-3 font-sans">${repro.q}</p>
+                            <p class="font-bold text-teal-300 text-base border-t border-slate-700 pt-3">${repro.q}</p>
                         </div>
                         <div class="space-y-3" id="options-box">
                             ${repro.opts.map((opt, idx) => `
@@ -557,7 +740,6 @@
             }
         }
 
-        // 読解問題専用のレンダリング（テーマ選択➔英問英答➔正誤➔整序➔ステップ➔類題）
         function renderReadingQuestion(catData, item, totalItems) {
             const subQ = item.subQs[state.subQIndex];
             const totalSubQs = item.subQs.length;
@@ -579,7 +761,6 @@
             `;
 
             if (!hasSteps) {
-                // サブ問題（1:テーマ, 2:英問英答, 3:正誤, 4:整序）
                 container.innerHTML = `
                     ${headerHTML}
                     <div class="space-y-6">
@@ -607,7 +788,6 @@
                     </div>
                 `;
             } else if (!isRepro) {
-                // 読解の思考ステップ確認
                 const step = item.steps[state.subQIndex - totalSubQs];
                 container.innerHTML = `
                     ${headerHTML}
@@ -634,7 +814,6 @@
                     </div>
                 `;
             } else {
-                // 読解の類題再現テスト
                 const repro = item.repro;
                 container.innerHTML = `
                     ${headerHTML}
@@ -663,7 +842,6 @@
             }
         }
 
-        // 解答チェック機能（誤答時は正解するまで次へ進めない仕様）
         function checkAns(idx, isCorrect, encodedFb, isRepro) {
             const fbBox = document.getElementById('feedback-box');
             const buttons = document.querySelectorAll(isRepro ? '.repro-btn' : '.opt-btn');
@@ -699,7 +877,6 @@
             }
         }
 
-        // 読解用サブ問題の解答チェック
         function checkSubQAns(idx, isCorrect, encodedFb) {
             const fbBox = document.getElementById('feedback-box');
             const buttons = document.querySelectorAll('.opt-btn');
@@ -730,7 +907,6 @@
             }
         }
 
-        // 読解の類題チェック
         function checkReproReading(idx, isCorrect, encodedFb) {
             const fbBox = document.getElementById('feedback-box');
             const buttons = document.querySelectorAll('.repro-btn');
@@ -757,19 +933,16 @@
             }
         }
 
-        // 次のステップへ
         function nextStep() {
             state.currentStepIndex++;
             renderQuestion();
         }
 
-        // 読解の次へ
         function nextSubQ() {
             state.subQIndex++;
             renderQuestion();
         }
 
-        // 次の問題へ、またはクリア画面へ
         function nextItem() {
             const catData = db[state.currentCategory];
             state.currentIndex++;
@@ -783,7 +956,6 @@
             }
         }
 
-        // クリア画面描画（もう一度はじめから復習ボタン付き）
         function renderClearScreen() {
             homeBtn.classList.add('hidden');
             container.innerHTML = `
@@ -809,7 +981,6 @@
             `;
         }
 
-        // グローバル公開オブジェクト
         window.app = {
             renderHome,
             startCategory,
@@ -822,7 +993,6 @@
             returnHome: renderHome
         };
 
-        // 初期化実行
         renderHome();
     </script>
 </body>
