@@ -748,8 +748,8 @@
                             passage: "【類題テスト】<br>「私は読書が好きです。なぜなら面白いからです。」を15語程度で書くときの正しい型は？",
                             q: "最も適切な英文構成を選べ。",
                             opts: [
-                                {t: "I like reading books. Because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
-                                {t: "Reading books is good. So I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
+                                {t: "I like reading books because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
+                                {t: "Reading books is good, so I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
                             ]
                         }
                     },
@@ -758,7 +758,7 @@
                         passage: `Q2. 【10語程度・ポスター・呼びかけ命令文型】<br><strong>「公園をきれいに保つためのポスターの呼びかけ文を、10語程度の英語で書きなさい。」</strong>`,
                         steps: [
                             { title: "【着眼】呼びかけ・スローガンの構文選択", q: "ポスターや案内で「〜しましょう」「〜してください」と力強く呼びかける際の基本的な文頭は？", opts: [
-                                {t: "Let's ... / Please ... / 命令文（動詞の原形から始める）", correct: true, fb: "正解！ポスター・スローガンは命令文や Let's が最も効果的です。"},
+                                {t: "命令文やLet's、Pleaseなどから始める", correct: true, fb: "正解！ポスター・スローガンは命令文や Let's が最も効果的です。"},
                                 {t: "I think that we should...", correct: false, fb: "惜しい！ポスターとしては文が長くなりすぎます。"}
                             ]},
                             { title: "【判断】「〜を綺麗に保つ」の第5文型（S V O C）の活用", q: "「公園を綺麗に保つ」を表す keep を使った正解パターンは？", opts: [
@@ -842,7 +842,7 @@
                         }
                     }
                 ]
-            }
+            }            
         };
 
         const state = {
