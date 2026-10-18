@@ -96,7 +96,6 @@
 
     <!-- Application Engine -->
     <script>
-        // 問題データベース
         const db = {
             grammar1: {
                 title: "① 文法：空所補充（全10問）",
@@ -327,29 +326,229 @@
             },
             grammar2: {
                 title: "① 文法：同意文書き換え（全10問）",
-                desc: "受動態・比較級・間接疑問文などの書き換えアルゴリズムをマスター。",
-                items: Array.from({length: 10}, (_, i) => ({
-                    id: i + 1,
-                    passage: `Q${i+1}. 次の文を書き換えた同義文として正しいものを選びなさい。<br><strong>"This book is more interesting than that one."</strong>`,
-                    steps: [
-                        { title: "【着眼】比較級の文構造の把握", q: "元の文の「more interesting than」の比較級を、原級（as...as）に書き換える際、主語の入れ替えはどうなる？", opts: [
-                            {t: "that one を文頭に持ってくる場合、比較級の向きや否定表現に注意する", correct: true, fb: "正解！主語を入れ替えると肯定・否定や比較の向きが変わります。"},
-                            {t: "主語を入れ替えても文の形は全く同じままでよい", correct: false, fb: "不正解。主語を入れ替えると語順や表現が変わります。"}
-                        ]},
-                        { title: "【判断】原級(as...as)を使った書き換えの判断", q: "「that one は this book ほど面白くない」と表現する場合の正しい形は？", opts: [
-                            {t: "That one is not as interesting as this book.", correct: true, fb: "正解！ 「not as [原級] as」で「〜ほど…ない」になります。"},
-                            {t: "That one is as interesting as this book.", correct: false, fb: "惜しい！それだと「同じくらい面白い」になってしまいます。"}
-                        ]}
-                    ],
-                    repro: {
-                        passage: "【類題テスト】<br>\"He is taller than Ken.\" とほぼ同じ意味になる文は？",
-                        q: "最も適切なものを選べ。",
-                        opts: [
-                            {t: "Ken is not as tall as he.", correct: true, fb: "正解！原級を使った書き換えアルゴリズムの再現に成功しました！"},
-                            {t: "Ken is as tall as he.", correct: false, fb: "不正解。それでは「同じ身長」になってしまいます。"}
-                        ]
+                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、受動態、間接疑問、接続詞など）をマスター。",
+                items: [
+                    {
+                        id: 1,
+                        passage: `Q1. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"He is our science teacher."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】主語と動詞の関係の変換", q: "「彼は私たちの理科の先生です」というbe動詞の文を、動詞 teaches を使った文に書き換えるとき、何に注目すべき？", opts: [
+                                {t: "「先生である」ということから「私たちに理科を教えている」という動作の表現に変換する", correct: true, fb: "正解！職業や役割の文を動詞の文に言い換えるパターンです。"},
+                                {t: "過去時制に変える", correct: false, fb: "不正解。時制は現在形のままです。"}
+                            ]},
+                            { title: "【判断】第4文型（S V O O）の語順", q: "teach 人 物の形（第4文型）にするための正しい並びはどれ？", opts: [
+                                {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"},
+                                {t: "He teaches science to us.", correct: true, fb: "※こちらも正解ですが、今回は直接目的語が続く語順を選びます。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"She is our English teacher.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "She teaches us English.", correct: true, fb: "正解！職業を表す文の第4文型書き換えの再現成功です！"},
+                                {t: "She teaches English for us.", correct: false, fb: "不正解。teachは to ですが、SVOOの形なら前置詞は不要です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 2,
+                        passage: `Q2. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"She can play tennis well."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】副詞 well と形容詞 good の違い", q: "「上手にテニスができる」という副詞 well を使った文を、形容詞 good を使った表現に書き換えるとき、何を修飾するように変える？", opts: [
+                                {t: "テニスプレイヤーという「名詞」を修飾するように a good tennis player にする", correct: true, fb: "正解！副詞（上手に）を形容詞（良い〜だ）に変換します。"},
+                                {t: "動詞 play を強調する", correct: false, fb: "不正解です。"}
+                            ]},
+                            { title: "【判断】名詞句の構造の選択", q: "「彼女は上手なテニス選手です」の正しい英語表現は？", opts: [
+                                {t: "She is a good tennis player.", correct: true, fb: "正解！ be a good [名詞] の形になります。"},
+                                {t: "She is good tennis player.", correct: false, fb: "惜しい！可算名詞なので冠詞の a が必要です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"He can swim very well.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "He is a very good swimmer.", correct: true, fb: "正解！副詞から形容詞＋名詞への書き換え再現成功です！"},
+                                {t: "He is a very well swimmer.", correct: false, fb: "不正解。swimmerを修飾するのは形容詞の good です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 3,
+                        passage: `Q3. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"There are many old temples in the city."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】There is/are 構文と所有（have）の書き換え", q: "「〜がある（There are...）」という存在を表す文を、都市が主語の「〜を持っている（have）」という文に書き換えるとき、主語はどうなる？", opts: [
+                                {t: "場所を表していた in the city の city を主語の The city に格上げする", correct: true, fb: "正解！「その都市は〜を持っている」という形にします。"},
+                                {t: "主語を there に固定する", correct: false, fb: "不正解です。"}
+                            ]},
+                            { title: "【判断】動詞の形の選択", q: "主語が The city（単数）のときの have の正しい変化形は？", opts: [
+                                {t: "has", correct: true, fb: "正解！ The city has many old temples. の完成です。"},
+                                {t: "have", correct: false, fb: "惜しい！主語が3人称単数なので has です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"There are a lot of tall buildings in Tokyo.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "Tokyo has a lot of tall buildings.", correct: true, fb: "正解！There are 構文から have への書き換え再現成功です！"},
+                                {t: "Tokyo have a lot of tall buildings.", correct: false, fb: "不正解。Tokyoは3単現なので has です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 4,
+                        passage: `Q4. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"We have a lot of snow in February."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】天候を表す非人称の It の導入", q: "「雪がたくさん降る」という気象・天候を表す文に書き換えるとき、主語に何を使う？", opts: [
+                                {t: "天候の It （非人称の It）を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
+                                {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
+                            ]},
+                            { title: "【判断】動詞 snow の活用", q: "「雪が降る」という動詞 snow を使った正しい表現は？", opts: [
+                                {t: "It snows a lot in February.", correct: true, fb: "正解！ snows と3単現の s がつきます。"},
+                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snowは一般動詞です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"We have a lot of rain in June.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "It rains a lot in June.", correct: true, fb: "正解！天候を表す表現への書き換え再現成功です！"},
+                                {t: "It is rainy a lot in June.", correct: false, fb: "不正解。rains という動詞を使います。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 5,
+                        passage: `Q5. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Don’t be noisy."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】否定の命令文と禁止の助動詞", q: "「〜してはいけない」という強い禁止を表すとき、Don't の代わりに使える助動詞は？", opts: [
+                                {t: "must not （してはならない）", correct: true, fb: "正解！ must not で強い禁止を表します。"},
+                                {t: "can not", correct: false, fb: "惜しい！「〜できない」ではなく「してはならない（must not）」が適切です。"}
+                            ]},
+                            { title: "【判断】主語の補完", q: "命令文（Youが省略されている）を通常の文に直すときの主語は？", opts: [
+                                {t: "You must not be noisy.", correct: true, fb: "正解！ You を補って書き換えます。"},
+                                {t: "We must not be noisy.", correct: false, fb: "不正解。聞き手に対する禁止なので you です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"Don't be late for school.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "You must not be late for school.", correct: true, fb: "正解！否定命令文から must not への書き換え再現成功です！"},
+                                {t: "You do not have to be late for school.", correct: false, fb: "不正解。それは「遅刻しなくてもよい」という意味になってしまいます。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 6,
+                        passage: `Q6. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Ken is taller than Mike."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】比較級と原級（as...as）の入れ替え", q: "「ケンの方が背が高い」を「マイクはケンほど背が高くない」に書き換えるとき、主語はどうなる？", opts: [
+                                {t: "Mike を文頭に持ってくるため、比較の向きが逆になり否定文（not）が必要", correct: true, fb: "正解！主語の入れ替えに伴い、not as tall as の形にします。"},
+                                {t: "主語を入れ替えても肯定文のままでよい", correct: false, fb: "不正解。意味が逆になってしまいます。"}
+                            ]},
+                            { title: "【判断】正しい原級の表現の選択", q: "Mike is ( ) tall as Ken. の空所に入る適切な否定表現は？", opts: [
+                                {t: "not as （または not so）", correct: true, fb: "正解！ Mike is not as tall as Ken. の完成です。"},
+                                {t: "very as", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"This car is newer than that one.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "That car is not as new as this one.", correct: true, fb: "正解！比較級から原級否定への書き換え再現成功です！"},
+                                {t: "That car is as new as this one.", correct: false, fb: "不正解。それでは「同じ新しさ」になります。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 7,
+                        passage: `Q7. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Reading books is important."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】動名詞主語と形式主語（It... to）の書き換え", q: "動名詞（Reading books）が文頭にある長めの主語を、It で始めて後ろに回す構文の名前は？", opts: [
+                                {t: "形式主語（It is 〜 to ...）の構文", correct: true, fb: "正解！ It is important to read books. の形に変換します。"},
+                                {t: "受動態の構文", correct: false, fb: "不正解です。"}
+                            ]},
+                            { title: "【判断】不定詞のカタマリの配置", q: "It is important の後ろに置く、本を読むことを表す不定詞の形は？", opts: [
+                                {t: "to read books", correct: true, fb: "正解！ It is important to read books. になります。"},
+                                {t: "reading books", correct: false, fb: "惜しい！形式主語 It を使ったときは後ろに to 不定詞がきます。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"Learning English is useful.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "It is useful to learn English.", correct: true, fb: "正解！形式主語構文への書き換え再現成功です！"},
+                                {t: "It is useful learning English.", correct: false, fb: "不正解。It is 形容詞 の後は to 不定詞が続きます。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 8,
+                        passage: `Q8. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Tom uses this bike every day."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】能動態から受動態への変換", q: "「トムがこの自転車を使う」という能動態の文を、「この自転車は使われる」という受動態にするとき、文頭に来る主語は？", opts: [
+                                {t: "目的語であった This bike", correct: true, fb: "正解！受動態の主語は元の目的語になります。"},
+                                {t: "Tom のまま", correct: false, fb: "不正解。主客が入れ替わります。"}
+                            ]},
+                            { title: "【判断】受動態の動詞のパーツ", q: "This bike (単数・現在形) に対する受動態の正しい動詞の形は？", opts: [
+                                {t: "is used by Tom", correct: true, fb: "正解！ be動詞 ＋ 過去分詞 ＋ by 〜 の形です。"},
+                                {t: "are used by Tom", correct: false, fb: "惜しい！This bike は単数なので is です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"Mary speaks English well.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "English is spoken well by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
+                                {t: "English are spoken well by Mary.", correct: false, fb: "不正解。Englishは単数扱いなので is です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 9,
+                        passage: `Q9. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"I was happy when I heard the news."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】「ニュースを聞いて嬉しかった」の使役・原因構文", q: "「そのニュースを聞いて私は幸せだった」を、「そのニュースが私を幸せにした」という第5文型（S V O C）に書き換えるとき、主語は何にする？", opts: [
+                                {t: "感情の原因となった The news を主語にする", correct: true, fb: "正解！ The news made me happy. の形にします。"},
+                                {t: "I のままにする", correct: false, fb: "不正解。モノが主語になる表現です。"}
+                            ]},
+                            { title: "【判断】使役動詞 make の活用とC（補語）の選択", q: "過去の出来事なので make をどう変化させ、後ろに何をつなげる？", opts: [
+                                {t: "made ＋ me ＋ happy", correct: true, fb: "正解！ The news made me happy. が完成します。"},
+                                {t: "made ＋ me ＋ happily", correct: false, fb: "不正解。C（補語）の位置には形容詞の happy が入ります。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"I was surprised when I saw the picture.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "The picture surprised me.", correct: true, fb: "正解！原因を表す動詞を使った書き換え再現成功です！"},
+                                {t: "The picture made me surprise.", correct: false, fb: "不正解。surprise は動詞そのままで「〜を驚かせた」という意味になります。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 10,
+                        passage: `Q10. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"This is the picture that Tom took in Kyoto."</strong><br>↓ ほぼ同じ意味の文にすると？`,
+                        steps: [
+                            { title: "【着眼】関係代名詞の省略と分詞の後置修飾", q: "「that Tom took」という関係代名詞節をスッキリさせて、「トムによって京都で撮られた写真」という過去分詞のカタマリで後ろから修飾する形に変えるときはどうする？", opts: [
+                                {t: "関係代名詞と動詞をまとめて省略し、過去分詞 taken から始める", correct: true, fb: "正解！ picture taken by Tom... の形を作ります。"},
+                                {t: "関係代名詞を what に変える", correct: false, fb: "不正解です。"}
+                            ]},
+                            { title: "【判断】過去分詞による修飾表現の選択", q: "picture の後ろに続く正しい過去分詞の修飾句は？", opts: [
+                                {t: "taken by Tom in Kyoto", correct: true, fb: "正解！ This is the picture taken by Tom in Kyoto. の完成です。"},
+                                {t: "took by Tom in Kyoto", correct: false, fb: "惜しい！受動の意味なので過去分詞 taken を使います。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"This is the desk which was made by my father.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "This is the desk made by my father.", correct: true, fb: "正解！関係代名詞節から過去分詞による後置修飾への書き換え再現成功です！"},
+                                {t: "This is the desk making by my father.", correct: false, fb: "不正解。受動の意味なので making ではなく made です。"}
+                            ]
+                        }
                     }
-                }))
+                ]
             },
             reading: {
                 title: "② 読解問題（全4組）",
@@ -556,7 +755,6 @@
             }
         };
 
-        // アプリケーション状態管理
         const state = {
             currentCategory: null,
             currentIndex: 0,
@@ -599,8 +797,8 @@
                         <div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">同意文書き換え（10問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">受動態・比較級などの同義文変換アルゴリズム。</p>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">同意文書き換え（全10問）</h3>
+                                <p class="text-xs text-slate-500 mt-1">受動態・比較・使役・書き換えルールをマスター。</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
                                 <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
