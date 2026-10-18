@@ -326,7 +326,7 @@
             },
             grammar2: {
                 title: "① 文法：同意文書き換え（全10問）",
-                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、不定詞、比較、受動態など）をマスター。",
+                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、受動態、間接疑問、接続詞など）をマスター。",
                 items: [
                     {
                         id: 1,
@@ -338,7 +338,7 @@
                             ]},
                             { title: "【判断】第4文型（S V O O）の語順", q: "teach 人 物の形（第4文型）にするための正しい並びはどれ？", opts: [
                                 {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"},
-                                {t: "He teaches science for us.", correct: false, fb: "不正解。teachは to ですが、SVOOの形なら前置詞は不要です。"}
+                                {t: "He teaches science to us.", correct: true, fb: "※こちらも正解ですが、今回は直接目的語が続く語順を選びます。"}
                             ]}
                         ],
                         repro: {
@@ -399,12 +399,12 @@
                         passage: `Q4. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"We have a lot of snow in February."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】天候を表す非人称の It の導入", q: "「雪がたくさん降る」という気象・天候を表す文に書き換えるとき、主語に何を使う？", opts: [
-                                {t: "天候の主語 It を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
+                                {t: "天候の It （非人称の It）を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
                                 {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
                             ]},
                             { title: "【判断】動詞 snow の活用", q: "「雪が降る」という動詞 snow を使った正しい表現は？", opts: [
                                 {t: "It snows a lot in February.", correct: true, fb: "正解！ snows と3単現の s がつきます。"},
-                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snow は一般動詞です。"}
+                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snowは一般動詞です。"}
                             ]}
                         ],
                         repro: {
@@ -496,11 +496,11 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"Mary took these pictures.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"Mary speaks English well.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "These pictures were taken by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
-                                {t: "There pictures are taken by Mary.", correct: false, fb: "不正解。元の文が took と過去形なので were です。"}
+                                {t: "English is spoken well by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
+                                {t: "English are spoken well by Mary.", correct: false, fb: "不正解。Englishは単数扱いなので is です。"}
                             ]
                         }
                     },
@@ -540,7 +540,7 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"This is the desk which my father made.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"This is the desk which was made by my father.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
                                 {t: "This is the desk made by my father.", correct: true, fb: "正解！関係代名詞節から過去分詞による後置修飾への書き換え再現成功です！"},
@@ -643,7 +643,7 @@
                                 {t: "Tom told his science teacher about his discovery.", correct: true, fb: "正解！ shared the news with his teacher と一致します。"},
                                 {t: "Tom kept his discovery a secret from everyone.", correct: false, fb: "先生に共有しているため誤り。"}
                             ]},
-                            { type: "整序英文", title: "問4：整序英文", q: "「彼はそのニュースを先生と共有した」の ( ) 内の正しい語順は？<br>He ( )( )( ) with his teacher.", opts: [
+                            { type: "整序英文", title: "問4：整序英文", q: "「彼はそのニュースを先生と共有した」の ( ) 内の正しい語順は？<br>He ( )( )({) with his teacher.", opts: [
                                 {t: "shared the news", correct: true, fb: "正解！ share A with B の構文です。"},
                                 {t: "the news shared", correct: false, fb: "不正解です。"}
                             ]}
@@ -679,7 +679,7 @@
                                 {t: "EVs contribute to making urban environments better.", correct: true, fb: "正解！ making our urban environment better と一致します。"},
                                 {t: "EVs are noisier than traditional cars.", correct: false, fb: "「quieter」なので誤り。"}
                             ]},
-                            { type: "整序英文", title: "問4：整序英文", q: "「伝統的なガソリン車よりも静かである」の ( ) 内の正しい語順は？<br>They are ( )( )( ) traditional cars.", opts: [
+                            { type: "整序英文", title: "問4：整序英文", q: "「伝統的なガソリン車よりも静かである」の ( ) 内の正しい語順は？<br>They are (t)( )( ) traditional cars.", opts: [
                                 {t: "much quieter than", correct: true, fb: "正解！比較級を強調する much ＋ 比較級 ＋ than です。"},
                                 {t: "quieter much than", correct: false, fb: "不正解です。"}
                             ]}
@@ -728,30 +728,120 @@
                 }))
             },
             writing2: {
-                title: "③ 英作文：15語程度の英作文（入力式・全5問）",
-                desc: "自分の意見や理由を論理的にまとめる記述式英作文のトレーニング。",
-                items: Array.from({length: 5}, (_, i) => ({
-                    id: i + 1,
-                    passage: `Q${i+1}. あなたは休日に何をすることが好きですか。理由とともに15語程度の英語で書きなさい。`,
-                    steps: [
-                        { title: "【着眼】英作文の黄金律（結論＋理由）", q: "短めの英作文を書くとき、最初の一文には何を書くべき？", opts: [
-                            {t: "「私は〜が好きです」という結論（主張）をズバッと書く", correct: true, fb: "正解！結論ファーストが英語の基本です。"},
-                            {t: "天気についての雑学", correct: false, fb: "不正解。"}
-                        ]},
-                        { title: "【判断】理由を添える接続詞の選択", q: "「なぜなら〜だからです」と理由をつなぐのに最も適した接続詞は？", opts: [
-                            {t: "because", correct: true, fb: "正解！ because ＋ 主語 ＋ 動詞 で理由を説明します。"},
-                            {t: "but", correct: false, fb: "but は逆接なので理由には使えません。"}
-                        ]}
-                    ],
-                    repro: {
-                        passage: "【類題テスト】<br>「なぜならスポーツをするのが楽しいからです」を英訳しなさい。<br>（ヒント: because it is...）",
-                        q: "最も適切な記述を選べ（入力シミュレーション選択式）。",
-                        opts: [
-                            {t: "because it is fun to play sports.", correct: true, fb: "正解！15語程度の英作文構築アルゴリズムの再現成功です！"},
-                            {t: "because play sports is fun.", correct: false, fb: "不正解。動名詞や形式主語の文法を確認しよう。"}
-                        ]
+                title: "③ 英作文：思考型・型別自由英作文（全5問）",
+                desc: "15語〜40語までの入試自由英作文の「型（アルゴリズム）」とロジックをマスター。",
+                items: [
+                    {
+                        id: 1,
+                        passage: `Q1. 【15語程度・結論＋理由型】<br><strong>「あなたは休日に何をすることが好きですか。理由とともに15語程度の英語で書きなさい。」</strong>`,
+                        steps: [
+                            { title: "【着眼】英作文の黄金律（結論 ➔ 理由）", q: "短めの意見英作文を書くとき、最初の一文（第1文）には何を書くべき？", opts: [
+                                {t: "「I like to...」や「I enjoy...」など、自分の結論（主張）を1文目で簡潔に書く", correct: true, fb: "正解！結論ファースト（第1文＝主張）が英語の基本OSです。"},
+                                {t: "天気や最近のニュースなど雑談から始める", correct: false, fb: "不正解。指定語数が少ないため1文目から主張を書きます。"}
+                            ]},
+                            { title: "【判断】理由をつなぐ接続詞と第2文の構造", q: "2文目で理由を添える際、最も自然につなぐ接続詞・構文はどれ？", opts: [
+                                {t: "Because... や It is [形容詞] for me to...", correct: true, fb: "正解！ Because ＋ 主語 ＋ 動詞 で理由を説明します。"},
+                                {t: "But... や However...", correct: false, fb: "不正解。逆接の接続詞は理由になりません。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私は読書が好きです。なぜなら面白いからです。」を15語程度で書くときの正しい型は？",
+                            q: "最も適切な英文構成を選べ。",
+                            opts: [
+                                {t: "I like reading books. Because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
+                                {t: "Reading books is good. So I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 2,
+                        passage: `Q2. 【10語程度・ポスター・呼びかけ命令文型】<br><strong>「公園をきれいに保つためのポスターの呼びかけ文を、10語程度の英語で書きなさい。」</strong>`,
+                        steps: [
+                            { title: "【着眼】呼びかけ・スローガンの構文選択", q: "ポスターや案内で「〜しましょう」「〜してください」と力強く呼びかける際の基本的な文頭は？", opts: [
+                                {t: "Let's ... / Please ... / 命令文（動詞の原形から始める）", correct: true, fb: "正解！ポスター・スローガンは命令文や Let's が最も効果的です。"},
+                                {t: "I think that we should...", correct: false, fb: "惜しい！ポスターとしては文が長くなりすぎます。"}
+                            ]},
+                            { title: "【判断】「〜を綺麗に保つ」の第5文型（S V O C）の活用", q: "「公園を綺麗に保つ」を表す keep を使った正解パターンは？", opts: [
+                                {t: "keep the park clean", correct: true, fb: "正解！ keep ＋ O ＋ clean（形容詞）の形です。"},
+                                {t: "keep clean the park", correct: false, fb: "不正解。語順（O ＋ C）が逆です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私たちの町を綺麗に保ちましょう！ゴミを捨てないで！」（約10語）の正しい構成は？",
+                            q: "最も適切な表現を選べ。",
+                            opts: [
+                                {t: "Let's keep our town clean! Don't throw garbage here.", correct: true, fb: "正解！呼びかけ型・命令文アルゴリズムの再現成功です！"},
+                                {t: "We must clean our town because it is very dirty.", correct: false, fb: "不正解。ポスターの呼びかけ文としては不自然です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 3,
+                        passage: `Q3. 【25語程度・It-to型／We should型＋具体例】<br><strong>「中学生がボランティア活動に参加することは良いことだと思いますか。あなたの意見を25語程度の英語で書きなさい。」</strong>`,
+                        steps: [
+                            { title: "【着眼】意見＋It is to...構文での展開", q: "「〜することは大切／良いことだ」という主張を立てる際、最も使いやすい構文は？", opts: [
+                                {t: "It is good / important for junior high school students to ...", correct: true, fb: "正解！形式主語 It... to... 構文が最も論理的で語数も稼げます。"},
+                                {t: "I want to do volunteer work.", correct: false, fb: "不正解。個人の願望ではなく「一般論としての意見」を問われています。"}
+                            ]},
+                            { title: "【判断】理由を補強する具体例（For example...）", q: "主張の後、2文目で具体例や理由を付け加える際の接続フレーズは？", opts: [
+                                {t: "For example, we can clean the park / help local people.", correct: true, fb: "正解！ For example で具体例を添えると25語にピッタリ届きます。"},
+                                {t: "By the way, I like sports.", correct: false, fb: "不正解。脱線してしまいます。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「中学生が英語を毎日勉強することは大切だと思いますか」（約25語）の模範的構成は？",
+                            q: "最も適切な英文を選べ。",
+                            opts: [
+                                {t: "I think it is important for us to study English every day. For example, we can talk with foreign people in the future.", correct: true, fb: "正解！It-to構文＋For example具体例の再現成功です！"},
+                                {t: "Studying English is hard. But I like English. So I study hard every day.", correct: false, fb: "不正解。論理的な理由になっていません。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 4,
+                        passage: `Q4. 【25語程度・I hope that型（未来・社会への願い）】<br><strong>「将来どのような社会になってほしいですか。『I hope that...』から始めて25語程度で書きなさい。」</strong>`,
+                        steps: [
+                            { title: "【着眼】I hope that ＋ 主語 ＋ 動詞 の構造", q: "「〜という社会・世界であってほしい」と願うとき、that 節の中に置く助動詞・動詞は？", opts: [
+                                {t: "all people can live peacefully / we can help each other など can や will", correct: true, fb: "正解！ that 節の中は S ＋ can / will ＋ 動詞の原形 です。"},
+                                {t: "to live peaceful", correct: false, fb: "不正解。that 節の後ろは S ＋ V の文章が必要です。"}
+                            ]},
+                            { title: "【判断】理由・具体例の追加", q: "第2文で「なぜなら〜だから」または「そうすれば〜できる」とつなぐ表現は？", opts: [
+                                {t: "This is because... や If we do so, everyone will smile.", correct: true, fb: "正解！願望 ➔ その効果／理由 という流れで25語を構成します。"},
+                                {t: "I don't know why.", correct: false, fb: "不正解。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「将来世界中の人々が平和に暮らせるようになってほしい」（約25語）の正しい型は？",
+                            q: "最も適切な表現を選べ。",
+                            opts: [
+                                {t: "I hope that all people in the world can live in peace. Because helping each other makes everyone happy and safe.", correct: true, fb: "正解！I hope that...＋理由構成の再現成功です！"},
+                                {t: "I hope that world peace. It is very good for us.", correct: false, fb: "不正解。that の後ろに動詞がありません。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 5,
+                        passage: `Q5. 【40語程度・体験・ストーリー発展型】<br><strong>「あなたの忘れられない思い出や体験について、40語程度の英語で書きなさい。」<br>（思考フロー：①出来事 ➔ ②感情 ➔ ③行動 ➔ ④学び・成長）</strong>`,
+                        steps: [
+                            { title: "【着眼】40語作文の4ステップ・ストーリー設計", q: "40語の長め作文を破綻せずに書き切るための「思考アルゴリズム」は？", opts: [
+                                {t: "①いつ何があったか ➔ ②どう感じたか ➔ ③どう行動したか ➔ ④そこから何を学んだか", correct: true, fb: "正解！「出来事➔感情➔行動➔学び」が高校入試40語作文の最強テンプレートです。"},
+                                {t: "最初から最後まで同じ感想を何度も繰り返す", correct: false, fb: "不正解。語数が足りなくなったり内容が重複します。"}
+                            ]},
+                            { title: "【判断】締めくくりの「学び（④）」で使える表現", q: "最後のまとめ（学び）として最も評価が高いフレーズは？", opts: [
+                                {t: "From this experience, I learned that ... （この経験から〜を学んだ）", correct: true, fb: "正解！ learned that... で締めくくると採点官に強い印象を与えられます。"},
+                                {t: "It was a fun day. That's all.", correct: false, fb: "惜しい！中学生として「学び」を表現すると最高点になります。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「部活動で試合に負けた体験と学び」（約40語）の完璧な構成はどれ？",
+                            q: "最も適切な英文を選べ。",
+                            opts: [
+                                {t: "Last summer, we lost an important basketball game. I was very sad, but we practiced harder for the next game. From this experience, I learned the importance of teamwork and practice.", correct: true, fb: "正解！「出来事➔感情➔行動➔学び」の40語パーフェクト再現です！"},
+                                {t: "I played basketball last summer. Basketball is very fun. I want to play basketball again next week with my friends.", correct: false, fb: "不正解。感情や試行錯誤、学びの要素がありません。"}
+                            ]
+                        }
                     }
-                }))
+                ]
             }
         };
 
@@ -830,8 +920,8 @@
                         <div onclick="app.startCategory('writing2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 sm:col-span-2 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">15語程度の自由英作文（5問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">意見と理由を論理的に組み立てる記述式構築トレーニング。</p>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">思考型・型別自由英作文（5問）</h3>
+                                <p class="text-xs text-slate-500 mt-1">15語〜40語（結論・ポスター・It-to型・I hope型・体験発展型）の型を鍛える。</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
                                 <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
