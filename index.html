@@ -290,7 +290,7 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"This book is read in English.\" のような受動態：<br>「この本は英語で読まれるべきです。」<br>This book should ( )( ) in English.",
+                            passage: "【類題テスト】<br>「この本は英語で読まれるべきです。」<br>This book should ( )( ) in English.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
                                 {t: "be / read", correct: true, fb: "正解！助動詞の受動態の再現成功です！"},
@@ -324,7 +324,7 @@
             },
             grammar2: {
                 title: "① 文法：同意文書き換え（全10問）",
-                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、不定詞、受動態、比較など）をマスター。",
+                desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、受動態、間接疑問、接続詞など）をマスター。",
                 items: [
                     {
                         id: 1,
@@ -336,7 +336,7 @@
                             ]},
                             { title: "【判断】第4文型（S V O O）の語順", q: "teach 人 物の形（第4文型）にするための正しい並びはどれ？", opts: [
                                 {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"},
-                                {t: "He teaches science for us.", correct: false, fb: "不正解。to us なら正解ですが、SVOOの形なら前置詞は不要です。"}
+                                {t: "He teaches science to us.", correct: false, fb: "今回は直接目的語がすぐ後ろに続くSVOOの形を選びます。"}
                             ]}
                         ],
                         repro: {
@@ -397,7 +397,7 @@
                         passage: `Q4. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"We have a lot of snow in February."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】天候を表す非人称の It の導入", q: "「雪がたくさん降る」という気象・天候を表す文に書き換えるとき、主語に何を使う？", opts: [
-                                {t: "天候の主語 It を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
+                                {t: "天候の It （非人称の It）を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
                                 {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
                             ]},
                             { title: "【判断】動詞 snow の活用", q: "「雪が降る」という動詞 snow を使った正しい表現は？", opts: [
@@ -494,11 +494,11 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"Mary took these pictures.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"Mary speaks English well.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "These pictures were taken by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
-                                {t: "These pictures are taken by Mary.", correct: false, fb: "不正解。能動態の動詞が took と過去形なので were です。"}
+                                {t: "English is spoken well by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
+                                {t: "English are spoken well by Mary.", correct: false, fb: "不正解。Englishは単数扱いなので is です。"}
                             ]
                         }
                     },
@@ -538,7 +538,7 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"This is the desk which my father made.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"This is the desk which was made by my father.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
                                 {t: "This is the desk made by my father.", correct: true, fb: "正解！関係代名詞節から過去分詞による後置修飾への書き換え再現成功です！"},
@@ -761,13 +761,13 @@
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「その知らせを聞いて私たちはとても嬉しかったです（その知らせは私たちをとても幸せにした）。」<br>[ happy / made / us / the / very / news ]",
+                            passage: "【類題テスト】<br>「その知らせを聞いて私たちはとても嬉しかったです。」<br>[ happy / made / us / the / very / news ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
                                 {t: "The news made us very happy.", correct: true, fb: "正解！使役動詞を使った第5文型の並べ替え再現成功です！"},
                                 {t: "The news made very happy us.", correct: false, fb: "不正解です。"}
-                            ]}
-                        ]
+                            ]
+                        }
                     },
                     {
                         id: 4,
@@ -801,7 +801,7 @@
                             ]},
                             { title: "【判断】「誰によって（by）」と「どこで（場所）」の配置", q: "「トムによって」「京都で」の正しい配置は？", opts: [
                                 {t: "by Tom in Kyoto", correct: true, fb: "正解！受動態の動作主（by 〜）と場所（in Kyoto）を正しくつなぎます。"},
-                                {t: "in Kyoto by Tom", correct: true, fb: "※英語では場所➔動作主の順も自然ですが、今回は定番の by Tom in Kyoto を選択します。"}
+                                {t: "in Kyoto by Tom", correct: false, fb: "英語では by Tom ➔ in Kyoto の順が自然です。"}
                             ]}
                         ],
                         repro: {
@@ -863,7 +863,7 @@
                         steps: [
                             { title: "【着眼】形式主語（It... to）構文の活用", q: "「〜することは大切だ」という文を It で始める形式主語構文にするための前半部分は？", opts: [
                                 {t: "It is important for us", correct: true, fb: "正解！ It is ＋ 形容詞 ＋ for 人 のカタマリを作ります。"},
-                                {t: "English is important", correct: true, fb: "※動名詞を主語にするなら English speaking is... ですが、今回は It で始まる形を作ります。"}
+                                {t: "English is important", correct: false, fb: "今回は It で始まる形式主語構文の形を作ります。"}
                             ]},
                             { title: "【判断】真の主語（不定詞）の配置", q: "後ろに続く「英語を話すこと」を表す不定詞の正しい並びは？", opts: [
                                 {t: "to speak English", correct: true, fb: "正解！ It is important for us to speak English. が完成します。"},
@@ -938,7 +938,7 @@
                                 {t: "天気や最近のニュースなど雑談から始める", correct: false, fb: "不正解。指定語数が少ないため1文目から主張を書きます。"}
                             ]},
                             { title: "【判断】理由をつなぐ接続詞と第2文の構造", q: "2文目で理由を添える際、最も自然につなぐ接続詞・構文はどれ？", opts: [
-                                {t: "Because... や It is 形容詞 for me to...", correct: true, fb: "正解！ 続けて because ＋ 主語 ＋ 動詞 で理由を説明します。"},
+                                {t: "Because... や It is 形容詞 for me to...", correct: true, fb: "正解！ Because ＋ 主語 ＋ 動詞 で理由を説明します。"},
                                 {t: "But... や However...", correct: false, fb: "不正解。逆接の接続詞は理由になりません。"}
                             ]}
                         ],
@@ -946,8 +946,8 @@
                             passage: "【類題テスト】<br>「私は読書が好きです。なぜなら面白いからです。」を15語程度で書くときの正しい型は？",
                             q: "最も適切な英文構成を選べ。",
                             opts: [
-                                {t: "I like reading books because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
-                                {t: "Reading books is good, so I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
+                                {t: "I like reading books. Because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
+                                {t: "Reading books is good. So I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
                             ]
                         }
                     },
@@ -990,7 +990,7 @@
                             passage: "【類題テスト】<br>「中学生が英語を毎日勉強することは大切だと思いますか」（約25語）の模範的構成は？",
                             q: "最も適切な英文を選べ。",
                             opts: [
-                                {t: "I think it is important for us to study English every day. For example, we are able to talk with people from other countries in Englsih.", correct: true, fb: "正解！It-to構文＋For example具体例の再現成功です！"},
+                                {t: "I think it is important for us to study English every day. For example, we can talk with foreign people in the future.", correct: true, fb: "正解！It-to構文＋For example具体例の再現成功です！"},
                                 {t: "Studying English is hard. But I like English. So I study hard every day.", correct: false, fb: "不正解。論理的な理由になっていません。"}
                             ]
                         }
@@ -1012,7 +1012,7 @@
                             passage: "【類題テスト】<br>「将来世界中の人々が平和に暮らせるようになってほしい」（約25語）の正しい型は？",
                             q: "最も適切な表現を選べ。",
                             opts: [
-                                {t: "I hope that all people in the world can live in peace from now on. This is because helping each other always makes everyone happier.", correct: true, fb: "正解！I hope that...＋理由構成の再現成功です！"},
+                                {t: "I hope that all people in the world can live in peace. Because helping each other makes everyone happy and safe.", correct: true, fb: "正解！I hope that...＋理由構成の再現成功です！"},
                                 {t: "I hope that world peace. It is very good for us.", correct: false, fb: "不正解。that の後ろに動詞がありません。"}
                             ]
                         }
@@ -1025,7 +1025,7 @@
                                 {t: "①いつ何があったか ➔ ②どう感じたか ➔ ③どう行動したか ➔ ④そこから何を学んだか", correct: true, fb: "正解！「出来事➔感情➔行動➔学び」が高校入試40語作文の最強テンプレートです。"},
                                 {t: "最初から最後まで同じ感想を何度も繰り返す", correct: false, fb: "不正解。語数が足りなくなったり内容が重複します。"}
                             ]},
-                            { title: "【判断】締めくくりの「学び（④）」で使える表現", q: "最後のまとめ（学び）として最も評価が高いフレーズは？", opts: [
+                            { title: "【判断】締めくくりの上品な「学び（④）」で使える表現", q: "最後のまとめ（学び）として最も評価が高いフレーズは？", opts: [
                                 {t: "From this experience, I learned that ... （この経験から〜を学んだ）", correct: true, fb: "正解！ learned that... で締めくくると採点官に強い印象を与えられます。"},
                                 {t: "It was a fun day. That's all.", correct: false, fb: "惜しい！中学生として「学び」を表現すると最高点になります。"}
                             ]}
@@ -1034,7 +1034,7 @@
                             passage: "【類題テスト】<br>「部活動で試合に負けた体験と学び」（約40語）の完璧な構成はどれ？",
                             q: "最も適切な英文を選べ。",
                             opts: [
-                                {t: "Our team lost an important basketball game last summer. That made us very sad, but we practiced harder after school every day for the next game. From this experience, I learned the importance of having a goal, teamwork, and practice.", correct: true, fb: "正解！「出来事➔感情➔行動➔学び」の40語パーフェクト再現です！"},
+                                {t: "Last summer, we lost an important basketball game. I was very sad, but we practiced harder for the next game. From this experience, I learned the importance of teamwork and practice.", correct: true, fb: "正解！「出来事➔感情➔行動➔学び」の40語パーフェクト再現です！"},
                                 {t: "I played basketball last summer. Basketball is very fun. I want to play basketball again next week with my friends.", correct: false, fb: "不正解。感情や試行錯誤、学びの要素がありません。"}
                             ]
                         }
@@ -1107,8 +1107,8 @@
                         <div onclick="app.startCategory('writing1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">整序英作（10問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">文の骨組みと修飾語句の並び替えルールを体得。</p>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">整序英作（全10問）</h3>
+                                <p class="text-xs text-slate-500 mt-1">4ステップ（主幹・修飾・ブロック・配置）で語順を完全攻略。</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
                                 <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
