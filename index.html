@@ -1282,6 +1282,7 @@
         }
 
         function renderHome() {
+            window.scrollTo(0, 0);
             state.currentCategory = null;
             homeBtn.classList.add('hidden');
 
@@ -1440,6 +1441,7 @@
         }
 
         function renderQuestion() {
+            window.scrollTo(0, 0);
             saveProgress();
 
             container.classList.remove('fade-in');
@@ -1753,6 +1755,7 @@
         }
 
         function renderClearScreen() {
+            window.scrollTo(0, 0);
             homeBtn.classList.add('hidden');
             const clearedCat = state.currentCategory;
 
