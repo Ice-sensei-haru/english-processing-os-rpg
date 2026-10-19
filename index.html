@@ -93,6 +93,59 @@
         const STORAGE_KEY = 'hs_english_os_progress';
 
         const db = {
+            // ==========================================
+            // 【新規追加】適語選択カテゴリ
+            // 💡 [追加方法] items の中に同じ形式でオブジェクトを増やすだけで問題を追加できます。
+            // ==========================================
+            grammarChoice: {
+                title: "① 文法：適語選択",
+                desc: "文法問題の基礎となる「着眼・判断・処理」のステップをマスターします。",
+                items: [
+                    {
+                        id: 1,
+                        passage: `Q1. <strong>"He (  ) tennis yesterday."</strong>の空所に適する語を選びなさい。`,
+                        steps: [
+                            { 
+                                title: "第1問【着眼】", 
+                                q: "どこを見て区別しますか。", 
+                                opts: [
+                                    {t: "主語", correct: false, fb: "不正解です。"},
+                                    {t: "時制", correct: true, fb: "正解！ yesterday などの時を表す語に注目します。"},
+                                    {t: "目的語", correct: false, fb: "不正解です。"}
+                                ]
+                            },
+                            { 
+                                title: "第2問【判断】", 
+                                q: "どう判断しますか。", 
+                                opts: [
+                                    {t: "主語が単数のときは三単現のsにする", correct: false, fb: "不正解です。"},
+                                    {t: "yesterdayは過去だから過去形にする", correct: true, fb: "正解！ yesterday は過去の目印です。"}
+                                ]
+                            },
+                            { 
+                                title: "第3問【処理】", 
+                                q: "正しい答えはどれですか。", 
+                                opts: [
+                                    {t: "play", correct: false, fb: "不正解です。"},
+                                    {t: "plays", correct: false, fb: "不正解です。"},
+                                    {t: "played", correct: true, fb: "正解！過去形の played が正解です。"}
+                                ]
+                            }
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br><strong>She (  ) English last night.</strong>の空所に適する語を選びなさい。",
+                            q: "最も適切なものはどれか？",
+                            opts: [
+                                {t: "study", correct: false, fb: "不正解です。"},
+                                {t: "studies", correct: false, fb: "不正解です。"},
+                                {t: "studied", correct: true, fb: "正解！ last night（昨晩）なので過去形の studied です！"}
+                            ]
+                        }
+                    }
+                    // 💡 ここに 「 , { id: 2, ... } 」 のように新しい問題を追加できます
+                ]
+            },
+
             grammar1: {
                 title: "① 文法：空所補充（全10問）",
                 desc: "高校入試頻出の重要構文・語法を見抜く着眼・判断プロセスを鍛えます。",
@@ -925,7 +978,7 @@
             },
             writing2: {
                 title: "③ 英作文：思考型・型別自由英作文（全5問）",
-                desc: "15語〜40語までの入試自由英作文の「型（アルゴリズム）」とロジックをマスター。",
+                desc: "15語〜40語までの入試自由英作文の公式サイト（アルゴリズム）とロジックをマスター。",
                 items: [
                     {
                         id: 1,
@@ -1023,7 +1076,7 @@
                                 {t: "①いつ何があったか ➔ ②どう感じたか ➔ ③どう行動したか ➔ ④そこから何を学んだか", correct: true, fb: "正解！「出来事➔感情➔行動➔学び」が高校入試40語作文の最強テンプレートです。"},
                                 {t: "最初から最後まで同じ感想を何度も繰り返す", correct: false, fb: "不正解。語数が足りなくなったり内容が重複します。"}
                             ]},
-                            { title: "【判断】締めくくりの「学び（④）」で使える表現", q: "最後のまとめ（学び）として最も評価が高いフレーズは？", opts: [
+                            { title: "【判断】締めくくりのインプット（④学び）で使える表現", q: "最後のまとめ（学び）として最も評価が高いフレーズは？", opts: [
                                 {t: "From this experience, I learned that ... （この経験から〜を学んだ）", correct: true, fb: "正解！ learned that... で締めくくると採点官に強い印象を与えられます。"},
                                 {t: "It was a fun day. That's all.", correct: false, fb: "惜しい！中学生として「学び」を表現すると最高点になります。"}
                             ]}
@@ -1062,9 +1115,7 @@
                     subQIndex: state.subQIndex
                 };
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
-            } catch (e) {
-                console.error("Failed to save progress to localStorage", e);
-            }
+            } catch (e) {}
         }
 
         function loadProgress(catKey) {
@@ -1094,7 +1145,6 @@
             }
         }
 
-        // カテゴリごとの達成状況計算（ホーム表示用）
         function getCategoryProgressInfo(catKey) {
             const catData = db[catKey];
             const totalItems = catData.items.length;
@@ -1108,9 +1158,6 @@
             }
 
             let item = catData.items[currentItem];
-            let stepCount = (catKey === 'reading') ? (item.subQs.length + item.steps.length + 1) : (item.steps.length + 1);
-            let currentSubStep = (catKey === 'reading') ? progress.subQIndex : progress.currentStepIndex;
-
             let totalStepsOverall = 0;
             catData.items.forEach(it => {
                 totalStepsOverall += (catKey === 'reading') ? (it.subQs.length + it.steps.length + 1) : (it.steps.length + 1);
@@ -1121,7 +1168,7 @@
                 let it = catData.items[i];
                 doneStepsOverall += (catKey === 'reading') ? (it.subQs.length + it.steps.length + 1) : (it.steps.length + 1);
             }
-            doneStepsOverall += currentSubStep;
+            doneStepsOverall += (catKey === 'reading') ? progress.subQIndex : progress.currentStepIndex;
 
             let pct = Math.min(99, Math.round((doneStepsOverall / totalStepsOverall) * 100));
             return { pct, isStarted: doneStepsOverall > 0, isCleared: false, currentItem: currentItem + 1 };
@@ -1131,6 +1178,7 @@
             state.currentCategory = null;
             homeBtn.classList.add('hidden');
 
+            const gc = getCategoryProgressInfo('grammarChoice');
             const g1 = getCategoryProgressInfo('grammar1');
             const g2 = getCategoryProgressInfo('grammar2');
             const rd = getCategoryProgressInfo('reading');
@@ -1159,6 +1207,22 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- 新規追加：適語選択 -->
+                        <div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-indigo-300 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
+                                    ${gc.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
+                                </div>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">適語選択</h3>
+                                <p class="text-xs text-slate-500 mt-1">${db.grammarChoice.desc}</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
+                                <span>${gc.isStarted ? `Q${gc.currentItem}から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+
                         <!-- 文法1 -->
                         <div onclick="app.startCategory('grammar1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
@@ -1252,7 +1316,6 @@
                 state.subQIndex = 0;
                 clearCategoryProgress(catKey);
             } else {
-                // 仕様①：途中経過があれば読み込んで再開
                 const saved = loadProgress(catKey);
                 if (saved) {
                     state.currentIndex = saved.currentIndex || 0;
@@ -1270,7 +1333,6 @@
         }
 
         function renderQuestion() {
-            // ステップ進行のたびに自動保存（仕様①）
             saveProgress();
 
             container.classList.remove('fade-in');
@@ -1361,7 +1423,6 @@
 
         function renderReadingQuestion(catData, item, totalItems) {
             saveProgress();
-
             const subQ = item.subQs[state.subQIndex];
             const totalSubQs = item.subQs.length;
             const hasSteps = state.subQIndex >= totalSubQs;
@@ -1471,6 +1532,9 @@
 
             if (isCorrect) {
                 playSound('correct');
+                if (isRepro) {
+                    confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+                }
                 buttons.forEach(b => {
                     b.disabled = true;
                     b.classList.add('opacity-65', 'cursor-not-allowed');
@@ -1574,7 +1638,6 @@
             state.subQIndex = 0;
 
             if (state.currentIndex >= catData.items.length) {
-                // 仕様②：ステージクリア時に進捗を初期化（次回は1問目から開始される）
                 clearCategoryProgress(state.currentCategory);
                 renderClearScreen();
             } else {
@@ -1594,14 +1657,13 @@
                     <div class="space-y-2">
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950">全ミッション・完全クリア！</h2>
                         <p class="text-sm text-slate-600 max-w-md mx-auto">
-                            おめでとうございます！このジャンルの判断基準・処理手順（解法OS）のインプットと類題でのアウトプットを完遂しました。
+                            おめでとうございます！このジャンルのステップインプットと類題でのアウトプットを完遂しました。
                         </p>
                     </div>
                     <div class="pt-4 max-w-sm mx-auto space-y-3">
                         <button onclick="app.renderHome()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-house"></i> ジャンル選択メニューへ戻る
                         </button>
-                        <!-- クリア後ははじめからに戻るため forceReset = true で再スタート -->
                         <button onclick="app.startCategory('${clearedCat}', true)" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-rotate-right"></i> もう一度はじめから復習する
                         </button>
@@ -1620,7 +1682,7 @@
             nextSubQ,
             nextItem,
             returnHome: renderHome,
-            resetAllProgress // 仕様③の呼び出し用
+            resetAllProgress
         };
 
         renderHome();
