@@ -103,11 +103,52 @@
                 items: [
                     {
                         id: 1,
-                        passage: `Q1. <strong>"He (  ) tennis yesterday."</strong>の空所に適する語を選びなさい。`,
+                        passage: `Q1. <strong>"He (  ) tennis every day."</strong>の空所に入る適切な動詞の形を選びなさい。`,
                         steps: [
                             { 
-                                title: "第1問【着眼】", 
-                                q: "どこを見て区別しますか。", 
+                                title: "【着眼】", 
+                                q: "どこに注目しますか。", 
+                                opts: [
+                                    {t: "時制と主語", correct: true, fb: "正解！ every dayは現在時制、主語は３人称単数です。"},
+                                    {t: "時制", correct: false, fb: "不正解です。"},
+                                    {t: "主語", correct: false, fb: "不正解です。"}
+                                ]
+                            },
+                            { 
+                                title: "【判断】", 
+                                q: "どう判断しますか。", 
+                                opts: [
+                                    {t: "主語が３人称単数のときは三単現のsにする", correct: true, fb: "正解！　現在のとき主語が３人称単数かどうか判断します。"},
+                                    {t: "every day三単現のsにする", correct: false, fb: "正解！ yesterday は過去の目印です。"}
+                                ]
+                            },
+                            { 
+                                title: "【処理】", 
+                                q: "適切な動詞の形はどれですか。", 
+                                opts: [
+                                    {t: "play", correct: false, fb: "不正解です。"},
+                                    {t: "plays", correct: true, fb: "正解！三単現の plays が正解です。"},
+                                    {t: "played", correct: false, fb: "不正解です。。"}
+                                ]
+                            }
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br><strong>She (  ) English every day.</strong>の空所に入る適切な動詞の形を選びなさい。",
+                            q: "最も適切なものはどれか？",
+                            opts: [
+                                {t: "study", correct: false, fb: "不正解です。"},
+                                {t: "studies", correct: false, fb: "正解！三単現の studies が正解です。"},
+                                {t: "studied", correct: true, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 2,
+                        passage: `Q2. <strong>"He (  ) tennis yesterday."</strong>の空所に入る適切な動詞の形を選びなさい。`,
+                        steps: [
+                            { 
+                                title: "【着眼】", 
+                                q: "どこに注目しますか。", 
                                 opts: [
                                     {t: "主語", correct: false, fb: "不正解です。"},
                                     {t: "時制", correct: true, fb: "正解！ yesterday などの時を表す語に注目します。"},
@@ -115,7 +156,7 @@
                                 ]
                             },
                             { 
-                                title: "第2問【判断】", 
+                                title: "【判断】", 
                                 q: "どう判断しますか。", 
                                 opts: [
                                     {t: "主語が単数のときは三単現のsにする", correct: false, fb: "不正解です。"},
@@ -123,8 +164,8 @@
                                 ]
                             },
                             { 
-                                title: "第3問【処理】", 
-                                q: "正しい答えはどれですか。", 
+                                title: "【処理】", 
+                                q: "適切な動詞の形はどれですか。", 
                                 opts: [
                                     {t: "play", correct: false, fb: "不正解です。"},
                                     {t: "plays", correct: false, fb: "不正解です。"},
@@ -133,15 +174,15 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>She (  ) English last night.</strong>の空所に適する語を選びなさい。",
+                            passage: "【類題テスト】<br><strong>She (  ) English last night.</strong>の空所に入る適切な動詞の形を選びなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "study", correct: false, fb: "不正解です。"},
                                 {t: "studies", correct: false, fb: "不正解です。"},
-                                {t: "studied", correct: true, fb: "正解！ last night（昨晩）なので過去形の studied です！"}
+                                {t: "studied", correct: true, fb: "正解！ last night（昨晩）なので過去形の studied です。"}
                             ]
                         }
-                    }
+                    }        
                     // 💡 ここに 「 , { id: 2, ... } 」 のように新しい問題を追加できます
                 ]
             },
@@ -178,7 +219,7 @@
                         id: 2,
                         passage: `Q2. 「来週のロンドンの天気はどうでしょうか。」<br><strong>"How (  ) the weather (  ) in London next week?"</strong>`,
                         steps: [
-                            { title: "【着眼】天気を尋ねる決まり文句の確認", q: "「天気がどうなるか」を尋ねる疑問文の2つの定番表現は？", opts: [
+                            { title: "【着眼】天気を尋ねる定型文の確認", q: "「天気がどうなるか」を尋ねる疑問文の2つの定番表現は？", opts: [
                                 {t: "How is the weather? または What is the weather like?", correct: true, fb: "正解！この2つの形を瞬時に思い出すのが着眼のコツです。"},
                                 {t: "How does the weather do?", correct: false, fb: "不正解。このような表現はしません。"}
                             ]},
@@ -200,8 +241,8 @@
                         id: 3,
                         passage: `Q3. 「トムは息子に新しい自転車を買ってあげました。」<br><strong>"Tom (  ) a new bike (  )(  ) son."</strong>`,
                         steps: [
-                            { title: "【着眼】授与動詞（buy）の文型変換", q: "「人に物を与える・買う」を表すとき、買ってきたものを人にあげるときに使う前置詞は？", opts: [
-                                {t: "for （買ってくるなどの手間がかかるものは for）", correct: true, fb: "正解！ buy, make, cook などは for を使います。"},
+                            { title: "【着眼】buy ＋ 人 ＋ もの の文型変換", q: "「人に物を与える・買う」を表すとき、買ってきたものを人にあげるときに使う前置詞は？", opts: [
+                                {t: "for （「誰に？」という情報を必要としない動詞 for）", correct: true, fb: "正解！ buy, make, cook, sing などは for を使います。"},
                                 {t: "to （giveやteachなどは to）", correct: false, fb: "惜しい！ give なら to ですが buy は for です。"}
                             ]},
                             { title: "【判断】代名詞の所有格の選択", q: "「彼の息子」を英語にするための正しいパーツは？", opts: [
@@ -213,7 +254,7 @@
                             passage: "【類題テスト】<br>「メアリーは私に人形を作ってくれました。」<br>Mary made a doll ( )( ) me.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "for / me", correct: true, fb: "正解！ make 型の授与動詞の書き換え再現成功です！"},
+                                {t: "for / me", correct: true, fb: "正解！ make 型の書き換え再現成功です！"},
                                 {t: "to / me", correct: false, fb: "不正解。makeは for です。"}
                             ]
                         }
@@ -447,7 +488,7 @@
                         id: 4,
                         passage: `Q4. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"We have a lot of snow in February."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
-                            { title: "【着眼】天候を表す非人称の It の導入", q: "「雪がたくさん降る」という気象・天候を表す文に書き換えるとき、主語に何を使う？", opts: [
+                            { title: "【着眼】天候を表す主語 It の導入", q: "「雪がたくさん降る」という気象・天候を表す文に書き換えるとき、主語に何を使う？", opts: [
                                 {t: "天候の主語 It を文頭に置く", correct: true, fb: "正解！ It snows a lot... の形に持ち込みます。"},
                                 {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
                             ]},
