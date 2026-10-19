@@ -110,8 +110,8 @@
                                 q: "どこに注目しますか。", 
                                 opts: [
                                     {t: "時制と主語", correct: true, fb: "正解！ every dayは現在時制、主語は３人称単数です。"},
-                                    {t: "時制", correct: false, fb: "不正解です。"},
-                                    {t: "主語", correct: false, fb: "不正解です。"}
+                                    {t: "前の単語", correct: false, fb: "不正解です。"},
+                                    {t: "主語と目的語", correct: false, fb: "不正解です。"}
                                 ]
                             },
                             { 
@@ -119,7 +119,7 @@
                                 q: "どう判断しますか。", 
                                 opts: [
                                     {t: "主語が３人称単数のときは三単現のsにする", correct: true, fb: "正解！　現在のとき主語が３人称単数かどうか判断します。"},
-                                    {t: "every day三単現のsにする", correct: false, fb: "正解！ yesterday は過去の目印です。"}
+                                    {t: "every dayの三単現のsにする", correct: false, fb: "正解！ yesterday は過去の目印です。"}
                                 ]
                             },
                             { 
@@ -137,8 +137,8 @@
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "study", correct: false, fb: "不正解です。"},
-                                {t: "studies", correct: false, fb: "正解！三単現の studies が正解です。"},
-                                {t: "studied", correct: true, fb: "不正解です。"}
+                                {t: "studies", correct: true, fb: "正解！三単現の studies が正解です。"},
+                                {t: "studied", correct: false, fb: "不正解です。"}
                             ]
                         }
                     },
@@ -150,16 +150,16 @@
                                 title: "【着眼】", 
                                 q: "どこに注目しますか。", 
                                 opts: [
-                                    {t: "主語", correct: false, fb: "不正解です。"},
-                                    {t: "時制", correct: true, fb: "正解！ yesterday などの時を表す語に注目します。"},
-                                    {t: "目的語", correct: false, fb: "不正解です。"}
+                                    {t: "文頭の単語", correct: false, fb: "不正解です。"},
+                                    {t: "時制と主語", correct: true, fb: "正解！ yesterday などの時を表す語に注目します。"},
+                                    {t: "主語と目的語", correct: false, fb: "不正解です。"}
                                 ]
                             },
                             { 
                                 title: "【判断】", 
                                 q: "どう判断しますか。", 
                                 opts: [
-                                    {t: "主語が単数のときは三単現のsにする", correct: false, fb: "不正解です。"},
+                                    {t: "主語が３人称単数のときは三単現のsにする", correct: false, fb: "不正解です。"},
                                     {t: "yesterdayは過去だから過去形にする", correct: true, fb: "正解！ yesterday は過去の目印です。"}
                                 ]
                             },
@@ -182,7 +182,48 @@
                                 {t: "studied", correct: true, fb: "正解！ last night（昨晩）なので過去形の studied です。"}
                             ]
                         }
-                    }        
+                    },
+                    {
+                        id: 3,
+                        passage: `Q3. <strong>"Lisa can (  ) tennis well."</strong>の空所に入る適切な動詞の形を選びなさい。`,
+                        steps: [
+                            { 
+                                title: "【着眼】", 
+                                q: "どこに注目しますか。", 
+                                opts: [
+                                    {t: "時制と主語", correct: false, fb: "不正解です。"},
+                                    {t: "助動詞の存在", correct: true, fb: "正解！ can などの助動詞に注目します。"},
+                                    {t: "主語と目的語", correct: false, fb: "不正解です。"}
+                                ]
+                            },
+                            { 
+                                title: "【判断】", 
+                                q: "どう判断しますか。", 
+                                opts: [
+                                    {t: "主語が３人称単数のときは三単現のsにする", correct: false, fb: "不正解です。"},
+                                    {t: "canとともに使う動詞の形は原形にする", correct: true, fb: "正解！ 助動詞＋動詞の原形がペアです。"}
+                                ]
+                            },
+                            { 
+                                title: "【処理】", 
+                                q: "適切な動詞の形はどれですか。", 
+                                opts: [
+                                    {t: "play", correct: true, fb: "正解！canのペアに使えるのは動詞の原形が正解です。"},
+                                    {t: "plays", correct: false, fb: "不正解です。"},
+                                    {t: "played", correct: false, fb: "不正解です。"}
+                                ]
+                            }
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br><strong>Mike can (  ) Japanese.</strong>の空所に入る適切な動詞の形を選びなさい。",
+                            q: "最も適切なものはどれか？",
+                            opts: [
+                                {t: "read", correct: true, fb: "正解！canのペアに使えるのは動詞の原形が正解です。"},
+                                {t: "reads", correct: false, fb: "不正解です。"},
+                                {t: "reading", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    }
                     // 💡 ここに 「 , { id: 2, ... } 」 のように新しい問題を追加できます
                 ]
             },
