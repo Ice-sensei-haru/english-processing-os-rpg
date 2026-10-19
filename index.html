@@ -291,7 +291,7 @@
                                 q: "適切な動詞の形はどれですか。", 
                                 opts: [
                                     {t: "going to stay", correct: false, fb: "不正解です。"},
-                                    {t: "staysg", correct: false, fb: "不正解です。"},
+                                    {t: "stays", correct: false, fb: "不正解です。"},
                                     {t: "stay", correct: true, fb: "正解！ 助動詞willは動詞の原形とペアで使います。"}
                                 ]
                             }
@@ -397,7 +397,7 @@
                                 q: "どこに注目しますか。", 
                                 opts: [
                                     {t: "時制と主語", correct: true, fb: "正解！ 現在で主語が疑問詞のWhoです。"},
-                                    {t: "疑問詞Who", correct: false, fb: "不正解です。"},
+                                    {t: "疑問文", correct: false, fb: "不正解です。"},
                                     {t: "this bike", correct: false, fb: "不正解です。"}
                                 ]
                             },
@@ -521,7 +521,7 @@
                                 opts: [
                                     {t: "疑問文", correct: false, fb: "不正解です。"},
                                     {t: "前置詞about", correct: true, fb: "正解！ 前置詞の後ろです。"},
-                                    {t: "後につづく単語", correct: false, fb: "不正解です。"}
+                                    {t: "後につながる言葉", correct: false, fb: "不正解です。"}
                                 ]
                             },
                             { 
@@ -561,7 +561,7 @@
                                 q: "どこに注目しますか。", 
                                 opts: [
                                     {t: "動詞show", correct: false, fb: "不正解です。"},
-                                    {t: "疑問詞how", correct: true, fb: "正解！ 疑問詞の後ろです。"},
+                                    {t: "疑問詞how", correct: true, fb: "正解！ 文中の疑問詞の後ろです。"},
                                     {t: "命令文", correct: false, fb: "不正解です。"}
                                 ]
                             },
@@ -579,7 +579,7 @@
                                 opts: [
                                     {t: "get", correct: false, fb: "不正解です。"},
                                     {t: "getting", correct: false, fb: "不正解です。"},
-                                    {t: "to get", correct: true, fb: "正解！ 疑問詞＋前置詞です。"}
+                                    {t: "to get", correct: true, fb: "正解！ 疑問詞＋不定詞です。"}
                                 ]
                             }
                         ],
@@ -588,7 +588,7 @@
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "buy", correct: false, fb: "不正解です。"},
-                                {t: "to buy", correct: true, fb: "正解！ 疑問詞whatの後ろです。"},
+                                {t: "to buy", correct: true, fb: "正解！ 文中の疑問詞whatの後ろです。"},
                                 {t: "buying", correct: false, fb: "不正解です。"}
                             ]
                         }                        
@@ -603,14 +603,14 @@
                                 opts: [
                                     {t: "動詞ask", correct: true, fb: "正解！ ask＋人に注目します。"},
                                     {t: "主語", correct: false, fb: "不正解です。"},
-                                    {t: "後につづく単語", correct: false, fb: "不正解です。"}
+                                    {t: "後につながる言葉", correct: false, fb: "不正解です。"}
                                 ]
                             },
                             { 
                                 title: "【判断】", 
                                 q: "どう判断しますか。", 
                                 opts: [
-                                    {t: "前に主語となる人がいるので三単現のsを使う", correct: false, fb: "正解！ 疑問詞＋不定詞です。"},
+                                    {t: "前に主語となる人がいるので三単現のsを使う", correct: false, fb: "不正解です。"},
                                     {t: "ask＋人の形なので不定詞を使う", correct: true, fb: "正解！ ask＋人＋不定詞です。"}
                                 ]
                             },
@@ -631,6 +631,88 @@
                                 {t: "to come", correct: true, fb: "正解！ tell＋人＋不定詞です。"},
                                 {t: "comes", correct: false, fb: "不正解です。"},
                                 {t: "coming", correct: false, fb: "不正解です。"}
+                            ]
+                        }                        
+                    },
+                    {
+                        id: 14,
+                        passage: `Q14. <strong>"He didn't let his daughter ( go ) abroad."</strong>（　）の適切な形を選びなさい。`,
+                        steps: [
+                            { 
+                                title: "【着眼】", 
+                                q: "どこに注目しますか。", 
+                                opts: [
+                                    {t: "動詞let", correct: true, fb: "正解！ let（使役動詞）＋人に注目します。"},
+                                    {t: "主語", correct: false, fb: "不正解です。"},
+                                    {t: "後につながる言葉", correct: false, fb: "不正解です。"}
+                                ]
+                            },
+                            { 
+                                title: "【判断】", 
+                                q: "どう判断しますか。", 
+                                opts: [
+                                    {t: "中心の動詞letがあるのでto＋動詞の原形を使う", correct: false, fb: "不正解です。"},
+                                    {t: "let（使役動詞）＋人の形なので原形不定詞を使う", correct: true, fb: "正解！ let＋人＋原形不定詞です。"}
+                                ]
+                            },
+                            { 
+                                title: "【処理】", 
+                                q: "適切な動詞の形はどれですか。", 
+                                opts: [
+                                    {t: "go", correct: true, fb: "正解！ let＋人＋原形不定詞です。"},
+                                    {t: "to go", correct: false, fb: "不正解です。"},
+                                    {t: "goes", correct: false, fb: "不正解です。"}
+                                ]
+                            }
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br><strong>He made his son ( read ) many books.</strong>（　）の適切な形を選びなさい。",
+                            q: "最も適切なものはどれか？",
+                            opts: [
+                                {t: "read", correct: true, fb: "正解！ make（使役動詞）＋人＋原形不定詞です。"},
+                                {t: "to read", correct: false, fb: "不正解です。"},
+                                {t: "reading", correct: false, fb: "不正解です。"}
+                            ]
+                        }                        
+                    },
+                    {
+                        id: 15,
+                        passage: `Q15. <strong>"Do you know that boy ( play ) tennis?"</strong>（　）の適切な形を選びなさい。`,
+                        steps: [
+                            { 
+                                title: "【着眼】", 
+                                q: "どこに注目しますか。", 
+                                opts: [
+                                    {t: "疑問文", correct: false, fb: "不正解です。"},
+                                    {t: "動詞knowと名詞that boy", correct: true, fb: "正解！ 文の中心の動詞があって、前に名詞があります。"},
+                                    {t: "後につながる言葉", correct: false, fb: "不正解です。"}
+                                ]
+                            },
+                            { 
+                                title: "【判断】", 
+                                q: "どう判断しますか。", 
+                                opts: [
+                                    {t: "that boyがplayしているので、現在分詞を使う", correct: true, fb: "正解！ 名詞を修飾する現在分詞です。"},
+                                    {t: "that boyがplayされる側なので、過去分詞を使う", correct: false, fb: "不正解です。"}
+                                ]
+                            },
+                            { 
+                                title: "【処理】", 
+                                q: "適切な動詞の形はどれですか。", 
+                                opts: [
+                                    {t: "play", correct: false, fb: "不正解です。"},
+                                    {t: "playing", correct: true, fb: "正解！ 名詞を修飾する現在分詞です。"},
+                                    {t: "played", correct: false, fb: "不正解です。"}
+                                ]
+                            }
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br><strong>The man ( stand ) over there is my brother.</strong>（　）の適切な形を選びなさい。",
+                            q: "最も適切なものはどれか？",
+                            opts: [
+                                {t: "stands", correct: false, fb: "不正解です。"},
+                                {t: "to stand", correct: false, fb: "不正解です。"},
+                                {t: "standing", correct: true, fb: "正解！ 名詞を修飾する現在分詞です。"}
                             ]
                         }                        
                     }
