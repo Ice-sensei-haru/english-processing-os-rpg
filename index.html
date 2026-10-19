@@ -282,7 +282,7 @@
                                 {t: "過去分詞", correct: false, fb: "不正解。それは受動態や完了形です。"}
                             ]},
                             { title: "【判断】ヘルプ（help）の重要熟語の選択", q: "「人に〜するのを手伝う」という意味の help 人 ( ) 物の形に入る前置詞はどれ？", opts: [
-                                {t: "with", correct: true, fb: "正解！ help A with B（BのことでAを手伝う）のアルゴリズムです。"},
+                                {t: "with", correct: true, fb: "正解！ help A with B（BのことでAを手伝う）の語法です。"},
                                 {t: "for", correct: false, fb: "不正解です。"},
                                 {t: "to", correct: false, fb: "不正解です。"}
                             ]}
@@ -343,14 +343,14 @@
                     },
                     {
                         id: 4,
-                        passage: `Q4. 「野菜を食べることは健康によいことです。」<br><strong>"(  ) vegetables (  ) good (  ) the health."</strong>`,
+                        passage: `Q4. 「野菜を食べることは健康によいことです。」<br><strong>"(  ) vegetables (  ) good (  ) your health."</strong>`,
                         steps: [
                             { title: "【着眼】主語の位置に置く動詞の形", q: "「〜すること」という名詞のカタマリを文の主語（一番最初）に置くときの動詞の形は？", opts: [
                                 {t: "動名詞（〜ing）または不定詞（to 〜）", correct: true, fb: "正解！ Eating または To eat が文頭にきます。"},
                                 {t: "動詞の原形", correct: false, fb: "不正解。動詞の原形をそのまま主語には置けません。"}
                             ]},
                             { title: "【判断】「〜によい」の熟語の選択", q: "「健康によい」を表すときの定番の表現は be ( ) health のどれ？", opts: [
-                                {t: "good for", correct: true, fb: "正解！ be good for 〜（〜に良い）のアルゴリズムです。"},
+                                {t: "good for", correct: true, fb: "正解！ be good for 〜（〜に良い）の語法です。"},
                                 {t: "good at", correct: false, fb: "惜しい！ good at は「〜が得意だ」です。"}
                             ]}
                         ],
@@ -372,7 +372,7 @@
                                 {t: "hot something", correct: false, fb: "不正解。形容詞が前には来ません。"}
                             ]},
                             { title: "【判断】不定詞（形容詞的用法）の付加", q: "「食べるための（温かい何か）」とするための不定詞の形は？", opts: [
-                                {t: "to eat", correct: true, fb: "正解！ something hot to eat のカタマリになります。"},
+                                {t: "to eat", correct: true, fb: "正解！ something hot to eat のかたまりになります。"},
                                 {t: "eating", correct: false, fb: "不正解です。"}
                             ]}
                         ],
@@ -391,10 +391,10 @@
                         steps: [
                             { title: "【着眼】特殊な疑問詞（What ＋ 動詞）の構造", q: "「何が彼らをそんなに忙しくさせたのか」という、主語が疑問詞になる特殊な疑問文の動詞は？", opts: [
                                 {t: "使役動詞 make の過去形 made", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"},
-                                {t: "did they make", correct: false, fb: "惜しい！Whatが主語のときは倒置やdoを使いません。"}
+                                {t: "did they make", correct: false, fb: "惜しい！疑問詞（What）が主語のときは肯定文の語順になります。"}
                             ]},
                             { title: "【判断】使役動詞の目的格の選択", q: "「彼らを」にあたる目的格の人称代名詞はどれ？", opts: [
-                                {t: "them", correct: true, fb: "正解！ made them so busy のアルゴリズムです。"},
+                                {t: "them", correct: true, fb: "正解！ made them so busy 目的格＋形容詞の組み合わせです。"},
                                 {t: "they", correct: false, fb: "不正解。目的語の位置なのでthemです。"}
                             ]}
                         ],
@@ -415,8 +415,9 @@
                                 {t: "which train to take", correct: true, fb: "正解！ which + 名詞 + to + 動詞の原形 の形です。"},
                                 {t: "to take which train", correct: false, fb: "不正解です。"}
                             ]},
-                            { title: "【判断】文全体の接続の確認", q: "tell us の後ろに続く目的語として、このカタマリがそのまま綺麗に収まるか確認する。", opts: [
-                                {t: "収まる（which train to take）", correct: true, fb: "正解！完璧な間接疑問の代用表現です。"}
+                            { title: "【判断】文全体の接続の確認", q: "tell us の後ろに続く目的語として、どちらが収まるか確認する。", opts: [
+                                {t: "収まる（which train to take）", correct: true, fb: "正解！whichやwhat＋名詞＋不定詞の形です。"},
+                                {t: "which to take train", correct: false, fb: "不正解です。"
                             ]}
                         ],
                         repro: {
@@ -436,8 +437,8 @@
                                 {t: "played", correct: true, fb: "正解！ has played の形になります。"},
                                 {t: "playing", correct: false, fb: "不正解。現在分詞では完了形が作れません。"}
                             ]},
-                            { title: "【判断】起算点（〜のときから）を表す接続詞", q: "後ろに「he was five（5歳だった）」という主語・動詞の文が来るとき、その前に置く「〜以来」を表す接続詞は？", opts: [
-                                {t: "since", correct: true, fb: "正解！ since ＋ 節（S+V）のアルゴリズムです。"},
+                            { title: "【判断】起点（〜のときから）を表す接続詞", q: "後ろに「he was five（5歳だった）」という主語・動詞の文が来るとき、その前に置く「〜以来」を表す接続詞は？", opts: [
+                                {t: "since", correct: true, fb: "正解！ 完了形 ＋ since ＋ 節（S+V）の語法です。"},
                                 {t: "for", correct: false, fb: "惜しい！forの後ろは期間がきます。"}
                             ]}
                         ],
@@ -480,7 +481,7 @@
                                 {t: "let （let 人 動詞の原形）", correct: true, fb: "正解！ want to let her go の形を作ります。"},
                                 {t: "make", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"}
                             ]},
-                            { title: "【判断】原幹動詞（動詞の原形）の選択", q: "let 人 の後ろに続く動詞の形はどうなる？", opts: [
+                            { title: "【判断】動詞の形の選択", q: "let 人 の後ろに続く動詞の形はどうなる？", opts: [
                                 {t: "動詞の原形（go）", correct: true, fb: "正解！ let 人 動詞の原形 のルールです。"},
                                 {t: "to go", correct: false, fb: "不正解。letの後ろに to は不要です。"}
                             ]}
@@ -518,7 +519,7 @@
                             q: "最も適切なものを選べ。",
                             opts: [
                                 {t: "She teaches us English.", correct: true, fb: "正解！職業を表す文の第4文型書き換えの再現成功です！"},
-                                {t: "She teaches English for us.", correct: false, fb: "不正解。teachは to ですが、SVOOの形なら前置詞は不要です。"}
+                                {t: "She teaches English for us.", correct: false, fb: "不正解。teachは to ですが、SV＋人＋ものの形なら前置詞は不要です。"}
                             ]
                         }
                     },
@@ -562,7 +563,7 @@
                             q: "最も適切なものを選べ。",
                             opts: [
                                 {t: "Tokyo has a lot of tall buildings.", correct: true, fb: "正解！There are 構文から have への書き換え再現成功です！"},
-                                {t: "Tokyo have a lot of tall buildings.", correct: false, fb: "不正解。Tokyoは3単現なので has です。"}
+                                {t: "Tokyo have a lot of tall buildings.", correct: false, fb: "不正解。Tokyo（固有名詞）は３人称単数扱いなので has です。"}
                             ]
                         }
                     },
@@ -746,7 +747,7 @@
                         ],
                         steps: [
                             { title: "【着眼】読解の段落構造とキーワード把握", q: "長文を解く際、最初に筆者の主張（トピックセンテンス）が見つかりやすい場所は？", opts: [
-                                {t: "第1段落の冒頭や、Howeverなどの逆接の直後", correct: true, fb: "正解！筆者の主張が置かれやすい場所です。"},
+                                {t: "段落の冒頭や末尾、Howeverなどの逆接の直後", correct: true, fb: "正解！筆者の主張が置かれやすい場所です。"},
                                 {t: "本文の最後の単語だけ", correct: false, fb: "不正解です。"}
                             ]}
                         ],
@@ -754,7 +755,7 @@
                             passage: "【読解・類題テスト】<br>\"Reading books is important. It broadens our horizons and gives us new knowledge about the world.\"",
                             q: "この文が伝える最も適切なメッセージは？",
                             opts: [
-                                {t: "読書は視野を広げ、新しい知識を与えてくれる", correct: true, fb: "正解！読解の要約アルゴリズムの再現に成功しました！"},
+                                {t: "読書は視野を広げ、新しい知識を与えてくれる", correct: true, fb: "正解！読解の要約判断の再現に成功しました！"},
                                 {t: "本はインテリアとして部屋に飾るべきだ", correct: false, fb: "不正解。"}
                             ]
                         }
@@ -810,7 +811,7 @@
                         ],
                         steps: [
                             { title: "【着眼】ストーリー型の時系列把握", q: "物語文（ストーリー）で出来事の順序を問われたとき、最初に見るべきマーカーは？", opts: [
-                                {t: "Last night や Then などの時を表す副詞句", correct: true, fb: "正解！時系列のアンカーになります。"},
+                                {t: "Last night や Then などの時を表す副詞句", correct: true, fb: "正解！時系列の目印になります。"},
                                 {t: "文末のピリオドの数", correct: false, fb: "不正解。"}
                             ]}
                         ],
@@ -859,7 +860,7 @@
             },
             writing1: {
                 title: "⑤ 英作文：整序英作（全10問）",
-                desc: "4ステップ（①主語＋動詞 ➔ ②修飾語句 ➔ ③ブロック化 ➔ ④配置決定）で語順のアルゴリズムをマスター。",
+                desc: "4ステップ（①主語＋動詞 ➔ ②修飾語句 ➔ ③ブロック化 ➔ ④配置決定）で語順の処理手順をマスター。",
                 items: [
                     {
                         id: 1,
@@ -1085,7 +1086,7 @@
             },
             writing2: {
                 title: "⑥ 英作文：思考型・型別自由英作文（全5問）",
-                desc: "15語〜40語までの入試自由英作文の公式サイト（アルゴリズム）とロジックをマスター。",
+                desc: "15語〜40語までの入試自由英作文の公式サイト（処理手順）とロジックをマスター。",
                 items: [
                     {
                         id: 1,
@@ -1300,7 +1301,7 @@
                             高校入試英語・思考力養成プラットフォーム
                         </span>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                            解法アルゴリズム再現トレーニング
+                            解法処理手順再現トレーニング
                         </h2>
                         <p class="text-sm text-slate-600 max-w-lg mx-auto">
                             「着眼・判断・処理」のステップをクイズ形式で自分のものにし、類題で再現できるまで特訓。
