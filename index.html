@@ -45,19 +45,16 @@
             </button>
         </div>
     </header>
-
     <!-- Main Container -->
     <main class="max-w-3xl mx-auto px-4 py-6 sm:py-8 w-full flex-grow">
         <div id="app-container" class="bg-white rounded-2xl border border-slate-200 shadow-xl p-5 sm:p-8 relative overflow-hidden transition-all duration-300">
             <!-- Dynamic Content -->
         </div>
     </main>
-
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
         高校入試英語 思考プロセス・トレーニング &copy; 2026
     </footer>
-
     <!-- SFX Audio Controller -->
     <script>
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -91,9 +88,10 @@
             } catch(e) {}
         }
     </script>
-
     <!-- Application Engine -->
     <script>
+        const STORAGE_KEY = 'hs_english_os_progress';
+
         const db = {
             grammar1: {
                 title: "① 文法：空所補充（全10問）",
@@ -1053,9 +1051,92 @@
         const container = document.getElementById('app-container');
         const homeBtn = document.getElementById('home-btn');
 
+        // --- 仕様① 自動保存ヘルパー関数 ---
+        function saveProgress() {
+            if (!state.currentCategory) return;
+            try {
+                let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+                savedData[state.currentCategory] = {
+                    currentIndex: state.currentIndex,
+                    currentStepIndex: state.currentStepIndex,
+                    subQIndex: state.subQIndex
+                };
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
+            } catch (e) {
+                console.error("Failed to save progress to localStorage", e);
+            }
+        }
+
+        function loadProgress(catKey) {
+            try {
+                let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+                return savedData[catKey] || null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // --- 仕様② ステージクリア時の個別リセット ---
+        function clearCategoryProgress(catKey) {
+            try {
+                let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+                delete savedData[catKey];
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
+            } catch (e) {}
+        }
+
+        // --- 仕様③ 全ステージ初期化 ---
+        function resetAllProgress() {
+            if (confirm("全てのステージの学習途中の経過を初期化しますか？\n（最初からやり直すことになります）")) {
+                localStorage.removeItem(STORAGE_KEY);
+                playSound('click');
+                renderHome();
+            }
+        }
+
+        // カテゴリごとの達成状況計算（ホーム表示用）
+        function getCategoryProgressInfo(catKey) {
+            const catData = db[catKey];
+            const totalItems = catData.items.length;
+            const progress = loadProgress(catKey);
+
+            if (!progress) return { pct: 0, isStarted: false, isCleared: false };
+
+            let currentItem = progress.currentIndex;
+            if (currentItem >= totalItems) {
+                return { pct: 100, isStarted: true, isCleared: true };
+            }
+
+            let item = catData.items[currentItem];
+            let stepCount = (catKey === 'reading') ? (item.subQs.length + item.steps.length + 1) : (item.steps.length + 1);
+            let currentSubStep = (catKey === 'reading') ? progress.subQIndex : progress.currentStepIndex;
+
+            let totalStepsOverall = 0;
+            catData.items.forEach(it => {
+                totalStepsOverall += (catKey === 'reading') ? (it.subQs.length + it.steps.length + 1) : (it.steps.length + 1);
+            });
+
+            let doneStepsOverall = 0;
+            for (let i = 0; i < currentItem; i++) {
+                let it = catData.items[i];
+                doneStepsOverall += (catKey === 'reading') ? (it.subQs.length + it.steps.length + 1) : (it.steps.length + 1);
+            }
+            doneStepsOverall += currentSubStep;
+
+            let pct = Math.min(99, Math.round((doneStepsOverall / totalStepsOverall) * 100));
+            return { pct, isStarted: doneStepsOverall > 0, isCleared: false, currentItem: currentItem + 1 };
+        }
+
         function renderHome() {
             state.currentCategory = null;
             homeBtn.classList.add('hidden');
+
+            const g1 = getCategoryProgressInfo('grammar1');
+            const g2 = getCategoryProgressInfo('grammar2');
+            const rd = getCategoryProgressInfo('reading');
+            const w1 = getCategoryProgressInfo('writing1');
+            const w2 = getCategoryProgressInfo('writing2');
+
             container.innerHTML = `
                 <div class="space-y-6">
                     <div class="text-center space-y-2">
@@ -1070,59 +1151,91 @@
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    <!-- 仕様③ 全初期化ボタン -->
+                    <div class="flex justify-end pt-1">
+                        <button onclick="app.resetAllProgress()" class="text-xs bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-500 font-bold px-3 py-1.5 rounded-lg border border-slate-200 transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-rotate-left"></i> 全ステージの初期化
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- 文法1 -->
                         <div onclick="app.startCategory('grammar1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
-                                <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
+                                    ${g1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
+                                </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">空所補充（全10問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.grammar1.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                <span>${g1.isStarted ? `Q${g1.currentItem}から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
 
+                        <!-- 文法2 -->
                         <div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
-                                <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
+                                    ${g2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
+                                </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">同意文書き換え（全10問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.grammar2.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                <span>${g2.isStarted ? `Q${g2.currentItem}から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
 
+                        <!-- 読解 -->
                         <div onclick="app.startCategory('reading')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
-                                <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">② 読解問題</span>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">② 読解問題</span>
+                                    ${rd.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
+                                </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">長文総合（4組・全設問形式）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.reading.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                <span>${rd.isStarted ? `第${rd.currentItem}組から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
 
+                        <!-- 英作文1 -->
                         <div onclick="app.startCategory('writing1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
-                                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
+                                    ${w1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${w1.pct}%</span>` : ''}
+                                </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">整序英作（10問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.writing1.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                <span>${w1.isStarted ? `Q${w1.currentItem}から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
 
+                        <!-- 英作文2 -->
                         <div onclick="app.startCategory('writing2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 sm:col-span-2 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
-                                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">③ 英作文</span>
+                                    ${w2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${w2.pct}%</span>` : ''}
+                                </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">思考型・型別自由英作文（5問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.writing2.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>トレーニング開始</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                <span>${w2.isStarted ? `Q${w2.currentItem}から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </div>
                         </div>
                     </div>
@@ -1130,16 +1243,36 @@
             `;
         }
 
-        function startCategory(catKey) {
+        function startCategory(catKey, forceReset = false) {
             state.currentCategory = catKey;
-            state.currentIndex = 0;
-            state.currentStepIndex = 0;
-            state.subQIndex = 0;
+            
+            if (forceReset) {
+                state.currentIndex = 0;
+                state.currentStepIndex = 0;
+                state.subQIndex = 0;
+                clearCategoryProgress(catKey);
+            } else {
+                // 仕様①：途中経過があれば読み込んで再開
+                const saved = loadProgress(catKey);
+                if (saved) {
+                    state.currentIndex = saved.currentIndex || 0;
+                    state.currentStepIndex = saved.currentStepIndex || 0;
+                    state.subQIndex = saved.subQIndex || 0;
+                } else {
+                    state.currentIndex = 0;
+                    state.currentStepIndex = 0;
+                    state.subQIndex = 0;
+                }
+            }
+
             homeBtn.classList.remove('hidden');
             renderQuestion();
         }
 
         function renderQuestion() {
+            // ステップ進行のたびに自動保存（仕様①）
+            saveProgress();
+
             container.classList.remove('fade-in');
             void container.offsetWidth;
             container.classList.add('fade-in');
@@ -1227,6 +1360,8 @@
         }
 
         function renderReadingQuestion(catData, item, totalItems) {
+            saveProgress();
+
             const subQ = item.subQs[state.subQIndex];
             const totalSubQs = item.subQs.length;
             const hasSteps = state.subQIndex >= totalSubQs;
@@ -1381,6 +1516,7 @@
                 fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
+
                 document.getElementById('next-subq-btn').classList.remove('hidden');
             } else {
                 playSound('wrong');
@@ -1408,11 +1544,13 @@
                 fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 読解再現成功！</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
+
                 document.getElementById('next-item-btn').classList.remove('hidden');
             } else {
                 playSound('wrong');
                 clickedBtn.disabled = true;
                 clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900');
+
                 fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解。</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
@@ -1436,6 +1574,8 @@
             state.subQIndex = 0;
 
             if (state.currentIndex >= catData.items.length) {
+                // 仕様②：ステージクリア時に進捗を初期化（次回は1問目から開始される）
+                clearCategoryProgress(state.currentCategory);
                 renderClearScreen();
             } else {
                 renderQuestion();
@@ -1444,6 +1584,8 @@
 
         function renderClearScreen() {
             homeBtn.classList.add('hidden');
+            const clearedCat = state.currentCategory;
+
             container.innerHTML = `
                 <div class="text-center py-8 space-y-6 fade-in">
                     <div class="w-24 h-24 bg-gradient-to-tr from-amber-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto shadow-xl text-white text-4xl animate-bounce">
@@ -1459,7 +1601,8 @@
                         <button onclick="app.renderHome()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-house"></i> ジャンル選択メニューへ戻る
                         </button>
-                        <button onclick="app.startCategory('${state.currentCategory}')" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
+                        <!-- クリア後ははじめからに戻るため forceReset = true で再スタート -->
+                        <button onclick="app.startCategory('${clearedCat}', true)" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-rotate-right"></i> もう一度はじめから復習する
                         </button>
                     </div>
@@ -1476,7 +1619,8 @@
             nextStep,
             nextSubQ,
             nextItem,
-            returnHome: renderHome
+            returnHome: renderHome,
+            resetAllProgress // 仕様③の呼び出し用
         };
 
         renderHome();
