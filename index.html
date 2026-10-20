@@ -874,9 +874,9 @@
                             passage: "【類題テスト】<br><strong>If it were not rainy today, we ( will ) go hiking.</strong>（　）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
-                                {t: "could", correct: true, fb: "正解！ 仮定法過去の主節には助動詞の過去形を使います。"},
-                                {t: "can", correct: false, fb: "不正解です。"},
-                                {t: "will", correct: false, fb: "不正解です。"}
+                                {t: "would", correct: true, fb: "正解！ 仮定法過去の主節には助動詞の過去形を使います。"},
+                                {t: "will", correct: false, fb: "不正解です。"},
+                                {t: "won't", correct: false, fb: "不正解です。"}
                             ]
                         }                        
                     },
@@ -920,7 +920,29 @@
                                 {t: "would", correct: true, fb: "正解！ 主節の動詞が過去形なので時制を一致させます。"}
                             ]
                         }                        
-                    }                    
+                    },
+                    {
+                        id: 21,
+                        passage: `Q21. <strong>"Ken is ( old ) than Tom."</strong>（　）内の語を適切な形にしなさい。`,
+                        steps: [                            
+                            { 
+                                title: "【処理】", 
+                                opts: [
+                                    {t: "older", correct: true, fb: "正解！ than Tomがあるので比較級です。"},
+                                    {t: "the oldest", correct: false, fb: "不正解です。"},
+                                    {t: "more old", correct: false, fb: "不正解です。"}
+                                ]
+                            }
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br><strong>Mike runs ( fast ) than Ken.</strong>（　）内の語を適切な形にしなさい。",                            
+                            opts: [
+                                {t: "the fastest", correct: false, fb: "不正解です。"},
+                                {t: "more fast", correct: false, fb: "不正解です。"},
+                                {t: "faster", correct: true, fb: "正解！ than Kenがあるので比較級です。"}
+                            ]
+                        }                        
+                    }       
                     // 💡 ここに 「 , { id: 2, ... } 」 のように新しい問題を追加できます
                 ]
             },
