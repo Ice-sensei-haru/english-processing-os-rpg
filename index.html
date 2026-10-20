@@ -45,16 +45,19 @@
             </button>
         </div>
     </header>
+
     <!-- Main Container -->
     <main class="max-w-3xl mx-auto px-4 py-6 sm:py-8 w-full flex-grow">
         <div id="app-container" class="bg-white rounded-2xl border border-slate-200 shadow-xl p-5 sm:p-8 relative overflow-hidden transition-all duration-300">
             <!-- Dynamic Content -->
         </div>
     </main>
+
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
         高校入試英語 思考プロセス・トレーニング &copy; 2026
     </footer>
+
     <!-- SFX Audio Controller -->
     <script>
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -88,22 +91,60 @@
             } catch(e) {}
         }
     </script>
+
     <!-- Application Engine -->
     <script>
         const STORAGE_KEY = 'hs_english_os_progress';
-
         const db = {
-            // ==========================================
-            // 【新規追加】適語選択カテゴリ
-            // 💡 [追加方法] items の中に同じ形式でオブジェクトを増やすだけで問題を追加できます。
-            // ==========================================
+            // =========================================================================
+            // 【新規追加】① ３択・直接回答形式（適語選択）
+            // 💡 [問題の追加方法]
+            // items 配列の中に、以下の形式でオブジェクトを追加できます。
+            // {
+            //     id: 問題番号,
+            //     question: "問題文（例：I play tennis with (  ).の空所に入る最も適切な語を選びなさい。）",
+            //     explanation: "解説（例：前置詞の後ろで単独で使う代名詞は目的格）",
+            //     opts: [
+            //         { t: "A: he", correct: false },
+            //         { t: "B: his", correct: false },
+            //         { t: "C: him", correct: true } // 正解項目に correct: true を設定
+            //     ]
+            // },
+            // =========================================================================
+            quickGrammar: {
+                title: "① 基礎：３択適語選択",
+                desc: "プロセスを介さず直接解答を選択し、基礎文法知識を瞬時に確認します。",
+                items: [
+                    {
+                        id: 1,
+                        question: "I play tennis with (  ). の空所に入る最も適切な語を選びなさい。",
+                        explanation: "前置詞の後ろで単独で使う代名詞は目的格（him）になります。",
+                        opts: [
+                            { t: "A: he", correct: false },
+                            { t: "B: his", correct: false },
+                            { t: "C: him", correct: true }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        question: "She (  ) to school yesterday. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "yesterday（昨日）があるので過去形（went）を使います。",
+                        opts: [
+                            { t: "A: go", correct: false },
+                            { t: "B: went", correct: true },
+                            { t: "C: goes", correct: false }
+                        ]
+                    }
+                    // 💡 新しい問題はここへカンマ(,)で繋いで自由に追加できます！
+                ]
+            },
             grammarChoice: {
-                title: "① 文法：適語選択",
+                title: "② 文法：動詞の語形変化（ステップ式）",
                 desc: "文法問題の基礎となる「着眼・判断・処理」のステップをマスターします。",
                 items: [
                     {
                         id: 1,
-                        passage: `Q1. <strong>"He ( play ) tennis every day."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q1. <strong>"He ( play ) tennis every day."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -118,7 +159,7 @@
                                 title: "【判断】", 
                                 q: "どう判断しますか。", 
                                 opts: [
-                                    {t: "主語が３人称単数のときは三単現のsにする", correct: true, fb: "正解！　現在のとき主語が３人称単数かどうか判断します。"},
+                                    {t: "主語が３人称単数のときは三単現のsにする", correct: true, fb: "正解！ 現在のとき主語が３人称単数かどうか判断します。"},
                                     {t: "every dayで、動詞は三単現のsになる", correct: false, fb: "不正解！ every dayだけでは動詞の形は決まりません。"}
                                 ]
                             },
@@ -133,7 +174,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>She ( study ) English every day.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>She ( study ) English every day.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "study", correct: false, fb: "不正解です。"},
@@ -144,7 +185,7 @@
                     },
                     {
                         id: 2,
-                        passage: `Q2. <strong>"He ( play ) tennis yesterday."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q2. <strong>"He ( play ) tennis yesterday."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -174,7 +215,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>She ( study ) English last night.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>She ( study ) English last night.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "study", correct: false, fb: "不正解です。"},
@@ -185,7 +226,7 @@
                     },
                     {
                         id: 3,
-                        passage: `Q3. <strong>"Lisa can ( play ) tennis well."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q3. <strong>"Lisa can ( play ) tennis well."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -215,7 +256,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>Mike can ( read ) Japanese.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>Mike can ( read ) Japanese.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "read", correct: true, fb: "正解！canのペアに使えるのは動詞の原形が正解です。"},
@@ -226,7 +267,7 @@
                     },
                     {
                         id: 4,
-                        passage: `Q4. <strong>"What are you ( do ) now?"</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q4. <strong>"What are you ( do ) now?"</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -256,7 +297,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>John and Meg were ( play ) tennis then.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>John and Meg were ( play ) tennis then.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "played", correct: false, fb: "不正解です。"},
@@ -267,7 +308,7 @@
                     },
                     {
                         id: 5,
-                        passage: `Q5. <strong>"How long will Mike ( stay ) in Japan?"</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q5. <strong>"How long will Mike ( stay ) in Japan?"</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -297,7 +338,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>What will Nancy ( do ) after school?</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>What will Nancy ( do ) after school?</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "does", correct: false, fb: "不正解です。"},
@@ -308,7 +349,7 @@
                     },
                     {
                         id: 6,
-                        passage: `Q6. <strong>"These books were ( write ) by Becky."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q6. <strong>"These books were ( write ) by Becky."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -338,7 +379,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>English is ( use ) all over the world.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>English is ( use ) all over the world.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "use", correct: false, fb: "不正解です。"},
@@ -349,7 +390,7 @@
                     },
                     {
                         id: 7,
-                        passage: `Q7. <strong>"He has just ( eat ) lunch."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q7. <strong>"He has just ( eat ) lunch."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -379,7 +420,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>They have already ( write ) the report.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>They have already ( write ) the report.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "write", correct: false, fb: "不正解です。"},
@@ -390,7 +431,7 @@
                     },
                     {
                         id: 8,
-                        passage: `Q8. <strong>"Who ( use ) this bike every day?"</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q8. <strong>"Who ( use ) this bike every day?"</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -420,7 +461,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>What ( make ) you happy?</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>What ( make ) you happy?</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "make", correct: false, fb: "不正解です。"},
@@ -431,7 +472,7 @@
                     },
                     {
                         id: 9,
-                        passage: `Q9. <strong>"I decided ( visit ) Canada."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q9. <strong>"I decided ( visit ) Canada."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -456,12 +497,12 @@
                                 opts: [
                                     {t: "visited", correct: false, fb: "不正解です。"},
                                     {t: "visiting", correct: false, fb: "不正解です。"},
-                                    {t: "to visit", correct: true, fb: "正解！　decide＋不定詞です。"}
+                                    {t: "to visit", correct: true, fb: "正解！ decide＋不定詞です。"}
                                 ]
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>We hope ( win ) the game.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>We hope ( win ) the game.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "to win", correct: true, fb: "正解！ hope＋不定詞です。"},
@@ -472,7 +513,7 @@
                     },
                     {
                         id: 10,
-                        passage: `Q10. <strong>"He enjoyed ( talk ) with her yesterday."</strong>（　）内の語を適切な形にしなさい。。`,
+                        passage: `Q10. <strong>"He enjoyed ( talk ) with her yesterday."</strong>（ ）内の語を適切な形にしなさい。。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -502,7 +543,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>She finished ( do ) her homework yesterday.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>She finished ( do ) her homework yesterday.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "to do", correct: false, fb: "不正解です。"},
@@ -513,7 +554,7 @@
                     },
                     {
                         id: 11,
-                        passage: `Q11. <strong>"How about ( go ) shopping with me?"</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q11. <strong>"How about ( go ) shopping with me?"</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -543,7 +584,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>He went out without ( say ) anything.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>He went out without ( say ) anything.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "saying", correct: true, fb: "正解！ 前置詞withoutの後ろです。"},
@@ -554,7 +595,7 @@
                     },
                     {
                         id: 12,
-                        passage: `Q12. <strong>"Please show me how ( get ) to the station."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q12. <strong>"Please show me how ( get ) to the station."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -584,7 +625,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>I don't know what ( buy ) there.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>I don't know what ( buy ) there.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "buy", correct: false, fb: "不正解です。"},
@@ -595,7 +636,7 @@
                     },
                     {
                         id: 13,
-                        passage: `Q13. <strong>"She asked her father ( buy ) new shoes for her."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q13. <strong>"She asked her father ( buy ) new shoes for her."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -625,7 +666,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>She told me ( come ) here at once.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>She told me ( come ) here at once.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "to come", correct: true, fb: "正解！ tell＋人＋不定詞です。"},
@@ -636,7 +677,7 @@
                     },
                     {
                         id: 14,
-                        passage: `Q14. <strong>"He didn't let his daughter ( go ) abroad."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q14. <strong>"He didn't let his daughter ( go ) abroad."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -666,7 +707,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>He made his son ( read ) many books.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>He made his son ( read ) many books.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "read", correct: true, fb: "正解！ make（使役動詞）＋人＋原形不定詞です。"},
@@ -677,7 +718,7 @@
                     },
                     {
                         id: 15,
-                        passage: `Q15. <strong>"Do you know that boy ( play ) tennis?"</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q15. <strong>"Do you know that boy ( play ) tennis?"</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -707,7 +748,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>The man ( stand ) over there is my brother.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>The man ( stand ) over there is my brother.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "stands", correct: false, fb: "不正解です。"},
@@ -718,7 +759,7 @@
                     },
                     {
                         id: 16,
-                        passage: `Q16. <strong>"These are pictures that ( be ) taken in Kyoto."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q16. <strong>"These are pictures that ( be ) taken in Kyoto."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -748,7 +789,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>I have a friend who ( live ) in Italy.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>I have a friend who ( live ) in Italy.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "live", correct: false, fb: "不正解です。"},
@@ -759,7 +800,7 @@
                     },
                     {
                         id: 17,
-                        passage: `Q17. <strong>"There ( be ) some milk in the glass."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q17. <strong>"There ( be ) some milk in the glass."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -789,7 +830,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>There ( be ) a lot of paper in the box.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>There ( be ) a lot of paper in the box.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "are", correct: false, fb: "不正解です。"},
@@ -800,7 +841,7 @@
                     },
                     {
                         id: 18,
-                        passage: `Q18. <strong>"Each of the students ( have ) to wear the school uniform."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q18. <strong>"Each of the students ( have ) to wear the school uniform."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -830,7 +871,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>Either of them ( make ) lunch all the time.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>Either of them ( make ) lunch all the time.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "make", correct: false, fb: "不正解です。"},
@@ -841,7 +882,7 @@
                     },
                     {
                         id: 19,
-                        passage: `Q19. <strong>"If I ( have ) time, I would travel."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q19. <strong>"If I ( have ) time, I would travel."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -871,7 +912,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>If it were not rainy today, we ( will ) go hiking.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>If it were not rainy today, we ( will ) go hiking.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "would", correct: true, fb: "正解！ 仮定法過去の主節には助動詞の過去形を使います。"},
@@ -882,7 +923,7 @@
                     },
                     {
                         id: 20,
-                        passage: `Q20. <strong>"She told me that she ( will ) come tomorrow."</strong>（　）内の語を適切な形にしなさい。`,
+                        passage: `Q20. <strong>"She told me that she ( will ) come tomorrow."</strong>（ ）内の語を適切な形にしなさい。`,
                         steps: [
                             { 
                                 title: "【着眼】", 
@@ -912,7 +953,7 @@
                             }
                         ],
                         repro: {
-                            passage: "【類題テスト】<br><strong>He knew that Lisa ( will ) go there.</strong>（　）内の語を適切な形にしなさい。",
+                            passage: "【類題テスト】<br><strong>He knew that Lisa ( will ) go there.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
                                 {t: "will", correct: false, fb: "不正解です。"},
@@ -921,12 +962,10 @@
                             ]
                         }                        
                     }                    
-                    // 💡 ここに 「 , { id: 2, ... } 」 のように新しい問題を追加できます
                 ]
             },
-
             grammar1: {
-                title: "② 文法：空所補充（全10問）",
+                title: "③ 文法：空所補充（全10問）",
                 desc: "高校入試頻出の重要構文・語法を見抜く着眼・判断プロセスを鍛えます。",
                 items: [
                     {
@@ -1154,7 +1193,7 @@
                 ]
             },
             grammar2: {
-                title: "③ 文法：同意文書き換え（全10問）",
+                title: "④ 文法：同意文書き換え（全10問）",
                 desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、不定詞、受動態、比較など）をマスター。",
                 items: [
                     {
@@ -1380,7 +1419,7 @@
                 ]
             },
             reading: {
-                title: "④ 読解問題（全4組）",
+                title: "⑤ 読解問題（全4組）",
                 desc: "テーマ選択・英問英答・内容正誤をセットにした実践読解4組。",
                 items: [
                     {
@@ -1418,7 +1457,7 @@
                     },
                     {
                         id: 2,
-                        passage: "【長文読解 第2組】<br>\"In recent years, many cafes have started offering vegan menus. Vegan food uses no animal products. This change is good for our health and also helps protect the global environment by reducing carbon emissions.\n　　※vegan：完全菜食主義、ビーガン\"",
+                        passage: "【長文読解 第2組】<br>\"In recent years, many cafes have started offering vegan menus. Vegan food uses no animal products. This change is good for our health and also helps protect the global environment by reducing carbon emissions.\n  ※vegan：完全菜食主義、ビーガン\"",
                         subQs: [
                             { type: "テーマ選択", title: "問1：テーマ選択", q: "この文章の主旨として最も適切なものは？", opts: [
                                 {t: "カフェにおけるビーガンメニューの広がりとその利点", correct: true, fb: "正解！健康と環境へのメリットが述べられています。"},
@@ -1515,7 +1554,7 @@
                 ]
             },
             writing1: {
-                title: "⑤ 英作文：整序英作（全10問）",
+                title: "⑥ 英作文：整序英作（全10問）",
                 desc: "4ステップ（①主語＋動詞 ➔ ②修飾語句 ➔ ③ブロック化 ➔ ④配置決定）で語順の処理手順をマスター。",
                 items: [
                     {
@@ -1741,7 +1780,7 @@
                 ]
             },
             writing2: {
-                title: "⑥ 英作文：思考型・型別自由英作文（全5問）",
+                title: "⑦ 英作文：思考型・型別自由英作文（全5問）",
                 desc: "15語〜40語までの入試自由英作文の公式サイト（処理手順）とロジックをマスター。",
                 items: [
                     {
@@ -1868,7 +1907,6 @@
         const container = document.getElementById('app-container');
         const homeBtn = document.getElementById('home-btn');
 
-        // --- 仕様① 自動保存ヘルパー関数 ---
         function saveProgress() {
             if (!state.currentCategory) return;
             try {
@@ -1891,7 +1929,6 @@
             }
         }
 
-        // --- 仕様② ステージクリア時の個別リセット ---
         function clearCategoryProgress(catKey) {
             try {
                 let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
@@ -1900,7 +1937,6 @@
             } catch (e) {}
         }
 
-        // --- 仕様③ 全ステージ初期化 ---
         function resetAllProgress() {
             if (confirm("全てのステージの学習途中の経過を初期化しますか？\n（最初からやり直すことになります）")) {
                 localStorage.removeItem(STORAGE_KEY);
@@ -1911,9 +1947,11 @@
 
         function getCategoryProgressInfo(catKey) {
             const catData = db[catKey];
+            if (!catData || !catData.items || catData.items.length === 0) {
+                return { pct: 0, isStarted: false, isCleared: false };
+            }
             const totalItems = catData.items.length;
             const progress = loadProgress(catKey);
-
             if (!progress) return { pct: 0, isStarted: false, isCleared: false };
 
             let currentItem = progress.currentIndex;
@@ -1921,20 +1959,22 @@
                 return { pct: 100, isStarted: true, isCleared: true };
             }
 
-            let item = catData.items[currentItem];
+            if (catKey === 'quickGrammar') {
+                let pct = Math.min(99, Math.round((currentItem / totalItems) * 100));
+                return { pct, isStarted: currentItem > 0, isCleared: false, currentItem: currentItem + 1 };
+            }
+
             let totalStepsOverall = 0;
             catData.items.forEach(it => {
-                totalStepsOverall += (catKey === 'reading') ? (it.subQs.length + it.steps.length + 1) : (it.steps.length + 1);
+                totalStepsOverall += (catKey === 'reading') ? ((it.subQs ? it.subQs.length : 0) + (it.steps ? it.steps.length : 0) + 1) : ((it.steps ? it.steps.length : 0) + 1);
             });
-
             let doneStepsOverall = 0;
             for (let i = 0; i < currentItem; i++) {
                 let it = catData.items[i];
-                doneStepsOverall += (catKey === 'reading') ? (it.subQs.length + it.steps.length + 1) : (it.steps.length + 1);
+                doneStepsOverall += (catKey === 'reading') ? ((it.subQs ? it.subQs.length : 0) + (it.steps ? it.steps.length : 0) + 1) : ((it.steps ? it.steps.length : 0) + 1);
             }
             doneStepsOverall += (catKey === 'reading') ? progress.subQIndex : progress.currentStepIndex;
-
-            let pct = Math.min(99, Math.round((doneStepsOverall / totalStepsOverall) * 100));
+            let pct = Math.min(99, Math.round((doneStepsOverall / Math.max(1, totalStepsOverall)) * 100));
             return { pct, isStarted: doneStepsOverall > 0, isCleared: false, currentItem: currentItem + 1 };
         }
 
@@ -1943,6 +1983,7 @@
             state.currentCategory = null;
             homeBtn.classList.add('hidden');
 
+            const qg = getCategoryProgressInfo('quickGrammar');
             const gc = getCategoryProgressInfo('grammarChoice');
             const g1 = getCategoryProgressInfo('grammar1');
             const g2 = getCategoryProgressInfo('grammar2');
@@ -1960,11 +2001,10 @@
                             思考プロセス再現トレーニング
                         </h2>
                         <p class="text-sm text-slate-600 max-w-lg mx-auto">
-                            「着眼・判断・処理」のステップをクイズ形式で自分のものにし、類題で再現できるまで特訓。
+                            直接回答からステップ確認まで、自分のレベルや目的に合わせて選択できます。
                         </p>
                     </div>
 
-                    <!-- 仕様③ 全初期化ボタン -->
                     <div class="flex justify-end pt-1">
                         <button onclick="app.resetAllProgress()" class="text-xs bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-500 font-bold px-3 py-1.5 rounded-lg border border-slate-200 transition-all flex items-center gap-1.5">
                             <i class="fa-solid fa-rotate-left"></i> 全ステージの初期化
@@ -1972,14 +2012,30 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- 新規追加：適語選択 -->
-                        <div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-indigo-300 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <!-- 新設：３択直接回答 -->
+                        <div onclick="app.startCategory('quickGrammar')" class="bg-gradient-to-br from-indigo-50 to-white border-2 border-indigo-400 hover:border-indigo-600 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">① 文法問題</span>
-                                    ${gc.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
+                                    <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-md">NEW / 基礎</span>
+                                    ${qg.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700"><i class="fa-solid fa-clock-rotate-left"></i> ${qg.pct}%</span>` : ''}
                                 </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">適語選択</h3>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">① 基礎：３択適語選択</h3>
+                                <p class="text-xs text-slate-500 mt-1">${db.quickGrammar.desc}</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
+                                <span>${qg.isStarted ? `Q${qg.currentItem}から再開` : 'トレーニング開始'}</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+
+                        <!-- 既存カテゴリー群 -->
+                        <div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">② 文法ステップ</span>
+                                    ${gc.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
+                                </div>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">適語選択（ステップ式）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.grammarChoice.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
@@ -1988,12 +2044,11 @@
                             </div>
                         </div>
 
-                        <!-- 文法1 -->
                         <div onclick="app.startCategory('grammar1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">② 文法問題</span>
-                                    ${g1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">③ 空所補充</span>
+                                    ${g1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
                                 </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">空所補充（全10問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.grammar1.desc}</p>
@@ -2004,12 +2059,11 @@
                             </div>
                         </div>
 
-                        <!-- 文法2 -->
                         <div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">③ 文法問題</span>
-                                    ${g2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">④ 書き換え</span>
+                                    ${g2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
                                 </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">同意文書き換え（全10問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.grammar2.desc}</p>
@@ -2020,14 +2074,13 @@
                             </div>
                         </div>
 
-                        <!-- 読解 -->
                         <div onclick="app.startCategory('reading')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">④ 読解問題</span>
-                                    ${rd.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
+                                    <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">⑤ 読解長文</span>
+                                    ${rd.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
                                 </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">長文総合（4組・全設問形式）</h3>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">長文総合（4組）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.reading.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
@@ -2036,12 +2089,11 @@
                             </div>
                         </div>
 
-                        <!-- 英作文1 -->
                         <div onclick="app.startCategory('writing1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">⑤ 英作文</span>
-                                    ${w1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${w1.pct}%</span>` : ''}
+                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">⑥ 整序英作</span>
+                                    ${w1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w1.pct}%</span>` : ''}
                                 </div>
                                 <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">整序英作（10問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.writing1.desc}</p>
@@ -2052,14 +2104,13 @@
                             </div>
                         </div>
 
-                        <!-- 英作文2 -->
                         <div onclick="app.startCategory('writing2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 sm:col-span-2 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">⑥ 英作文</span>
-                                    ${w2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100"><i class="fa-solid fa-clock-rotate-left"></i> ${w2.pct}%</span>` : ''}
+                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">⑦ 自由英作</span>
+                                    ${w2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w2.pct}%</span>` : ''}
                                 </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">思考型・型別自由英作文（5問）</h3>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">思考型・自由英作文（5問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.writing2.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
@@ -2092,7 +2143,6 @@
                     state.subQIndex = 0;
                 }
             }
-
             homeBtn.classList.remove('hidden');
             renderQuestion();
         }
@@ -2100,7 +2150,6 @@
         function renderQuestion() {
             window.scrollTo(0, 0);
             saveProgress();
-
             container.classList.remove('fade-in');
             void container.offsetWidth;
             container.classList.add('fade-in');
@@ -2109,12 +2158,17 @@
             const item = catData.items[state.currentIndex];
             const totalItems = catData.items.length;
 
+            if (state.currentCategory === 'quickGrammar') {
+                renderQuickGrammarQuestion(catData, item, totalItems);
+                return;
+            }
+
             if (state.currentCategory === 'reading') {
                 renderReadingQuestion(catData, item, totalItems);
                 return;
             }
 
-            const steps = item.steps;
+            const steps = item.steps || [];
             const isRepro = state.currentStepIndex >= steps.length;
             const progressPct = Math.round(((state.currentIndex * (steps.length + 1) + state.currentStepIndex) / (totalItems * (steps.length + 1))) * 100);
 
@@ -2187,13 +2241,95 @@
             }
         }
 
+        function renderQuickGrammarQuestion(catData, item, totalItems) {
+            const progressPct = Math.round(((state.currentIndex) / totalItems) * 100);
+
+            container.innerHTML = `
+                <div class="flex justify-between items-center mb-4">
+                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">
+                        ${catData.title} （問 ${state.currentIndex + 1} / ${totalItems}）
+                    </span>
+                    <span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
+                    <div class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-indigo-50 border border-indigo-100 p-5 rounded-2xl shadow-sm">
+                        <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">【問題】</span>
+                        <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-relaxed">${item.question}</h3>
+                    </div>
+
+                    <div class="space-y-3" id="options-box">
+                        ${item.opts.map((opt, idx) => `
+                            <button onclick="app.checkQuickGrammarAns(${idx}, ${opt.correct}, '${encodeURIComponent(item.explanation)}')" class="quick-opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 text-sm font-bold flex items-center justify-center flex-shrink-0">${String.fromCharCode(65 + idx)}</span>
+                                <span class="text-base sm:text-lg font-semibold">${opt.t}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div id="feedback-box" class="hidden"></div>
+
+                    <button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+                        <span>次の問題へ進む</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+        }
+
+        function checkQuickGrammarAns(idx, isCorrect, encodedExp) {
+            const fbBox = document.getElementById('feedback-box');
+            const buttons = document.querySelectorAll('.quick-opt-btn');
+            const clickedBtn = buttons[idx];
+            const explanation = decodeURIComponent(encodedExp);
+
+            if (isCorrect) {
+                playSound('correct');
+                confetti({ particleCount: 50, spread: 50, origin: { y: 0.6 } });
+                
+                buttons.forEach(b => {
+                    b.disabled = true;
+                    b.classList.add('opacity-60', 'cursor-not-allowed');
+                });
+
+                clickedBtn.classList.remove('border-slate-200', 'opacity-60');
+                clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
+
+                fbBox.className = 'p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm space-y-2 fade-in';
+                fbBox.innerHTML = `
+                    <div class="font-bold text-base flex items-center gap-2 text-emerald-700">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i> 正解！
+                    </div>
+                    <p class="text-slate-700 font-medium leading-relaxed bg-white/70 p-3 rounded-lg border border-emerald-100">
+                        <span class="font-bold text-emerald-800">【解説】</span><br>${explanation}
+                    </p>
+                `;
+                fbBox.classList.remove('hidden');
+                document.getElementById('next-item-btn').classList.remove('hidden');
+            } else {
+                playSound('wrong');
+                clickedBtn.disabled = true;
+                clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
+
+                fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
+                fbBox.innerHTML = `
+                    <div class="font-bold text-base flex items-center gap-2">
+                        <i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。
+                    </div>
+                    <p class="text-xs text-rose-700">もう一度よく考えて別の選択肢を選んでみましょう！</p>
+                `;
+                fbBox.classList.remove('hidden');
+            }
+        }
+
         function renderReadingQuestion(catData, item, totalItems) {
             saveProgress();
             const subQ = item.subQs[state.subQIndex];
             const totalSubQs = item.subQs.length;
             const hasSteps = state.subQIndex >= totalSubQs;
             const isRepro = state.subQIndex > totalSubQs;
-
             let progressPct = Math.round(((state.currentIndex * (totalSubQs + item.steps.length + 1) + state.subQIndex) / (totalItems * (totalSubQs + item.steps.length + 1))) * 100);
 
             let headerHTML = `
@@ -2295,7 +2431,6 @@
             const buttons = document.querySelectorAll(isRepro ? '.repro-btn' : '.opt-btn');
             const clickedBtn = buttons[idx];
             const fbText = decodeURIComponent(encodedFb);
-
             if (isCorrect) {
                 playSound('correct');
                 if (isRepro) {
@@ -2307,11 +2442,9 @@
                 });
                 clickedBtn.classList.remove('border-slate-200', 'opacity-65');
                 clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
-
                 fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
-
                 if (!isRepro) {
                     document.getElementById('next-step-btn').classList.remove('hidden');
                 } else {
@@ -2321,7 +2454,6 @@
                 playSound('wrong');
                 clickedBtn.disabled = true;
                 clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
-
                 fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。</div><p>${fbText} （別の選択肢を選び直してください）</p>`;
                 fbBox.classList.remove('hidden');
@@ -2333,7 +2465,6 @@
             const buttons = document.querySelectorAll('.opt-btn');
             const clickedBtn = buttons[idx];
             const fbText = decodeURIComponent(encodedFb);
-
             if (isCorrect) {
                 playSound('correct');
                 buttons.forEach(b => {
@@ -2342,17 +2473,14 @@
                 });
                 clickedBtn.classList.remove('border-slate-200', 'opacity-65');
                 clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
-
                 fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
-
                 document.getElementById('next-subq-btn').classList.remove('hidden');
             } else {
                 playSound('wrong');
                 clickedBtn.disabled = true;
                 clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
-
                 fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。</div><p>${fbText} （選び直してください）</p>`;
                 fbBox.classList.remove('hidden');
@@ -2364,23 +2492,19 @@
             const buttons = document.querySelectorAll('.repro-btn');
             const clickedBtn = buttons[idx];
             const fbText = decodeURIComponent(encodedFb);
-
             if (isCorrect) {
                 playSound('correct');
                 confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
                 buttons.forEach(b => b.disabled = true);
                 clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
-
                 fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 読解再現成功！</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
-
                 document.getElementById('next-item-btn').classList.remove('hidden');
             } else {
                 playSound('wrong');
                 clickedBtn.disabled = true;
                 clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900');
-
                 fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解。</div><p>${fbText}</p>`;
                 fbBox.classList.remove('hidden');
@@ -2402,7 +2526,6 @@
             state.currentIndex++;
             state.currentStepIndex = 0;
             state.subQIndex = 0;
-
             if (state.currentIndex >= catData.items.length) {
                 clearCategoryProgress(state.currentCategory);
                 renderClearScreen();
@@ -2415,7 +2538,6 @@
             window.scrollTo(0, 0);
             homeBtn.classList.add('hidden');
             const clearedCat = state.currentCategory;
-
             container.innerHTML = `
                 <div class="text-center py-8 space-y-6 fade-in">
                     <div class="w-24 h-24 bg-gradient-to-tr from-amber-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto shadow-xl text-white text-4xl animate-bounce">
@@ -2424,7 +2546,7 @@
                     <div class="space-y-2">
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950">全ミッション・完全クリア！</h2>
                         <p class="text-sm text-slate-600 max-w-md mx-auto">
-                            おめでとうございます！このジャンルのステップインプットと類題でのアウトプットを完遂しました。
+                            おめでとうございます！このジャンルの問題セットをすべて完遂しました。
                         </p>
                     </div>
                     <div class="pt-4 max-w-sm mx-auto space-y-3">
@@ -2443,6 +2565,7 @@
             renderHome,
             startCategory,
             checkAns,
+            checkQuickGrammarAns,
             checkSubQAns,
             checkReproReading,
             nextStep,
