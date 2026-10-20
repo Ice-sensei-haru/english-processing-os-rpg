@@ -55,7 +55,7 @@
 
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-        高校入試英語 思考プロセス・トレーニング &copy; 2026
+        高校入試英語 判断・処理・再現・トレーニング &copy; 2026
     </footer>
 
     <!-- SFX Audio Controller -->
@@ -117,8 +117,28 @@
                 items: [
                     {
                         id: 1,
+                        question: "Tom and I (  ) on the soccer team. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "主語がTom and Iのように複数のとき、be動詞はareになります。",
+                        opts: [
+                            { t: "A: am", correct: false },
+                            { t: "B: is", correct: false },
+                            { t: "C: are", correct: true }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        question: "This is (  ) book. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "名詞の前に置く代名詞には所有格（my）を使います。",
+                        opts: [
+                            { t: "A: him", correct: false },
+                            { t: "B: my", correct: true },
+                            { t: "C: hers", correct: false }
+                        ]
+                    },
+                    {
+                        id: 3,
                         question: "I play tennis with (  ). の空所に入る最も適切な語を選びなさい。",
-                        explanation: "前置詞の後ろで単独で使う代名詞は目的格（him）になります。",
+                        explanation: "動詞や前置詞の後ろで単独で使う代名詞は目的格（him）になります。",
                         opts: [
                             { t: "A: he", correct: false },
                             { t: "B: his", correct: false },
@@ -126,13 +146,73 @@
                         ]
                     },
                     {
-                        id: 2,
-                        question: "She (  ) to school yesterday. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "yesterday（昨日）があるので過去形（went）を使います。",
+                        id: 4,
+                        question: "This cup is (  ). の空所に入る最も適切な語を選びなさい。",
+                        explanation: "主語がもの（cup）なので、所有代名詞（his）を使います。",
                         opts: [
-                            { t: "A: go", correct: false },
-                            { t: "B: went", correct: true },
-                            { t: "C: goes", correct: false }
+                            { t: "A: you", correct: false },
+                            { t: "B: her", correct: false },
+                            { t: "C: his", correct: true }
+                        ]
+                    },
+                    {
+                        id: 5,
+                        question: "Whose books are those? - (  ) are Tom's. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "疑問文の主語がthoseと複数なので、答える代名詞の主格はtheyになります。",
+                        opts: [
+                            { t: "A: These", correct: false },
+                            { t: "B: Those", correct: false },
+                            { t: "C: They", correct: true }
+                        ]
+                    },
+                    {
+                        id: 6,
+                        question: "I have a cat. (  ) eyes are blue. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "名詞の前の代名詞には所有格（Its）を使います。",
+                        opts: [
+                            { t: "A: Its", correct: true },
+                            { t: "B: It's", correct: false },
+                            { t: "C: It", correct: false }
+                        ]
+                    },
+                    {
+                        id:7,
+                        question: "I (  ) this bike. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "後ろの単語とのつながりでuseになります。",
+                        opts: [
+                            { t: "A: live", correct: false },
+                            { t: "B: use", correct: true },
+                            { t: "C: look", correct: false }
+                        ]
+                    },
+                    {
+                        id: 8,
+                        question: "She (  ) tired. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "後ろの単語（tired）が主語（she）の状態を表しているのでlookになります。",
+                        opts: [
+                            { t: "A: watiches", correct: false },
+                            { t: "B: sees", correct: false },
+                            { t: "C: looks", correct: true }
+                        ]
+                    },
+                    {
+                        id:9,
+                        question: "I will (  ) my mother a letter. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "後ろが人（my mother）、もの（a letter）なのでsendになります。",
+                        opts: [
+                            { t: "A: walk", correct: false },
+                            { t: "B: send", correct: true },
+                            { t: "C: play", correct: false }
+                        ]
+                    },
+                    {
+                        id: 10,
+                        question: "We should (  ) the river clean. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "後ろがthe river = cleanとなる関係なのでkeepになります。",
+                        opts: [
+                            { t: "A: wash", correct: false },
+                            { t: "B: give", correct: false },
+                            { t: "C: keep", correct: true }
                         ]
                     }
                     // 💡 新しい問題はここへカンマ(,)で繋いで自由に追加できます！
@@ -1998,7 +2078,7 @@
                             高校入試英語・思考力養成プラットフォーム
                         </span>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                            思考プロセス再現トレーニング
+                            判断・処理・再現トレーニング
                         </h2>
                         <p class="text-sm text-slate-600 max-w-lg mx-auto">
                             直接回答からステップ確認まで、自分のレベルや目的に合わせて選択できます。
@@ -2016,10 +2096,10 @@
                         <div onclick="app.startCategory('quickGrammar')" class="bg-gradient-to-br from-indigo-50 to-white border-2 border-indigo-400 hover:border-indigo-600 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-md">NEW / 基礎</span>
+                                    <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-md">① 基礎問題</span>
                                     ${qg.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700"><i class="fa-solid fa-clock-rotate-left"></i> ${qg.pct}%</span>` : ''}
                                 </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">① 基礎：３択適語選択</h3>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">３択適語選択</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.quickGrammar.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
@@ -2032,10 +2112,10 @@
                         <div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                             <div>
                                 <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">② 文法ステップ</span>
+                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">② 語形変化</span>
                                     ${gc.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
                                 </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">適語選択（ステップ式）</h3>
+                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">動詞の語形変化（ステップ式全20問）</h3>
                                 <p class="text-xs text-slate-500 mt-1">${db.grammarChoice.desc}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
