@@ -2423,7 +2423,6 @@
 
         function renderQuickGrammarQuestion(catData, item, totalItems) {
             const progressPct = Math.round(((state.currentIndex) / totalItems) * 100);
-
             container.innerHTML = `
                 <div class="flex justify-between items-center mb-4">
                     <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">
@@ -2434,36 +2433,34 @@
                 <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
                     <div class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
                 </div>
-
                 <div class="space-y-6">
                     <div class="bg-indigo-50 border border-indigo-100 p-5 rounded-2xl shadow-sm">
                         <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">【問題】</span>
                         <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-relaxed">${item.question}</h3>
                     </div>
-
                     <div class="space-y-3" id="options-box">
                         ${item.opts.map((opt, idx) => `
-                            <button onclick="app.checkQuickGrammarAns(${idx}, ${opt.correct}, '${encodeURIComponent(item.explanation)}')" class="quick-opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-center gap-3">
+                            <button onclick="app.checkQuickGrammarAns(${idx},${opt.correct})" class="quick-opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 text-sm font-bold flex items-center justify-center flex-shrink-0">${String.fromCharCode(65 + idx)}</span>
                                 <span class="text-base sm:text-lg font-semibold">${opt.t}</span>
                             </button>
                         `).join('')}
                     </div>
-
                     <div id="feedback-box" class="hidden"></div>
-
                     <button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                        <span>次の問題へ進む</span> <i class="fa-solid fa-arrow-right"></i>
+                        <span>${state.currentIndex + 1 === totalItems ? '結果を見る・クリア！' : '次の問題へ進む'}</span> <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
             `;
         }
 
-        function checkQuickGrammarAns(idx, isCorrect, encodedExp) {
+        function checkQuickGrammarAns(idx, isCorrect) {
             const fbBox = document.getElementById('feedback-box');
             const buttons = document.querySelectorAll('.quick-opt-btn');
             const clickedBtn = buttons[idx];
-            const explanation = decodeURIComponent(encodedExp);
+            const catData = db[state.currentCategory];
+            const item = catData.items[state.currentIndex];
+            const explanation = item.explanation || '';
 
             if (isCorrect) {
                 playSound('correct');
@@ -2473,10 +2470,8 @@
                     b.disabled = true;
                     b.classList.add('opacity-60', 'cursor-not-allowed');
                 });
-
                 clickedBtn.classList.remove('border-slate-200', 'opacity-60');
                 clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
-
                 fbBox.className = 'p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm space-y-2 fade-in';
                 fbBox.innerHTML = `
                     <div class="font-bold text-base flex items-center gap-2 text-emerald-700">
@@ -2492,7 +2487,6 @@
                 playSound('wrong');
                 clickedBtn.disabled = true;
                 clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
-
                 fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
                 fbBox.innerHTML = `
                     <div class="font-bold text-base flex items-center gap-2">
@@ -2503,7 +2497,6 @@
                 fbBox.classList.remove('hidden');
             }
         }
-
         function renderReadingQuestion(catData, item, totalItems) {
             saveProgress();
             const subQ = item.subQs[state.subQIndex];
