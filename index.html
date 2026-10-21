@@ -1880,8 +1880,8 @@ grammar2: {
                 ]
             },
 reading: {
-                title: "⑤ 読解問題（全4組）",
-                desc: "テーマ選択・英問英答・内容正誤をセットにした実践読解4組。",
+                title: "⑤ 読解問題（全5組）",
+                desc: "テーマ選択・英問英答・内容正誤をセットにした実践読解5組。",
                 items: [
                     {
                         id: 1,
@@ -1903,8 +1903,8 @@ reading: {
                         ],
                         steps: [
                             { title: "【着眼】読解の段落構造とキーワード把握", q: "長文を解く際、最初に筆者の主張（トピックセンテンス）が見つかりやすい場所は？", opts: [
-                                {t: "段落の冒頭や末尾、Howeverなどの逆接の直後", correct: true, fb: "正解！筆者の主張が置かれやすい場所です。"},
-                                {t: "本文の最後の単語だけ", correct: false, fb: "不正解です。"}
+                                {t: "本文の最後の文章だけ", correct: false, fb: "不正解です。"},
+                                {t: "段落の冒頭や末尾、Howeverなどの逆接の直後", correct: true, fb: "正解！筆者の主張が置かれやすい場所です。"}
                             ]}
                         ],
                         repro: {
@@ -1921,8 +1921,8 @@ reading: {
                         passage: "【長文読解 第2組】<br>\"In recent years, many cafes have started offering vegan menus. Vegan food uses no animal products. This change is good for our health and also helps protect the global environment by reducing carbon emissions.\n  ※vegan：完全菜食主義、ビーガン\"",
                         subQs: [
                             { type: "テーマ選択", title: "問1：テーマ選択", q: "この文章の主旨として最も適切なものは？", opts: [
-                                {t: "カフェにおけるビーガンメニューの広がりとその利点", correct: true, fb: "正解！健康と環境へのメリットが述べられています。"},
-                                {t: "肉料理の美味しいレストランの選び方", correct: false, fb: "不正解。"}
+                                {t: "肉料理の美味しいレストランの選び方", correct: false, fb: "不正解。"},
+                                {t: "カフェにおけるビーガンメニューの広がりとその利点", correct: true, fb: "正解！健康と環境へのメリットが述べられています。"}        
                             ]},
                             { type: "英問英答", title: "問2：英問英答", q: "Question: Are animal products used for vegan food?", opts: [
                                 {t: "No, they aren't.", correct: true, fb: "正解！「uses no animal products」が根拠です。"},
@@ -1943,8 +1943,8 @@ reading: {
                             passage: "【読解・類題テスト】<br>\"Using bicycles instead of cars reduces air pollution and keeps us healthy.\"",
                             q: "自転車を使うことの利点として正しいものは？",
                             opts: [
-                                {t: "大気汚染を減らし、健康を維持できること", correct: true, fb: "正解！メリット把握の再現に成功しました！"},
-                                {t: "車よりも遠くに早く行けること", correct: false, fb: "不正解。"}
+                                {t: "車よりも遠くに早く行けること", correct: false, fb: "不正解。"},
+                                {t: "大気汚染を減らし、健康を維持できること", correct: true, fb: "正解！メリット把握の再現に成功しました！"}        
                             ]
                         }
                     },
@@ -1957,18 +1957,18 @@ reading: {
                                 {t: "Tomが科学のテストで不合格になったこと", correct: false, fb: "不正解。"}
                             ]},
                             { type: "英問英答", title: "問2：英問英答", q: "Question: What did Tom find last night?", opts: [
-                                {t: "He found a bright new comet.", correct: true, fb: "正解！ ２文目のLast night,に注目する。find は discovered「発見した」とほぼ同意。"},
-                                {t: "He found a broken telescope.", correct: false, fb: "不正解。"}
+                                {t: "He found a broken telescope.", correct: false, fb: "不正解。"},
+                                {t: "He found a bright new comet.", correct: true, fb: "正解！ ２文目のLast night,に注目する。find は discovered「発見した」とほぼ同意。"}        
                             ]},
                             { type: "内容正誤", title: "問3：内容の正誤", q: "本文の記述に合うものはどれか？", opts: [
-                                {t: "Tom told his science teacher about his discovery.", correct: true, fb: "正解！ shared the news with his teacher と一致します。"},
-                                {t: "Tom kept his discovery a secret from everyone.", correct: false, fb: "先生に共有しているため誤り。"}
+                                {t: "Tom kept his discovery a secret from everyone.", correct: false, fb: "先生に共有しているため誤り。"},
+                                {t: "Tom told his science teacher about his discovery.", correct: true, fb: "正解！ shared the news with his teacher と一致します。"}        
                             ]}
                         ],
                         steps: [
                             { title: "【着眼】ストーリー型の時系列把握", q: "物語文（ストーリー）で出来事の順序を問われたとき、最初に見るべきマーカーは？", opts: [
-                                {t: "Last night や Then などの時を表す副詞句", correct: true, fb: "正解！時系列の目印になります。"},
-                                {t: "文末のピリオドの数", correct: false, fb: "不正解。"}
+                                {t: "Last night や When などの時を表す副詞句（節）", correct: true, fb: "正解！時系列の目印になります。"},
+                                {t: "according toやfor exampleなどの具体例の数", correct: false, fb: "不正解。"}
                             ]}
                         ],
                         repro: {
@@ -1989,8 +1989,8 @@ reading: {
                                 {t: "ガソリンスタンドの経営難について", correct: false, fb: "不正解。"}
                             ]},
                             { type: "英問英答", title: "問2：英問英答", q: "Question: Why are EVs cleaner than gasoline cars?", opts: [
-                                {t: "Because they do not emit gas.", correct: true, fb: "正解！「do not emit gas」が直接の原因です。"},
-                                {t: "Because they are much heavier.", correct: false, fb: "不正解。"}
+                                {t: "Because they are much heavier.", correct: false, fb: "不正解。"},
+                                {t: "Because they do not emit gas.", correct: true, fb: "正解！「do not emit gas」が直接の原因です。"}        
                             ]},
                             { type: "内容正誤", title: "問3：内容の正誤", q: "本文の内容に一致するものは？", opts: [
                                 {t: "EVs contribute to making urban environments better.", correct: true, fb: "正解！ making our urban environment better と一致します。"},
@@ -1999,16 +1999,48 @@ reading: {
                         ],
                         steps: [
                             { title: "【判断】比較表現の優劣の読み取り", q: "「quieter and cleaner」という比較級の形容詞が指しているものは？", opts: [
-                                {t: "従来のものに比べて、音や汚れの面で優れている点", correct: true, fb: "正解！比較の焦点を正確に見抜いています。"},
-                                {t: "車両の価格や色のバラエティ", correct: false, fb: "不正解です。"}
+                                {t: "車両の価格や色のバラエティ", correct: false, fb: "不正解です。"},
+                                {t: "従来のものに比べて、音や汚れの面で優れている点", correct: true, fb: "正解！比較の焦点を正確に見抜いています。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【読解・類題テスト】<br>\"Smartphones are much smaller and lighter than old computers, making them very portable.\"",
                             q: "スマホが持ち運びやすい理由は？",
                             opts: [
-                                {t: "古いパソコンよりはるかに小さく軽いから", correct: true, fb: "正解！比較表現の読解再現に成功しました！"},
-                                {t: "バッテリーが一生切れないから", correct: false, fb: "不正解。"}
+                                {t: "バッテリーが一生切れないから", correct: false, fb: "不正解。"},
+                                {t: "古いパソコンよりはるかに小さく軽いから", correct: true, fb: "正解！比較表現の読解再現に成功しました！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 5,
+                        passage: "【長文読解 第5組】<br>\"Many supermarkets now sell food that is close to its expiration date at lower prices. This helps reduce food waste. Customers can save money, and stores can reduce waste, which is good for both people and the environment.\"",
+                        subQs: [
+                            { type: "テーマ選択", title: "問1：テーマ選択", q: "この文章の主題として最も適切なものは？", opts: [
+                                {t: "スーパーにおける期限間近の食品の割引販売と、そのメリット", correct: true, fb: "正解！フードロス削減と消費者・店舗双方のメリットが述べられています。"},
+                                {t: "新しいスーパーマーケットの開店セール情報", correct: false, fb: "不正解。"}
+                            ]},
+                            { type: "英問英答", title: "問2：英問英答", q: "Question: Why do supermarkets sell food at lower prices?", opts: [
+                                {t: "To help reduce food waste.", correct: true, fb: "正解！「This helps reduce food waste」が理由です。"},
+                                {t: "To make the store bigger.", correct: false, fb: "不正解です。"}
+                            ]},
+                            { type: "内容正誤", title: "問3：内容の正誤", q: "本文の内容に一致しているものはどれか？", opts: [
+                                {t: "Buying food close to its expiration date is only good for stores.", correct: false, fb: "「good for both people and the environment」とあるため誤り。"},
+                                {t: "Selling food near its expiration date helps cut down on food waste.", correct: true, fb: "正解！内容と完全に一致します。"}
+                            ]}
+                        ],
+                        steps: [
+                            { title: "【着眼】目的や理由を表す不定詞（副詞的用法）の把握", q: "文章中で「〜するために」という目的を表すときに見つけやすい形は？", opts: [
+                                {t: "to ＋ 動詞の原形 のかたまり", correct: true, fb: "正解！不定詞の副詞的用法の目印です。"},
+                                {t: "文頭の数字だけ", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【読解・類題テスト】<br>\"Libraries collect old books to share knowledge with more people and protect our culture.\"",
+                            q: "図書館が古い本を集める目的として正しいものは？",
+                            opts: [
+                                {t: "より多くの人と知識を共有し、文化を守るため", correct: true, fb: "正解！目的を表す表現の読解再現に成功しました！"},
+                                {t: "古い本をすべて捨てるため", correct: false, fb: "不正解。"}
                             ]
                         }
                     }
@@ -2525,7 +2557,7 @@ ${g2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <span class="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-bold rounded">⑤ 読解</span>
 ${rd.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">読解総合（全4題）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">読解総合（全5題）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${rd.isStarted ? `第${rd.currentItem}組から再開` : '開始'}</span>
