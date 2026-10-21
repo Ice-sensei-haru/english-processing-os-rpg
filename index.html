@@ -2487,6 +2487,19 @@ ${w1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 </div>
 </div>
 </div>
+<div onclick="app.startCategory('writing2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded">⑦ 自由英作文</span>
+${w2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w2.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">思考型・型別自由英作文</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${w2.isStarted ? `Q${w2.currentItem}から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
 
 <!-- 頻出表現120系 -->
 <div class="border-b border-slate-200 pb-2 pt-4">
