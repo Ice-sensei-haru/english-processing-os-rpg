@@ -359,7 +359,7 @@ const db = {
                     {
                         id: 8,
                         question: "「あなたは医者に診てもらうべきです。」となる英文を選びなさい。",
-                        explanation: "助動詞は文末の表現（気持ち）に合わせて選択します。",
+                        explanation: "助動詞can, will, must, may, shouldは文末の表現（気持ち）に合わせて選択します。",
                         opts: [
                             { t: "A: You must go to a doctor.", correct: false },
                             { t: "B: You should see a doctor.", correct: true },
@@ -372,7 +372,7 @@ const db = {
                         explanation: "助動詞は、許可・依頼・禁止・提案・申し出・勧誘の表現でも使います。",
                         opts: [
                             { t: "A: How about playing soccer with us?", correct: false },
-                            { t: "B: Slall we play soccer?", correct: false },
+                            { t: "B: Shall we play soccer?", correct: false },
                             { t: "C: Will you play soccer for us?", correct: true }
                         ]
                     },
@@ -389,7 +389,7 @@ const db = {
                     {
                         id: 11,
                         question: "She (  ) busy with her report. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "使う動詞によって後につながる言葉が決まります。busyは主語の状態を表しています。（第２文型）",
+                        explanation: "look, sound, feelのような動詞は、後ろに主語の状態（形容詞）を表す語がつながります。（第２文型）",
                         opts: [
                             { t: "A: runs", correct: false },
                             { t: "B: looks", correct: true },
@@ -399,7 +399,7 @@ const db = {
                     {
                         id: 12,
                         question: "I will (  ) my mother a letter. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "人、ものがつながる動詞はgiveやshowといった動詞になります。（第４文型）",
+                        explanation: "send, give, show, teachなどの動詞は、後ろに「人・もの」がつながります。（第４文型）",
                         opts: [
                             { t: "A: walk", correct: false },
                             { t: "B: send", correct: true },
@@ -409,7 +409,7 @@ const db = {
                     {
                         id: 13,
                         question: "We should (  ) the river clean. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "目的語、補語がつながる動詞はcallやmakeといった動詞になります。（第５文型）",
+                        explanation: "call, name, make, leaveなどの動詞は、後ろに「目的語、補語」がつながります。（第５文型）",
                         opts: [
                             { t: "A: wash", correct: false },
                             { t: "B: give", correct: false },
@@ -449,7 +449,7 @@ const db = {
                     {
                         id: 17,
                         question: "I do my homework before (  ) dinner. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "前置詞の後ろの動詞の形には、動名詞を使います。",
+                        explanation: "before, at, aboutなどの前置詞の後ろの動詞の形には、動名詞を使います。",
                         opts: [
                             { t: "A: have", correct: false },
                             { t: "B: to have", correct: false },
@@ -568,12 +568,12 @@ const db = {
                     },
                     {
                         id: 29,
-                        question: "She usually goes to bed (  ) eleven o'clock. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "前置詞は後の続く名詞とブロックにして、副詞や形容詞の働きをします。",
+                        question: "I have a dog (  ) long ears. の空所に入る最も適切な語を選びなさい。",
+                        explanation: "前置詞は後の続く名詞とブロックにして、形容詞や副詞の働きをします。［a dogを修飾］",
                         opts: [
                             { t: "A: in", correct: false },
-                            { t: "B: on", correct: false },
-                            { t: "C: at", correct: true }
+                            { t: "B: for", correct: false },
+                            { t: "C: with", correct: true }
                         ]
                     },
                     {
@@ -1429,8 +1429,8 @@ grammar1: {
                                 {t: "過去分詞", correct: false, fb: "不正解。それは受動態や完了形です。"}
                             ]},
                             { title: "【判断】ヘルプ（help）の重要熟語の選択", q: "「人に〜するのを手伝う」という意味の help 人 ( ) 物の形に入る前置詞はどれ？", opts: [
-                                {t: "with", correct: true, fb: "正解！ help A with B（BのことでAを手伝う）の語法です。"},
                                 {t: "for", correct: false, fb: "不正解です。"},
+                                {t: "with", correct: true, fb: "正解！ help A with B（BのことでAを手伝う）の語法です。"},
                                 {t: "to", correct: false, fb: "不正解です。"}
                             ]}
                         ],
@@ -1438,9 +1438,9 @@ grammar1: {
                             passage: "【類題テスト】<br>「母は私が料理するのを手伝ってくれました。」<br>My mother helped me ( ) cooking.",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "with", correct: true, fb: "正解！ help 人 with 物 の再現成功です！"},
+                                {t: "at", correct: false, fb: "不正解です。"},                                 
                                 {t: "for", correct: false, fb: "惜しい！ with です。"},
-                                {t: "at", correct: false, fb: "不正解です。"}
+                                {t: "with", correct: true, fb: "正解！ help 人 with 物 の再現成功です！"}
                             ]
                         }
                     },
@@ -1449,8 +1449,8 @@ grammar1: {
                         passage: `Q2. 「来週のロンドンの天気はどうでしょうか。」<br><strong>"How (  ) the weather (  ) in London next week?"</strong>`,
                         steps: [
                             { title: "【着眼】天気を尋ねる定型文の確認", q: "「天気がどうなるか」を尋ねる疑問文の2つの定番表現は？", opts: [
-                                {t: "How is the weather? または What is the weather like?", correct: true, fb: "正解！この2つの形を瞬時に思い出すのが着眼のコツです。"},
-                                {t: "How does the weather do?", correct: false, fb: "不正解。このような表現はしません。"}
+                                {t: "How does the weather do?", correct: false, fb: "不正解。このような表現はしません。"},
+                                {t: "How is the weather? または What is the weather like?", correct: true, fb: "正解！この2つの形を瞬時に思い出すのが着眼のコツです。"}        
                             ]},
                             { title: "【判断】時制（来週＝未来）の処理", q: "文末に「next week（来週）」とあるため、時制はどうなる？", opts: [
                                 {t: "未来を表す助動詞 will を使う", correct: true, fb: "正解！ will be とすることで「来週どうなるか」を表します。"},
@@ -1461,8 +1461,9 @@ grammar1: {
                             passage: "【類題テスト】<br>「明日の東京の天気はどうなるでしょうか。」<br>How ( ) the weather ( ) in Tokyo tomorrow?",
                             q: "空所に当てはまる正しい語の組み合わせは？",
                             opts: [
-                                {t: "will / be", correct: true, fb: "正解！未来の天気を尋ねる表現の再現成功です！"},
-                                {t: "is / doing", correct: false, fb: "不正解です。"}
+                                {t: "will / is", correct: false, fb: "不正解です。"},
+                                {t: "is / doing", correct: false, fb: "不正解です。"},
+                                {t: "will / be", correct: true, fb: "正解！未来の天気を尋ねる表現の再現成功です！"}
                             ]
                         }
                     },
@@ -1480,33 +1481,35 @@ grammar1: {
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「メアリーは私に人形を作ってくれました。」<br>Mary made a doll ( )( ) me.",
+                            passage: "【類題テスト】<br>「メアリーは私に人形を作ってくれました。」<br>Mary ( ) a doll ( ) me.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "for / me", correct: true, fb: "正解！ make 型の書き換え再現成功です！"},
-                                {t: "to / me", correct: false, fb: "不正解。makeは for です。"}
+                                {t: "made / for", correct: true, fb: "正解！ make 型の書き換え再現成功です！"},
+                                {t: "made / to", correct: false, fb: "不正解。makeは for です。"},
+                                {t: "made / from", correct: false, fb: "不正解。makeは for です。"}        
                             ]
                         }
                     },
                     {
                         id: 4,
-                        passage: `Q4. 「野菜を食べることは健康によいことです。」<br><strong>"(  ) vegetables (  ) good (  ) your health."</strong>`,
+                        passage: `Q4. 「野菜を食べることは健康によいことです。」<br><strong>"(  ) vegetables (  ) good for your health."</strong>`,
                         steps: [
                             { title: "【着眼】主語の位置に置く動詞の形", q: "「〜すること」という名詞のカタマリを文の主語（一番最初）に置くときの動詞の形は？", opts: [
-                                {t: "動名詞（〜ing）または不定詞（to 〜）", correct: true, fb: "正解！ Eating または To eat が文頭にきます。"},
-                                {t: "動詞の原形", correct: false, fb: "不正解。動詞の原形をそのまま主語には置けません。"}
+                                {t: "動詞の原形", correct: false, fb: "不正解。動詞の原形をそのまま主語には置けません。"},
+                                {t: "動名詞（〜ing）または不定詞（to 〜）", correct: true, fb: "正解！ Eating または To eat が文頭にきます。"}       
                             ]},
-                            { title: "【判断】「〜によい」の熟語の選択", q: "「健康によい」を表すときの定番の表現は be ( ) health のどれ？", opts: [
-                                {t: "good for", correct: true, fb: "正解！ be good for 〜（〜に良い）の語法です。"},
-                                {t: "good at", correct: false, fb: "惜しい！ good at は「〜が得意だ」です。"}
+                            { title: "【判断】「〜によい」の熟語の選択", q: "主語が不定詞や動名詞のときに使うbe動詞はどれ？", opts: [
+                                {t: "areやwere", correct: false, fb: "不正解です。３人称単数扱いです。"},
+                                {t: "isやwas", correct: true, fb: "正解！ 不定詞や動名詞の主語は３人称単数扱いです。"}        
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「毎日英語を勉強することは大切です。」<br>( ) English every day is important.",
+                            passage: "【類題テスト】<br>「本を読むことは大切です。」<br>( ) books ( ) important.",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "Studying", correct: true, fb: "正解！動名詞を主語にする構文の再現成功です！"},
-                                {t: "Study", correct: false, fb: "不正解です。"}
+                                {t: "Reading / is", correct: true, fb: "正解！動名詞を主語にする構文の再現成功です！"},
+                                {t: "To read / are", correct: false, fb: "不正解です。"},
+                                {t: "Read / is", correct: false, fb: "不正解です。"}     
                             ]
                         }
                     },
@@ -1524,11 +1527,12 @@ grammar1: {
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「何か冷たい飲み物をいただけますか。」<br>Can I have ( )( ) to drink?",
+                            passage: "【類題テスト】<br>「何か冷たい飲み物をいただけますか。」<br>Can I have ( )( )( ) drink?",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "something / cold", correct: true, fb: "-thingの後ろからの形容詞修飾の再現成功です！"},
-                                {t: "cold / something", correct: false, fb: "不正解です。"}
+                                {t: "something / to / cold", correct: false, fb: "不正解です。"},
+                                {t: "cold / something / to", correct: false, fb: "不正解です。"}
+                                {t: "something / cold / to", correct: true, fb: "-thingの後ろからの形容詞修飾の再現成功です！"}        
                             ]
                         }
                     },
@@ -1536,9 +1540,9 @@ grammar1: {
                         id: 6,
                         passage: `Q6. 「なぜ彼らはそんなに忙しかったのですか。」<br><strong>"What (  )(  ) so busy?"</strong>`,
                         steps: [
-                            { title: "【着眼】特殊な疑問詞（What ＋ 動詞）の構造", q: "「何が彼らをそんなに忙しくさせたのか」という、主語が疑問詞になる特殊な疑問文の動詞は？", opts: [
-                                {t: "使役動詞 make の過去形 made", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"},
-                                {t: "did they make", correct: false, fb: "惜しい！疑問詞（What）が主語のときは肯定文の語順になります。"}
+                            { title: "【着眼】特殊な疑問詞（What ＋ 動詞）の構造", q: "「何が彼らをそんなに忙しくさせたのか」という解釈で動詞を使うと？", opts: [
+                                {t: "did they make so busy", correct: false, fb: "惜しい！疑問詞（What）が主語のときは肯定文の語順になります。"},
+                                {t: "made them so busy", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"}        
                             ]},
                             { title: "【判断】使役動詞の目的格の選択", q: "「彼らを」にあたる目的格の人称代名詞はどれ？", opts: [
                                 {t: "them", correct: true, fb: "正解！ made them so busy 目的格＋形容詞の組み合わせです。"},
@@ -1549,8 +1553,9 @@ grammar1: {
                             passage: "【類題テスト】<br>「何があなたをそんなに悲しませたのですか。」<br>What ( )( ) so sad?",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "made / you", correct: true, fb: "正解！使役動詞の疑問文の再現成功です！"},
-                                {t: "did / make", correct: false, fb: "不正解です。"}
+                                {t: "you / made", correct: false, fb: "不正解です。"},
+                                {t: "made / you", correct: true, fb: "正解！使役動詞の疑問文の再現成功です！"},        
+                                {t: "did / make", correct: false, fb: "不正解です。"}                                        
                             ]
                         }
                     },
@@ -1563,15 +1568,16 @@ grammar1: {
                                 {t: "to take which train", correct: false, fb: "不正解です。"}
                             ]},
                             { title: "【判断】文全体の接続の確認", q: "tell us の後ろに続く目的語として、どちらが収まるか確認する。", opts: [
-                                {t: "収まる（which train to take）", correct: true, fb: "正解！ whichやwhat＋名詞＋不定詞の形です。"},
-                                {t: "which to take train", correct: false, fb: "不正解です。"}
+                                {t: "which to take train", correct: false, fb: "不正解です。"},
+                                {t: "which train to take", correct: true, fb: "正解！ whichやwhat＋名詞＋不定詞の形です。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「どちらの本を読むべきか教えてください。」<br>Please tell me ( )( )( ) read.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "which / book / to", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の再現成功です！"},
+                                {t: "book / which / to", correct: false, fb: "不正解です。"},
+                                {t: "which / book / to", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の再現成功です！"},        
                                 {t: "to / read / which", correct: false, fb: "不正解です。"}
                             ]
                         }
@@ -1581,8 +1587,8 @@ grammar1: {
                         passage: `Q8. 「彼は５歳のときからピアノを弾いています。」<br><strong>"He has (  ) the piano (  ) he was five."</strong>`,
                         steps: [
                             { title: "【着眼】現在完了継続の文構造", q: "has ＋ 過去分詞 で表す現在完了で、「ずっと〜している」を表すときの動詞 play の過去分詞形は？", opts: [
-                                {t: "played", correct: true, fb: "正解！ has played の形になります。"},
-                                {t: "playing", correct: false, fb: "不正解。現在分詞では完了形が作れません。"}
+                                {t: "playing", correct: false, fb: "不正解。現在分詞では完了形が作れません。"},
+                                {t: "played", correct: true, fb: "正解！ has played の形になります。"}
                             ]},
                             { title: "【判断】起点（〜のときから）を表す接続詞", q: "後ろに「he was five（5歳だった）」という主語・動詞の文が来るとき、その前に置く「〜以来」を表す接続詞は？", opts: [
                                 {t: "since", correct: true, fb: "正解！ 完了形 ＋ since ＋ 節（S+V）の語法です。"},
@@ -1594,7 +1600,8 @@ grammar1: {
                             q: "空所に当てはまる正しい語の組み合わせは？",
                             opts: [
                                 {t: "studied / since", correct: true, fb: "正解！現在完了継続と since の再現成功です！"},
-                                {t: "studied / for", correct: false, fb: "不正解。後ろがS+Vなので since です。"}
+                                {t: "studied / for", correct: false, fb: "不正解。後ろがS+Vなので since です。"},
+                                {t: "studied / when", correct: false, fb: "不正解。whenは現在完了形では使いません。"}        
                             ]
                         }
                     },
@@ -1603,8 +1610,8 @@ grammar1: {
                         passage: `Q9. 「その山はここから見ることができます。」<br><strong>"The mountain can (  )(  ) from here."</strong>`,
                         steps: [
                             { title: "【着眼】助動詞を含む受動態の構造", q: "「〜することができる（can）」と「〜される（受動態）」を組み合わせるときの語順は？", opts: [
-                                {t: "助動詞 ＋ be ＋ 過去分詞", correct: true, fb: "正解！ can be 過去分詞 の形になります。"},
-                                {t: "be ＋ 助動詞 ＋ 過去分詞", correct: false, fb: "不正解。助動詞が常に前です。"}
+                                {t: "be ＋ 助動詞 ＋ 過去分詞", correct: false, fb: "不正解。助動詞が常に前です。"},
+                                {t: "助動詞 ＋ be ＋ 過去分詞", correct: true, fb: "正解！ can be 過去分詞 の形になります。"}       
                             ]},
                             { title: "【判断】動詞 see の過去分詞形", q: "see の過去分詞形はどれ？", opts: [
                                 {t: "seen", correct: true, fb: "正解！ can be seen （見ることができる）の完成です。"},
@@ -1615,8 +1622,9 @@ grammar1: {
                             passage: "【類題テスト】<br>\"This book is read in English.\" のような受動態：<br>「この本は英語で読まれるべきです。」<br>This book should ( )( ) in English.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "be / read", correct: true, fb: "正解！助動詞の受動態の再現成功です！"},
-                                {t: "read / be", correct: false, fb: "不正解です。"}
+                                {t: "is / read", correct: false, fb: "不正解です。"},
+                                {t: "read / be", correct: false, fb: "不正解です。"},
+                                {t: "be / read", correct: true, fb: "正解！助動詞の受動態の再現成功です！"}
                             ]
                         }
                     },
@@ -1625,20 +1633,21 @@ grammar1: {
                         passage: `Q10. 「リサの父親は彼女をそこに行かせたくはなかった。」<br><strong>"Lisa's father didn't want to (  ) her (  ) there."</strong>`,
                         steps: [
                             { title: "【着眼】使役動詞（let）の語法", q: "「人に〜させてやる（させる）」という意味を表す使役動詞で、want to の後ろの to 不定詞の中に組み込めるものは？", opts: [
-                                {t: "let （let 人 動詞の原形）", correct: true, fb: "正解！ want to let her go の形を作ります。"},
-                                {t: "make", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"}
+                                {t: "make", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"},
+                                {t: "let （let 人 動詞の原形）", correct: true, fb: "正解！ want to let her go の形を作ります。"}        
                             ]},
                             { title: "【判断】動詞の形の選択", q: "let 人 の後ろに続く動詞の形はどうなる？", opts: [
-                                {t: "動詞の原形（go）", correct: true, fb: "正解！ let 人 動詞の原形 のルールです。"},
-                                {t: "to go", correct: false, fb: "不正解。letの後ろに to は不要です。"}
+                                {t: "to go", correct: false, fb: "不正解。letの後ろに to は不要です。"},
+                                {t: "動詞の原形（go）", correct: true, fb: "正解！ let 人 動詞の原形 のルールです。"}
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「母は私にテレビを見せてくれました。」<br>My mother let me ( ) TV.",
+                            passage: "【類題テスト】<br>「母は私にテレビを見せてくれました。」<br>My mother ( ) me ( ) TV.",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "watch", correct: true, fb: "正解！使役動詞 let の後での動詞の原形の再現成功です！"},
-                                {t: "to watch", correct: false, fb: "不正解です。"}
+                                {t: "let / watch", correct: true, fb: "正解！使役動詞 let の後での動詞の原形の再現成功です！"},
+                                {t: "lets / to watch", correct: false, fb: "不正解です。"},
+                                {t: "lets / watch", correct: false, fb: "不正解です。"}        
                             ]
                         }
                     }
