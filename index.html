@@ -1,117 +1,273 @@
 <!DOCTYPE html>
 <html lang="ja" class="h-full bg-slate-50">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校入試英語・解法OSアプリ</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        indigoCustom: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
-                        emeraldCustom: { 500: '#10b981', 600: '#059669' }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高校入試英語・解法OS ＆ 頻出表現120アプリ</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Canvas Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+indigoCustom: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+emeraldCustom: { 500: '#10b981', 600: '#059669' }
+}
+}
+}
+}
+</script>
+<style>
+.fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
 </head>
 <body class="h-full font-sans text-slate-800 flex flex-col justify-between selection:bg-indigoCustom-500 selection:text-white">
-    <!-- Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-indigoCustom-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <div>
-                    <h1 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">高校入試英語・解法OSアプリ</h1>
-                    <p class="text-xs text-slate-500 font-medium">判断基準・処理手順のステップ確認 ＆ 類題再現</p>
-                </div>
-            </div>
-            <button onclick="app.returnHome()" id="home-btn" class="hidden text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
-                <i class="fa-solid fa-house"></i> メニューへ
-            </button>
-        </div>
-    </header>
+<!-- Header -->
+<header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+<div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-indigoCustom-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
+<i class="fa-solid fa-graduation-cap"></i>
+</div>
+<div>
+<h1 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">高校入試英語・解法OS ＆ 頻出表現120</h1>
+<p class="text-xs text-slate-500 font-medium">判断基準・処理手順のステップ確認 ＆ 類題再現 ＆ 熟語120</p>
+</div>
+</div>
+<button onclick="app.returnHome()" id="home-btn" class="hidden text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
+<i class="fa-solid fa-house"></i> メニューへ
+</button>
+</div>
+</header>
+<!-- Main Container -->
+<main class="max-w-3xl mx-auto px-4 py-6 sm:py-8 w-full flex-grow">
+<div id="app-container" class="bg-white rounded-2xl border border-slate-200 shadow-xl p-5 sm:p-8 relative overflow-hidden transition-all duration-300">
+<!-- Dynamic Content -->
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+高校入試英語 判断・処理・再現・熟語トレーニング &copy; 2026
+</footer>
+<!-- SFX Audio Controller -->
+<script>
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playSound(type) {
+try {
+if (audioCtx.state === 'suspended') audioCtx.resume();
+const osc = audioCtx.createOscillator();
+const gain = audioCtx.createGain();
+osc.connect(gain);
+gain.connect(audioCtx.destination);
+if (type === 'click') {
+osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+osc.start(); osc.stop(audioCtx.currentTime + 0.04);
+} else if (type === 'correct') {
+osc.type = 'triangle';
+osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08);
+gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+osc.start(); osc.stop(audioCtx.currentTime + 0.25);
+} else if (type === 'wrong') {
+osc.type = 'sawtooth';
+osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+osc.frequency.setValueAtTime(180, audioCtx.currentTime + 0.08);
+gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+osc.start(); osc.stop(audioCtx.currentTime + 0.2);
+}
+} catch(e) {}
+}
+</script>
+<!-- Application Engine -->
+<script>
+const STORAGE_KEY = 'hs_english_os_progress';
 
-    <!-- Main Container -->
-    <main class="max-w-3xl mx-auto px-4 py-6 sm:py-8 w-full flex-grow">
-        <div id="app-container" class="bg-white rounded-2xl border border-slate-200 shadow-xl p-5 sm:p-8 relative overflow-hidden transition-all duration-300">
-            <!-- Dynamic Content -->
-        </div>
-    </main>
+// 頻出表現120生データ（自動抽出）
+const rawIdiomsData = [
+{id:1, jp:"この絵を見てください。", eng:"Please ( )( ) this picture.", ans:"look at"},
+{id:2, jp:"あなたは先生のように見えます。", eng:"You ( )( ) a teacher.", ans:"look like"},
+{id:3, jp:"私は自分の鍵を探すつもりです。", eng:"I will ( )( ) my key.", ans:"look for"},
+{id:4, jp:"あなたに会うのを楽しみに待っています。", eng:"I ( )( )( ) seeing you.", ans:"look forward to"},
+{id:5, jp:"先生の言うことを（意識して）聞きなさい。", eng:"Please ( )( ) the teacher.", ans:"listen to"},
+{id:6, jp:"どうやって駅にたどり着くことができますか。", eng:"How can I ( )( ) the station?", ans:"get to"},
+{id:7, jp:"あなたはそのバスに乗らなければなりません。", eng:"You must ( )( ) the bus.", ans:"get on"},
+{id:8, jp:"ここで電車から降りましょう。", eng:"Let's ( )( ) the train here.", ans:"get off"},
+{id:9, jp:"私は早く起きなければなりません。", eng:"I have to ( )( ) early.", ans:"get up"},
+{id:10, jp:"その電車はすぐにその駅に到着するでしょう。", eng:"The train will ( )( ) the station soon.", ans:"arrive at"},
+{id:11, jp:"私はテニス部に属しています。", eng:"I ( )( ) the tennis club.", ans:"belong to"},
+{id:12, jp:"あなたの夢をあきらめてはいけません。", eng:"Don't ( )( ) your dream.", ans:"give up"},
+{id:13, jp:"あなたはもう寝るべきです。", eng:"You should ( )( )( ) now.", ans:"go to bed"},
+{id:14, jp:"パーティーで楽しく過ごしましたか。", eng:"Did you ( )( )( )( ) at the party?", ans:"have a good time"},
+{id:15, jp:"私は今日、頭が痛いです。", eng:"I ( )( )( ) today.", ans:"have a headache"},
+{id:16, jp:"あなたは犬の世話をしなければなりません。", eng:"You must ( )( )( ) your dog.", ans:"take care of"},
+{id:17, jp:"私はその試合に参加したいです。", eng:"I want to ( )( )( ) the game.", ans:"take part in"},
+{id:18, jp:"ここで私を待ってください。", eng:"Please ( )( ) me here.", ans:"wait for"},
+{id:19, jp:"彼から便りがあることを願っています。", eng:"I hope to ( )( ) him.", ans:"hear from"},
+{id:20, jp:"私は友達に手紙を書くつもりです。", eng:"I will ( )( ) my friend.", ans:"write to"},
+{id:21, jp:"私はサッカーをして楽しみます。", eng:"I ( )( ) soccer.", ans:"enjoy playing"},
+{id:22, jp:"逃げてはいけません！", eng:"Don't ( )( )!", ans:"run away"},
+{id:23, jp:"お互いに連絡を取り合いましょう。", eng:"Let's ( )( )( ).", ans:"keep in touch"},
+{id:24, jp:"私はトムが宿題をするのを手伝いました。", eng:"I ( ) Tom ( ) his homework.", ans:"help / with"},
+{id:25, jp:"この写真は私に私の故郷を思い出させます。", eng:"This picture ( ) me ( ) my hometown.", ans:"remind / of"},
+{id:26, jp:"私はクラスメイトと友達になりたいです。", eng:"I want to ( )( )( ) my classmates.", ans:"make friends with"},
+{id:27, jp:"私は日本にとどまる決心をしました。", eng:"I ( )( )( )( ) to stay in Japan.", ans:"make up my mind"},
+{id:28, jp:"彼女は３人の子供を育てました。", eng:"She ( )( ) three children.", ans:"bring up"},
+{id:29, jp:"私はあなたの考えに同意します。", eng:"I ( )( ) your idea.", ans:"agree with"},
+{id:30, jp:"彼は昨日学校を休んでいました。", eng:"He ( )( )( ) school yesterday.", ans:"be absent from"},
+{id:31, jp:"私は日本で生まれました。", eng:"I ( )( ) in Japan.", ans:"be born"},
+{id:32, jp:"私たちは列車に間に合いました。", eng:"We ( )( )( )( ) the train.", ans:"be in time for"},
+{id:33, jp:"学校に遅れてはいけません。", eng:"Don't ( )( )( ) school.", ans:"be late for"},
+{id:34, jp:"彼女は英語を話すのが得意です。", eng:"She ( )( )( ) speaking English.", ans:"be good at"},
+{id:35, jp:"私は犬がこわいです。", eng:"I ( )( )( ) dogs.", ans:"be afraid of"},
+{id:36, jp:"私たちは自分のチームを誇りに思っています。", eng:"We ( )( )( ) our team.", ans:"be proud of"},
+{id:37, jp:"彼女は歴史に興味があります。", eng:"She ( )( )( ) history.", ans:"be interested in"},
+{id:38, jp:"私はそのニュースに驚きました。", eng:"I ( )( )( ) the news.", ans:"be surprised at"},
+{id:39, jp:"その山は雪でおおわれています。", eng:"The mountain ( )( )( ) snow.", ans:"be covered with"},
+{id:40, jp:"その部屋は人々でいっぱいです。", eng:"The room ( )( )( ) people.", ans:"be full of"},
+{id:41, jp:"その歌手は若者に知られています。", eng:"The singer ( )( )( ) young people.", ans:"be known to"},
+{id:42, jp:"この町は古いお寺で有名です。", eng:"This town ( )( )( ) old temples.", ans:"be famous for"},
+{id:43, jp:"夕食の準備はできていますか。", eng:"Are you ( )( ) dinner?", ans:"be ready for"},
+{id:44, jp:"私は自分の息子を誇りに思っています。", eng:"I ( )( )( ) my son.", ans:"be proud of"},
+{id:45, jp:"その試合は終わりました。", eng:"The game ( )( ).", ans:"be over"},
+{id:46, jp:"彼は今家にいます。", eng:"He ( )( )( ) now.", ans:"be at home"},
+{id:47, jp:"私は音楽が好きです。", eng:"I ( )( )( ) music.", ans:"be fond of"},
+{id:48, jp:"遅れてすみません。", eng:"I ( )( )( ) being late.", ans:"be sorry for"},
+{id:49, jp:"お年寄りには親切にしなさい。", eng:"( )( )( ) old people.", ans:"be kind to"},
+{id:50, jp:"私の答えはあなたのとは違います。", eng:"My answer ( )( )( ) yours.", ans:"be different from"},
+{id:51, jp:"ところで、今何時ですか。", eng:"( )( )( ), what time is it now?", ans:"By the way"},
+{id:52, jp:"自分でそれをしなければなりません。", eng:"You must do it ( )( ).", ans:"by yourself"},
+{id:53, jp:"実際、その物語は本当です。", eng:"( )( ), the story is true.", ans:"In fact"},
+{id:54, jp:"私の家の前に大きな木があります。", eng:"There is a big tree ( )( )( ) my house.", ans:"in front of"},
+{id:55, jp:"２つのことを同時にすることはできません。", eng:"You cannot do two things ( )( )( )( ).", ans:"at the same time"},
+{id:56, jp:"当時、彼は若かった。", eng:"( )( )( ), he was young.", ans:"in those days"},
+{id:57, jp:"将来、私は医者になりたいです。", eng:"( )( )( ), I want to be a doctor.", ans:"in the future"},
+{id:58, jp:"もちろん、お手伝いしますよ。", eng:"( )( ), I will help you.", ans:"Of course"},
+{id:59, jp:"雨のために私たちは外出できませんでした。", eng:"We couldn't go out ( )( ) the rain.", ans:"because of"},
+{id:60, jp:"あなたはコーヒーか紅茶のどちらかを選ぶことができます。", eng:"You can choose ( ) coffee ( ) tea.", ans:"either / or"},
+{id:61, jp:"この川は日本とロシアの間にあります。", eng:"This river is ( ) Japan ( ) Russia.", ans:"between / and"},
+{id:62, jp:"トムもケンもどちらもサッカーが好きです。", eng:"( ) Tom ( ) Ken like soccer.", ans:"both / and"},
+{id:63, jp:"できるだけ早くここに来てください。", eng:"Please come here ( ) soon ( )( ).", ans:"as / as possible"},
+{id:64, jp:"放課後サッカーをしましょう。", eng:"Let's play soccer ( )( ).", ans:"after school"},
+{id:65, jp:"夜に星が見えます。", eng:"We can see stars ( )( ).", ans:"at night"},
+{id:66, jp:"私は長い間待っています。", eng:"I have been waiting ( )( )( )( ).", ans:"for a long time"},
+{id:67, jp:"月曜日から金曜日まで働きます。", eng:"I work ( ) Monday ( ) Friday.", ans:"from / to"},
+{id:68, jp:"彼女は笑顔で私に挨拶しました。", eng:"She greeted me ( )( )( ).", ans:"with a smile"},
+{id:69, jp:"家に着くとすぐに電話します。", eng:"I will call you ( )( )( ) I get home.", ans:"as soon as"},
+{id:70, jp:"最初は、そのテストは難しそうに見えました。", eng:"( )( ), the test looked difficult.", ans:"At first"},
+{id:71, jp:"ついに私たちは頂上にたどり着きました。", eng:"( )( ), we reached the top.", ans:"At last"},
+{id:72, jp:"たとえば、私はリンゴが好きです。", eng:"( )( ), I like apples.", ans:"for example"},
+{id:73, jp:"すぐに部屋を掃除しなさい。", eng:"Clean your room ( )( ).", ans:"at once"},
+{id:74, jp:"学校へ行く途中で彼に会いました。", eng:"I met him ( )( )( )( ) school.", ans:"on the way to"},
+{id:75, jp:"私は歩いて学校へ行きます。", eng:"I go to school ( )( ).", ans:"on foot"},
+{id:76, jp:"時間通りにここに来てください。", eng:"Please come here ( )( ).", ans:"on time"},
+{id:77, jp:"初めて富士山に登りました。", eng:"I climbed Mt. Fuji ( )( )( )( ).", ans:"for the first time"},
+{id:78, jp:"向こうに大きな建物が見えます。", eng:"I see a big building ( )( ).", ans:"over there"},
+{id:79, jp:"あちこちに花が咲いています。", eng:"Flowers are blooming ( )( )( ).", ans:"here and there"},
+{id:80, jp:"世界中を旅行したいです。", eng:"I want to travel ( )( )( ).", ans:"around the world"},
+{id:81, jp:"そのニュースは世界中に広まりました。", eng:"The news spread ( )( )( )( ).", ans:"all over the world"},
+{id:82, jp:"ますます多くの人々が日本を訪れています。", eng:"( )( )( ) people are visiting Japan.", ans:"More and more"},
+{id:83, jp:"私はまったく眠くありません。", eng:"I am ( ) sleepy ( )( ).", ans:"not / at all"},
+{id:84, jp:"私たちは助け合うべきです。", eng:"We should help ( )( ).", ans:"each other"},
+{id:85, jp:"100人以上の人々が来ました。", eng:"( )( ) 100 people came.", ans:"more than"},
+{id:86, jp:"ある日、私は奇妙な鳥を見ました。", eng:"( )( ), I saw a strange bird.", ans:"One day"},
+{id:87, jp:"あなたのおかげで、助かりました。", eng:"( )( ) you, I was saved.", ans:"Thanks to"},
+{id:88, jp:"当時、私は学生でした。", eng:"I was a student ( )( )( ).", ans:"at that time"},
+{id:89, jp:"肉の代わりに魚を食べます。", eng:"I eat fish ( )( ) meat.", ans:"instead of"},
+{id:90, jp:"私の家のとなりに公園があります。", eng:"There is a park ( )( ) my house.", ans:"next to"},
+{id:91, jp:"インターネットで情報を探すことができます。", eng:"You can find information ( )( )( ).", ans:"on the internet"},
+{id:92, jp:"電車でそこに行きましょう。", eng:"Let's go there ( )( ).", ans:"by train"},
+{id:93, jp:"私はペン、ノート、消しゴムなどを買いました。", eng:"I bought a pen, a notebook, an eraser, ( )( )( ).", ans:"and so on"},
+{id:94, jp:"テニスをするのはどうですか。", eng:"( )( )( ) tennis?", ans:"How about playing"},
+{id:95, jp:"私たちと一緒にクラブに入りませんか。", eng:"( )( )( )( ) our club?", ans:"Why don't you join"},
+{id:96, jp:"たくさんの本があります。", eng:"There are ( )( )( ) books.", ans:"a lot of"},
+{id:97, jp:"これは一種のスポーツです。", eng:"This is ( )( )( ) sport.", ans:"a kind of"},
+{id:98, jp:"少しのリンゴがあります（数えられる）。", eng:"There are ( )( ) apples.", ans:"a few"},
+{id:99, jp:"少しの水があります（数えられない）。", eng:"There is ( )( ) water.", ans:"a little"},
+{id:100, jp:"一枚の紙をください。", eng:"Give me ( )( )( ) paper.", ans:"a piece of"},
+{id:101, jp:"私の妹の世話をしなければなりません。", eng:"I must ( )( ) my sister.", ans:"look after"},
+{id:102, jp:"部屋に入るときは靴を脱ぎなさい。", eng:"( )( ) your shoes when entering.", ans:"take off"},
+{id:103, jp:"このシャツを試着してもいいですか。", eng:"Can I ( )( ) this shirt?", ans:"try on"},
+{id:104, jp:"彼は東京に向けて出発する予定です。", eng:"He will ( )( ) Tokyo.", ans:"leave for"},
+{id:105, jp:"この問題に取り組みましょう。", eng:"Let's ( )( ) this problem.", ans:"work on"},
+{id:106, jp:"この机は木で作られています（見た目で材料がわかる）。", eng:"This desk ( )( )( ) wood.", ans:"be made of"},
+{id:107, jp:"チーズは牛乳から作られています（見た目でわからない）。", eng:"Cheese ( )( )( ) milk.", ans:"be made from"},
+{id:108, jp:"私たちが英語を話すことは大切です。", eng:"( )( ) important ( ) us ( ) speak English.", ans:"It is / for / to"},
+{id:109, jp:"彼は忙しすぎて行けません。", eng:"He is ( ) busy ( ) go.", ans:"too / to"},
+{id:110, jp:"残念ながら雨が降ると思います。", eng:"( )( )( ) it will rain.", ans:"I'm afraid that"},
+{id:111, jp:"人々が続々とやって来ました。", eng:"People came ( )( )( ).", ans:"one after another"},
+{id:112, jp:"リンゴだけでなくオレンジも好きです。", eng:"I like ( )( ) apples ( )( ) oranges.", ans:"not only / but also"},
+{id:113, jp:"旅行に行きたいです。", eng:"I want to ( )( )( )( ).", ans:"go on a trip"},
+{id:114, jp:"コートを着るべきです。", eng:"You should ( )( ) your coat.", ans:"put on"},
+{id:115, jp:"辞書でこの単語を調べることができます。", eng:"You can ( )( ) this word in the dictionary.", ans:"look up"},
+{id:116, jp:"彼はよい考えを思いつくでしょう。", eng:"He will ( )( )( ) a good idea.", ans:"come up with"},
+{id:117, jp:"リンゴやバナナのような果物が好きです。", eng:"I like fruits ( )( ) apples and bananas.", ans:"such as"},
+{id:118, jp:"1足の靴が必要です。", eng:"I need ( )( )( ) shoes.", ans:"a pair of"},
+{id:119, jp:"そのイベントは４年ごとに開催されます。", eng:"The event is held ( )( )( ).", ans:"every four years"},
+{id:120, jp:"ひと月に１回部屋を掃除します。", eng:"I clean my room ( )( )( ).", ans:"once a month"}
+];
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-        高校入試英語 判断・処理・再現・トレーニング &copy; 2026
-    </footer>
+// 頻出表現120の3択問題生成ロジック（ランダム誤答・位置ランダム）
+function generateIdiomStageData(partNum) {
+const allAnswers = rawIdiomsData.map(d => d.ans);
+const startIdx = (partNum - 1) * 20;
+const endIdx = startIdx + 20;
+const stageQs = rawIdiomsData.slice(startIdx, endIdx);
 
-    <!-- SFX Audio Controller -->
-    <script>
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playSound(type) {
-            try {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                if (type === 'click') {
-                    osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-                    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.04);
-                } else if (type === 'correct') {
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
-                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08);
-                    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.25);
-                } else if (type === 'wrong') {
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(220, audioCtx.currentTime);
-                    osc.frequency.setValueAtTime(180, audioCtx.currentTime + 0.08);
-                    gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.2);
-                }
-            } catch(e) {}
-        }
-    </script>
+const items = stageQs.map((q, idx) => {
+const correctAns = q.ans;
+// 他の119個から2つ重複なく誤答を選択
+const otherAnsList = Array.from(new Set(allAnswers.filter(a => a !== correctAns)));
+// 簡易シード乱数で毎回決まった選択肢を安定生成（リロードしても変わらないように）
+const rand1 = (q.id * 7 + partNum * 13) % otherAnsList.length;
+let rand2 = (q.id * 11 + partNum * 17) % otherAnsList.length;
+if (rand1 === rand2) rand2 = (rand2 + 1) % otherAnsList.length;
 
-    <!-- Application Engine -->
-    <script>
-        const STORAGE_KEY = 'hs_english_os_progress';
-        const db = {
-            // =========================================================================
-            // 【新規追加】① ３択・直接回答形式（適語選択）
-            // 💡 [問題の追加方法]
-            // items 配列の中に、以下の形式でオブジェクトを追加できます。
-            // {
-            //     id: 問題番号,
-            //     question: "問題文（例：I play tennis with (  ).の空所に入る最も適切な語を選びなさい。）",
-            //     explanation: "解説（例：前置詞の後ろで単独で使う代名詞は目的格）",
-            //     opts: [
-            //         { t: "A: he", correct: false },
-            //         { t: "B: his", correct: false },
-            //         { t: "C: him", correct: true } // 正解項目に correct: true を設定
-            //     ]
-            // },
-            // =========================================================================
-            quickGrammar: {
+const distractor1 = otherAnsList[rand1];
+const distractor2 = otherAnsList[rand2];
+
+let choices = [
+{ t: correctAns, correct: true },
+{ t: distractor1, correct: false },
+{ t: distractor2, correct: false }
+];
+
+// 選択肢の並び順を問題IDをもとに決定（A/B/Cランダム）
+const shufflePattern = (q.id + partNum) % 3;
+if (shufflePattern === 1) choices = [choices[1], choices[0], choices[2]];
+else if (shufflePattern === 2) choices = [choices[2], choices[1], choices[0]];
+
+const opts = choices.map((c, cIdx) => ({
+t: `${String.fromCharCode(65 + cIdx)}: ${c.t}`,
+correct: c.correct
+}));
+
+return {
+id: q.id,
+question: `「${q.jp}」<br><strong>${q.eng}</strong>`,
+explanation: `【判断基準】「${q.jp}」にあたる頻出表現は「${correctAns}」です。`,
+opts: opts
+};
+});
+
+return {
+title: `⑧ 頻出熟語 Part ${partNum}（Q${startIdx + 1}〜${endIdx}）`,
+desc: `入試頻出表現120（第${partNum}ステージ）。例文の空所に入る適切な表現を判定します。`,
+items: items
+};
+}
+
+const db = {
+quickGrammar: {
                 title: "① 基礎：３択適語選択",
                 desc: "プロセスを介さず直接解答を選択し、基礎文法知識を瞬時に確認します。",
                 items: [
@@ -2126,679 +2282,691 @@
                 ]
             }
         };
+    ]
+},
+// ⑧ 頻出表現120（全6パート・動的生成組み込み）
+idiomsStage1: generateIdiomStageData(1),
+idiomsStage2: generateIdiomStageData(2),
+idiomsStage3: generateIdiomStageData(3),
+idiomsStage4: generateIdiomStageData(4),
+idiomsStage5: generateIdiomStageData(5),
+idiomsStage6: generateIdiomStageData(6)
+};
 
-        const state = {
-            currentCategory: null,
-            currentIndex: 0,
-            currentStepIndex: 0,
-            subQIndex: 0
-        };
+const state = { currentCategory: null, currentIndex: 0, currentStepIndex: 0, subQIndex: 0 };
+const container = document.getElementById('app-container');
+const homeBtn = document.getElementById('home-btn');
 
-        const container = document.getElementById('app-container');
-        const homeBtn = document.getElementById('home-btn');
+function saveProgress() {
+if (!state.currentCategory) return;
+try {
+let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+savedData[state.currentCategory] = { currentIndex: state.currentIndex, currentStepIndex: state.currentStepIndex, subQIndex: state.subQIndex };
+localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
+} catch (e) {}
+}
+function loadProgress(catKey) {
+try {
+let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+return savedData[catKey] || null;
+} catch (e) { return null; }
+}
+function clearCategoryProgress(catKey) {
+try {
+let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+delete savedData[catKey];
+localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
+} catch (e) {}
+}
+function resetAllProgress() {
+if (confirm("全てのステージの学習途中の経過を初期化しますか？\n（最初からやり直すことになります）")) {
+localStorage.removeItem(STORAGE_KEY);
+playSound('click');
+renderHome();
+}
+}
+function getCategoryProgressInfo(catKey) {
+const catData = db[catKey];
+if (!catData || !catData.items || catData.items.length === 0) return { pct: 0, isStarted: false, isCleared: false };
+const totalItems = catData.items.length;
+const progress = loadProgress(catKey);
+if (!progress) return { pct: 0, isStarted: false, isCleared: false };
+let currentItem = progress.currentIndex;
+if (currentItem >= totalItems) return { pct: 100, isStarted: true, isCleared: true };
+if (catKey === 'quickGrammar' || catKey.startsWith('idiomsStage')) {
+let pct = Math.min(99, Math.round((currentItem / totalItems) * 100));
+return { pct, isStarted: currentItem > 0, isCleared: false, currentItem: currentItem + 1 };
+}
+let totalStepsOverall = 0;
+catData.items.forEach(it => { totalStepsOverall += (catKey === 'reading') ? ((it.subQs ? it.subQs.length : 0) + (it.steps ? it.steps.length : 0) + 1) : ((it.steps ? it.steps.length : 0) + 1); });
+let doneStepsOverall = 0;
+for (let i = 0; i < currentItem; i++) {
+let it = catData.items[i];
+doneStepsOverall += (catKey === 'reading') ? ((it.subQs ? it.subQs.length : 0) + (it.steps ? it.steps.length : 0) + 1) : ((it.steps ? it.steps.length : 0) + 1);
+}
+doneStepsOverall += (catKey === 'reading') ? progress.subQIndex : progress.currentStepIndex;
+let pct = Math.min(99, Math.round((doneStepsOverall / Math.max(1, totalStepsOverall)) * 100));
+return { pct, isStarted: doneStepsOverall > 0, isCleared: false, currentItem: currentItem + 1 };
+}
 
-        function saveProgress() {
-            if (!state.currentCategory) return;
-            try {
-                let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-                savedData[state.currentCategory] = {
-                    currentIndex: state.currentIndex,
-                    currentStepIndex: state.currentStepIndex,
-                    subQIndex: state.subQIndex
-                };
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
-            } catch (e) {}
-        }
+function renderHome() {
+window.scrollTo(0, 0);
+state.currentCategory = null;
+homeBtn.classList.add('hidden');
+const qg = getCategoryProgressInfo('quickGrammar');
+const gc = getCategoryProgressInfo('grammarChoice');
+const g1 = getCategoryProgressInfo('grammar1');
+const g2 = getCategoryProgressInfo('grammar2');
+const rd = getCategoryProgressInfo('reading');
+const w1 = getCategoryProgressInfo('writing1');
+const w2 = getCategoryProgressInfo('writing2');
 
-        function loadProgress(catKey) {
-            try {
-                let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-                return savedData[catKey] || null;
-            } catch (e) {
-                return null;
-            }
-        }
+// idioms progress
+const id1 = getCategoryProgressInfo('idiomsStage1');
+const id2 = getCategoryProgressInfo('idiomsStage2');
+const id3 = getCategoryProgressInfo('idiomsStage3');
+const id4 = getCategoryProgressInfo('idiomsStage4');
+const id5 = getCategoryProgressInfo('idiomsStage5');
+const id6 = getCategoryProgressInfo('idiomsStage6');
 
-        function clearCategoryProgress(catKey) {
-            try {
-                let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-                delete savedData[catKey];
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
-            } catch (e) {}
-        }
+container.innerHTML = `
+<div class="space-y-6">
+<div class="text-center space-y-2">
+<span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full border border-indigo-100">
+高校入試英語・思考力養成プラットフォーム
+</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+判断・処理・再現 ＆ 熟語120
+</h2>
+<p class="text-sm text-slate-600 max-w-lg mx-auto">
+直接回答からステップ確認、頻出熟語の確認まで、目的に合わせて選択できます。
+</p>
+</div>
+<div class="flex justify-end pt-1">
+<button onclick="app.resetAllProgress()" class="text-xs bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-500 font-bold px-3 py-1.5 rounded-lg border border-slate-200 transition-all flex items-center gap-1.5">
+<i class="fa-solid fa-rotate-left"></i> 全ステージの初期化
+</button>
+</div>
 
-        function resetAllProgress() {
-            if (confirm("全てのステージの学習途中の経過を初期化しますか？\n（最初からやり直すことになります）")) {
-                localStorage.removeItem(STORAGE_KEY);
-                playSound('click');
-                renderHome();
-            }
-        }
+<!-- 思考・解法OS系 -->
+<div class="border-b border-slate-200 pb-2">
+<h3 class="text-sm font-bold text-indigo-900 flex items-center gap-2">
+<i class="fa-solid fa-brain text-indigo-600"></i> 【思考力・解法プロセス別トレーニング】
+</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div onclick="app.startCategory('quickGrammar')" class="bg-gradient-to-br from-indigo-50 to-white border-2 border-indigo-300 hover:border-indigo-600 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-indigo-600 text-white text-xs font-bold rounded">① 基礎問題</span>
+${qg.isStarted ? `<span class="text-xs font-bold text-indigo-700"><i class="fa-solid fa-clock-rotate-left"></i> ${qg.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">３択適語選択</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${qg.isStarted ? `Q${qg.currentItem}から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
+<div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">② 語形変化</span>
+${gc.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">動詞の語形変化</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${gc.isStarted ? `Q${gc.currentItem}から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
+<div onclick="app.startCategory('grammar1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">③ 空所補充</span>
+${g1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">構文・空所補充</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${g1.isStarted ? `Q${g1.currentItem}から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
+<div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">④ 書き換え</span>
+${g2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">同意文書き換え</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${g2.isStarted ? `Q${g2.currentItem}から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
+<div onclick="app.startCategory('reading')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-bold rounded">⑤ 読解長文</span>
+${rd.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">長文総合</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${rd.isStarted ? `第${rd.currentItem}組から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
+<div onclick="app.startCategory('writing1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded">⑥ 整序英作</span>
+${w1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w1.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">整序英作</h4>
+</div>
+<div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
+<span>${w1.isStarted ? `Q${w1.currentItem}から再開` : '開始'}</span>
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+</div>
+</div>
 
-        function getCategoryProgressInfo(catKey) {
-            const catData = db[catKey];
-            if (!catData || !catData.items || catData.items.length === 0) {
-                return { pct: 0, isStarted: false, isCleared: false };
-            }
-            const totalItems = catData.items.length;
-            const progress = loadProgress(catKey);
-            if (!progress) return { pct: 0, isStarted: false, isCleared: false };
+<!-- 頻出表現120系 -->
+<div class="border-b border-slate-200 pb-2 pt-4">
+<h3 class="text-sm font-bold text-purple-900 flex items-center gap-2">
+<i class="fa-solid fa-book-bookmark text-purple-600"></i> 【入試頻出表現120・高速3択トレーニング】
+</h3>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<div onclick="app.startCategory('idiomsStage1')" class="bg-purple-50/50 border-2 border-purple-200 hover:border-purple-500 rounded-xl p-3 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded">Part 1</span>
+${id1.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id1.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-xs sm:text-sm mt-1.5 group-hover:text-purple-600">Q1 〜 20</h4>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-purple-700">
+<span>${id1.isStarted ? `Q${id1.currentItem}〜` : '挑戦'}</span>
+<i class="fa-solid fa-arrow-right text-[10px]"></i>
+</div>
+</div>
+<div onclick="app.startCategory('idiomsStage2')" class="bg-purple-50/50 border-2 border-purple-200 hover:border-purple-500 rounded-xl p-3 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded">Part 2</span>
+${id2.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id2.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-xs sm:text-sm mt-1.5 group-hover:text-purple-600">Q21 〜 40</h4>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-purple-700">
+<span>${id2.isStarted ? `Q${id2.currentItem}〜` : '挑戦'}</span>
+<i class="fa-solid fa-arrow-right text-[10px]"></i>
+</div>
+</div>
+<div onclick="app.startCategory('idiomsStage3')" class="bg-purple-50/50 border-2 border-purple-200 hover:border-purple-500 rounded-xl p-3 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded">Part 3</span>
+${id3.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id3.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-xs sm:text-sm mt-1.5 group-hover:text-purple-600">Q41 〜 60</h4>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-purple-700">
+<span>${id3.isStarted ? `Q${id3.currentItem}〜` : '挑戦'}</span>
+<i class="fa-solid fa-arrow-right text-[10px]"></i>
+</div>
+</div>
+<div onclick="app.startCategory('idiomsStage4')" class="bg-purple-50/50 border-2 border-purple-200 hover:border-purple-500 rounded-xl p-3 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded">Part 4</span>
+${id4.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id4.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-xs sm:text-sm mt-1.5 group-hover:text-purple-600">Q61 〜 80</h4>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-purple-700">
+<span>${id4.isStarted ? `Q${id4.currentItem}〜` : '挑戦'}</span>
+<i class="fa-solid fa-arrow-right text-[10px]"></i>
+</div>
+</div>
+<div onclick="app.startCategory('idiomsStage5')" class="bg-purple-50/50 border-2 border-purple-200 hover:border-purple-500 rounded-xl p-3 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded">Part 5</span>
+${id5.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id5.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-xs sm:text-sm mt-1.5 group-hover:text-purple-600">Q81 〜 100</h4>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-purple-700">
+<span>${id5.isStarted ? `Q${id5.currentItem}〜` : '挑戦'}</span>
+<i class="fa-solid fa-arrow-right text-[10px]"></i>
+</div>
+</div>
+<div onclick="app.startCategory('idiomsStage6')" class="bg-purple-50/50 border-2 border-purple-200 hover:border-purple-500 rounded-xl p-3 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start">
+<span class="px-2 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded">Part 6</span>
+${id6.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id6.pct}%</span>` : ''}
+</div>
+<h4 class="font-bold text-slate-900 text-xs sm:text-sm mt-1.5 group-hover:text-purple-600">Q101 〜 120</h4>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] font-bold text-purple-700">
+<span>${id6.isStarted ? `Q${id6.currentItem}〜` : '挑戦'}</span>
+<i class="fa-solid fa-arrow-right text-[10px]"></i>
+</div>
+</div>
+</div>
+</div>
+`;
+}
 
-            let currentItem = progress.currentIndex;
-            if (currentItem >= totalItems) {
-                return { pct: 100, isStarted: true, isCleared: true };
-            }
+function startCategory(catKey, forceReset = false) {
+state.currentCategory = catKey;
+if (forceReset) {
+state.currentIndex = 0; state.currentStepIndex = 0; state.subQIndex = 0;
+clearCategoryProgress(catKey);
+} else {
+const saved = loadProgress(catKey);
+if (saved) {
+state.currentIndex = saved.currentIndex || 0;
+state.currentStepIndex = saved.currentStepIndex || 0;
+state.subQIndex = saved.subQIndex || 0;
+} else {
+state.currentIndex = 0; state.currentStepIndex = 0; state.subQIndex = 0;
+}
+}
+homeBtn.classList.remove('hidden');
+renderQuestion();
+}
 
-            if (catKey === 'quickGrammar') {
-                let pct = Math.min(99, Math.round((currentItem / totalItems) * 100));
-                return { pct, isStarted: currentItem > 0, isCleared: false, currentItem: currentItem + 1 };
-            }
+function renderQuestion() {
+window.scrollTo(0, 0);
+saveProgress();
+container.classList.remove('fade-in');
+void container.offsetWidth;
+container.classList.add('fade-in');
+const catData = db[state.currentCategory];
+const item = catData.items[state.currentIndex];
+const totalItems = catData.items.length;
 
-            let totalStepsOverall = 0;
-            catData.items.forEach(it => {
-                totalStepsOverall += (catKey === 'reading') ? ((it.subQs ? it.subQs.length : 0) + (it.steps ? it.steps.length : 0) + 1) : ((it.steps ? it.steps.length : 0) + 1);
-            });
-            let doneStepsOverall = 0;
-            for (let i = 0; i < currentItem; i++) {
-                let it = catData.items[i];
-                doneStepsOverall += (catKey === 'reading') ? ((it.subQs ? it.subQs.length : 0) + (it.steps ? it.steps.length : 0) + 1) : ((it.steps ? it.steps.length : 0) + 1);
-            }
-            doneStepsOverall += (catKey === 'reading') ? progress.subQIndex : progress.currentStepIndex;
-            let pct = Math.min(99, Math.round((doneStepsOverall / Math.max(1, totalStepsOverall)) * 100));
-            return { pct, isStarted: doneStepsOverall > 0, isCleared: false, currentItem: currentItem + 1 };
-        }
+if (state.currentCategory === 'quickGrammar' || state.currentCategory.startsWith('idiomsStage')) {
+renderQuickGrammarQuestion(catData, item, totalItems);
+return;
+}
+if (state.currentCategory === 'reading') {
+renderReadingQuestion(catData, item, totalItems);
+return;
+}
 
-        function renderHome() {
-            window.scrollTo(0, 0);
-            state.currentCategory = null;
-            homeBtn.classList.add('hidden');
+const steps = item.steps || [];
+const isRepro = state.currentStepIndex >= steps.length;
+const progressPct = Math.round(((state.currentIndex * (steps.length + 1) + state.currentStepIndex) / (totalItems * (steps.length + 1))) * 100);
+let headerHTML = `
+<div class="flex justify-between items-center mb-4">
+<span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">
+${catData.title} （問題 ${state.currentIndex + 1} / ${totalItems}）
+</span>
+<span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
+</div>
+<div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
+<div class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+</div>
+`;
+if (!isRepro) {
+const step = steps[state.currentStepIndex];
+container.innerHTML = `
+${headerHTML}
+<div class="space-y-6">
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm font-sans">
+${item.passage}
+</div>
+<div>
+<span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">
+STEP ${state.currentStepIndex + 1} / ${steps.length}: ${step.title}
+</span>
+<h3 class="font-bold text-slate-900 text-base sm:text-lg">${step.q}</h3>
+</div>
+<div class="space-y-3" id="options-box">
+${step.opts.map((opt, idx) => `
+<button onclick="app.checkAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}', false)" class="opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+<span class="text-sm sm:text-base">${opt.t}</span>
+</button>
+`).join('')}
+</div>
+<div id="feedback-box" class="hidden"></div>
+<button id="next-step-btn" onclick="app.nextStep()" class="hidden w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+<span>次のステップへ進む</span> <i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+`;
+} else {
+const repro = item.repro;
+container.innerHTML = `
+${headerHTML}
+<div class="space-y-6">
+<div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs font-bold text-amber-800 flex items-center gap-2">
+<i class="fa-solid fa-fire text-amber-600 text-base"></i> 最終確認：類題での再現テスト
+</div>
+<div class="bg-slate-900 text-white p-5 rounded-xl space-y-3 shadow-inner font-sans">
+<p class="text-base text-slate-100 leading-relaxed">${repro.passage}</p>
+<p class="font-bold text-teal-300 text-base border-t border-slate-700 pt-3">${repro.q}</p>
+</div>
+<div class="space-y-3" id="options-box">
+${repro.opts.map((opt, idx) => `
+<button onclick="app.checkAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}', true)" class="repro-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+<span class="text-sm sm:text-base">${opt.t}</span>
+</button>
+`).join('')}
+</div>
+<div id="feedback-box" class="hidden"></div>
+<button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+<span>次の問題へ進む</span> <i class="fa-solid fa-trophy"></i>
+</button>
+</div>
+`;
+}
+}
 
-            const qg = getCategoryProgressInfo('quickGrammar');
-            const gc = getCategoryProgressInfo('grammarChoice');
-            const g1 = getCategoryProgressInfo('grammar1');
-            const g2 = getCategoryProgressInfo('grammar2');
-            const rd = getCategoryProgressInfo('reading');
-            const w1 = getCategoryProgressInfo('writing1');
-            const w2 = getCategoryProgressInfo('writing2');
+function renderQuickGrammarQuestion(catData, item, totalItems) {
+const progressPct = Math.round(((state.currentIndex) / totalItems) * 100);
+container.innerHTML = `
+<div class="flex justify-between items-center mb-4">
+<span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">
+${catData.title} （問 ${state.currentIndex + 1} / ${totalItems}）
+</span>
+<span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
+</div>
+<div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
+<div class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+</div>
+<div class="space-y-6">
+<div class="bg-indigo-50 border border-indigo-100 p-5 rounded-2xl shadow-sm">
+<span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">【問題】</span>
+<h3 class="font-bold text-slate-900 text-base sm:text-lg leading-relaxed">${item.question}</h3>
+</div>
+<div class="space-y-3" id="options-box">
+${item.opts.map((opt, idx) => `
+<button onclick="app.checkQuickGrammarAns(${idx},${opt.correct})" class="quick-opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 text-sm font-bold flex items-center justify-center flex-shrink-0">${String.fromCharCode(65 + idx)}</span>
+<span class="text-base sm:text-lg font-semibold">${opt.t}</span>
+</button>
+`).join('')}
+</div>
+<div id="feedback-box" class="hidden"></div>
+<button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+<span>${state.currentIndex + 1 === totalItems ? '結果を見る・クリア！' : '次の問題へ進む'}</span> <i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+`;
+}
 
-            container.innerHTML = `
-                <div class="space-y-6">
-                    <div class="text-center space-y-2">
-                        <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full border border-indigo-100">
-                            高校入試英語・思考力養成プラットフォーム
-                        </span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                            判断・処理・再現トレーニング
-                        </h2>
-                        <p class="text-sm text-slate-600 max-w-lg mx-auto">
-                            直接回答からステップ確認まで、自分のレベルや目的に合わせて選択できます。
-                        </p>
-                    </div>
+function checkQuickGrammarAns(idx, isCorrect) {
+const fbBox = document.getElementById('feedback-box');
+const buttons = document.querySelectorAll('.quick-opt-btn');
+const clickedBtn = buttons[idx];
+const catData = db[state.currentCategory];
+const item = catData.items[state.currentIndex];
+const explanation = item.explanation || '';
+if (isCorrect) {
+playSound('correct');
+confetti({ particleCount: 50, spread: 50, origin: { y: 0.6 } });
+buttons.forEach(b => { b.disabled = true; b.classList.add('opacity-60', 'cursor-not-allowed'); });
+clickedBtn.classList.remove('border-slate-200', 'opacity-60');
+clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
+fbBox.className = 'p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm space-y-2 fade-in';
+fbBox.innerHTML = `
+<div class="font-bold text-base flex items-center gap-2 text-emerald-700">
+<i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i> 正解！
+</div>
+<p class="text-slate-700 font-medium leading-relaxed bg-white/70 p-3 rounded-lg border border-emerald-100">
+<span class="font-bold text-emerald-800">【解説】</span><br>${explanation}
+</p>
+`;
+fbBox.classList.remove('hidden');
+document.getElementById('next-item-btn').classList.remove('hidden');
+} else {
+playSound('wrong');
+clickedBtn.disabled = true;
+clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
+fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `
+<div class="font-bold text-base flex items-center gap-2">
+<i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。
+</div>
+<p class="text-xs text-rose-700">もう一度よく考えて別の選択肢を選んでみましょう！</p>
+`;
+fbBox.classList.remove('hidden');
+}
+}
 
-                    <div class="flex justify-end pt-1">
-                        <button onclick="app.resetAllProgress()" class="text-xs bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-500 font-bold px-3 py-1.5 rounded-lg border border-slate-200 transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-rotate-left"></i> 全ステージの初期化
-                        </button>
-                    </div>
+function renderReadingQuestion(catData, item, totalItems) {
+saveProgress();
+const subQ = item.subQs[state.subQIndex];
+const totalSubQs = item.subQs.length;
+const hasSteps = state.subQIndex >= totalSubQs;
+const isRepro = state.subQIndex > totalSubQs;
+let progressPct = Math.round(((state.currentIndex * (totalSubQs + item.steps.length + 1) + state.subQIndex) / (totalItems * (totalSubQs + item.steps.length + 1))) * 100);
+let headerHTML = `
+<div class="flex justify-between items-center mb-4">
+<span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">
+読解長文セット ${state.currentIndex + 1} / ${totalItems}
+</span>
+<span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
+</div>
+<div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
+<div class="bg-amber-500 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+</div>
+`;
+if (!hasSteps) {
+container.innerHTML = `
+${headerHTML}
+<div class="space-y-6">
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm font-serif">
+${item.passage}
+</div>
+<div>
+<span class="text-xs font-extrabold text-amber-600 uppercase tracking-wider block mb-1">
+設問 ${state.subQIndex + 1} / ${totalSubQs}: ${subQ.title}
+</span>
+<h3 class="font-bold text-slate-900 text-base sm:text-lg">${subQ.q}</h3>
+</div>
+<div class="space-y-3" id="options-box">
+${subQ.opts.map((opt, idx) => `
+<button onclick="app.checkSubQAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}')" class="opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+<span class="text-sm sm:text-base">${opt.t}</span>
+</button>
+`).join('')}
+</div>
+<div id="feedback-box" class="hidden"></div>
+<button id="next-subq-btn" onclick="app.nextSubQ()" class="hidden w-full py-3.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+<span>次の設問へ進む</span> <i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+`;
+} else if (!isRepro) {
+const step = item.steps[state.subQIndex - totalSubQs];
+container.innerHTML = `
+${headerHTML}
+<div class="space-y-6">
+<div class="bg-indigo-50 border border-indigo-200 p-3 rounded-xl text-xs font-bold text-indigo-900">
+💡 長文読解の解法ステップ確認
+</div>
+<div>
+<span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">解法アルゴリズム</span>
+<h3 class="font-bold text-slate-900 text-base sm:text-lg">${step.q}</h3>
+</div>
+<div class="space-y-3" id="options-box">
+${step.opts.map((opt, idx) => `
+<button onclick="app.checkSubQAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}')" class="opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+<span class="text-sm sm:text-base">${opt.t}</span>
+</button>
+`).join('')}
+</div>
+<div id="feedback-box" class="hidden"></div>
+<button id="next-subq-btn" onclick="app.nextSubQ()" class="hidden w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+<span>次へ進む</span> <i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+`;
+} else {
+const repro = item.repro;
+container.innerHTML = `
+${headerHTML}
+<div class="space-y-6">
+<div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs font-bold text-amber-800 flex items-center gap-2">
+<i class="fa-solid fa-fire text-amber-600 text-base"></i> 最終確認：読解・類題再現テスト
+</div>
+<div class="bg-slate-900 text-white p-5 rounded-xl space-y-3 shadow-inner font-serif">
+<p class="text-base text-slate-100 leading-relaxed">${repro.passage}</p>
+<p class="font-bold text-teal-300 text-base border-t border-slate-700 pt-3 font-sans">${repro.q}</p>
+</div>
+<div class="space-y-3" id="options-box">
+${repro.opts.map((opt, idx) => `
+<button onclick="app.checkReproReading(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}')" class="repro-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+<span class="text-sm sm:text-base">${opt.t}</span>
+</button>
+`).join('')}
+</div>
+<div id="feedback-box" class="hidden"></div>
+<button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
+<span>次の問題へ進む</span> <i class="fa-solid fa-trophy"></i>
+</button>
+</div>
+`;
+}
+}
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- 新設：３択直接回答 -->
-                        <div onclick="app.startCategory('quickGrammar')" class="bg-gradient-to-br from-indigo-50 to-white border-2 border-indigo-400 hover:border-indigo-600 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-md">① 基礎問題</span>
-                                    ${qg.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700"><i class="fa-solid fa-clock-rotate-left"></i> ${qg.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">３択適語選択</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.quickGrammar.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${qg.isStarted ? `Q${qg.currentItem}から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
+function checkAns(idx, isCorrect, encodedFb, isRepro) {
+const fbBox = document.getElementById('feedback-box');
+const buttons = document.querySelectorAll(isRepro ? '.repro-btn' : '.opt-btn');
+const clickedBtn = buttons[idx];
+const fbText = decodeURIComponent(encodedFb);
+if (isCorrect) {
+playSound('correct');
+if (isRepro) confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+buttons.forEach(b => { b.disabled = true; b.classList.add('opacity-65', 'cursor-not-allowed'); });
+clickedBtn.classList.remove('border-slate-200', 'opacity-65');
+clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
+fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
+fbBox.classList.remove('hidden');
+if (!isRepro) document.getElementById('next-step-btn').classList.remove('hidden');
+else document.getElementById('next-item-btn').classList.remove('hidden');
+} else {
+playSound('wrong');
+clickedBtn.disabled = true;
+clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
+fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。</div><p>${fbText} （別の選択肢を選び直してください）</p>`;
+fbBox.classList.remove('hidden');
+}
+}
 
-                        <!-- 既存カテゴリー群 -->
-                        <div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">② 語形変化</span>
-                                    ${gc.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">動詞の語形変化（全20問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.grammarChoice.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${gc.isStarted ? `Q${gc.currentItem}から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
+function checkSubQAns(idx, isCorrect, encodedFb) {
+const fbBox = document.getElementById('feedback-box');
+const buttons = document.querySelectorAll('.opt-btn');
+const clickedBtn = buttons[idx];
+const fbText = decodeURIComponent(encodedFb);
+if (isCorrect) {
+playSound('correct');
+buttons.forEach(b => { b.disabled = true; b.classList.add('opacity-65', 'cursor-not-allowed'); });
+clickedBtn.classList.remove('border-slate-200', 'opacity-65');
+clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
+fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
+fbBox.classList.remove('hidden');
+document.getElementById('next-subq-btn').classList.remove('hidden');
+} else {
+playSound('wrong');
+clickedBtn.disabled = true;
+clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
+fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。</div><p>${fbText} （選び直してください）</p>`;
+fbBox.classList.remove('hidden');
+}
+}
 
-                        <div onclick="app.startCategory('grammar1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">③ 空所補充</span>
-                                    ${g1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">空所補充（全10問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.grammar1.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${g1.isStarted ? `Q${g1.currentItem}から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
+function checkReproReading(idx, isCorrect, encodedFb) {
+const fbBox = document.getElementById('feedback-box');
+const buttons = document.querySelectorAll('.repro-btn');
+const clickedBtn = buttons[idx];
+const fbText = decodeURIComponent(encodedFb);
+if (isCorrect) {
+playSound('correct');
+confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+buttons.forEach(b => b.disabled = true);
+clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 読解再現成功！</div><p>${fbText}</p>`;
+fbBox.classList.remove('hidden');
+document.getElementById('next-item-btn').classList.remove('hidden');
+} else {
+playSound('wrong');
+clickedBtn.disabled = true;
+clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900');
+fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
+fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解。</div><p>${fbText}</p>`;
+fbBox.classList.remove('hidden');
+}
+}
 
-                        <div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md">④ 書き換え</span>
-                                    ${g2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">同意文書き換え（全10問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.grammar2.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${g2.isStarted ? `Q${g2.currentItem}から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
+function nextStep() { state.currentStepIndex++; renderQuestion(); }
+function nextSubQ() { state.subQIndex++; renderQuestion(); }
+function nextItem() {
+const catData = db[state.currentCategory];
+state.currentIndex++;
+state.currentStepIndex = 0;
+state.subQIndex = 0;
+if (state.currentIndex >= catData.items.length) {
+clearCategoryProgress(state.currentCategory);
+renderClearScreen();
+} else {
+renderQuestion();
+}
+}
 
-                        <div onclick="app.startCategory('reading')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">⑤ 読解長文</span>
-                                    ${rd.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">長文総合（4組）</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.reading.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${rd.isStarted ? `第${rd.currentItem}組から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
+function renderClearScreen() {
+window.scrollTo(0, 0);
+homeBtn.classList.add('hidden');
+const clearedCat = state.currentCategory;
+container.innerHTML = `
+<div class="text-center py-8 space-y-6 fade-in">
+<div class="w-24 h-24 bg-gradient-to-tr from-amber-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto shadow-xl text-white text-4xl animate-bounce">
+<i class="fa-solid fa-trophy"></i>
+</div>
+<div class="space-y-2">
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950">全ミッション・完全クリア！</h2>
+<p class="text-sm text-slate-600 max-w-md mx-auto">
+おめでとうございます！このジャンルの問題セットをすべて完遂しました。
+</p>
+</div>
+<div class="pt-4 max-w-sm mx-auto space-y-3">
+<button onclick="app.renderHome()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+<i class="fa-solid fa-house"></i> ジャンル選択メニューへ戻る
+</button>
+<button onclick="app.startCategory('${clearedCat}', true)" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
+<i class="fa-solid fa-rotate-right"></i> もう一度はじめから復習する
+</button>
+</div>
+</div>
+`;
+}
 
-                        <div onclick="app.startCategory('writing1')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">⑥ 整序英作</span>
-                                    ${w1.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w1.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">整序英作（10問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.writing1.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${w1.isStarted ? `Q${w1.currentItem}から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
+window.app = {
+renderHome, startCategory, checkAns, checkQuickGrammarAns, checkSubQAns, checkReproReading, nextStep, nextSubQ, nextItem, returnHome: renderHome, resetAllProgress
+};
 
-                        <div onclick="app.startCategory('writing2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-5 sm:col-span-2 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
-                            <div>
-                                <div class="flex justify-between items-start">
-                                    <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">⑦ 自由英作</span>
-                                    ${w2.isStarted ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w2.pct}%</span>` : ''}
-                                </div>
-                                <h3 class="font-bold text-slate-900 text-lg mt-2 group-hover:text-indigo-600 transition-colors">思考型・自由英作文（5問）</h3>
-                                <p class="text-xs text-slate-500 mt-1">${db.writing2.desc}</p>
-                            </div>
-                            <div class="mt-4 flex items-center justify-between text-xs font-bold text-indigo-600">
-                                <span>${w2.isStarted ? `Q${w2.currentItem}から再開` : 'トレーニング開始'}</span>
-                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function startCategory(catKey, forceReset = false) {
-            state.currentCategory = catKey;
-            
-            if (forceReset) {
-                state.currentIndex = 0;
-                state.currentStepIndex = 0;
-                state.subQIndex = 0;
-                clearCategoryProgress(catKey);
-            } else {
-                const saved = loadProgress(catKey);
-                if (saved) {
-                    state.currentIndex = saved.currentIndex || 0;
-                    state.currentStepIndex = saved.currentStepIndex || 0;
-                    state.subQIndex = saved.subQIndex || 0;
-                } else {
-                    state.currentIndex = 0;
-                    state.currentStepIndex = 0;
-                    state.subQIndex = 0;
-                }
-            }
-            homeBtn.classList.remove('hidden');
-            renderQuestion();
-        }
-
-        function renderQuestion() {
-            window.scrollTo(0, 0);
-            saveProgress();
-            container.classList.remove('fade-in');
-            void container.offsetWidth;
-            container.classList.add('fade-in');
-
-            const catData = db[state.currentCategory];
-            const item = catData.items[state.currentIndex];
-            const totalItems = catData.items.length;
-
-            if (state.currentCategory === 'quickGrammar') {
-                renderQuickGrammarQuestion(catData, item, totalItems);
-                return;
-            }
-
-            if (state.currentCategory === 'reading') {
-                renderReadingQuestion(catData, item, totalItems);
-                return;
-            }
-
-            const steps = item.steps || [];
-            const isRepro = state.currentStepIndex >= steps.length;
-            const progressPct = Math.round(((state.currentIndex * (steps.length + 1) + state.currentStepIndex) / (totalItems * (steps.length + 1))) * 100);
-
-            let headerHTML = `
-                <div class="flex justify-between items-center mb-4">
-                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">
-                        ${catData.title} （問題 ${state.currentIndex + 1} / ${totalItems}）
-                    </span>
-                    <span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
-                </div>
-                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
-                    <div class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
-                </div>
-            `;
-
-            if (!isRepro) {
-                const step = steps[state.currentStepIndex];
-                container.innerHTML = `
-                    ${headerHTML}
-                    <div class="space-y-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm font-sans">
-                            ${item.passage}
-                        </div>
-                        <div>
-                            <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">
-                                STEP ${state.currentStepIndex + 1} / ${steps.length}: ${step.title}
-                            </span>
-                            <h3 class="font-bold text-slate-900 text-base sm:text-lg">${step.q}</h3>
-                        </div>
-                        <div class="space-y-3" id="options-box">
-                            ${step.opts.map((opt, idx) => `
-                                <button onclick="app.checkAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}', false)" class="opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
-                                    <span class="text-sm sm:text-base">${opt.t}</span>
-                                </button>
-                            `).join('')}
-                        </div>
-                        <div id="feedback-box" class="hidden"></div>
-                        <button id="next-step-btn" onclick="app.nextStep()" class="hidden w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                            <span>次のステップへ進む</span> <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                `;
-            } else {
-                const repro = item.repro;
-                container.innerHTML = `
-                    ${headerHTML}
-                    <div class="space-y-6">
-                        <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs font-bold text-amber-800 flex items-center gap-2">
-                            <i class="fa-solid fa-fire text-amber-600 text-base"></i> 最終確認：類題での再現テスト
-                        </div>
-                        <div class="bg-slate-900 text-white p-5 rounded-xl space-y-3 shadow-inner font-sans">
-                            <p class="text-base text-slate-100 leading-relaxed">${repro.passage}</p>
-                            <p class="font-bold text-teal-300 text-base border-t border-slate-700 pt-3">${repro.q}</p>
-                        </div>
-                        <div class="space-y-3" id="options-box">
-                            ${repro.opts.map((opt, idx) => `
-                                <button onclick="app.checkAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}', true)" class="repro-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
-                                    <span class="text-sm sm:text-base">${opt.t}</span>
-                                </button>
-                            `).join('')}
-                        </div>
-                        <div id="feedback-box" class="hidden"></div>
-                        <button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                            <span>次の問題へ進む</span> <i class="fa-solid fa-trophy"></i>
-                        </button>
-                    </div>
-                `;
-            }
-        }
-
-        function renderQuickGrammarQuestion(catData, item, totalItems) {
-            const progressPct = Math.round(((state.currentIndex) / totalItems) * 100);
-            container.innerHTML = `
-                <div class="flex justify-between items-center mb-4">
-                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-md">
-                        ${catData.title} （問 ${state.currentIndex + 1} / ${totalItems}）
-                    </span>
-                    <span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
-                </div>
-                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
-                    <div class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
-                </div>
-                <div class="space-y-6">
-                    <div class="bg-indigo-50 border border-indigo-100 p-5 rounded-2xl shadow-sm">
-                        <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">【問題】</span>
-                        <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-relaxed">${item.question}</h3>
-                    </div>
-                    <div class="space-y-3" id="options-box">
-                        ${item.opts.map((opt, idx) => `
-                            <button onclick="app.checkQuickGrammarAns(${idx},${opt.correct})" class="quick-opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-center gap-3">
-                                <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 text-sm font-bold flex items-center justify-center flex-shrink-0">${String.fromCharCode(65 + idx)}</span>
-                                <span class="text-base sm:text-lg font-semibold">${opt.t}</span>
-                            </button>
-                        `).join('')}
-                    </div>
-                    <div id="feedback-box" class="hidden"></div>
-                    <button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                        <span>${state.currentIndex + 1 === totalItems ? '結果を見る・クリア！' : '次の問題へ進む'}</span> <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-            `;
-        }
-
-        function checkQuickGrammarAns(idx, isCorrect) {
-            const fbBox = document.getElementById('feedback-box');
-            const buttons = document.querySelectorAll('.quick-opt-btn');
-            const clickedBtn = buttons[idx];
-            const catData = db[state.currentCategory];
-            const item = catData.items[state.currentIndex];
-            const explanation = item.explanation || '';
-
-            if (isCorrect) {
-                playSound('correct');
-                confetti({ particleCount: 50, spread: 50, origin: { y: 0.6 } });
-                
-                buttons.forEach(b => {
-                    b.disabled = true;
-                    b.classList.add('opacity-60', 'cursor-not-allowed');
-                });
-                clickedBtn.classList.remove('border-slate-200', 'opacity-60');
-                clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
-                fbBox.className = 'p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm space-y-2 fade-in';
-                fbBox.innerHTML = `
-                    <div class="font-bold text-base flex items-center gap-2 text-emerald-700">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i> 正解！
-                    </div>
-                    <p class="text-slate-700 font-medium leading-relaxed bg-white/70 p-3 rounded-lg border border-emerald-100">
-                        <span class="font-bold text-emerald-800">【解説】</span><br>${explanation}
-                    </p>
-                `;
-                fbBox.classList.remove('hidden');
-                document.getElementById('next-item-btn').classList.remove('hidden');
-            } else {
-                playSound('wrong');
-                clickedBtn.disabled = true;
-                clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
-                fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `
-                    <div class="font-bold text-base flex items-center gap-2">
-                        <i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。
-                    </div>
-                    <p class="text-xs text-rose-700">もう一度よく考えて別の選択肢を選んでみましょう！</p>
-                `;
-                fbBox.classList.remove('hidden');
-            }
-        }
-        function renderReadingQuestion(catData, item, totalItems) {
-            saveProgress();
-            const subQ = item.subQs[state.subQIndex];
-            const totalSubQs = item.subQs.length;
-            const hasSteps = state.subQIndex >= totalSubQs;
-            const isRepro = state.subQIndex > totalSubQs;
-            let progressPct = Math.round(((state.currentIndex * (totalSubQs + item.steps.length + 1) + state.subQIndex) / (totalItems * (totalSubQs + item.steps.length + 1))) * 100);
-
-            let headerHTML = `
-                <div class="flex justify-between items-center mb-4">
-                    <span class="px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md">
-                        読解長文セット ${state.currentIndex + 1} / ${totalItems}
-                    </span>
-                    <span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
-                </div>
-                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6">
-                    <div class="bg-amber-500 h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
-                </div>
-            `;
-
-            if (!hasSteps) {
-                container.innerHTML = `
-                    ${headerHTML}
-                    <div class="space-y-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm font-serif">
-                            ${item.passage}
-                        </div>
-                        <div>
-                            <span class="text-xs font-extrabold text-amber-600 uppercase tracking-wider block mb-1">
-                                設問 ${state.subQIndex + 1} / ${totalSubQs}: ${subQ.title}
-                            </span>
-                            <h3 class="font-bold text-slate-900 text-base sm:text-lg">${subQ.q}</h3>
-                        </div>
-                        <div class="space-y-3" id="options-box">
-                            ${subQ.opts.map((opt, idx) => `
-                                <button onclick="app.checkSubQAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}')" class="opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
-                                    <span class="text-sm sm:text-base">${opt.t}</span>
-                                </button>
-                            `).join('')}
-                        </div>
-                        <div id="feedback-box" class="hidden"></div>
-                        <button id="next-subq-btn" onclick="app.nextSubQ()" class="hidden w-full py-3.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                            <span>次の設問へ進む</span> <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                `;
-            } else if (!isRepro) {
-                const step = item.steps[state.subQIndex - totalSubQs];
-                container.innerHTML = `
-                    ${headerHTML}
-                    <div class="space-y-6">
-                        <div class="bg-indigo-50 border border-indigo-200 p-3 rounded-xl text-xs font-bold text-indigo-900">
-                            💡 長文読解の解法ステップ確認
-                        </div>
-                        <div>
-                            <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider block mb-1">解法アルゴリズム</span>
-                            <h3 class="font-bold text-slate-900 text-base sm:text-lg">${step.q}</h3>
-                        </div>
-                        <div class="space-y-3" id="options-box">
-                            ${step.opts.map((opt, idx) => `
-                                <button onclick="app.checkSubQAns(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}')" class="opt-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
-                                    <span class="text-sm sm:text-base">${opt.t}</span>
-                                </button>
-                            `).join('')}
-                        </div>
-                        <div id="feedback-box" class="hidden"></div>
-                        <button id="next-subq-btn" onclick="app.nextSubQ()" class="hidden w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                            <span>次へ進む</span> <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                `;
-            } else {
-                const repro = item.repro;
-                container.innerHTML = `
-                    ${headerHTML}
-                    <div class="space-y-6">
-                        <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs font-bold text-amber-800 flex items-center gap-2">
-                            <i class="fa-solid fa-fire text-amber-600 text-base"></i> 最終確認：読解・類題再現テスト
-                        </div>
-                        <div class="bg-slate-900 text-white p-5 rounded-xl space-y-3 shadow-inner font-serif">
-                            <p class="text-base text-slate-100 leading-relaxed">${repro.passage}</p>
-                            <p class="font-bold text-teal-300 text-base border-t border-slate-700 pt-3 font-sans">${repro.q}</p>
-                        </div>
-                        <div class="space-y-3" id="options-box">
-                            ${repro.opts.map((opt, idx) => `
-                                <button onclick="app.checkReproReading(${idx}, ${opt.correct}, '${encodeURIComponent(opt.fb)}')" class="repro-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all font-medium text-slate-700 flex items-start gap-3">
-                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
-                                    <span class="text-sm sm:text-base">${opt.t}</span>
-                                </button>
-                            `).join('')}
-                        </div>
-                        <div id="feedback-box" class="hidden"></div>
-                        <button id="next-item-btn" onclick="app.nextItem()" class="hidden w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                            <span>次の問題へ進む</span> <i class="fa-solid fa-trophy"></i>
-                        </button>
-                    </div>
-                `;
-            }
-        }
-
-        function checkAns(idx, isCorrect, encodedFb, isRepro) {
-            const fbBox = document.getElementById('feedback-box');
-            const buttons = document.querySelectorAll(isRepro ? '.repro-btn' : '.opt-btn');
-            const clickedBtn = buttons[idx];
-            const fbText = decodeURIComponent(encodedFb);
-            if (isCorrect) {
-                playSound('correct');
-                if (isRepro) {
-                    confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-                }
-                buttons.forEach(b => {
-                    b.disabled = true;
-                    b.classList.add('opacity-65', 'cursor-not-allowed');
-                });
-                clickedBtn.classList.remove('border-slate-200', 'opacity-65');
-                clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
-                fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
-                fbBox.classList.remove('hidden');
-                if (!isRepro) {
-                    document.getElementById('next-step-btn').classList.remove('hidden');
-                } else {
-                    document.getElementById('next-item-btn').classList.remove('hidden');
-                }
-            } else {
-                playSound('wrong');
-                clickedBtn.disabled = true;
-                clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
-                fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。</div><p>${fbText} （別の選択肢を選び直してください）</p>`;
-                fbBox.classList.remove('hidden');
-            }
-        }
-
-        function checkSubQAns(idx, isCorrect, encodedFb) {
-            const fbBox = document.getElementById('feedback-box');
-            const buttons = document.querySelectorAll('.opt-btn');
-            const clickedBtn = buttons[idx];
-            const fbText = decodeURIComponent(encodedFb);
-            if (isCorrect) {
-                playSound('correct');
-                buttons.forEach(b => {
-                    b.disabled = true;
-                    b.classList.add('opacity-65', 'cursor-not-allowed');
-                });
-                clickedBtn.classList.remove('border-slate-200', 'opacity-65');
-                clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'ring-2', 'ring-emerald-500/20');
-                fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
-                fbBox.classList.remove('hidden');
-                document.getElementById('next-subq-btn').classList.remove('hidden');
-            } else {
-                playSound('wrong');
-                clickedBtn.disabled = true;
-                clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900', 'opacity-70');
-                fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解です。</div><p>${fbText} （選び直してください）</p>`;
-                fbBox.classList.remove('hidden');
-            }
-        }
-
-        function checkReproReading(idx, isCorrect, encodedFb) {
-            const fbBox = document.getElementById('feedback-box');
-            const buttons = document.querySelectorAll('.repro-btn');
-            const clickedBtn = buttons[idx];
-            const fbText = decodeURIComponent(encodedFb);
-            if (isCorrect) {
-                playSound('correct');
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-                buttons.forEach(b => b.disabled = true);
-                clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
-                fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 読解再現成功！</div><p>${fbText}</p>`;
-                fbBox.classList.remove('hidden');
-                document.getElementById('next-item-btn').classList.remove('hidden');
-            } else {
-                playSound('wrong');
-                clickedBtn.disabled = true;
-                clickedBtn.classList.add('border-rose-400', 'bg-rose-50', 'text-rose-900');
-                fbBox.className = 'p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-1 fade-in';
-                fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-rose-500"></i> 不正解。</div><p>${fbText}</p>`;
-                fbBox.classList.remove('hidden');
-            }
-        }
-
-        function nextStep() {
-            state.currentStepIndex++;
-            renderQuestion();
-        }
-
-        function nextSubQ() {
-            state.subQIndex++;
-            renderQuestion();
-        }
-
-        function nextItem() {
-            const catData = db[state.currentCategory];
-            state.currentIndex++;
-            state.currentStepIndex = 0;
-            state.subQIndex = 0;
-            if (state.currentIndex >= catData.items.length) {
-                clearCategoryProgress(state.currentCategory);
-                renderClearScreen();
-            } else {
-                renderQuestion();
-            }
-        }
-
-        function renderClearScreen() {
-            window.scrollTo(0, 0);
-            homeBtn.classList.add('hidden');
-            const clearedCat = state.currentCategory;
-            container.innerHTML = `
-                <div class="text-center py-8 space-y-6 fade-in">
-                    <div class="w-24 h-24 bg-gradient-to-tr from-amber-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto shadow-xl text-white text-4xl animate-bounce">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <div class="space-y-2">
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950">全ミッション・完全クリア！</h2>
-                        <p class="text-sm text-slate-600 max-w-md mx-auto">
-                            おめでとうございます！このジャンルの問題セットをすべて完遂しました。
-                        </p>
-                    </div>
-                    <div class="pt-4 max-w-sm mx-auto space-y-3">
-                        <button onclick="app.renderHome()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-house"></i> ジャンル選択メニューへ戻る
-                        </button>
-                        <button onclick="app.startCategory('${clearedCat}', true)" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-rotate-right"></i> もう一度はじめから復習する
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        window.app = {
-            renderHome,
-            startCategory,
-            checkAns,
-            checkQuickGrammarAns,
-            checkSubQAns,
-            checkReproReading,
-            nextStep,
-            nextSubQ,
-            nextItem,
-            returnHome: renderHome,
-            resetAllProgress
-        };
-
-        renderHome();
-    </script>
+renderHome();
+</script>
 </body>
 </html>
