@@ -1898,7 +1898,7 @@ reading: {
                             ]},
                             { type: "内容正誤", title: "問3：内容の正誤", q: "本文の内容に一致しているものはどれか？", opts: [
                                 {t: "Sports are only played for fun and entertainment.", correct: false, fb: "「not only for fun」とあるので誤り。"},
-                                {t: "Sports help people learn about teamwork and fairness.", correct: true, fb: "正解！内容と完全に一致します。"}
+                                {t: "Sports help people learn about teamwork and how to respect others.", correct: true, fb: "正解！内容と完全に一致します。"}
                             ]}                            
                         ],
                         steps: [
@@ -1935,8 +1935,8 @@ reading: {
                         ],
                         steps: [
                             { title: "【判断】理由・メリットを問う設問の処理", q: "「Why」や「How」でメリットを問われたとき、本文中のどの表現を探すべき？", opts: [
-                                {t: "good for... や helps... などのプラス評価の表現", correct: true, fb: "正解！メリットの根拠となる箇所を直撃できます。"},
-                                {t: "過去の歴史や数字だけのデータ", correct: false, fb: "不正解です。"}
+                                {t: "good for... / helps... / importantなどのプラス評価の表現", correct: true, fb: "正解！メリットの根拠となる箇所を直撃できます。"},
+                                {t: "過去の歴史や数字のデータ", correct: false, fb: "不正解です。"}
                             ]}
                         ],
                         repro: {
@@ -1967,7 +1967,7 @@ reading: {
                         ],
                         steps: [
                             { title: "【着眼】ストーリー型の時系列把握", q: "物語文（ストーリー）で出来事の順序を問われたとき、最初に見るべきマーカーは？", opts: [
-                                {t: "Last night や When などの時を表す副詞句（節）", correct: true, fb: "正解！時系列の目印になります。"},
+                                {t: "last night や when などの時を表す副詞句（節）", correct: true, fb: "正解！時系列の目印になります。"},
                                 {t: "according toやfor exampleなどの具体例の数", correct: false, fb: "不正解。"}
                             ]}
                         ],
@@ -1998,7 +1998,7 @@ reading: {
                             ]}
                         ],
                         steps: [
-                            { title: "【判断】比較表現の優劣の読み取り", q: "「quieter and cleaner」という比較級の形容詞が指しているものは？", opts: [
+                            { title: "【判断】比較表現の優劣の読み取り", q: "they are much quieter and cleaner than traditional gasoline carsの解釈として正しいものは？", opts: [
                                 {t: "車両の価格や色のバラエティ", correct: false, fb: "不正解です。"},
                                 {t: "従来のものに比べて、音や汚れの面で優れている点", correct: true, fb: "正解！比較の焦点を正確に見抜いています。"}        
                             ]}
@@ -2014,15 +2014,15 @@ reading: {
                     },
                     {
                         id: 5,
-                        passage: "【長文読解 第5組】<br>\"Many supermarkets now sell food that is close to its expiration date at lower prices. This helps reduce food waste. Customers can save money, and stores can reduce waste, which is good for both people and the environment.\"",
+                        passage: "【長文読解 第5組】<br>\"Many supermarkets now sell food that is close to its expiration date at lower prices. This helps reduce food waste. Customers can save money, and stores can reduce waste. That is good for both people and the environment.\n　※expiration date：消費期限\"",
                         subQs: [
                             { type: "テーマ選択", title: "問1：テーマ選択", q: "この文章の主題として最も適切なものは？", opts: [
                                 {t: "スーパーにおける期限間近の食品の割引販売と、そのメリット", correct: true, fb: "正解！フードロス削減と消費者・店舗双方のメリットが述べられています。"},
                                 {t: "新しいスーパーマーケットの開店セール情報", correct: false, fb: "不正解。"}
                             ]},
-                            { type: "英問英答", title: "問2：英問英答", q: "Question: Why do supermarkets sell food at lower prices?", opts: [
-                                {t: "To help reduce food waste.", correct: true, fb: "正解！「This helps reduce food waste」が理由です。"},
-                                {t: "To make the store bigger.", correct: false, fb: "不正解です。"}
+                            { type: "英問英答", title: "問2：英問英答", q: "Question: What do many supermarkets do to reduce food waste?", opts: [
+                                {t: "They sell food that is close to its expireation date at lower prices.", correct: true, fb: "正解！「This helps reduce food waste.」のThisを指しています。"},
+                                {t: "They help customers save money.", correct: false, fb: "不正解です。"}
                             ]},
                             { type: "内容正誤", title: "問3：内容の正誤", q: "本文の内容に一致しているものはどれか？", opts: [
                                 {t: "Buying food close to its expiration date is only good for stores.", correct: false, fb: "「good for both people and the environment」とあるため誤り。"},
@@ -2031,16 +2031,16 @@ reading: {
                         ],
                         steps: [
                             { title: "【着眼】目的や理由を表す不定詞（副詞的用法）の把握", q: "文章中で「〜するために」という目的を表すときに見つけやすい形は？", opts: [
-                                {t: "to ＋ 動詞の原形 のかたまり", correct: true, fb: "正解！不定詞の副詞的用法の目印です。"},
-                                {t: "文頭の数字だけ", correct: false, fb: "不正解です。"}
+                                {t: "to ＋ 動詞の原形 や in order to ＋ 動詞の原形 のかたまり", correct: true, fb: "正解！不定詞の副詞的用法の目印です。"},
+                                {t: "how to ＋ 動詞の原形 や the way of のかたまり", correct: false, fb: "不正解です。how toやthe way ofは方法や手段です。"}
                             ]}
                         ],
                         repro: {
-                            passage: "【読解・類題テスト】<br>\"Libraries collect old books to share knowledge with more people and protect our culture.\"",
+                            passage: "【読解・類題テスト】<br>\"Libraries collect old books in order to share knowledge with more people and protect our culture.\n　※knowledge：知識\"",
                             q: "図書館が古い本を集める目的として正しいものは？",
                             opts: [
-                                {t: "より多くの人と知識を共有し、文化を守るため", correct: true, fb: "正解！目的を表す表現の読解再現に成功しました！"},
-                                {t: "古い本をすべて捨てるため", correct: false, fb: "不正解。"}
+                                {t: "古い本をすべて捨てるため", correct: false, fb: "不正解。"},
+                                {t: "より多くの人と知識を共有し、文化を守るため", correct: true, fb: "正解！目的を表す表現の読解再現に成功しました！"}        
                             ]
                         }
                     }
@@ -2477,10 +2477,10 @@ container.innerHTML = `
 <div class="space-y-6">
 <div class="text-center space-y-2">
 <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full border border-indigo-100">
-高校入試対策 英語実力養成プラットフォーム
+高校入試対策 英語再現力養成プラットフォーム
 </span>
 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-英語解法プロセス ＆ 頻出表現120
+解法プロセス ＆ 頻出表現120
 </h2>
 <p class="text-sm text-slate-600 max-w-lg mx-auto">
 直接回答からステップ確認、頻出表現の確認まで、目的に合わせて選択できます。
@@ -2495,7 +2495,7 @@ container.innerHTML = `
 <!-- 思考・解法OS系 -->
 <div class="border-b border-slate-200 pb-2">
 <h3 class="text-sm font-bold text-indigo-900 flex items-center gap-2">
-<i class="fa-solid fa-brain text-indigo-600"></i> 【思考力・解法プロセス別トレーニング】
+<i class="fa-solid fa-brain text-indigo-600"></i> 【判断・解法プロセス別トレーニング】
 </h3>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2557,7 +2557,7 @@ ${g2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <span class="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-bold rounded">⑤ 読解</span>
 ${rd.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">読解総合（全5題）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">読解総合（全5組）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${rd.isStarted ? `第${rd.currentItem}組から再開` : '開始'}</span>
