@@ -24,6 +24,10 @@ emeraldCustom: { 500: '#10b981', 600: '#059669' }
 </script>
 <style>
 .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+#daily-timer { display:none; white-space:nowrap; font-variant-numeric:tabular-nums; }
+#daily-timer.warning { color:#a16207; background:#fef08a; border-color:#eab308; }
+#time-limit-overlay { position:fixed; inset:0; z-index:99999; background:rgba(15,23,42,.97); color:white; display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; }
+#time-limit-overlay button { cursor:pointer; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
@@ -37,9 +41,10 @@ emeraldCustom: { 500: '#10b981', 600: '#059669' }
 </div>
 <div>
 <h1 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">高校入試対策 英語処理OS ＆ 頻出表現120</h1>
-<p class="text-xs text-slate-500 font-medium">着眼・判断・処理の解法のプロセスを学び再現力を養成する</p>
+<p class="text-xs text-slate-500 font-medium">英語の着眼・判断・処理の練習を支援する補助教材</p>
 </div>
 </div>
+<div id="daily-timer" class="text-xs sm:text-sm font-extrabold border border-slate-300 bg-slate-100 text-slate-700 rounded-lg px-2.5 py-2">本日の残り時間 15:00</div>
 <button onclick="app.returnHome()" id="home-btn" class="hidden text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
 <i class="fa-solid fa-house"></i> メニューへ
 </button>
@@ -2975,6 +2980,73 @@ db.listening = {
 ]
 };
 
+
+// 1日15分制限：最初に問題画面を開いた時点で期限を保存し、画面遷移・再読み込み後も継続
+const DAILY_LIMIT_MS = 15 * 60 * 1000;
+const DAILY_TIMER_KEY = 'hs_english_os_daily_timer_v1';
+let dailyTimerInterval = null;
+let dailyTimeExpired = false;
+
+function getDailyTimerData() {
+  const today = new Date().toLocaleDateString('sv-SE');
+  try {
+    const saved = JSON.parse(localStorage.getItem(DAILY_TIMER_KEY) || 'null');
+    if (saved && saved.day === today && Number.isFinite(saved.deadline)) return saved;
+    return { day: today, deadline: null };
+  } catch (e) { return { day: today, deadline: null }; }
+}
+function startDailyTimer() {
+  const timerEl = document.getElementById('daily-timer');
+  const data = getDailyTimerData();
+  if (!data.deadline) {
+    data.deadline = Date.now() + DAILY_LIMIT_MS;
+    try { localStorage.setItem(DAILY_TIMER_KEY, JSON.stringify(data)); } catch (e) {}
+  }
+  if (timerEl) timerEl.style.display = 'block';
+  updateDailyTimer();
+  if (dailyTimerInterval) clearInterval(dailyTimerInterval);
+  dailyTimerInterval = setInterval(updateDailyTimer, 250);
+}
+function updateDailyTimer() {
+  if (dailyTimeExpired) return;
+  const timerEl = document.getElementById('daily-timer');
+  const data = getDailyTimerData();
+  if (!data.deadline) return;
+  const remaining = Math.max(0, data.deadline - Date.now());
+  if (timerEl) {
+    const mins = Math.floor(remaining / 60000);
+    const secs = Math.floor((remaining % 60000) / 1000);
+    timerEl.textContent = `本日の残り時間 ${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+    timerEl.classList.toggle('warning', remaining <= 3 * 60 * 1000);
+  }
+  if (remaining <= 0) expireDailySession();
+}
+function expireDailySession() {
+  if (dailyTimeExpired) return;
+  dailyTimeExpired = true;
+  if (dailyTimerInterval) clearInterval(dailyTimerInterval);
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  try { window.speechSynthesis.onvoiceschanged = null; } catch (e) {}
+  const overlay = document.createElement('div');
+  overlay.id = 'time-limit-overlay';
+  overlay.innerHTML = `
+    <div class="max-w-lg">
+      <div class="text-5xl mb-5">🌟</div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4">お疲れさまでした！</h2>
+      <p class="text-lg leading-relaxed mb-2">本日はここまでです。</p>
+      <p class="text-slate-300 mb-8">明日、またがんばりましょう。</p>
+      <button id="daily-exit-button" class="px-8 py-4 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-extrabold text-lg">終了する</button>
+      <p id="daily-exit-note" class="text-xs text-slate-400 mt-4">終了ボタンを押してください。</p>
+    </div>`;
+  document.body.appendChild(overlay);
+  document.getElementById('daily-exit-button').addEventListener('click', () => {
+    // ブラウザは直接開いたタブを閉じられない場合があるため、閉じられない場合もアプリ画面を消す
+    try { window.close(); } catch (e) {}
+    document.body.innerHTML = '<div style="min-height:100vh;background:#0f172a;color:white;display:flex;align-items:center;justify-content:center;text-align:center;font-family:sans-serif;padding:24px"><div><h2>本日の学習は終了しました。</h2><p>明日、またがんばりましょう。</p></div></div>';
+  });
+  // オーバーレイが画面全体を覆い、下のアプリのボタン操作を遮断する
+}
+
 const state = { currentCategory: null, currentIndex: 0, currentStepIndex: 0, subQIndex: 0 };
 const container = document.getElementById('app-container');
 const homeBtn = document.getElementById('home-btn');
@@ -3062,8 +3134,11 @@ container.innerHTML = `
 英語処理OS ＆ 頻出表現120
 </h2>
 <p class="text-sm text-slate-600 max-w-lg mx-auto">
-直接回答からプロセス確認、頻出表現の確認まで、目的に合わせて選択できます。
+本アプリは紙の問題集による学習を補完するものであり、アプリの利用だけで学習が完結することを意図したものではありません。
 </p>
+<div class="max-w-lg mx-auto mt-3 px-4 py-3 rounded-xl border-2 border-amber-300 bg-amber-50 text-amber-900 text-sm font-bold shadow-sm">
+<i class="fa-solid fa-clock mr-1.5"></i>１日の制限時間は１５分です（翌日0:00でリセット）
+</div>
 </div>
 <div class="flex justify-end pt-1">
 <button onclick="app.resetAllProgress()" class="text-xs bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-500 font-bold px-3 py-1.5 rounded-lg border border-slate-200 transition-all flex items-center gap-1.5">
@@ -3271,6 +3346,8 @@ container.insertAdjacentHTML('beforeend', `
 }
 
 function startCategory(catKey, forceReset = false) {
+if (dailyTimeExpired) return;
+startDailyTimer();
 state.currentCategory = catKey;
 if (forceReset) {
 state.currentIndex = 0; state.currentStepIndex = 0; state.subQIndex = 0;
@@ -3290,6 +3367,7 @@ renderQuestion();
 }
 
 function renderQuestion() {
+if (dailyTimeExpired) return;
 window.scrollTo(0, 0);
 saveProgress();
 container.classList.remove('fade-in');
@@ -3796,6 +3874,9 @@ renderHome, startCategory, playListening: (i) => { const b=document.getElementBy
 };
 
 renderHome();
+// 既にその日の学習を開始していた場合、メニュー画面でも残り時間を表示し続ける
+const existingDailyTimer = getDailyTimerData();
+if (existingDailyTimer.deadline) startDailyTimer();
 </script>
 </body>
 </html>
