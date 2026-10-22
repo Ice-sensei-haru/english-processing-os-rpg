@@ -3631,7 +3631,7 @@ function renderListeningQuestion(catData) {
    <button onclick="app.playListening(${state.currentIndex})" class="px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm"><i class="fa-solid fa-play mr-2"></i>音声を再生</button>
    <button onclick="app.setListeningRate(1)" class="px-3 py-2 rounded-lg border ${listeningRate===1?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">1.0倍速</button>
    <button onclick="app.setListeningRate(0.9)" class="px-3 py-2 rounded-lg border ${listeningRate===0.9?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">0.9倍速</button>
-   <button onclick="app.stopListening()" class="px-3 py-2 rounded-lg border border-slate-300 bg-white text-sm"><i class="fa-solid fa-stop mr-1"></i>停止</button>
+   <button id="listening-stop-btn" onclick="app.stopListening()" class="px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-rose-50 text-sm font-bold transition-colors"><i class="fa-solid fa-stop mr-1"></i>停止</button>
   </div>
   <p class="text-xs text-slate-500 mt-3">※ブラウザ標準の音声読み上げ機能を使います。端末やブラウザによって声質が異なります。</p>
  </div>
@@ -3786,7 +3786,7 @@ container.innerHTML = `
 }
 
 window.app = {
-renderHome, startCategory, playListening: (i) => playListeningAudio(db.listening.items[i]), setListeningRate: (r) => { listeningRate=r; renderQuestion(); }, stopListening: () => window.speechSynthesis?.cancel(), answerListening, nextListening, checkAns, checkQuickGrammarAns, checkSubQAns, checkReproReading, nextStep, nextSubQ, nextItem, returnHome: renderHome, resetAllProgress
+renderHome, startCategory, playListening: (i) => { const b=document.getElementById('listening-stop-btn'); if(b) b.classList.remove('bg-rose-100','border-rose-500','text-rose-700'); playListeningAudio(db.listening.items[i]); }, setListeningRate: (r) => { listeningRate=r; renderQuestion(); }, stopListening: () => { window.speechSynthesis?.cancel(); const b=document.getElementById('listening-stop-btn'); if(b) { b.classList.remove('bg-white','border-slate-300','hover:bg-rose-50'); b.classList.add('bg-rose-100','border-rose-500','text-rose-700'); } }, answerListening, nextListening, checkAns, checkQuickGrammarAns, checkSubQAns, checkReproReading, nextStep, nextSubQ, nextItem, returnHome: renderHome, resetAllProgress
 };
 
 renderHome();
