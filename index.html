@@ -2848,6 +2848,133 @@ idiomsStage5: generateIdiomStageData(5),
 idiomsStage6: generateIdiomStageData(6)
 };
 
+db.listening = {
+ title: '⑨ リスニング（高校入試対策）',
+ desc: '音声を聞き、会話の流れや説明の要点を判断します。',
+ items: [
+  {
+    "type": "dialogue",
+    "audio": "Girl: Hi, Ken. Are you going to the school festival on Saturday?\nBoy: Yes. I will help the science club in the morning.\nGirl: What will you do there?\nBoy: We will show visitors some simple experiments.\nGirl: That sounds interesting. Can I help, too?\nBoy: Of course. We need someone to explain the experiments to younger children.\nGirl: Great! I enjoy working with children.",
+    "question": "What will the girl probably say next?",
+    "opts": [
+      "I don't like science experiments.",
+      "I'll come early and help you.",
+      "I went there last Saturday."
+    ],
+    "ans": 1,
+    "ex": "Ken says the club needs someone to explain the experiments, and the girl says she enjoys working with children. She will probably offer to help."
+  },
+  {
+    "type": "dialogue",
+    "audio": "Boy: You look tired, Mai. Did you stay up late?\nGirl: Yes. I was reading a book for my Japanese class.\nBoy: Is it a long book?\nGirl: Not really, but I have to write a report about it by Friday.\nBoy: I see. Have you finished reading it?\nGirl: Almost. I have only twenty pages left.\nBoy: That's good. You still have a few days.",
+    "question": "What will Mai probably say next?",
+    "opts": [
+      "I never read books for school.",
+      "The library is closed on Mondays.",
+      "I think I'll finish it tonight."
+    ],
+    "ans": 2,
+    "ex": "Mai has only twenty pages left and the report is due Friday, so finishing the book tonight is a natural response."
+  },
+  {
+    "type": "dialogue",
+    "audio": "Girl: Excuse me, is this the bus to the city museum?\nMan: Yes, it is. You should get off at the third stop.\nGirl: How long does it take to get there?\nMan: About fifteen minutes. The museum is across from the park.\nGirl: Thank you. I have to meet my class there at ten.\nMan: Then you have plenty of time. It's only nine thirty now.",
+    "question": "What will the girl probably say next?",
+    "opts": [
+      "Thank you for your help.",
+      "I missed the bus yesterday.",
+      "The museum was built by my uncle."
+    ],
+    "ans": 0,
+    "ex": "The man gives directions and reassures her that she has enough time. She will likely thank him."
+  },
+  {
+    "type": "dialogue",
+    "audio": "Boy: What are you doing this weekend, Yuki?\nGirl: I'm going to visit my grandmother in the countryside.\nBoy: That sounds nice. How will you get there?\nGirl: My father will drive us. We plan to leave early on Sunday.\nBoy: What do you usually do when you visit her?\nGirl: We cook together, and she tells me stories about her childhood.\nBoy: I bet you enjoy that.",
+    "question": "What will Yuki probably say next?",
+    "opts": [
+      "No, I have never met my grandmother.",
+      "I take the train to school every day.",
+      "Yes, I always learn something new from her."
+    ],
+    "ans": 2,
+    "ex": "Yuki describes cooking and listening to stories, so agreeing that she enjoys and learns from the visits fits the conversation."
+  },
+  {
+    "type": "dialogue",
+    "audio": "Girl: Did you see the posters about the clean-up day?\nBoy: Yes. It's next Sunday at the river.\nGirl: I'm thinking of joining. Do we need to bring anything?\nBoy: The organizers will give us gloves and bags, but we should bring water.\nGirl: How long will we work?\nBoy: From nine until noon. After that, the town will provide lunch.\nGirl: That sounds like a good plan.",
+    "question": "What will the girl probably say next?",
+    "opts": [
+      "I cleaned my room last night.",
+      "I'll sign up today, then.",
+      "I don't know where the river is in this story."
+    ],
+    "ans": 1,
+    "ex": "She is interested in joining and says the plan sounds good, so signing up is the most natural next statement."
+  },
+  {
+    "type": "talk",
+    "audio": "Hello, everyone. Today I'd like to tell you about our school library. Last year, many students said they could not find books they wanted to read. So, our library team asked students for ideas. We made a new corner for books about sports, music, and science. We also started a weekly book talk on Wednesday afternoons. Students can introduce a book in three minutes. You don't have to give a long speech, and you can speak in Japanese or English. Since we started these activities, more students have visited the library. Next month, we plan to invite a local writer to talk about making stories.",
+    "question": "What is one new activity at the school library?",
+    "opts": [
+      "A weekly book talk",
+      "A daily English test",
+      "A sports competition every Friday"
+    ],
+    "ans": 0,
+    "ex": "The speaker says the library started a weekly book talk on Wednesday afternoons."
+  },
+  {
+    "type": "talk",
+    "audio": "Good morning. My name is Alex, and I live near the sea. When I was younger, I often went swimming with my family. One summer, I noticed a lot of plastic bottles and bags on the beach. I was surprised because I had never thought about where our trash went. The next weekend, I joined a beach clean-up with my friends. We collected many bags of trash in just two hours. Since then, I have carried a reusable bottle and a small bag when I go out. I also tell my classmates that small actions can help protect nature. I hope more people will join our next clean-up in November.",
+    "question": "Why did Alex begin to take action to protect nature?",
+    "opts": [
+      "His teacher told him to stop swimming.",
+      "He wanted to become a professional swimmer.",
+      "He saw a lot of trash on the beach."
+    ],
+    "ans": 2,
+    "ex": "Alex says seeing plastic bottles and bags on the beach made him think about trash and motivated him to join a clean-up."
+  },
+  {
+    "type": "talk",
+    "audio": "Welcome to Green Town. If you visit our town, you can enjoy several interesting places. The central park is a good place to walk and have a picnic. It is especially beautiful in spring because many flowers bloom there. Near the park, you will find the history museum. It opens at ten in the morning and closes at five in the afternoon, except on Mondays. If you want to buy local food, visit the market next to the station. It is busiest on Saturday mornings. You can travel between these places by bus, but walking is also easy because they are close to one another. We hope you enjoy your stay.",
+    "question": "When is the history museum closed?",
+    "opts": [
+      "On Saturdays",
+      "On Mondays",
+      "Every afternoon"
+    ],
+    "ans": 1,
+    "ex": "The speaker explicitly says the museum is open from ten to five, except on Mondays."
+  },
+  {
+    "type": "talk",
+    "audio": "Hi, I'm Emma. I'd like to introduce a simple way to save water at home. Many people leave the water running while they brush their teeth. If you turn off the tap during brushing, you can save a lot of water over a week. You can also take shorter showers and use a bowl when washing vegetables. My family started doing these things last year. At first, my younger brother forgot to turn off the tap, so we put a small note near the sink. After a few weeks, it became a habit for everyone. Saving water is not difficult, and we can all help by changing small daily actions.",
+    "question": "What helped Emma's brother remember to save water?",
+    "opts": [
+      "A note near the sink",
+      "A new shower",
+      "A weekly family meeting"
+    ],
+    "ans": 0,
+    "ex": "Emma says the family put a small note near the sink because her brother forgot to turn off the tap."
+  },
+  {
+    "type": "talk",
+    "audio": "Our town will hold a food festival in the park this Saturday. The festival starts at eleven in the morning and ends at four in the afternoon. You can try dishes from different countries, including curry, pasta, and rice balls. Local high school students will have a small stage where they sing songs and perform dances. Please bring your own cup because we want to reduce plastic waste. If it rains, the food stands will move to the community center next to the park. Admission is free, but you should bring some money if you want to buy food. We hope to see many families there.",
+    "question": "What should visitors bring to help reduce plastic waste?",
+    "opts": [
+      "A raincoat for the performers",
+      "A ticket for admission",
+      "Their own cup"
+    ],
+    "ans": 2,
+    "ex": "The announcement asks visitors to bring their own cup to reduce plastic waste."
+  }
+]
+};
+
 const state = { currentCategory: null, currentIndex: 0, currentStepIndex: 0, subQIndex: 0 };
 const container = document.getElementById('app-container');
 const homeBtn = document.getElementById('home-btn');
@@ -2905,6 +3032,7 @@ return { pct, isStarted: doneStepsOverall > 0, isCleared: false, currentItem: cu
 }
 
 function renderHome() {
+if ('speechSynthesis' in window) window.speechSynthesis.cancel();
 window.scrollTo(0, 0);
 state.currentCategory = null;
 homeBtn.classList.add('hidden');
@@ -3131,6 +3259,15 @@ ${id6.isStarted ? `<span class="text-[10px] font-bold text-purple-700">${id6.pct
 </div>
 </div>
 `;
+container.insertAdjacentHTML('beforeend', `
+<div class="mt-5 border-2 border-emerald-300 bg-emerald-50 rounded-2xl p-4 cursor-pointer hover:border-emerald-500 transition-all" onclick="app.startCategory('listening')">
+ <div class="flex items-center justify-between gap-3">
+  <div><span class="px-2 py-1 bg-emerald-600 text-white text-xs font-bold rounded">⑨ リスニング</span>
+   <h4 class="font-bold text-slate-900 mt-2">高校入試リスニング（全10問）</h4>
+   <p class="text-sm text-slate-600 mt-1">対話の続き５問・説明文の内容理解５問。音声速度は1.0倍／0.9倍。</p>
+  </div><i class="fa-solid fa-headphones text-2xl text-emerald-600"></i>
+ </div>
+</div>`);
 }
 
 function startCategory(catKey, forceReset = false) {
@@ -3159,6 +3296,7 @@ container.classList.remove('fade-in');
 void container.offsetWidth;
 container.classList.add('fade-in');
 const catData = db[state.currentCategory];
+if (state.currentCategory === 'listening') { renderListeningQuestion(catData); return; }
 const item = catData.items[state.currentIndex];
 const totalItems = catData.items.length;
 
@@ -3414,6 +3552,123 @@ ${repro.opts.map((opt, idx) => `
 }
 }
 
+
+let listeningRate = 1.0;
+function chooseEnglishVoice(voices, gender) {
+ const english = voices.filter(v => /^en([-_]|$)/i.test(v.lang));
+ if (!english.length) return null;
+ // OS/browser voice names differ, so use name clues when available and fall back gracefully.
+ const femaleHints = /female|woman|samantha|victoria|karen|susan|zira|aria|jenny|ava|allison|moira|tessa|serena|fiona/i;
+ const maleHints = /male|man|daniel|david|alex|fred|tom|guy|ryan|james|lee|oliver|aaron/i;
+ const hints = gender === 'female' ? femaleHints : maleHints;
+ return english.find(v => hints.test(v.name)) || english.find(v => hints.test(v.voiceURI || '')) || english[0];
+}
+function playListeningAudio(itemOrText) {
+ if (!('speechSynthesis' in window)) {
+   alert('このブラウザは音声読み上げに対応していません。SafariまたはChromeでお試しください。');
+   return;
+ }
+ window.speechSynthesis.cancel();
+ const voices = window.speechSynthesis.getVoices();
+ const isItem = typeof itemOrText === 'object' && itemOrText !== null;
+ const audioText = isItem ? itemOrText.audio : String(itemOrText);
+ // 対話文は話者ラベルごとに音声を切り替え、独白は従来どおり1人の声で再生する。
+ const lines = isItem && itemOrText.type === 'dialogue'
+   ? audioText.split('\n').map(line => {
+       const match = line.match(/^\s*(Girl|Woman|Female|Boy|Man|Male)\s*:\s*(.*)$/i);
+       if (!match) return { text: line, gender: 'female' };
+       const speaker = match[1].toLowerCase();
+       return { text: match[2], gender: /^(girl|woman|female)$/.test(speaker) ? 'female' : 'male' };
+     }).filter(line => line.text.trim())
+   : [{ text: audioText, gender: 'neutral' }];
+ let index = 0;
+ const speakNext = () => {
+   if (index >= lines.length) return;
+   const line = lines[index++];
+   const utterance = new SpeechSynthesisUtterance(line.text);
+   utterance.lang = 'en-US';
+   utterance.rate = listeningRate;
+   utterance.pitch = 1;
+   let voice = line.gender === 'neutral'
+     ? chooseEnglishVoice(voices, 'female')
+     : chooseEnglishVoice(voices, line.gender);
+   if (voice) utterance.voice = voice;
+   utterance.onend = speakNext;
+   utterance.onerror = (event) => {
+     if (event.error !== 'canceled' && event.error !== 'interrupted') speakNext();
+   };
+   window.speechSynthesis.speak(utterance);
+ };
+ // iOSなど、音声一覧の準備が遅れる環境にも対応するため、取得後に再生開始。
+ if (voices.length) speakNext();
+ else {
+   window.speechSynthesis.onvoiceschanged = () => {
+     window.speechSynthesis.onvoiceschanged = null;
+     speakNext();
+   };
+   setTimeout(() => { if (index === 0) speakNext(); }, 500);
+ }
+}
+function renderListeningQuestion(catData) {
+ const item = catData.items[state.currentIndex];
+ if (!item) { renderListeningComplete(catData); return; }
+ const progressPct = Math.round((state.currentIndex / catData.items.length) * 100);
+ const choices = item.opts.map((opt, i) => `
+ <button onclick="app.answerListening(${i})" id="listen-opt-${i}" class="w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-emerald-400 hover:bg-emerald-50 transition-all font-medium">
+ <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 text-slate-700 font-bold text-sm mr-2">${String.fromCharCode(65+i)}</span>${opt}
+ </button>`).join('');
+ container.innerHTML = `
+ <div class="flex justify-between items-center mb-4">
+  <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">${catData.title}（問題 ${state.currentIndex+1} / ${catData.items.length}）</span>
+  <span class="text-xs font-bold text-slate-500">${progressPct}% 完了</span>
+ </div>
+ <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-6"><div class="bg-emerald-500 h-full" style="width:${progressPct}%"></div></div>
+ <div class="mb-5"><span class="text-xs font-bold text-emerald-700">${item.type === 'dialogue' ? 'PART 1｜対話の続き' : 'PART 2｜説明・紹介の内容理解'}</span>
+ <h3 class="text-lg font-bold mt-2">${item.question}</h3></div>
+ <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-5">
+  <p class="text-sm text-slate-600 mb-3">${item.type === 'dialogue' ? '会話を聞き、次に話す内容を予想してください。' : '説明を聞き、質問に答えてください。'}</p>
+  <div class="flex flex-wrap items-center gap-2">
+   <button onclick="app.playListening(${state.currentIndex})" class="px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm"><i class="fa-solid fa-play mr-2"></i>音声を再生</button>
+   <button onclick="app.setListeningRate(1)" class="px-3 py-2 rounded-lg border ${listeningRate===1?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">1.0倍速</button>
+   <button onclick="app.setListeningRate(0.9)" class="px-3 py-2 rounded-lg border ${listeningRate===0.9?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">0.9倍速</button>
+   <button id="listening-stop-btn" onclick="app.stopListening()" class="px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-rose-50 text-sm font-bold transition-colors"><i class="fa-solid fa-stop mr-1"></i>停止</button>
+  </div>
+  <p class="text-xs text-slate-500 mt-3">※ブラウザ標準の音声読み上げ機能を使います。端末やブラウザによって声質が異なります。</p>
+ </div>
+ <div id="listening-feedback" class="hidden mb-4 rounded-xl p-4 text-sm"></div>
+ <div id="listening-choices" class="space-y-3">${choices}</div>
+ <button id="listening-next" onclick="app.nextListening()" class="hidden mt-5 w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold">次の問題へ <i class="fa-solid fa-arrow-right ml-1"></i></button>
+ `;
+}
+function answerListening(index) {
+ const item = db.listening.items[state.currentIndex];
+ if (document.getElementById('listening-next')?.classList.contains('hidden') === false) return;
+ const correct = index === item.ans;
+ item.opts.forEach((_, i) => {
+   const b = document.getElementById(`listen-opt-${i}`);
+   b.disabled = true;
+   b.classList.add('opacity-80');
+   if (i === item.ans) b.classList.add('border-emerald-500','bg-emerald-50');
+   else if (i === index) b.classList.add('border-rose-400','bg-rose-50');
+ });
+ const fb = document.getElementById('listening-feedback');
+ fb.className = `mb-4 rounded-xl p-4 text-sm ${correct?'bg-emerald-50 border border-emerald-200 text-emerald-900':'bg-rose-50 border border-rose-200 text-rose-900'}`;
+ const scriptLines = item.audio.split('\n').map(line => line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')).join('<br>');
+ fb.innerHTML = `<strong>${correct?'正解です！':'もう一度、判断の根拠を確認しましょう。'}</strong><p class="mt-2">${item.ex}</p><div class="mt-4 rounded-lg border border-slate-200 bg-white p-4 text-slate-800"><h4 class="mb-2 font-bold text-slate-700"><i class="fa-solid fa-file-lines mr-2"></i>リスニングスクリプト</h4><div class="leading-7 whitespace-normal">${scriptLines}</div></div>`;
+ document.getElementById('listening-next').classList.remove('hidden');
+ playSound(correct?'correct':'wrong');
+ saveProgress();
+}
+function nextListening() {
+ window.speechSynthesis?.cancel();
+ state.currentIndex++;
+ if (state.currentIndex >= db.listening.items.length) { saveProgress(); renderListeningComplete(db.listening); }
+ else renderQuestion();
+}
+function renderListeningComplete(catData) {
+ container.innerHTML = `<div class="text-center py-8"><div class="text-5xl text-emerald-500 mb-4"><i class="fa-solid fa-headphones"></i></div><h2 class="text-2xl font-extrabold mb-3">リスニング10問 完了！</h2><p class="text-slate-600 mb-6">会話の流れと説明の要点を聞き取る練習が終了しました。</p><button onclick="app.startCategory('listening',true)" class="px-5 py-3 bg-emerald-600 text-white rounded-xl font-bold mr-2">もう一度挑戦</button><button onclick="app.returnHome()" class="px-5 py-3 bg-slate-100 rounded-xl font-bold">メニューへ</button></div>`;
+}
+
 function checkAns(idx, isCorrect, encodedFb, isRepro) {
 const fbBox = document.getElementById('feedback-box');
 const buttons = document.querySelectorAll(isRepro ? '.repro-btn' : '.opt-btn');
@@ -3531,7 +3786,7 @@ container.innerHTML = `
 }
 
 window.app = {
-renderHome, startCategory, checkAns, checkQuickGrammarAns, checkSubQAns, checkReproReading, nextStep, nextSubQ, nextItem, returnHome: renderHome, resetAllProgress
+renderHome, startCategory, playListening: (i) => { const b=document.getElementById('listening-stop-btn'); if(b) b.classList.remove('bg-rose-100','border-rose-500','text-rose-700'); playListeningAudio(db.listening.items[i]); }, setListeningRate: (r) => { listeningRate=r; renderQuestion(); }, stopListening: () => { window.speechSynthesis?.cancel(); const b=document.getElementById('listening-stop-btn'); if(b) { b.classList.remove('bg-white','border-slate-300','hover:bg-rose-50'); b.classList.add('bg-rose-100','border-rose-500','text-rose-700'); } }, answerListening, nextListening, checkAns, checkQuickGrammarAns, checkSubQAns, checkReproReading, nextStep, nextSubQ, nextItem, returnHome: renderHome, resetAllProgress
 };
 
 renderHome();
