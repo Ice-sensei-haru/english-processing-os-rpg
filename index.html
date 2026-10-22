@@ -1417,7 +1417,7 @@ grammarChoice: {
                 ]
 },
 grammar1: {
-                title: "③ 文法：空所補充（全10問）",
+                title: "③ 文法：空所補充（全20問）",
                 desc: "高校入試頻出の重要構文・語法を見抜く着眼・判断プロセスを鍛えます。",
                 items: [
                     {
@@ -1438,7 +1438,7 @@ grammar1: {
                             passage: "【類題テスト】<br>「母は私が料理するのを手伝ってくれました。」<br>My mother helped me ( ) cooking.",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "at", correct: false, fb: "不正解です。"},                                 
+                                {t: "at", correct: false, fb: "不正解です。"},       
                                 {t: "for", correct: false, fb: "惜しい！ with です。"},
                                 {t: "with", correct: true, fb: "正解！ help 人 with 物 の再現成功です！"}
                             ]
@@ -1496,7 +1496,7 @@ grammar1: {
                         steps: [
                             { title: "【着眼】主語の位置に置く動詞の形", q: "「〜すること」という名詞のカタマリを文の主語（一番最初）に置くときの動詞の形は？", opts: [
                                 {t: "動詞の原形", correct: false, fb: "不正解。動詞の原形をそのまま主語には置けません。"},
-                                {t: "動名詞（〜ing）または不定詞（to 〜）", correct: true, fb: "正解！ Eating または To eat が文頭にきます。"}       
+                                {t: "動名詞（〜ing）または不定詞（to 〜）", correct: true, fb: "正解！ Eating または To eat が文頭にきます。"}        
                             ]},
                             { title: "【判断】「〜によい」の熟語の選択", q: "主語が不定詞や動名詞のときに使うbe動詞はどれ？", opts: [
                                 {t: "areやwere", correct: false, fb: "不正解です。３人称単数扱いです。"},
@@ -1555,7 +1555,7 @@ grammar1: {
                             opts: [
                                 {t: "you / made", correct: false, fb: "不正解です。"},
                                 {t: "made / you", correct: true, fb: "正解！使役動詞の疑問文の再現成功です！"},        
-                                {t: "did / make", correct: false, fb: "不正解です。"}                                        
+                                {t: "did / make", correct: false, fb: "不正解です。"}                                         
                             ]
                         }
                     },
@@ -1611,7 +1611,7 @@ grammar1: {
                         steps: [
                             { title: "【着眼】助動詞を含む受動態の構造", q: "「〜することができる（can）」と「〜される（受動態）」を組み合わせるときの語順は？", opts: [
                                 {t: "be ＋ 助動詞 ＋ 過去分詞", correct: false, fb: "不正解。助動詞が常に前です。"},
-                                {t: "助動詞 ＋ be ＋ 過去分詞", correct: true, fb: "正解！ can be 過去分詞 の形になります。"}       
+                                {t: "助動詞 ＋ be ＋ 過去分詞", correct: true, fb: "正解！ can be 過去分詞 の形になります。"}        
                             ]},
                             { title: "【判断】動詞 see の過去分詞形", q: "see の過去分詞形はどれ？", opts: [
                                 {t: "seen", correct: true, fb: "正解！ can be seen （見ることができる）の完成です。"},
@@ -1650,11 +1650,242 @@ grammar1: {
                                 {t: "lets / watch", correct: false, fb: "不正解です。"}        
                             ]
                         }
+                    },
+                    {
+                        id: 11,
+                        passage: `Q11. 「英語を学ぶことは、私たちにとって役に立ちます。」<br><strong>"(  ) is useful (  ) us (  ) learn English."</strong>`,
+                        steps: [
+                            { title: "【着眼】形式主語 It の構文", q: "長くなった不定詞（to learn English）を後ろに追いやり、文頭に置く形式主語の代わりは？", opts: [
+                                {t: "This", correct: false, fb: "不正解です。"},
+                                {t: "It", correct: true, fb: "正解！ It is 形容詞 for 人 to do の形式主語構文です。"}        
+                            ]},
+                            { title: "【判断】不定詞の前に置く人を示す前置詞", q: "「私たちにとって」を表すとき、to不定詞の前に置く前置詞はどれ？", opts: [
+                                {t: "for", correct: true, fb: "正解！ for us to learn の形を作ります。"},
+                                {t: "to", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「日本語を話すことは、外国人にとって難しい。」<br>( ) is difficult ( ) foreigners ( ) speak Japanese.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "It / for / to", correct: true, fb: "正解！形式主語構文の再現成功です！"},
+                                {t: "This / to / for", correct: false, fb: "不正解です。"},
+                                {t: "It / to / to", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 12,
+                        passage: `Q12. 「彼は疲れすぎていて、もう歩くことができなかった。」<br><strong>"He was (  ) tired (  ) walk anymore."</strong>`,
+                        steps: [
+                            { title: "【着眼】「あまりに〜なので…できない」の構文", q: "too 〜 to … の表現で、前半の「あまりに〜」にあたる語は？", opts: [
+                                {t: "too", correct: true, fb: "正解！ too ＋ 形容詞 ＋ to ＋ 動詞の原形 です。"},
+                                {t: "so", correct: false, fb: "惜しい！soを使う場合は後ろにthat節が続きます。"}
+                            ]},
+                            { title: "【判断】後半の「…に」にあたる接続詞・前置詞", q: "tired の後ろに続く不定詞の to はどれ？", opts: [
+                                {t: "for", correct: false, fb: "不正解です。"},
+                                {t: "to", correct: true, fb: "正解！ too tired to walk の形になります。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「彼女は若すぎてその映画を見ることができなかった。」<br>She was ( ) young ( ) watch the movie.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "so / that", correct: false, fb: "不正解です。"},
+                                {t: "too / to", correct: true, fb: "正解！ too 〜 to 構文の再現成功です！"},
+                                {t: "very / to", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 13,
+                        passage: `Q13. 「その問題はとても簡単なので、あなたはそれを解くことができます。」<br><strong>"The question is (  ) easy (  ) you can solve it."</strong>`,
+                        steps: [
+                            { title: "【着眼】「とても〜なので…だ」の構文", q: "後ろに主語・動詞（you can solve it）の文が続くとき、easy の前に置く副詞は？", opts: [
+                                {t: "too", correct: false, fb: "惜しい！tooは後ろにto不定詞が続きます。"},
+                                {t: "so", correct: true, fb: "正解！ so 〜 that … の構文を作ります。"}        
+                            ]},
+                            { title: "【判断】that 節を導く接続詞の選択", q: "easy の後ろで文を繋ぐ接続詞はどれ？", opts: [
+                                {t: "that", correct: true, fb: "正解！ so easy that you can... の完成です。"},
+                                {t: "to", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「その箱はとても重いので、彼はそれを持ち上げることができなかった。」<br>The box was ( ) heavy ( ) he couldn't lift it.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "too / to", correct: false, fb: "不正解です。"},
+                                {t: "so / that", correct: true, fb: "正解！ so 〜 that 構文の再現成功です！"},
+                                {t: "very / that", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 14,
+                        passage: `Q14. 「彼は私に彼を手伝うよう頼みました。」<br><strong>"He (  ) me (  ) help him."</strong>`,
+                        steps: [
+                            { title: "【着眼】ask 人 ＋ to不定詞 の文型", q: "「人に〜するように頼む」を表す動詞 ask の正しい過去形は？", opts: [
+                                {t: "asked", correct: true, fb: "正解！ ask 人 to 動詞の原形 の形をとります。"},
+                                {t: "ask", correct: false, fb: "不正解。時制に合わせてaskedにします。"}
+                            ]},
+                            { title: "【判断】目的語の後ろに続く動詞の形", q: "me の後ろに続く、手伝うことを表す不定詞の形は？", opts: [
+                                {t: "to help", correct: true, fb: "正解！ asked me to help の形になります。"},
+                                {t: "help", correct: false, fb: "不正解。使役動詞ではないため to が必要です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「母は私に部屋を掃除するように頼みました。」<br>My mother ( ) me ( ) clean my room.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "asked / to", correct: true, fb: "正解！ ask 人 to 構文の再現成功です！"},
+                                {t: "told / clean", correct: false, fb: "不正解です。"},
+                                {t: "wanted / cleaning", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 15,
+                        passage: `Q15. 「あなたの家族は何人ですか。」<br><strong>"How many people (  )(  ) in your family?"</strong>`,
+                        steps: [
+                            { title: "【着眼】There is / are 構文の疑問文", q: "「〜がいる（ある）」を表す There are を疑問文に直すときの語順は？", opts: [
+                                {t: "There are", correct: false, fb: "不正解。それは肯定文の語順です。"},
+                                {t: "Are there", correct: true, fb: "正解！ be動詞を前に出して Are there にします。"}        
+                            ]},
+                            { title: "【判断】複数形 people に対応する be動詞", q: "people（人々・家族の人数）は複数扱いのため、使う be動詞は？", opts: [
+                                {t: "is", correct: false, fb: "不正解です。"},
+                                {t: "are", correct: true, fb: "正解！ How many people are there... の形です。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「公園に何人の子供たちがいますか。」<br>How many children ( )( ) in the park?",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "is / there", correct: false, fb: "不正解です。"},
+                                {t: "there / are", correct: false, fb: "不正解です。"},
+                                {t: "are / there", correct: true, fb: "正解！ There is/are 構文の疑問文の再現成功です！"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 16,
+                        passage: `Q16. 「トムはリサほどたくさんの本を持っていません。」<br><strong>"Tom (  ) have as (  ) books (  ) Lisa."</strong>`,
+                        steps: [
+                            { title: "【着眼】否定文における同等比較（not as ... as）", q: "「〜ほど…ではない」を表すとき、一般動詞 have の否定文を作るための助動詞の形は？", opts: [
+                                {t: "don't", correct: false, fb: "不正解です。"},
+                                {t: "doesn't", correct: true, fb: "正解！ 主がTom（3人称単数）なので doesn't です。"}        
+                            ]},
+                            { title: "【判断】数が多いことを表す as many as の選択", q: "books（数えられる名詞の複数形）の多さを比較するとき、as と as の間に挟む語は？", opts: [
+                                {t: "many", correct: true, fb: "正解！ as many books as で「同じくらい多くの本」です。"},
+                                {t: "much", correct: false, fb: "惜しい！booksは数えられる名詞なので many です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私はケンほど多くのお金を持っていません。」<br>I ( ) have as ( ) money ( ) Ken.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "doesn't / many / as", correct: false, fb: "不正解です。"},
+                                {t: "don't / much / as", correct: true, fb: "正解！ money（数えられない名詞）の比較表現の再現成功です！"},        
+                                {t: "don't / many / than", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 17,
+                        passage: `Q17. 「彼は窓を閉めるのを忘れました。」<br><strong>"He forgot (  )(  ) the window."</strong>`,
+                        steps: [
+                            { title: "【着眼】forget の後ろに続く動詞の形", q: "「（これから）〜し忘れる」を表すとき、forget の目的に取る動詞の形は？", opts: [
+                                {t: "不定詞（to do）", correct: true, fb: "正解！ forget to do で「〜し忘れる」になります。（ちなみにdoingは「〜したことを忘れる」）"},
+                                {t: "動名詞（doing）", correct: false, fb: "惜しい！それは過去の記憶の忘却です。"}
+                            ]},
+                            { title: "【判断】閉める動作を表す動詞の選択", q: "窓を閉めるを表す正しい組み合わせは？", opts: [
+                                {t: "to / close", correct: true, fb: "正解！ forgot to close the window の完成です。"},
+                                {t: "closing / to", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私は鍵をかけたことを忘れた。（かけたのに覚えていない）」<br>I forgot ( ) the door.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "lock", correct: false, fb: "不正解です。"},
+                                {t: "to lock", correct: false, fb: "不正解です。"},
+                                {t: "to locking", correct: false, fb: "不正解です。"},
+                                {t: "locking", correct: true, fb: "正解！ forget ＋ 動名詞（過去の行為の忘却）の再現成功です！"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 18,
+                        passage: `Q18. 「彼女はいつも私にその本が面白いと言います。」<br><strong>"She always (  ) me (  ) the book is interesting."</strong>`,
+                        steps: [
+                            { title: "【着眼】tell と say の使い分け", q: "後ろに「人（me）」を直接とって「人に〜を言う」という意味を表す動詞は？", opts: [
+                                {t: "say", correct: false, fb: "惜しい！sayは人称代名詞をすぐ後ろにとりません。"},
+                                {t: "tell", correct: true, fb: "正解！ tell 人 ＋ that節 の形をとります。（sayは to 人 が必要）"}        
+                            ]},
+                            { title: "【判断】that 節を導く接続詞の選択", q: "me の後ろで文を繋ぐ接続詞はどれ？", opts: [
+                                {t: "that", correct: true, fb: "正解！ tells me that ... の形になります。"},
+                                {t: "to", correct: false, fb: "不正解です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「彼は私に彼は忙しいと言いました。」<br>He ( ) me ( ) he was busy.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "said / that", correct: false, fb: "不正解です。"},
+                                {t: "told / that", correct: true, fb: "正解！ tell 人 that 構文の再現成功です！"},
+                                {t: "spoke / to", correct: false, fb: "不正解です。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 19,
+                        passage: `Q19. 「メグは誰がふだんその部屋を使っているのか彼に言いました。」<br><strong>"Meg (  ) him (  ) usually (  ) the room."</strong>`,
+                        steps: [
+                            { title: "【着眼】間接疑問文の語順ルール", q: "文中に疑問詞（who）が入る間接疑問文の正しい語順は？", opts: [
+                                {t: "疑問詞 ＋ 主語 ＋ 動詞", correct: true, fb: "正解！ 疑問詞が主語を兼ねる場合は who ＋ 動詞 の順になります。"},
+                                {t: "疑問詞 ＋ 動詞 ＋ 主語", correct: false, fb: "不正解。通常の疑問文の語順にしてはいけません。"}
+                            ]},
+                            { title: "【判断】時制と三単現のsの処理", q: "ふだん（usually）使っているという現在時制で、who を3人称単数として扱うときの動詞の形は？", opts: [
+                                {t: "use", correct: false, fb: "不正解です。"},
+                                {t: "uses", correct: true, fb: "正解！ who uses the room の形になります。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私は彼がどこに住んでいるのか知っています。」<br>I know where ( )( ).",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "lives he", correct: false, fb: "不正解です。"},
+                                {t: "he live", correct: false, fb: "不正解です。"},
+                                {t: "he lives", correct: true, fb: "正解！間接疑問文（疑問詞＋S＋V）の再現成功です！"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 20,
+                        passage: `Q20. 「私が空を飛ことができればなあ。」<br><strong>"I (  ) I (  ) fly in the sky."</strong>`,
+                        steps: [
+                            { title: "【着眼】仮定法過去（currentの反対の願い）の表現", q: "「〜できたらなあ（現在の仮定の願い）」を表すときの定番の動詞は？", opts: [
+                                {t: "hope", correct: false, fb: "惜しい！hopeは現実的な願い（未来など）に使います。"},
+                                {t: "wish", correct: true, fb: "正解！ I wish ＋ 仮定法の文 で「〜ならなあ」を表します。"}        
+                            ]},
+                            { title: "【判断】助動詞の過去形の選択", q: "that節（または続く文）の中で過去の事実とは違う現在の能力を表すときの助動詞は？", opts: [
+                                {t: "can", correct: false, fb: "不正解。仮定法なので過去形の could です。"},
+                                {t: "could", correct: true, fb: "正解！ I wish I could... の形にします。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>「私が鳥であればなあ。」<br>I ( ) I ( ) a bird.",
+                            q: "空所に入る最も適切な語の組み合わせは？",
+                            opts: [
+                                {t: "hope / am", correct: false, fb: "不正解です。"},
+                                {t: "wish / were", correct: true, fb: "正解！仮定法過去の wish ＋ were の再現成功です！"},
+                                {t: "wish / could", correct: false, fb: "不正解です。"}
+                            ]
+                        }
                     }
                 ]
             },
 grammar2: {
-                title: "④ 文法：同意文書き換え（全10問）",
+                title: "④ 文法：同意文書き換え（全20問）",
                 desc: "高校入試頻出の同意文書き換えパターン（第4・第5文型、不定詞、受動態、比較など）をマスター。",
                 items: [
                     {
@@ -1666,16 +1897,16 @@ grammar2: {
                                 {t: "過去時制に変える", correct: false, fb: "不正解。時制は現在形のままです。"}
                             ]},
                             { title: "【判断】第4文型（S V O O）の語順", q: "teach 人 物の形（第4文型）にするための正しい並びはどれ？", opts: [
-                                {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"},
-                                {t: "He teaches science for us.", correct: false, fb: "不正解。to us なら正解ですが、SVOOの形なら前置詞は不要です。"}
+                                {t: "He teaches science for us.", correct: false, fb: "不正解。to us なら正解ですが、SVOOの形なら前置詞は不要です。"},
+                                {t: "He teaches us science.", correct: true, fb: "正解！ teach ＋ us ＋ science の形になります。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>\"She is our English teacher.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "She teaches us English.", correct: true, fb: "正解！職業を表す文の第4文型書き換えの再現成功です！"},
-                                {t: "She teaches English for us.", correct: false, fb: "不正解。teachは to ですが、SV＋人＋ものの形なら前置詞は不要です。"}
+                                {t: "She teaches English for us.", correct: false, fb: "不正解。teachは to ですが、SV＋人＋ものの形なら前置詞は不要です。"},
+                                {t: "She teaches us English.", correct: true, fb: "正解！職業を表す文の第4文型書き換えの再現成功です！"}        
                             ]
                         }
                     },
@@ -1696,8 +1927,8 @@ grammar2: {
                             passage: "【類題テスト】<br>\"He can swim very well.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "He is a very good swimmer.", correct: true, fb: "正解！副詞から形容詞＋名詞への書き換え再現成功です！"},
-                                {t: "He is a very well swimmer.", correct: false, fb: "不正解。swimmerを修飾するのは形容詞の good です。"}
+                                {t: "He is a very well swimmer.", correct: false, fb: "不正解。swimmerを修飾するのは形容詞の good です。"},
+                                {t: "He is a very good swimmer.", correct: true, fb: "正解！副詞から形容詞＋名詞への書き換え再現成功です！"}        
                             ]
                         }
                     },
@@ -1706,8 +1937,8 @@ grammar2: {
                         passage: `Q3. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"There are many old temples in the city."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】There is/are 構文と所有（have）の書き換え", q: "「〜がある（There are...）」という存在を表す文を、都市が主語の「〜を持っている（have）」という文に書き換えるとき、主語はどうなる？", opts: [
-                                {t: "場所を表していた in the city の city を主語の The city に格上げする", correct: true, fb: "正解！「その都市は〜を持っている」という形にします。"},
-                                {t: "主語を there に固定する", correct: false, fb: "不正解です。"}
+                                {t: "主語を there に固定する", correct: false, fb: "不正解です。"},
+                                {t: "場所を表していた in the city の city を主語の The city に格上げする", correct: true, fb: "正解！「その都市は〜を持っている」という形にします。"}        
                             ]},
                             { title: "【判断】動詞の形の選択", q: "主語が The city（単数）のときの have の正しい変化形は？", opts: [
                                 {t: "has", correct: true, fb: "正解！ The city has many old temples. の完成です。"},
@@ -1732,16 +1963,16 @@ grammar2: {
                                 {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
                             ]},
                             { title: "【判断】動詞 snow の活用", q: "「雪が降る」という動詞 snow を使った正しい表現は？", opts: [
-                                {t: "It snows a lot in February.", correct: true, fb: "正解！ snows と3単現の s がつきます。"},
-                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snowは一般動詞です。"}
+                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snowは一般動詞です。"},
+                                {t: "It snows a lot in February.", correct: true, fb: "正解！ snows と3単現の s がつきます。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>\"We have a lot of rain in June.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "It rains a lot in June.", correct: true, fb: "正解！天候を表す表現への書き換え再現成功です！"},
-                                {t: "It is rainy a lot in June.", correct: false, fb: "不正解。rains という動詞を使います。"}
+                                {t: "It is rainy a lot in June.", correct: false, fb: "不正解。rains という動詞を使います。"},
+                                {t: "It rains a lot in June.", correct: true, fb: "正解！天候を表す表現への書き換え再現成功です！"}        
                             ]
                         }
                     },
@@ -1754,8 +1985,8 @@ grammar2: {
                                 {t: "can not", correct: false, fb: "惜しい！「〜できない」ではなく「してはならない（must not）」が適切です。"}
                             ]},
                             { title: "【判断】主語の補完", q: "命令文（Youが省略されている）を通常の文に直すときの主語は？", opts: [
-                                {t: "You must not be noisy.", correct: true, fb: "正解！ You を補って書き換えます。"},
-                                {t: "We must not be noisy.", correct: false, fb: "不正解。聞き手に対する禁止なので you です。"}
+                                {t: "We must not be noisy.", correct: false, fb: "不正解。聞き手に対する禁止なので you です。"},
+                                {t: "You must not be noisy.", correct: true, fb: "正解！ You を補って書き換えます。"}        
                             ]}
                         ],
                         repro: {
@@ -1772,8 +2003,8 @@ grammar2: {
                         passage: `Q6. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Ken is taller than Mike."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】比較級と原級（as...as）の入れ替え", q: "「ケンの方が背が高い」を「マイクはケンほど背が高くない」に書き換えるとき、主語はどうなる？", opts: [
-                                {t: "Mike を文頭に持ってくるため、比較の向きが逆になり否定文（not）が必要", correct: true, fb: "正解！主語の入れ替えに伴い、not as tall as の形にします。"},
-                                {t: "主語を入れ替えても肯定文のままでよい", correct: false, fb: "不正解。意味が逆になってしまいます。"}
+                                {t: "主語を入れ替えても肯定文のままでよい", correct: false, fb: "不正解。意味が逆になってしまいます。"},
+                                {t: "Mike を文頭に持ってくるため、比較の向きが逆になり否定文（not）が必要", correct: true, fb: "正解！主語の入れ替えに伴い、not as tall as の形にします。"}        
                             ]},
                             { title: "【判断】正しい原級の表現の選択", q: "Mike is ( ) tall as Ken. の空所に入る適切な否定表現は？", opts: [
                                 {t: "not as （または not so）", correct: true, fb: "正解！ Mike is not as tall as Ken. の完成です。"},
@@ -1784,8 +2015,8 @@ grammar2: {
                             passage: "【類題テスト】<br>\"This car is newer than that one.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "That car is not as new as this one.", correct: true, fb: "正解！比較級から原級否定への書き換え再現成功です！"},
-                                {t: "That car is as new as this one.", correct: false, fb: "不正解。それでは「同じ新しさ」になります。"}
+                                {t: "That car is as new as this one.", correct: false, fb: "不正解。それでは「同じ新しさ」になります。"},
+                                {t: "That car is not as new as this one.", correct: true, fb: "正解！比較級から原級否定への書き換え再現成功です！"}        
                             ]
                         }
                     },
@@ -1794,12 +2025,12 @@ grammar2: {
                         passage: `Q7. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Reading books is important."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】動名詞主語と形式主語（It... to）の書き換え", q: "動名詞（Reading books）が文頭にある長めの主語を、It で始めて後ろに回す構文の名前は？", opts: [
-                                {t: "形式主語（It is 〜 to ...）の構文", correct: true, fb: "正解！ It is important to read books. の形に変換します。"},
-                                {t: "受動態の構文", correct: false, fb: "不正解です。"}
+                                {t: "受動態の構文", correct: false, fb: "不正解です。"},
+                                {t: "形式主語（It is 〜 to ...）の構文", correct: true, fb: "正解！ It is important to read books. の形に変換します。"}        
                             ]},
                             { title: "【判断】不定詞のカタマリの配置", q: "It is important の後ろに置く、本を読むことを表す不定詞の形は？", opts: [
-                                {t: "to read books", correct: true, fb: "正解！ It is important to read books. になります。"},
-                                {t: "reading books", correct: false, fb: "惜しい！形式主語 It を使ったときは後ろに to 不定詞がきます。"}
+                                {t: "reading books", correct: false, fb: "惜しい！形式主語 It を使ったときは後ろに to 不定詞がきます。"},
+                                {t: "to read books", correct: true, fb: "正解！ It is important to read books. になります。"}        
                             ]}
                         ],
                         repro: {
@@ -1828,8 +2059,8 @@ grammar2: {
                             passage: "【類題テスト】<br>\"Mary took these pictures.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "These pictures were taken by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"},
-                                {t: "These pictures are taken by Mary.", correct: false, fb: "不正解。能動態の動詞が took と過去形なので were です。"}
+                                {t: "These pictures are taken by Mary.", correct: false, fb: "不正解。能動態の動詞が took と過去形なので were です。"},
+                                {t: "These pictures were taken by Mary.", correct: true, fb: "正解！受動態への書き換え再現成功です！"}        
                             ]
                         }
                     },
@@ -1838,8 +2069,8 @@ grammar2: {
                         passage: `Q9. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"I was happy when I heard the news."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】「ニュースを聞いて嬉しかった」の使役・原因構文", q: "「そのニュースを聞いて私は幸せだった」を、「そのニュースが私を幸せにした」という第5文型（S V O C）に書き換えるとき、主語は何にする？", opts: [
-                                {t: "感情の原因となった The news を主語にする", correct: true, fb: "正解！ The news made me happy. の形にします。"},
-                                {t: "I のままにする", correct: false, fb: "不正解。モノが主語になる表現です。"}
+                                {t: "I のままにする", correct: false, fb: "不正解。モノが主語になる表現です。"},
+                                {t: "感情の原因となった The news を主語にする", correct: true, fb: "正解！ The news made me happy. の形にします。"}        
                             ]},
                             { title: "【判断】使役動詞 make の活用とC（補語）の選択", q: "過去の出来事なので make をどう変化させ、後ろに何をつなげる？", opts: [
                                 {t: "made ＋ me ＋ happy", correct: true, fb: "正解！ The news made me happy. が完成します。"},
@@ -1850,8 +2081,8 @@ grammar2: {
                             passage: "【類題テスト】<br>\"I was surprised when I saw the picture.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "The picture surprised me.", correct: true, fb: "正解！原因を表す動詞を使った書き換え再現成功です！"},
-                                {t: "The picture made me surprise.", correct: false, fb: "不正解。surprise は動詞そのままで「〜を驚かせた」という意味になります。"}
+                                {t: "The picture made me surprise.", correct: false, fb: "不正解。surprise は動詞そのままで「〜を驚かせた」という意味になります。"},
+                                {t: "The picture surprised me.", correct: true, fb: "正解！原因を表す動詞を使った書き換え再現成功です！"}        
                             ]
                         }
                     },
@@ -1876,9 +2107,229 @@ grammar2: {
                                 {t: "This is the desk making by my father.", correct: false, fb: "不正解。受動の意味なので making ではなく made です。"}
                             ]
                         }
+                    },
+                    {
+                        id: 11,
+                        passage: `Q11. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"He went to Canada by plane."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"He (  ) to Canada."</strong>`,
+                        steps: [
+                            { title: "【着眼】「動詞 ＋ 交通手段（by...）」から「単一の動詞」への変換", q: "「飛行機でカナダへ行った（went by plane）」を一語の動詞で表すとき、何を使いますか？", opts: [
+                                {t: "飛行機で飛んで移動することを表す fly の過去形 flew", correct: true, fb: "正解！ fly to 〜（飛行機で〜へ行く）という1動詞の表現に変換します。"},
+                                {t: "drive の過去形 drove", correct: false, fb: "不正解。drove は車で行くことです。"}
+                            ]},
+                            { title: "【判断】過去時制への一致", q: "元の文が went（過去形）なので、fly を過去形に直した形は？", opts: [
+                                {t: "flied", correct: false, fb: "不正解。fly の過去形は不規則変化の flew です。"},
+                                {t: "flew", correct: true, fb: "正解！ He flew to Canada. の完成です。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"She goes to school on foot every day.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "She runs to school every day.", correct: false, fb: "不正解。on foot は「歩いて」です。"},
+                                {t: "She walks to school every day.", correct: true, fb: "正解！ go on foot（歩いて行く）➔ walk の言い換え再現成功です！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 12,
+                        passage: `Q12. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Where will she have a concert?"</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"Where (  ) she (  ) to have a concert?"</strong>`,
+                        steps: [
+                            { title: "【着眼】未来を表す will と be going to の書き換え", q: "助動詞 will を be going to に書き換える際、疑問文では be動詞をどこに配置しますか？", opts: [
+                                {t: "Where の直後に is going をまとめて置く", correct: false, fb: "不正解。疑問文では主語を挟みます。"},
+                                {t: "主語（she）の前に be動詞を出し、主語の後ろに going を置く", correct: true, fb: "正解！ Where ＋ be動詞 ＋ S ＋ going to の語順にします。"}        
+                            ]},
+                            { title: "【判断】主語 she に対する be動詞の選択", q: "主語 she に対するbe動詞と、続く語の正しい組み合わせは？", opts: [
+                                {t: "is / going", correct: true, fb: "正解！ Where is she going to have... が完成します。"},
+                                {t: "does / go", correct: false, fb: "不正解。be going to 構文を崩してはいけません。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"What will you do tomorrow?\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "What do you go to do tomorrow?", correct: false, fb: "不正解です。"},
+                                {t: "What are you going to do tomorrow?", correct: true, fb: "正解！will から be going to への疑問文書き換え再現成功です！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 13,
+                        passage: `Q13. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Why don’t we go to the festival?"</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"(  ) about (  ) to the festival?"</strong>`,
+                        steps: [
+                            { title: "【着眼】勧誘表現「〜しませんか」のバリエーション", q: "Why don't we 〜?（〜しましょう）を、前置詞 about を使った表現に書き換えるときの決まり文句は？", opts: [
+                                {t: "How about 〜ing? （または What about 〜ing?）", correct: true, fb: "正解！ How about ＋ 動名詞 で勧誘を表します。"},
+                                {t: "Shall we about 〜", correct: false, fb: "不正解。Shall we の後ろは動詞の原形がきます。"}
+                            ]},
+                            { title: "【判断】前置詞 about の後ろに続く動詞の形", q: "前置詞 about の後ろに動詞 go を置くときの正しい形は？", opts: [
+                                {t: "go （動詞の原形）", correct: false, fb: "不正解。前置詞の後ろは動名詞（〜ing）にするルールです。"},
+                                {t: "going （動名詞）", correct: true, fb: "正解！ How about going to... の完成です。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"Let's play tennis after school.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "How about playing tennis after school?", correct: true, fb: "正解！勧誘表現の動名詞書き換え再現成功です！"},
+                                {t: "Why don't you play tennis after school?", correct: false, fb: "惜しい！Why don't you 〜? は「〜したらどうですか（提案）」で、we（一緒に行う勧誘）とは少しずれます。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 14,
+                        passage: `Q14. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Shall I take your picture?"</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"Do you (  ) me (  ) take your picture?"</strong>`,
+                        steps: [
+                            { title: "【着眼】申し出「（私が）〜しましょうか」から「私に〜してほしいですか」への書き換え", q: "「（私が）〜しましょうか」という申し出は、相手に対して「私に〜してほしいか」と尋ねる文と同等になります。使う動詞パターンは？", opts: [
+                                {t: "ask 人 to 不定詞", correct: false, fb: "不正解。ask は「頼む」になってしまいます。"},
+                                {t: "want 人 to 不定詞 （人に〜してほしい）", correct: true, fb: "正解！ Do you want me to 〜?（私に〜してほしいですか）の形にします。"}        
+                            ]},
+                            { title: "【判断】正しい構文のパーツ配置", q: "Do you の後ろに入る動詞と、目的語 me の後ろに続くパーツは？", opts: [
+                                {t: "like / for", correct: false, fb: "不正解です。"},
+                                {t: "want / to", correct: true, fb: "正解！ Do you want me to take... が完成します。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"Shall I help you with your homework?\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "Will you help me with my homework?", correct: false, fb: "不正解。それは「手伝ってくれますか」と頼む文になります。"},
+                                {t: "Do you want me to help you with your homework?", correct: true, fb: "正解！Shall I から Do you want me to への書き換え再現成功です！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 15,
+                        passage: `Q15. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"He played soccer, and had a good time."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"He (  )(  ) soccer."</strong>`,
+                        steps: [
+                            { title: "【着眼】「〜して楽しんだ」を表す動詞の語法", q: "「〜をして楽しい時間を過ごした（had a good time）」を1つの動詞で表すとき、目的語に動名詞をとる動詞は？", opts: [
+                                {t: "enjoy （enjoy ＋ 〜ing）", correct: true, fb: "正解！ enjoy ＋ 動名詞 で「〜して楽しむ」を表します。"},
+                                {t: "want （want ＋ to do）", correct: false, fb: "不正解。enjoy が適切です。"}
+                            ]},
+                            { title: "【判断】過去形と動名詞の処理", q: "過去形の文なので enjoy を過去形にし、play を目的語にする正しい形は？", opts: [
+                                {t: "enjoyed / to play", correct: false, fb: "不正解。enjoy の目的語は to 不定詞ではなく動名詞（〜ing）です。"},
+                                {t: "enjoyed / playing", correct: true, fb: "正解！ He enjoyed playing soccer. の完成です。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"She read books and had a good time yesterday.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "She wanted to read books yesterday.", correct: false, fb: "不正解です。"},
+                                {t: "She enjoyed reading books yesterday.", correct: true, fb: "正解！had a good time 〜ing ➔ enjoy 〜ing への書き換え再現成功です！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 16,
+                        passage: `Q16. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Tom wrote to Lisa."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"Lisa (  ) from Tom."</strong>`,
+                        steps: [
+                            { title: "【着眼】「手紙を書いた」と「便りをもらった」の視点変換", q: "「トムがリサに手紙を書いた（write to）」を、リサを主語にして「トムから連絡・便りがあった」と受け取る表現にする熟語は？", opts: [
+                                {t: "hear from 〜 （〜から便りがある、連絡をもらう）", correct: true, fb: "正解！ write to の逆視点は hear from です。"},
+                                {t: "get to 〜", correct: false, fb: "不正解。get to は「〜に到着する」です。"}
+                            ]},
+                            { title: "【判断】過去時制の活用", q: "wrote（過去形）に合わせて hear を過去形にした形は？", opts: [
+                                {t: "heard", correct: true, fb: "正解！ Lisa heard from Tom. が完成します。"},
+                                {t: "listened", correct: false, fb: "不正解。listen from という表現はありません。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"I got a letter from Ken yesterday.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "I wrote to Ken yesterday.", correct: false, fb: "不正解。主客が逆になります。"},
+                                {t: "I heard from Ken yesterday.", correct: true, fb: "正解！get a letter from ➔ hear from への書き換え再現成功です！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 17,
+                        passage: `Q17. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"He does his homework before having dinner."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"He does his homework before he (  ) dinner."</strong>`,
+                        steps: [
+                            { title: "【着眼】前置詞 before （＋動名詞）から 接続詞 before （＋S＋V）への変換", q: "before を「接続詞」として使い、直後に he（主語）を置く場合、後ろには何が続きますか？", opts: [
+                                {t: "動名詞（having）のまま置く", correct: false, fb: "不正解。he の後ろに having は続けられません。"},
+                                {t: "動詞（V）を主語と時制に合わせて置く", correct: true, fb: "正解！ before ＋ S ＋ V の節を作ります。"}        
+                            ]},
+                            { title: "【判断】主語（3人称単数）と現在時制の動詞変化", q: "主語 he に対する have の現在形（3単現のs）の正しい形は？", opts: [
+                                {t: "has", correct: true, fb: "正解！ before he has dinner. の完成です。"},
+                                {t: "have", correct: false, fb: "惜しい！主語が he なので has です。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"She went to sleep after finishing her homework.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "She went to sleep after she finishes her homework.", correct: false, fb: "不正解。主節（went）が過去形なので過去形 finished に揃えます。"},
+                                {t: "She went to sleep after she finished her homework.", correct: true, fb: "正解！前置詞＋動名詞から接続詞＋S＋V への書き換え再現成功です！"}        
+                            ]
+                        }
+                    },
+                    {
+                        id: 18,
+                        passage: `Q18. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"During my stay in Tokyo, I visited my friend."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"(  ) I (  ) in Tokyo, I visited my friend."</strong>`,
+                        steps: [
+                            { title: "【着眼】前置詞 during （＋名詞）から 接続詞 while （＋S＋V）への書き換え", q: "「〜の間（my stay）」という名詞句を、「私が東京に滞在していた間」という S＋V の節に書き換える接続詞は？", opts: [
+                                {t: "For", correct: false, fb: "不正解。for は期間の数字などが続きます。"},
+                                {t: "While （While ＋ S ＋ V）", correct: true, fb: "正解！ during ＋ 名詞 ➔ while ＋ S ＋ V の超頻出パターンです。"}        
+                            ]},
+                            { title: "【判断】主語 I に続く過去形の動詞の選択", q: "「滞在した（ stayed ）」または「いた（ was ）」の過去形の選択肢として正しいのは？", opts: [
+                                {t: "While / stayed （または was）", correct: true, fb: "正解！ While I stayed in Tokyo... が完成します。"},
+                                {t: "During / stayed", correct: false, fb: "不正解。during の後ろに S＋V は置けません。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"While I was in London, I met many people.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "For my stay in London, I met many people.", correct: false, fb: "不正解です。"},
+                                {t: "During my stay in London, I met many people.", correct: true, fb: "正解！while ＋ S ＋ V ➔ during ＋ 名詞 への書き換え再現成功です！"        
+                            ]
+                        }
+                    },
+                    {
+                        id: 19,
+                        passage: `Q19. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Both Tom and Mike speak Japanese."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"(  ) only Tom but (  ) Mike (  ) Japanese."</strong>`,
+                        steps: [
+                            { title: "【着眼】相関接続詞「AもBも両方」から「AだけでなくBも」への言い換え", q: "both A and B を not only A but also B に書き換える際のセット表現は？", opts: [
+                                {t: "Either A or B", correct: false, fb: "不正解。それは「AかBのどちらか」です。"},
+                                {t: "Not only A but also B", correct: true, fb: "正解！「AだけでなくBも」の基本構文です。"}        
+                            ]},
+                            { title: "【判断】主語の数と動詞の三単現一致ルール", q: "Not only A but also B が主語のとき、動詞の形はどちらの主語に一致させますか？", opts: [
+                                {t: "B（直後の Mike ）に一致させるため、3単現の s をつけて speaks にする", correct: true, fb: "正解！ but also の後ろにある Mike に動詞を一致させるため speaks になります。"},
+                                {t: "両方（複数扱い）と考えて speak のままにする", correct: false, fb: "惜しい！ not only A but also B は B に一致させるルールです。"}
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"Not only Lisa but also her sisters like tennis.\" と同じ主語一致ルールの説明として正しいものは？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "but also の後ろの her sisters (複数) に動詞を一致させて like になっている", correct: true, fb: "正解！主語一致アルゴリズムの再現成功です！"},
+                                {t: "Lisa (単数) に合わせて like になっている", correct: false, fb: "不正解。Lisa に合わせるなら likes になるはずです。"}
+                            ]
+                        }
+                    },
+                    {
+                        id: 20,
+                        passage: `Q20. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"This is the most beautiful flower I have ever seen."</strong><br>↓ ほぼ同じ意味の文にすると？<br><strong>"I have (  ) seen (  ) a beautiful flower."</strong>`,
+                        steps: [
+                            { title: "【着眼】最上級「今まで見た中で一番〜」と経験の否定「こんな〜は見たことがない」の書き換え", q: "「今まで見た中で一番美しい花だ」を「これほど美しい花は一度も見たことがない」と言い換えるときの否定語は？", opts: [
+                                {t: "never （一度も〜ない）", correct: true, fb: "正解！ I have never seen 〜 で「一度も見たことがない」を表します。"},
+                                {t: "ever", correct: false, fb: "不正解。ever は肯定文・疑問文で使います。"}
+                            ]},
+                            { title: "【判断】「そのような／これほどの（ such ）」の配置", q: "a beautiful flower の前に置いて「このような美しい花」を表す単語は？", opts: [
+                                {t: "so", correct: false, fb: "惜しい！ so の場合は so beautiful a flower の語順になります。"},
+                                {t: "such （ such a ＋ 形容詞 ＋ 名詞 ）", correct: true, fb: "正解！ such a beautiful flower（これほど美しい花）の完成です。"}        
+                            ]}
+                        ],
+                        repro: {
+                            passage: "【類題テスト】<br>\"This is the most interesting movie I have ever watched.\" とほぼ同じ意味になる文は？",
+                            q: "最も適切なものを選べ。",
+                            opts: [
+                                {t: "I have never watched such an interesting movie.", correct: true, fb: "正解！最上級 ➔ never such a... への書き換え再現成功です！"},
+                                {t: "I have ever watched such an interesting movie.", correct: false, fb: "不正解。never（否定）がないと意味が通りません。"}
+                            ]
+                        }
                     }
                 ]
-            },
+},
 reading: {
                 title: "⑤ 読解問題（全5組）",
                 desc: "テーマ選択・英問英答・内容正誤をセットにした実践読解5組。",
@@ -2480,7 +2931,7 @@ container.innerHTML = `
 高校入試対策 英語再現力養成プラットフォーム
 </span>
 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-解法プロセス ＆ 頻出表現120
+英語処理OS ＆ 頻出表現120
 </h2>
 <p class="text-sm text-slate-600 max-w-lg mx-auto">
 直接回答からステップ確認、頻出表現の確認まで、目的に合わせて選択できます。
@@ -2531,7 +2982,7 @@ ${gc.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">③ 空所補充</span>
 ${g1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">構文・空所補充（全10問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">構文・空所補充（全20問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${g1.isStarted ? `Q${g1.currentItem}から再開` : '開始'}</span>
@@ -2544,7 +2995,7 @@ ${g1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">④ 書き換え</span>
 ${g2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">同意文書き換え（全10問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">同意文書き換え（全20問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${g2.isStarted ? `Q${g2.currentItem}から再開` : '開始'}</span>
