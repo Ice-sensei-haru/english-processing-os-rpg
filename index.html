@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>高校入試英語・解法OS ＆ 頻出表現120</title>
+<title>高校入試対策　英語処理OS ＆ 頻出表現120</title>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Font Awesome -->
@@ -36,8 +36,8 @@ emeraldCustom: { 500: '#10b981', 600: '#059669' }
 <i class="fa-solid fa-graduation-cap"></i>
 </div>
 <div>
-<h1 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">高校入試英語・解法OS ＆ 頻出表現120</h1>
-<p class="text-xs text-slate-500 font-medium">判断・処理・類題再現 ＆ 頻出表現120</p>
+<h1 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">高校入試対策 英語処理OS ＆ 頻出表現120</h1>
+<p class="text-xs text-slate-500 font-medium">英語処理OS ＆ 頻出表現120</p>
 </div>
 </div>
 <button onclick="app.returnHome()" id="home-btn" class="hidden text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
@@ -53,7 +53,7 @@ emeraldCustom: { 500: '#10b981', 600: '#059669' }
 </main>
 <!-- Footer -->
 <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-高校入試対策 英語トレーニング &copy; 2026
+高校入試対策 英語処理OSトレーニング &copy; 2026
 </footer>
 <!-- SFX Audio Controller -->
 <script>
@@ -2766,7 +2766,7 @@ writing2: {
                             passage: "【類題テスト】<br>「私たちの町を綺麗に保ちましょう！ゴミを捨てないで！」（約10語）の正しい構成は？",
                             q: "最も適切な表現を選べ。",
                             opts: [
-                                {t: "Let's keep our town clean! Don't throw garbage here.", correct: true, fb: "正解！呼びかけ型・命令文アルゴリズムの再現成功です！"},
+                                {t: "Let's keep our town clean! Don't throw garbage away.", correct: true, fb: "正解！呼びかけ型・命令文アルゴリズムの再現成功です！"},
                                 {t: "We must clean our town because it is very dirty.", correct: false, fb: "不正解。ポスターの呼びかけ文としては不自然です。"}
                             ]
                         }
@@ -2928,13 +2928,13 @@ container.innerHTML = `
 <div class="space-y-6">
 <div class="text-center space-y-2">
 <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full border border-indigo-100">
-高校入試対策 英語再現力養成プラットフォーム
+高校入試対策 英語処理OS養成プラットフォーム
 </span>
 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
 英語処理OS ＆ 頻出表現120
 </h2>
 <p class="text-sm text-slate-600 max-w-lg mx-auto">
-直接回答からステップ確認、頻出表現の確認まで、目的に合わせて選択できます。
+直接回答からプロセス確認、頻出表現の確認まで、目的に合わせて選択できます。
 </p>
 </div>
 <div class="flex justify-end pt-1">
@@ -2953,10 +2953,10 @@ container.innerHTML = `
 <div onclick="app.startCategory('quickGrammar')" class="bg-gradient-to-br from-indigo-50 to-white border-2 border-indigo-300 hover:border-indigo-600 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
 <div>
 <div class="flex justify-between items-start">
-<span class="px-2 py-0.5 bg-indigo-600 text-white text-xs font-bold rounded">① 基礎問題</span>
+<span class="px-2 py-0.5 bg-indigo-600 text-white text-xs font-bold rounded">① 基礎文法問題</span>
 ${qg.isStarted ? `<span class="text-xs font-bold text-indigo-700"><i class="fa-solid fa-clock-rotate-left"></i> ${qg.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">適語選択（全30問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">適語・適文選択（全30問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${qg.isStarted ? `Q${qg.currentItem}から再開` : '開始'}</span>
@@ -2966,10 +2966,10 @@ ${qg.isStarted ? `<span class="text-xs font-bold text-indigo-700"><i class="fa-s
 <div onclick="app.startCategory('grammarChoice')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
 <div>
 <div class="flex justify-between items-start">
-<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">② 語形変化</span>
+<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">② 動詞語形変化</span>
 ${gc.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${gc.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">動詞の語形変化（全20問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">動詞の形の判断（全20問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${gc.isStarted ? `Q${gc.currentItem}から再開` : '開始'}</span>
@@ -2982,7 +2982,7 @@ ${gc.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">③ 空所補充</span>
 ${g1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g1.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">構文・空所補充（全20問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">構文・語法の理解（全20問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${g1.isStarted ? `Q${g1.currentItem}から再開` : '開始'}</span>
@@ -2992,10 +2992,10 @@ ${g1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <div onclick="app.startCategory('grammar2')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
 <div>
 <div class="flex justify-between items-start">
-<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">④ 書き換え</span>
+<span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded">④ 同意文書き換え</span>
 ${g2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${g2.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">同意文書き換え（全20問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">同じ意味の表現（全20問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${g2.isStarted ? `Q${g2.currentItem}から再開` : '開始'}</span>
@@ -3005,10 +3005,10 @@ ${g2.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <div onclick="app.startCategory('reading')" class="bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
 <div>
 <div class="flex justify-between items-start">
-<span class="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-bold rounded">⑤ 読解</span>
+<span class="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-bold rounded">⑤ 読解の解法</span>
 ${rd.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${rd.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">読解総合（全5組）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">読解の判断と処理（全5組）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${rd.isStarted ? `第${rd.currentItem}組から再開` : '開始'}</span>
@@ -3021,7 +3021,7 @@ ${rd.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-s
 <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded">⑥ 整序英作</span>
 ${w1.isStarted ? `<span class="text-xs font-bold text-indigo-600"><i class="fa-solid fa-clock-rotate-left"></i> ${w1.pct}%</span>` : ''}
 </div>
-<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">整序英作（全10問）</h4>
+<h4 class="font-bold text-slate-900 text-base mt-2 group-hover:text-indigo-600">整序英作のプロセス（全10問）</h4>
 </div>
 <div class="mt-3 flex items-center justify-between text-xs font-bold text-indigo-600">
 <span>${w1.isStarted ? `Q${w1.currentItem}から再開` : '開始'}</span>
