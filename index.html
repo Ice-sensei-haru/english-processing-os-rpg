@@ -2849,7 +2849,7 @@ idiomsStage6: generateIdiomStageData(6)
 };
 
 db.listening = {
- title: '⑨ リスニング（高校入試対策）',
+ title: '⑧ リスニング（高校入試対策）',
  desc: '音声を聞き、会話の流れや説明の要点を判断します。',
  items: [
   {
@@ -3264,7 +3264,7 @@ container.insertAdjacentHTML('beforeend', `
  <div class="flex items-center justify-between gap-3">
   <div><span class="px-2 py-1 bg-emerald-600 text-white text-xs font-bold rounded">⑧ リスニング</span>
    <h4 class="font-bold text-slate-900 mt-2">高校入試リスニング（全10問）</h4>
-   <p class="text-sm text-slate-600 mt-1">対話の応答５問・説明文の内容理解５問。音声速度は1.0倍／0.9倍。</p>
+   <p class="text-sm text-slate-600 mt-1">対話の応答５問・説明文の内容理解５問。音声速度は標準／ややゆっくり。</p>
   </div><i class="fa-solid fa-headphones text-2xl text-emerald-600"></i>
  </div>
 </div>`);
@@ -3553,7 +3553,7 @@ ${repro.opts.map((opt, idx) => `
 }
 
 
-let listeningRate = 1.0;
+let listeningRate = 0.9;
 function chooseEnglishVoice(voices, gender) {
  const english = voices.filter(v => /^en([-_]|$)/i.test(v.lang));
  if (!english.length) return null;
@@ -3593,7 +3593,13 @@ function playListeningAudio(itemOrText) {
      ? chooseEnglishVoice(voices, 'female')
      : chooseEnglishVoice(voices, line.gender);
    if (voice) utterance.voice = voice;
-   utterance.onend = speakNext;
+   utterance.onend = () => {
+    if (isItem && itemOrText.type === 'dialogue') {
+        setTimeout(speakNext, 600);
+    } else {
+        speakNext();
+    }
+};
    utterance.onerror = (event) => {
      if (event.error !== 'canceled' && event.error !== 'interrupted') speakNext();
    };
@@ -3629,8 +3635,8 @@ function renderListeningQuestion(catData) {
   <p class="text-sm text-slate-600 mb-3">${item.type === 'dialogue' ? '会話を聞き、次に話す内容を予想してください。' : '説明を聞き、質問に答えてください。'}</p>
   <div class="flex flex-wrap items-center gap-2">
    <button onclick="app.playListening(${state.currentIndex})" class="px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm"><i class="fa-solid fa-play mr-2"></i>音声を再生</button>
-   <button onclick="app.setListeningRate(1)" class="px-3 py-2 rounded-lg border ${listeningRate===1?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">1.0倍速</button>
-   <button onclick="app.setListeningRate(0.9)" class="px-3 py-2 rounded-lg border ${listeningRate===0.9?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">0.9倍速</button>
+   <button onclick="app.setListeningRate(0.9)" class="px-3 py-2 rounded-lg border ${listeningRate===0.9?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">標準</button>
+   <button onclick="app.setListeningRate(0.8)" class="px-3 py-2 rounded-lg border ${listeningRate===0.8?'bg-emerald-100 border-emerald-500':'bg-white border-slate-300'} text-sm font-bold">ややゆっくり</button>
    <button id="listening-stop-btn" onclick="app.stopListening()" class="px-3 py-2 rounded-lg border border-slate-300 bg-white hover:bg-rose-50 text-sm font-bold transition-colors"><i class="fa-solid fa-stop mr-1"></i>停止</button>
   </div>
   <p class="text-xs text-slate-500 mt-3">※ブラウザ標準の音声読み上げ機能を使います。端末やブラウザによって声質が異なります。</p>
