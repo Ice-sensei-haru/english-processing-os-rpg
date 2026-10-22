@@ -3672,7 +3672,7 @@ function nextListening() {
  else renderQuestion();
 }
 function renderListeningComplete(catData) {
- container.innerHTML = `<div class="text-center py-8"><div class="text-5xl text-emerald-500 mb-4"><i class="fa-solid fa-headphones"></i></div><h2 class="text-2xl font-extrabold mb-3">リスニング10問 完了！</h2><p class="text-slate-600 mb-6">会話の流れと説明の要点を聞き取る練習が終了しました。</p><button onclick="app.startCategory('listening',true)" class="px-5 py-3 bg-emerald-600 text-white rounded-xl font-bold mr-2">もう一度挑戦</button><button onclick="app.returnHome()" class="px-5 py-3 bg-slate-100 rounded-xl font-bold">メニューへ</button></div>`;
+ container.innerHTML = `<div class="text-center py-8"><div class="text-5xl text-emerald-500 mb-4"><i class="fa-solid fa-headphones"></i></div><h2 class="text-2xl font-extrabold mb-3">リスニング10問 完了！</h2><p class="text-slate-600 mb-6">会話の流れと説明の要点を聞き取る練習が終了しました。</p><button onclick="app.startCategory('listening',true)" class="px-5 py-3 bg-emerald-600 text-white rounded-xl font-bold mr-2">もう一度はじめから復習する</button><button onclick="app.returnHome()" class="px-5 py-3 bg-slate-100 rounded-xl font-bold">選択メニューへ戻る</button></div>`;
 }
 
 function checkAns(idx, isCorrect, encodedFb, isRepro) {
