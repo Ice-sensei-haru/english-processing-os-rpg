@@ -1971,7 +1971,7 @@ grammar2: {
                             passage: "【類題テスト】<br>\"We have a lot of rain in June.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "It is rainy a lot in June.", correct: false, fb: "不正解。rains という動詞を使います。"},
+                                {t: "It is a lot of rain in June.", correct: false, fb: "不正解。rains という動詞を使います。"},
                                 {t: "It rains a lot in June.", correct: true, fb: "正解！天候を表す表現への書き換え再現成功です！"}        
                             ]
                         }
@@ -2078,11 +2078,11 @@ grammar2: {
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>\"I was surprised when I saw the picture.\" とほぼ同じ意味になる文は？",
+                            passage: "【類題テスト】<br>\"I was sad when I read the book.\" とほぼ同じ意味になる文は？",
                             q: "最も適切なものを選べ。",
                             opts: [
-                                {t: "The picture made me surprise.", correct: false, fb: "不正解。surprise は動詞そのままで「〜を驚かせた」という意味になります。"},
-                                {t: "The picture surprised me.", correct: true, fb: "正解！原因を表す動詞を使った書き換え再現成功です！"}        
+                                {t: "The book was read by me.", correct: false, fb: "不正解。これは受動態の表現です。"},
+                                {t: "The book made me sad.", correct: true, fb: "正解！原因を表す動詞を使った書き換え再現成功です！"}        
                             ]
                         }
                     },
@@ -2506,8 +2506,8 @@ reading: {
                         passage: "Q1. 日本文に合うように、語句を正しく並べ替えなさい。<br><strong>「彼は放課後、公園でサッカーを練習しています。」</strong><br>[ in / soccer / he / after / the park / practices / school ]",
                         steps: [
                             { title: "STEP ①：主語と動詞の組み合わせを作る", q: "主語と動詞（誰がどうする）にあたるパーツはどれ？", opts: [
-                                {t: "He practices", correct: true, fb: "正解！まず主語「He」と動詞「practices」を最初に置きます。"},
-                                {t: "in the park", correct: false, fb: "不正解。それは場所を表す副詞句です。"}
+                                {t: "in the park", correct: false, fb: "不正解。それは場所を表す副詞句です。"},
+                                {t: "He practices", correct: true, fb: "正解！まず主語「He」と動詞「practices」を最初に置きます。"}        
                             ]},
                             { title: "STEP ②③：目的語・修飾ブロックの組み立て", q: "「何を（目的語）」と「どこで（場所）」「いつ（時）」のブロックを正しく並べたものは？", opts: [
                                 {t: "soccer / in the park / after school", correct: true, fb: "正解！目的語 ➔ 場所 ➔ 時の順番（S V O ＋ 場所 ＋ 時）のブロックを作ります。"},
@@ -2518,8 +2518,8 @@ reading: {
                             passage: "【類題テスト】<br>「彼女は毎朝、図書館で英語を勉強します。」<br>[ English / she / in / library / the / studies / morning / every ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
-                                {t: "She studies English in the library every morning.", correct: true, fb: "正解！4ステップの並べ替えアルゴリズムの再現成功です！"},
-                                {t: "She studies in the library every morning English.", correct: false, fb: "不正解。目的語の位置が間違っています。"}
+                                {t: "She studies in the library every morning English.", correct: false, fb: "不正解。目的語の位置が間違っています。"},
+                                {t: "She studies English in the library every morning.", correct: true, fb: "正解！4ステップの並べ替えアルゴリズムの再現成功です！"}        
                             ]
                         }
                     },
@@ -2532,16 +2532,16 @@ reading: {
                                 {t: "My mother made me", correct: false, fb: "惜しい！まずは「主語＋動詞」の骨組みをしっかり作ります。"}
                             ]},
                             { title: "STEP ②③④：第4文型（S V O O）と時の副詞の配置", q: "「私に（人）」「美味しいケーキを（物）」「昨日（時）」の正しい配置は？", opts: [
-                                {t: "me / a delicious cake / yesterday", correct: true, fb: "正解！ made ＋ 人 ＋ 物（S V O1 O2）の形に時を文末に置きます。"},
-                                {t: "a delicious cake / me yesterday", correct: false, fb: "不正解。人・物の語順が逆になっています。"}
+                                {t: "a delicious cake / me yesterday", correct: false, fb: "不正解。人・物の語順が逆になっています。"},
+                                {t: "me / a delicious cake / yesterday", correct: true, fb: "正解！ made ＋ 人 ＋ 物（S V O1 O2）の形に時を文末に置きます。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「父は先週、私に新しい自転車を買ってくれました。」<br>[ bike / me / bought / a / father / new / my / last week ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
-                                {t: "My father bought me a new bike last week.", correct: true, fb: "正解！授与動詞の並べ替え再現成功です！"},
-                                {t: "My father bought a new bike me last week.", correct: false, fb: "不正解。物・人の順になっています。"}
+                                {t: "My father bought a new bike me last week.", correct: false, fb: "不正解。物・人の順になっています。"},
+                                {t: "My father bought me a new bike last week.", correct: true, fb: "正解！授与動詞の並べ替え再現成功です！"}        
                             ]
                         }
                     },
@@ -2550,8 +2550,8 @@ reading: {
                         passage: "Q3. 日本文に合うように、語句を正しく並べ替えなさい。<br><strong>「私たちはそのニュースを聞いてとても悲しかったです。」</strong><br>[ the / sad / news / us / made / very ]",
                         steps: [
                             { title: "【着眼】原因を主語にする使役動詞の構文", q: "「そのニュースが私たちを悲しませた」という第5文型（S V O C）を作るための主語と動詞は？", opts: [
-                                {t: "The news made", correct: true, fb: "正解！感情の原因（The news）を主語にして使役動詞 made につなげます。"},
-                                {t: "We made", correct: false, fb: "不正解。主語が「私たち」ではなく「ニュース」になります。"}
+                                {t: "We made", correct: false, fb: "不正解。主語が「私たち」ではなく「ニュース」になります。"},
+                                {t: "The news made", correct: true, fb: "正解！感情の原因（The news）を主語にして使役動詞 made につなげます。"}        
                             ]},
                             { title: "【判断】目的語と補語（形容詞）の配置", q: "「私たちを（目的語）」「とても悲しい（補語）」の正しい並びは？", opts: [
                                 {t: "us very sad", correct: true, fb: "正解！ made ＋ us ＋ very sad の形にします。"},
@@ -2584,8 +2584,8 @@ reading: {
                             passage: "【類題テスト】<br>「机のところで本を読んでいる少女は私の妹です。」<br>[ reading / the / a / desk / girl / book / at / is / my / sister ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
-                                {t: "The girl reading a book at the desk is my sister.", correct: true, fb: "正解！分詞による後置修飾の並べ替え再現成功です！"},
-                                {t: "The girl is reading a book at the desk my sister.", correct: false, fb: "不正解です。"}
+                                {t: "The girl is reading a book at the desk my sister.", correct: false, fb: "不正解です。"},
+                                {t: "The girl reading a book at the desk is my sister.", correct: true, fb: "正解！分詞による後置修飾の並べ替え再現成功です！"}        
                             ]
                         }
                     },
@@ -2594,8 +2594,8 @@ reading: {
                         passage: "Q5. 日本文に合うように、語句を正しく並べ替えなさい。<br><strong>「このカメラはトムによって京都で使われました。」</strong><br>[ camera / Kyoto / by / used / in / was / this / Tom ]",
                         steps: [
                             { title: "【着眼】受動態の主語と動詞のパーツ", q: "「このカメラは使われた」という受動態の主語と be動詞・過去分詞の組み合わせは？", opts: [
-                                {t: "This camera was used", correct: true, fb: "正解！ This camera を主語にして was used を作ります。"},
-                                {t: "This camera used was", correct: false, fb: "不正解。受動態は be動詞＋過去分詞です。"}
+                                {t: "This camera used was", correct: false, fb: "不正解。受動態は be動詞＋過去分詞です。"},
+                                {t: "This camera was used", correct: true, fb: "正解！ This camera を主語にして was used を作ります。"}        
                             ]},
                             { title: "【判断】「誰によって（by）」と「どこで（場所）」の配置", q: "「トムによって」「京都で」の正しい配置は？", opts: [
                                 {t: "by Tom / in Kyoto", correct: true, fb: "正解！受動態の動作主（by 〜）と場所（in Kyoto）を正しくつなぎます。"},
@@ -2606,8 +2606,8 @@ reading: {
                             passage: "【類題テスト】<br>「その歌は世界中の人々によって歌われています。」<br>[ people / sung / song / is / by / the / all over the world ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
-                                {t: "The song is sung by people all over the world.", correct: true, fb: "正解！受動態の並べ替え再現成功です！"},
-                                {t: "The song sung is by people all over the world.", correct: false, fb: "不正解です。"}
+                                {t: "The song sung is by people all over the world.", correct: false, fb: "不正解です。"},
+                                {t: "The song is sung by people all over the world.", correct: true, fb: "正解！受動態の並べ替え再現成功です！"}        
                             ]
                         }
                     },
@@ -2620,16 +2620,16 @@ reading: {
                                 {t: "Could you tell / which book me to read", correct: false, fb: "不正解。tell 人 物 の語順に注意しましょう。"}
                             ]},
                             { title: "【判断】全体の接続と配置の確定", q: "全てをつなげた完成形の正しい並びは？", opts: [
-                                {t: "Could you tell me which book to read?", correct: true, fb: "正解！完璧な間接疑問・疑問詞の代用表現です。"},
-                                {t: "Could you tell which book to read me?", correct: false, fb: "不正解です。"}
+                                {t: "Could you tell which book to read me?", correct: false, fb: "不正解です。"},
+                                {t: "Could you tell me which book to read?", correct: true, fb: "正解！完璧な間接疑問・疑問詞の代用表現です。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「どの言語を話すべきか教えてください。」<br>Please tell me [ speak / language / to / which ]",
                             q: "空所の正しい並びを選べ。",
                             opts: [
-                                {t: "which language to speak", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の並べ替え再現成功です！"},
-                                {t: "to speak which language", correct: false, fb: "不正解です。"}
+                                {t: "to speak which language", correct: false, fb: "不正解です。"},
+                                {t: "which language to speak", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の並べ替え再現成功です！"}        
                             ]
                         }
                     },
@@ -2638,8 +2638,8 @@ reading: {
                         passage: "Q7. 日本文に合うように、語句を正しく並べ替えなさい。<br><strong>「何か冷たい飲み物を私にいただけますか。」</strong><br>[ can / something / have / cold / I / to / drink ]",
                         steps: [
                             { title: "【着眼】助動詞による依頼の文頭と名詞句", q: "「〜をいただけますか」という依頼の文頭と、「何か冷たいもの」の正しい語順は？", opts: [
-                                {t: "Can I have / something cold", correct: true, fb: "正解！ -thing は形容詞を後ろから置くため something cold になります。"},
-                                {t: "Can I have / cold something", correct: false, fb: "不正解。形容詞が前になってしまっています。"}
+                                {t: "Can I have / cold something", correct: false, fb: "不正解。形容詞が前になってしまっています。"},
+                                {t: "Can I have / something cold", correct: true, fb: "正解！ -thing は形容詞を後ろから置くため something cold になります。"}        
                             ]},
                             { title: "【判断】不定詞（飲むための）の結合", q: "文末に「飲むための」を表す不定詞を添えた正しい完成形は？", opts: [
                                 {t: "Can I have something cold to drink?", correct: true, fb: "正解！代名詞＋形容詞＋不定詞の黄金の並びです。"},
@@ -2664,16 +2664,16 @@ reading: {
                                 {t: "English speak is important", correct: false, fb: "今回は It で始まる形式主語構文の形を作ります。"}
                             ]},
                             { title: "【判断】真の主語（不定詞）の配置", q: "後ろに続く「英語を話すこと」を表す不定詞の正しい並びは？", opts: [
-                                {t: "to speak English", correct: true, fb: "正解！ It is important for us to speak English. が完成します。"},
-                                {t: "to English speak", correct: false, fb: "不正解です。"}
+                                {t: "to English speak", correct: false, fb: "不正解です。"},
+                                {t: "to speak English", correct: true, fb: "正解！ It is important for us to speak English. が完成します。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「毎日英語を勉強することは私たちにとって必要です。」<br>[ us / necessary / English / study / to / for / is / it ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
-                                {t: "It is necessary for us to study English every day.", correct: true, fb: "正解！形式主語構文の並べ替え再現成功です！"},
-                                {t: "English to study is necessary for us.", correct: false, fb: "不正解です。"}
+                                {t: "English to study is necessary for us.", correct: false, fb: "不正解です。"},
+                                {t: "It is necessary for us to study English every day.", correct: true, fb: "正解！形式主語構文の並べ替え再現成功です！"}        
                             ]
                         }
                     },
@@ -2682,12 +2682,12 @@ reading: {
                         passage: "Q9. 日本文に合うように、語句を正しく並べ替えなさい。<br><strong>「マイクはケンと同じくらい背が高いです。」</strong><br>[ as / tall / Ken / as / is / Mike ]",
                         steps: [
                             { title: "【着眼】同等比較（as...as）の構造把握", q: "「〜と同じくらい…だ」を表す原級比較の基本パーツの組み合わせは？", opts: [
-                                {t: "Mike is / as tall / as Ken", correct: true, fb: "正解！ 主語 ＋ be ＋ as ＋ 原級 ＋ as ＋ 比較対象 の順にします。"},
-                                {t: "Mike is tall as / as Ken", correct: false, fb: "不正解。asの間に形容詞の原級を挟みます。"}
+                                {t: "Mike is tall as / as Ken", correct: false, fb: "不正解。asの間に形容詞の原級を挟みます。"},
+                                {t: "Mike is / as tall / as Ken", correct: true, fb: "正解！ 主語 ＋ be ＋ as ＋ 原級 ＋ as ＋ 比較対象 の順にします。"}        
                             ]},
                             { title: "【判断】全体の配置の確定", q: "全てのパーツを綺麗に並べた完成形は？", opts: [
-                                {t: "Mike is as tall as Ken.", correct: true, fb: "正解！完璧な同等比較の文が完成します。"},
-                                {t: "Mike is tall as as Ken.", correct: false, fb: "不正解です。"}
+                                {t: "Mike is tall as as Ken.", correct: false, fb: "不正解です。"},
+                                {t: "Mike is as tall as Ken.", correct: true, fb: "正解！完璧な同等比較の文が完成します。"}        
                             ]}
                         ],
                         repro: {
@@ -2703,12 +2703,12 @@ reading: {
                         id: 10,
                         passage: "Q10. 日本文に合うように、語句を正しく並べ替えなさい。<br><strong>「彼は5歳のときからずっとこのカメラを使っています。」</strong><br>[ has / camera / this / he / since / used / five / was / he ]",
                         steps: [
-                            { title: "【着眼】現在完了継続と起算点（since）の構造", q: "「ずっと使っている」という現在完了継続の動詞部分と、since を用いた節の組み合わせは？", opts: [
+                            { title: "【着眼】現在完了継続と起点（since）の構造", q: "「ずっと使っている」という現在完了継続の動詞部分と、since を用いた節の組み合わせは？", opts: [
                                 {t: "He has used / this camera / since he was five", correct: true, fb: "正解！前半に完了形、後半に since ＋ S ＋ V を置きます。"},
                                 {t: "He used / this camera / since five years", correct: false, fb: "惜しい！後ろが主語・動詞の文なので since を使います。"}
                             ]},
                             { title: "【判断】全体の並びの確定", q: "全てを繋げた正しい完成形は？", opts: [
-                                {t: "He has used this camera since he was five.", correct: true, fb: "正解！現在完了継続の王道の並びです。"},
+                                {t: "He has used this camera since he was five.", correct: true, fb: "正解！現在完了継続の並びです。"},
                                 {t: "He used has this camera since he was five.", correct: false, fb: "不正解です。"}
                             ]}
                         ],
@@ -2716,8 +2716,8 @@ reading: {
                             passage: "【類題テスト】<br>「私は子供の頃からずっとピアノを弾いています。」<br>[ a / child / since / I / was / have / piano / the / played ]",
                             q: "最も適切な語順の英文を選べ。",
                             opts: [
-                                {t: "I have played the piano since I was a child.", correct: true, fb: "正解！現在完了継続の並べ替え再現成功です！"},
-                                {t: "I played the piano since I was a child have.", correct: false, fb: "不正解です。"}
+                                {t: "I played the piano since I was a child have.", correct: false, fb: "不正解です。"},
+                                {t: "I have played the piano since I was a child.", correct: true, fb: "正解！現在完了継続の並べ替え再現成功です！"}        
                             ]
                         }
                     }
@@ -2736,16 +2736,16 @@ writing2: {
                                 {t: "天気や最近のニュースなど雑談から始める", correct: false, fb: "不正解。指定語数が少ないため1文目から主張を書きます。"}
                             ]},
                             { title: "【判断】理由をつなぐ接続詞と第2文の構造", q: "2文目で理由を添える際、最も自然につなぐ接続詞・構文はどれ？", opts: [
-                                {t: "Because... や It is 形容詞 for me to...", correct: true, fb: "正解！ 続けて because ＋ 主語 ＋ 動詞 で理由を説明します。"},
-                                {t: "But... や However...", correct: false, fb: "不正解。逆接の接続詞は理由になりません。"}
+                                {t: "But... や However...", correct: false, fb: "不正解。逆接の接続詞は理由になりません。"},
+                                {t: "Because... や It is 形容詞 for me to...", correct: true, fb: "正解！ 続けて because ＋ 主語 ＋ 動詞 で理由を説明します。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「私は読書が好きです。なぜなら面白いからです。」を15語程度で書くときの正しい型は？",
                             q: "最も適切な英文構成を選べ。",
                             opts: [
-                                {t: "I like reading books because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"},
-                                {t: "Reading books is good, so I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"}
+                                {t: "Reading books is good, so I read books every day.", correct: false, fb: "不正解。理由の because が入っていません。"},
+                                {t: "I like reading books because it is very interesting for me.", correct: true, fb: "正解！結論（8語）＋ 理由（7語）＝15語のアルゴリズム再現成功です！"}        
                             ]
                         }
                     },
@@ -2754,12 +2754,12 @@ writing2: {
                         passage: `Q2. 【10語程度・ポスター・呼びかけ命令文型】<br><strong>「公園をきれいに保つためのポスターの呼びかけ文を、10語程度の英語で書きなさい。」</strong>`,
                         steps: [
                             { title: "【着眼】呼びかけ・スローガンの構文選択", q: "ポスターや案内で「〜しましょう」「〜してください」と力強く呼びかける際の基本的な文頭は？", opts: [
-                                {t: "命令文やPleaseなどから始める", correct: true, fb: "正解！ポスター・スローガンは命令文や呼びかけが最も効果的です。"},
-                                {t: "I think that we should...", correct: false, fb: "惜しい！ポスターとしては文が長くなりすぎます。"}
+                                {t: "I think that we should...", correct: false, fb: "惜しい！ポスターとしては文が長くなりすぎます。"},
+                                {t: "命令文やPleaseなどから始める", correct: true, fb: "正解！ポスター・スローガンは命令文や呼びかけが最も効果的です。"}        
                             ]},
                             { title: "【判断】「〜を綺麗に保つ」の第5文型（S V O C）の活用", q: "「公園を綺麗に保つ」を表す keep を使った正解パターンは？", opts: [
-                                {t: "keep the park clean", correct: true, fb: "正解！ keep ＋ O ＋ clean（形容詞）の形です。"},
-                                {t: "keep clean the park", correct: false, fb: "不正解。語順（O ＋ C）が逆です。"}
+                                {t: "keep clean the park", correct: false, fb: "不正解。語順（O ＋ C）が逆です。"},
+                                {t: "keep the park clean", correct: true, fb: "正解！ keep ＋ O ＋ clean（形容詞）の形です。"}        
                             ]}
                         ],
                         repro: {
@@ -2780,16 +2780,16 @@ writing2: {
                                 {t: "I want to do volunteer work.", correct: false, fb: "不正解。個人の願望ではなく「一般論としての意見」を問われています。"}
                             ]},
                             { title: "【判断】理由を補強する具体例（For example...）", q: "主張の後、2文目で具体例や理由を付け加える際の接続フレーズは？", opts: [
-                                {t: "For example, we can clean the park or help local people.", correct: true, fb: "正解！ For example で具体例を添えると25語にピッタリ届きます。"},
-                                {t: "By the way, I like sports.", correct: false, fb: "不正解。脱線してしまいます。"}
+                                {t: "By the way, I like sports.", correct: false, fb: "不正解。脱線してしまいます。"},
+                                {t: "For example, we can clean the park or help local people.", correct: true, fb: "正解！ For example で具体例を添えると25語にピッタリ届きます。"}        
                             ]}
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「中学生が英語を毎日勉強することは大切だと思いますか」（約25語）の模範的構成は？",
                             q: "最も適切な英文を選べ。",
                             opts: [
-                                {t: "I think it is important for us to study English every day. For example, we are able to talk with people from other countries in Englsih.", correct: true, fb: "正解！It-to構文＋For example具体例の再現成功です！"},
-                                {t: "Studying English is hard. But I like English. So I study hard every day.", correct: false, fb: "不正解。論理的な理由になっていません。"}
+                                {t: "Studying English is hard. But I like English. So I study hard every day.", correct: false, fb: "不正解。論理的な理由になっていません。"},
+                                {t: "I think it is important for us to study English every day. For example, we are able to talk with people from other countries in Englsih.", correct: true, fb: "正解！It-to構文＋For example具体例の再現成功です！"}        
                             ]
                         }
                     },
@@ -2798,12 +2798,12 @@ writing2: {
                         passage: `Q4. 【25語程度・I hope that型（未来・社会への願い）】<br><strong>「将来どのような社会になってほしいですか。『I hope that...』から始めて25語程度で書きなさい。」</strong>`,
                         steps: [
                             { title: "【着眼】I hope that ＋ 主語 ＋ 動詞 の構造", q: "「〜という社会・世界であってほしい」と願うとき、that 節の中に置く助動詞・動詞は？", opts: [
-                                {t: "all people can live peacefully など can や will", correct: true, fb: "正解！ that 節の中は S ＋ can / will ＋ 動詞の原形 です。"},
-                                {t: "to live peaceful", correct: false, fb: "不正解。that 節の後ろは S ＋ V の文章が必要です。"}
+                                {t: "to live peaceful", correct: false, fb: "不正解。that 節の後ろは S ＋ V の文章が必要です。"},
+                                {t: "all people can live peacefully など can や will", correct: true, fb: "正解！ that 節の中は S ＋ can / will ＋ 動詞の原形 です。"}        
                             ]},
                             { title: "【判断】理由・具体例の追加", q: "第2文で「なぜなら〜だから」または「そうすれば〜できる」とつなぐ表現は？", opts: [
-                                {t: "This is because... や If we do so, everyone will smile.", correct: true, fb: "正解！願望 ➔ その効果／理由 という流れで25語を構成します。"},
-                                {t: "I don't know why.", correct: false, fb: "不正解。"}
+                                {t: "I don't know why.", correct: false, fb: "不正解。"},
+                                {t: "This is because... や If we do so, everyone will smile.", correct: true, fb: "正解！願望 ➔ その効果／理由 という流れで25語を構成します。"}        
                             ]}
                         ],
                         repro: {
@@ -2824,8 +2824,8 @@ writing2: {
                                 {t: "最初から最後まで同じ感想を何度も繰り返す", correct: false, fb: "不正解。語数が足りなくなったり内容が重複します。"}
                             ]},
                             { title: "【判断】締めくくりのインプット（④学び）で使える表現", q: "最後のまとめ（学び）として最も評価が高いフレーズは？", opts: [
-                                {t: "From this experience, I learned that ... （この経験から〜を学んだ）", correct: true, fb: "正解！ learned that... で締めくくると採点官に強い印象を与えられます。"},
-                                {t: "It was a fun day. That's all.", correct: false, fb: "惜しい！中学生として「学び」を表現すると最高点になります。"}
+                                {t: "It was a fun day. That's all.", correct: false, fb: "惜しい！中学生として「学び」を表現すると最高点になります。"},
+                                {t: "From this experience, I learned that ... （この経験から〜を学んだ）", correct: true, fb: "正解！ learned that... で締めくくると採点官に強い印象を与えられます。"}        
                             ]}
                         ],
                         repro: {
