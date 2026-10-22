@@ -3588,7 +3588,7 @@ function playListeningAudio(itemOrText) {
    const utterance = new SpeechSynthesisUtterance(line.text);
    utterance.lang = 'en-US';
    utterance.rate = listeningRate;
-   utterance.pitch = 1;
+   utterance.pitch = line.gender === 'female' ? 1.15 : 0.85;
    let voice = line.gender === 'neutral'
      ? chooseEnglishVoice(voices, 'female')
      : chooseEnglishVoice(voices, line.gender);
