@@ -3767,8 +3767,21 @@ clickedBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-90
 fbBox.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm space-y-1 fade-in';
 fbBox.innerHTML = `<div class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> 正解！</div><p>${fbText}</p>`;
 fbBox.classList.remove('hidden');
-if (!isRepro) document.getElementById('next-step-btn').classList.remove('hidden');
-else document.getElementById('next-item-btn').classList.remove('hidden');
+if (!isRepro) {
+    const nextBtn = document.getElementById('next-step-btn');
+
+    if (nextBtn) {
+        nextBtn.classList.remove('hidden');
+        nextBtn.style.display = 'flex';
+    }
+} else {
+    const nextBtn = document.getElementById('next-item-btn');
+
+    if (nextBtn) {
+        nextBtn.classList.remove('hidden');
+        nextBtn.style.display = 'flex';
+    }
+}
 } else {
 playSound('wrong');
 clickedBtn.disabled = true;
