@@ -1775,22 +1775,30 @@ grammar1: {
                         id: 16,
                         passage: `Q16. 「トムはリサほどたくさんの本を持っていません。」<br><strong>"Tom (  ) have as (  ) books (  ) Lisa."</strong>`,
                         steps: [
-                            { title: "【着眼】否定文における同等比較（not as ... as）", q: "「〜ほど…ではない」を表すとき、一般動詞 have の否定文を作るための助動詞の形は？", opts: [
-                                {t: "don't", correct: false, fb: "不正解です。"},
-                                {t: "doesn't", correct: true, fb: "正解！ 主がTom（3人称単数）なので doesn't です。"}        
-                            ]},
-                            { title: "【判断】数が多いことを表す as many as の選択", q: "books（数えられる名詞の複数形）の多さを比較するとき、as と as の間に挟む語は？", opts: [
-                                {t: "many", correct: true, fb: "正解！ as many books as で「同じくらい多くの本」です。"},
-                                {t: "much", correct: false, fb: "惜しい！booksは数えられる名詞なので many です。"}
-                            ]}
+                            { 
+                                title: "【着眼】否定文における同等比較（not as ... as）", 
+                                q: "「〜ほど…ではない」を表すとき、一般動詞 have の否定文を作るための助動詞の形は？", 
+                                opts: [
+                                    { t: "A: does not", correct: false, fb: "不正解です。" },
+                                    { t: "B: does not (doesn't)", correct: true, fb: "正解！ 主語がTom（3人称単数）なので does not が正解です。" }
+                                ]
+                            },
+                            { 
+                                title: "【判断】数が多いことを表す as many as の選択", 
+                                q: "books（数えられる名詞の複数形）の多さを比較するとき、as と as の間に挟む語は？", 
+                                opts: [
+                                    { t: "A: much", correct: false, fb: "不正解です。" },
+                                    { t: "B: many", correct: true, fb: "正解！ 後ろに数えられる名詞の複数形（books）が続いています。" }
+                                ]
+                            }
                         ],
                         repro: {
                             passage: "【類題テスト】<br>「私はケンほど多くのお金を持っていません。」<br>I ( ) have as ( ) money ( ) Ken.",
-                            q: "空所に入る最も適切な語の組み合わせは？",
+                            q: "最も適切なものはどれか？",
                             opts: [
-                                {t: "doesn't / many / as", correct: false, fb: "不正解です。"},
-                                {t: "don't / much / as", correct: true, fb: "正解！ money（数えられない名詞）の比較表現の再現成功です！"},        
-                                {t: "don't / many / than", correct: false, fb: "不正解です。"}
+                                { t: "A: does not / many / as", correct: false, fb: "不正解です。" },
+                                { t: "B: do not / much / as", correct: true, fb: "正解！ money（数えられない名詞）の比較表現の再現成功です！" },
+                                { t: "C: do not / many / than", correct: false, fb: "不正解です。" }
                             ]
                         }
                     },
