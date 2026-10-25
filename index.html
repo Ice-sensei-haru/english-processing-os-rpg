@@ -294,7 +294,7 @@ const db = {
                     {
                         id: 1,
                         question: "Tom and I (  ) on the soccer team. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "動詞の形は、主語の人称と数に影響されます。",
+                        explanation: "動詞は、主語の人称と数に影響されます。",
                         opts: [
                             { t: "A: am", correct: false },
                             { t: "B: is", correct: false },
@@ -304,7 +304,7 @@ const db = {
                     {
                         id: 2,
                         question: "Tom (  ) a new bike last month. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "動詞の形は、時制（現在・過去・未来・進行・完了）を優先します。",
+                        explanation: "動詞は、時制（現在・過去・未来）に影響されます。",
                         opts: [
                             { t: "A: buys", correct: false },
                             { t: "B: bought", correct: true },
@@ -314,7 +314,7 @@ const db = {
                     {
                         id: 3,
                         question: "My uncle (  ) his car every Sunday. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "一般動詞は、時制が現在のとき主語が３人称単数かそうでないか判断します。",
+                        explanation: "一般動詞は、時制が現在なら主語が３人称単数かどうかを見ます。",
                         opts: [
                             { t: "A: wash", correct: false },
                             { t: "B: washed", correct: false },
@@ -324,7 +324,7 @@ const db = {
                     {
                         id: 4,
                         question: "What did the people do there? の答え方として正しいものを選びなさい。",
-                        explanation: "疑問文に対する答え方には、主語を代名詞に変え、疑問文と同じ動詞・時制を使います。",
+                        explanation: "疑問文に対する答え方には、主語を代名詞に変え、疑問文に合わせた動詞・時制を使います。",
                         opts: [
                             { t: "A: I took pictures.", correct: false },
                             { t: "B: They take pictures.", correct: false },
@@ -334,17 +334,17 @@ const db = {
                     {
                         id: 5,
                         question: "This is (  ). の空所に入る最も適切な句を選びなさい。",
-                        explanation: "数えられる名詞の単数形は、a(an)またはthe＋形容詞＋核になる名詞の語順でブロックを作ります。",
+                        explanation: "数えられる名詞の単数形は、a(an)＋形容詞＋単数形の語順で組み合わせます。",
                         opts: [
                             { t: "A: a movie interesting", correct: false },
-                            { t: "B: interesting movies", correct: false },
+                            { t: "B: interesting a movies", correct: false },
                             { t: "C: an interesting movie", correct: true }
                         ]
                     },
                     {
                         id: 6,
                         question: "We have (  ) water. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "数えられない名詞の量の程度を表すときは、a lot of, some, any, a little, noを使います。",
+                        explanation: "数えられない名詞の量を表すときは、a lot of, some, any, a little, noを使います。",
                         opts: [
                             { t: "A: a", correct: false },
                             { t: "B: many", correct: false },
@@ -354,7 +354,7 @@ const db = {
                     {
                         id: 7,
                         question: "One of the students are on the soccer team. の主語を選びなさい。",
-                        explanation: "主語は文の最初の名詞・代名詞です。",
+                        explanation: "主語は文の最初に現れる「名詞・代名詞」です。",
                         opts: [
                             { t: "A: One", correct: true },
                             { t: "B: the students", correct: false },
@@ -364,7 +364,7 @@ const db = {
                     {
                         id: 8,
                         question: "「あなたは医者に診てもらうべきです。」となる英文を選びなさい。",
-                        explanation: "助動詞can, will, must, may, shouldは文末の表現（気持ち）に合わせて選択します。",
+                        explanation: "助動詞（can, will, must, may, should）は文末の表現（気持ち）に合わせて選択します。",
                         opts: [
                             { t: "A: You must go to a doctor.", correct: false },
                             { t: "B: You should see a doctor.", correct: true },
@@ -373,8 +373,8 @@ const db = {
                     },
                     {
                         id: 9,
-                        question: "Why don't we play soccer? と同じ解釈では「ない」文を選びなさい。",
-                        explanation: "助動詞は、許可・依頼・禁止・提案・申し出・勧誘の表現でも使います。",
+                        question: "Why don't we play soccer? と同じ「解釈にならない」文を選びなさい。",
+                        explanation: "助動詞は、許可・依頼・禁止・提案・申し出・勧誘の表現にも使います。",
                         opts: [
                             { t: "A: How about playing soccer with us?", correct: false },
                             { t: "B: Shall we play soccer?", correct: false },
@@ -384,7 +384,7 @@ const db = {
                     {
                         id: 10,
                         question: "He can't swim well. を過去の表現にした文を選びなさい。",
-                        explanation: "助動詞が時制や文の種類（肯定文・否定文・疑問文）を決めます。",
+                        explanation: "助動詞が時制や文の種類（肯定文・否定文・疑問文）を担います。",
                         opts: [
                             { t: "A: He couldn't swim well.", correct: true },
                             { t: "B: He didn't can swim well.", correct: false },
@@ -394,7 +394,7 @@ const db = {
                     {
                         id: 11,
                         question: "She (  ) busy with her report. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "look, sound, feelのような動詞は、後ろに主語の状態（形容詞）を表す語がつながります。（第２文型）",
+                        explanation: "look, sound, feelのような動詞は、後ろに主語の状態（形容詞）を表す語をつなぎます。（第２文型）",
                         opts: [
                             { t: "A: runs", correct: false },
                             { t: "B: looks", correct: true },
@@ -404,7 +404,7 @@ const db = {
                     {
                         id: 12,
                         question: "I will (  ) my mother a letter. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "send, give, show, teachなどの動詞は、後ろに「人・もの」がつながります。（第４文型）",
+                        explanation: "send, give, show, teachなどの動詞は、後ろに「人・もの」をつなぎります。（第４文型）",
                         opts: [
                             { t: "A: walk", correct: false },
                             { t: "B: send", correct: true },
@@ -414,7 +414,7 @@ const db = {
                     {
                         id: 13,
                         question: "We should (  ) the river clean. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "call, name, make, leaveなどの動詞は、後ろに「目的語、補語」がつながります。（第５文型）",
+                        explanation: "call, name, make, leaveなどの動詞は、後ろに「目的語、補語」をつなぎます。（第５文型）",
                         opts: [
                             { t: "A: wash", correct: false },
                             { t: "B: give", correct: false },
@@ -444,7 +444,7 @@ const db = {
                     {
                         id: 16,
                         question: "「本を読むことは大切です。」の意味に「ならない」英文を選びなさい。",
-                        explanation: "文の中心にならない動詞の形には、不定詞・動名詞・分詞の３つの形から判断します。",
+                        explanation: "文の中心にならない動詞の形には、「不定詞・動名詞・分詞」の３つの形から判断します。",
                         opts: [
                             { t: "A: Reading books is important.", correct: false },
                             { t: "B: A book read is important.", correct: true },
@@ -454,7 +454,7 @@ const db = {
                     {
                         id: 17,
                         question: "I do my homework before (  ) dinner. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "before, at, aboutなどの前置詞の後ろの動詞の形には、動名詞を使います。",
+                        explanation: "before, at, aboutなどの前置詞の後ろの動詞の形には、「動名詞」を使います。",
                         opts: [
                             { t: "A: have", correct: false },
                             { t: "B: to have", correct: false },
@@ -464,7 +464,7 @@ const db = {
                     {
                         id: 18,
                         question: "This book is much (  ) than that one. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "２つを比較するときは比較級を使い、３つ以上や範囲になると最上級を使います。",
+                        explanation: "２つを比較するときは「比較級」を使い、３つ以上や範囲になると「最上級」を使います。",
                         opts: [
                             { t: "A: difficult", correct: false },
                             { t: "B: better difficult", correct: false },
@@ -494,7 +494,7 @@ const db = {
                     {
                         id: 21,
                         question: "Tom came here two years ago, and he still lives here. とほぼ同じ意味の英文を選びなさい。",
-                        explanation: "現在完了形have(has)＋過去分詞の形で、過去から続く現在の状態で、経験・完了・結果・継続を表します。",
+                        explanation: "現在完了形はhave(has)＋過去分詞の形で、過去から続く現在の状態で、経験・完了・結果・継続を表します。",
                         opts: [
                             { t: "A: Tom has lived here for two years.", correct: true },
                             { t: "B: Tom has come here since two years ago.", correct: false },
@@ -534,7 +534,7 @@ const db = {
                     {
                         id: 25,
                         question: "The boy running over there is Tom. とほぼ同じ意味の英文を選びなさい。",
-                        explanation: "名詞に「動作や行為のある」説明するときは、分詞や関係代名詞を使います。",
+                        explanation: "名詞に「動作や行為のある」説明をするときは、分詞や関係代名詞を使います。",
                         opts: [
                             { t: "A: The boy that running over there is Tom.", correct: false },
                             { t: "B: The boy that is running over there is Tom.", correct: true },
@@ -544,7 +544,7 @@ const db = {
                     {
                         id: 26,
                         question: "This is the book written by Tom. とほぼ同じ意味の英文を選びなさい。",
-                        explanation: "関係代名詞は先行詞が後の文の主格、目的格、所有格のどの代名詞に変わるのかで使い分けられます。",
+                        explanation: "関係代名詞は先行詞が、後の文の主格・目的格・所有格のどの代名詞として使うのかで使い分けます。",
                         opts: [
                             { t: "A: This is the book which written by Tom.", correct: false },
                             { t: "B: This is the book which Tom was written.", correct: false },
@@ -564,7 +564,7 @@ const db = {
                     {
                         id: 28,
                         question: "(  ) a beautiful flower this is! の空所に入る最も適切な語を選びなさい。",
-                        explanation: "感嘆文は名詞に対して感嘆するときはWhat、形容詞や副詞のときはHowを使います。",
+                        explanation: "感嘆文は名詞に対して感嘆するときはWhat、形容詞や副詞だけのときはHowを使います。",
                         opts: [
                             { t: "A: Such", correct: false },
                             { t: "B: How", correct: false },
@@ -574,7 +574,7 @@ const db = {
                     {
                         id: 29,
                         question: "I have a dog (  ) long ears. の空所に入る最も適切な語を選びなさい。",
-                        explanation: "前置詞は後の続く名詞とブロックにして、形容詞や副詞の働きをします。［a dogを修飾］",
+                        explanation: "前置詞は後の続く名詞をかたまりとして、形容詞や副詞の働きをします。［a dogを修飾］",
                         opts: [
                             { t: "A: in", correct: false },
                             { t: "B: for", correct: false },
@@ -584,14 +584,13 @@ const db = {
                     {
                         id: 30,
                         question: "I don't like cats. She doesn't like cats, (  ). の空所に入る最も適切な語を選びなさい。",
-                        explanation: "日本語で解釈するのではなく、文の形や使われている単語に合わせて処理しなければなりません。",
+                        explanation: "日本語で解釈するのではなく、文の形や使われている単語と合わせて処理しなければなりません。",
                         opts: [
                             { t: "A: too", correct: false },
                             { t: "B: also", correct: false },
                             { t: "C: either", correct: true }
                         ]
                     }
-                    // 💡 新しい問題はここへカンマ(,)で繋いで自由に追加できます！
                 ]
 
 },
