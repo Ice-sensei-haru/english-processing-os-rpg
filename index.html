@@ -1476,8 +1476,8 @@ grammar1: {
                         passage: `Q3. 「トムは息子に新しい自転車を買ってあげました。」<br><strong>"Tom (  ) a new bike (  )(  ) son."</strong>`,
                         steps: [
                             { title: "【着眼】buy ＋ 人 ＋ もの の文型変換", q: "「人に物を与える・買う」を表すとき、買ってきたものを人にあげるときに使う前置詞は？", opts: [
-                                {t: "for （「誰に？」という情報を必要としない動詞 for）", correct: true, fb: "正解！ buy, make, cook, sing などは for を使います。"},
-                                {t: "to （giveやteachなどは to）", correct: false, fb: "惜しい！ give なら to ですが buy は for です。"}
+                                {t: "buyのときは for 人", correct: true, fb: "正解！ buy, make, cook, sing などは for を使います。"},
+                                {t: "buyのときは to 人", correct: false, fb: "惜しい！ give, show, sendなどは to ですが buy は for です。"}
                             ]},
                             { title: "【判断】代名詞の所有格の選択", q: "「彼の息子」を英語にするための正しいパーツは？", opts: [
                                 {t: "his son", correct: true, fb: "正解！ for his son の形になります。"},
@@ -1527,7 +1527,7 @@ grammar1: {
                             ]},
                             { title: "【判断】不定詞（形容詞的用法）の付加", q: "「食べるための（温かい何か）」とするための不定詞の形は？", opts: [
                                 {t: "to eat", correct: true, fb: "正解！ something hot to eat のかたまりになります。"},
-                                {t: "eating", correct: false, fb: "不正解です。"}
+                                {t: "to eating", correct: false, fb: "不正解です。"}
                             ]}
                         ],
                         repro: {
@@ -1545,8 +1545,8 @@ grammar1: {
                         passage: `Q6. 「なぜ彼らはそんなに忙しかったのですか。」<br><strong>"What (  )(  ) so busy?"</strong>`,
                         steps: [
                             { title: "【着眼】特殊な疑問詞（What ＋ 動詞）の構造", q: "「何が彼らをそんなに忙しくさせたのか」という解釈で動詞を使うと？", opts: [
-                                {t: "did they make so busy", correct: false, fb: "惜しい！疑問詞（What）が主語のときは肯定文の語順になります。"},
-                                {t: "made them so busy", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"}        
+                                {t: "was", correct: false, fb: "不正解。「人をその状態にさせる」という動詞にはmakeを使います。"},
+                                {t: "made", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"}        
                             ]},
                             { title: "【判断】使役動詞の目的格の選択", q: "「彼らを」にあたる目的格の人称代名詞はどれ？", opts: [
                                 {t: "them", correct: true, fb: "正解！ made them so busy 目的格＋形容詞の組み合わせです。"},
@@ -1568,12 +1568,12 @@ grammar1: {
                         passage: `Q7. 「私たちにどの電車に乗るべきか教えていただけますか。」<br><strong>"Could you tell us (  )(  )(  ) take?"</strong>`,
                         steps: [
                             { title: "【着眼】「疑問詞 ＋ 不定詞」の書き換え", q: "「どの電車に乗るべきか」という表現を「which ＋ 名詞 ＋ to不定詞」で表すときの語順は？", opts: [
-                                {t: "which train to take", correct: true, fb: "正解！ which + 名詞 + to + 動詞の原形 の形です。"},
+                                {t: "which train to take", correct: true, fb: "正解！ which + 名詞 + to不定詞 の形です。"},
                                 {t: "to take which train", correct: false, fb: "不正解です。"}
                             ]},
                             { title: "【判断】文全体の接続の確認", q: "tell us の後ろに続く目的語として、どちらが収まるか確認する。", opts: [
                                 {t: "which to take train", correct: false, fb: "不正解です。"},
-                                {t: "which train to take", correct: true, fb: "正解！ whichやwhat＋名詞＋不定詞の形です。"}        
+                                {t: "which train to take", correct: true, fb: "正解！ whichやwhat＋名詞＋to不定詞の形で使います。"}        
                             ]}
                         ],
                         repro: {
@@ -1636,7 +1636,7 @@ grammar1: {
                         id: 10,
                         passage: `Q10. 「リサの父親は彼女をそこに行かせたくはなかった。」<br><strong>"Lisa's father didn't want to (  ) her (  ) there."</strong>`,
                         steps: [
-                            { title: "【着眼】使役動詞（let）の語法", q: "「人に〜させてやる（させる）」という意味を表す使役動詞で、want to の後ろの to 不定詞の中に組み込めるものは？", opts: [
+                            { title: "【着眼】使役動詞（let）の語法", q: "「人に〜させてやる（させる）」という意味を表す動詞で、want to の後ろの to 不定詞の中に組み込めるものは？", opts: [
                                 {t: "make", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"},
                                 {t: "let （let 人 動詞の原形）", correct: true, fb: "正解！ want to let her go の形を作ります。"}        
                             ]},
@@ -1649,7 +1649,7 @@ grammar1: {
                             passage: "【類題テスト】<br>「母は私にテレビを見せてくれました。」<br>My mother ( ) me ( ) TV.",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "let / watch", correct: true, fb: "正解！使役動詞 let の後での動詞の原形の再現成功です！"},
+                                {t: "let / watch", correct: true, fb: "正解！動詞 let の後での動詞の原形の再現成功です！"},
                                 {t: "lets / to watch", correct: false, fb: "不正解です。"},
                                 {t: "lets / watch", correct: false, fb: "不正解です。"}        
                             ]
