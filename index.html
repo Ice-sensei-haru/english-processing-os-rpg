@@ -159,7 +159,7 @@ const rawIdiomsData = [
 {id:58, jp:"もちろん、お手伝いしますよ。", eng:"( )( ), I will help you.", ans:"Of course"},
 {id:59, jp:"雨のために私たちは外出できませんでした。", eng:"We couldn't go out ( )( ) the rain.", ans:"because of"},
 {id:60, jp:"あなたはコーヒーか紅茶のどちらかを選ぶことができます。", eng:"You can choose ( ) coffee ( ) tea.", ans:"either / or"},
-{id:61, jp:"この川は日本とロシアの間にあります。", eng:"This river is ( ) Japan ( ) Russia.", ans:"between / and"},
+{id:61, jp:"この川は茨城と千葉の間にあります。", eng:"This river is ( ) Ibaraki ( ) Chiba.", ans:"between / and"},
 {id:62, jp:"トムもケンもどちらもサッカーが好きです。", eng:"( ) Tom ( ) Ken like soccer.", ans:"both / and"},
 {id:63, jp:"できるだけ早くここに来てください。", eng:"Please come here ( ) soon ( )( ).", ans:"as / as possible"},
 {id:64, jp:"放課後サッカーをしましょう。", eng:"Let's play soccer ( )( ).", ans:"after school"},
@@ -183,7 +183,7 @@ const rawIdiomsData = [
 {id:82, jp:"ますます多くの人々が日本を訪れています。", eng:"( )( )( ) people are visiting Japan.", ans:"More and more"},
 {id:83, jp:"私はまったく眠くありません。", eng:"I am ( ) sleepy ( )( ).", ans:"not / at all"},
 {id:84, jp:"私たちは助け合うべきです。", eng:"We should help ( )( ).", ans:"each other"},
-{id:85, jp:"100人以上の人々が来ました。", eng:"( )( ) 100 people came.", ans:"more than"},
+{id:85, jp:"100人より多くの人々が来ました。", eng:"( )( ) 100 people came.", ans:"more than"},
 {id:86, jp:"ある日、私は奇妙な鳥を見ました。", eng:"( )( ), I saw a strange bird.", ans:"One day"},
 {id:87, jp:"あなたのおかげで、助かりました。", eng:"( )( ) you, I was saved.", ans:"Thanks to"},
 {id:88, jp:"その時、私は学生でした。", eng:"I was a student ( )( )( ).", ans:"at that time"},
@@ -200,12 +200,12 @@ const rawIdiomsData = [
 {id:99, jp:"少しの水があります（数えられない）。", eng:"There is ( )( ) water.", ans:"a little"},
 {id:100, jp:"一枚の紙をください。", eng:"Give me ( )( )( ) paper.", ans:"a piece of"},
 {id:101, jp:"私の妹の世話をしなければなりません。", eng:"I must ( )( ) my sister.", ans:"look after"},
-{id:102, jp:"部屋に入るときは靴を脱いでください。", eng:"Please ( )( ) your shoes when entering.", ans:"take off"},
+{id:102, jp:"この部屋に入るときは靴を脱いでください。", eng:"Please ( )( ) your shoes when entering this room.", ans:"take off"},
 {id:103, jp:"このシャツを試着してもいいですか。", eng:"Can I ( )( ) this shirt?", ans:"try on"},
 {id:104, jp:"彼は東京に向けて出発する予定です。", eng:"He will ( )( ) Tokyo.", ans:"leave for"},
 {id:105, jp:"この問題に取り組みましょう。", eng:"Let's ( )( ) this problem.", ans:"work on"},
-{id:106, jp:"この机は木で作ることができます（見た目で材料がわかる）。", eng:"This desk can ( )( )( ) wood.", ans:"be made of"},
-{id:107, jp:"紙は木で作ることができます（見た目でわからない）。", eng:"Paper can ( )( )( ) wood.", ans:"be made from"},
+{id:106, jp:"この机は木で作ることができます（見て素材がわかる）。", eng:"This desk can ( )( )( ) wood.", ans:"be made of"},
+{id:107, jp:"紙は木で作ることができます（見て素材わからない）。", eng:"Paper can ( )( )( ) wood.", ans:"be made from"},
 {id:108, jp:"私たちが英語を話すことは大切です。", eng:"( )( ) important ( ) us ( ) speak English.", ans:"It is / for / to"},
 {id:109, jp:"彼は忙しすぎて行けません。", eng:"He is ( ) busy ( ) go.", ans:"too / to"},
 {id:110, jp:"残念ながら雨が降ると思います。", eng:"( )( )( ) it will rain.", ans:"I'm afraid that"},
@@ -1772,14 +1772,14 @@ grammar1: {
                     },
                     {
                         id: 16,
-                        passage: `Q16. 「トムはリサほどたくさんの本を持っていません。」<br><strong>"Tom (  ) have as (  ) books (  ) Lisa."</strong>`,
+                        passage: `Q16. 「トムはリサほどたくさんの本を持っていません。」<br><strong>"Tom (  ) not have as (  ) books (  ) Lisa."</strong>`,
                         steps: [
                             { 
                                 title: "【着眼】否定文における同等比較（not as ... as）", 
                                 q: "「〜ほど…ではない」を表すとき、一般動詞 have の否定文を作るための助動詞の形は？", 
                                 opts: [
-                                    { t: "A: does not", correct: false, fb: "不正解です。" },
-                                    { t: "B: does not (doesn't)", correct: true, fb: "正解！ 主語がTom（3人称単数）なので does not が正解です。" }
+                                    { t: "A: is", correct: false, fb: "不正解です。" },
+                                    { t: "B: does", correct: true, fb: "正解！ 主語がTom（3人称単数）なので does not が正解です。" }
                                 ]
                             },
                             { 
@@ -1797,7 +1797,7 @@ grammar1: {
                             opts: [
                                 { t: "A: does / many / as", correct: false, fb: "不正解です。" },
                                 { t: "B: do / much / as", correct: true, fb: "正解！ money（数えられない名詞）の比較表現の再現成功です！" },
-                                { t: "C: do / many / than", correct: false, fb: "不正解です。" }
+                                { t: "C: am / many / than", correct: false, fb: "不正解です。" }
                             ]
                         }
                     },
@@ -1820,8 +1820,7 @@ grammar1: {
                             opts: [
                                 {t: "lock", correct: false, fb: "不正解です。"},
                                 {t: "to lock", correct: false, fb: "不正解です。"},
-                                {t: "to locking", correct: false, fb: "不正解です。"},
-                                {t: "locking", correct: true, fb: "正解！ forget ＋ 動名詞（過去の行為の忘却）の再現成功です！"}
+                                {t: "locking", correct: true, fb: "正解！ forget ＋ 動名詞（過去の行為）の再現成功です！"}
                             ]
                         }
                     },
@@ -1850,15 +1849,15 @@ grammar1: {
                     },
                     {
                         id: 19,
-                        passage: `Q19. 「メグは誰がふだんその部屋を使っているのか彼に言いました。」<br><strong>"Meg (  ) him (  ) usually (  ) the room."</strong>`,
+                        passage: `Q19. 「メグはいつ彼女がその部屋を使うのか彼に言いました。」<br><strong>"Meg (  ) him when (  ) (  ) the room."</strong>`,
                         steps: [
-                            { title: "【着眼】間接疑問文の語順ルール", q: "文中に疑問詞（who）が入る間接疑問文の正しい語順は？", opts: [
-                                {t: "疑問詞 ＋ 主語 ＋ 動詞", correct: true, fb: "正解！ 疑問詞が主語を兼ねる場合は who ＋ 動詞 の順になります。"},
-                                {t: "疑問詞 ＋ 動詞 ＋ 主語", correct: false, fb: "不正解。通常の疑問文の語順にしてはいけません。"}
+                            { title: "【着眼】間接疑問文の語順ルール", q: "文中に疑問詞が入る間接疑問文の正しい語順は？", opts: [
+                                {t: "疑問詞 ＋ 主語 ＋ (助)動詞", correct: true, fb: "正解！ 疑問詞が主語を兼ねる場合は who ＋ 動詞 の順になります。"},
+                                {t: "疑問詞 ＋ (助)動詞 ＋ 主語", correct: false, fb: "不正解。通常の疑問文の語順にしてはいけません。"}
                             ]},
-                            { title: "【判断】時制と三単現のsの処理", q: "ふだん（usually）使っているという現在時制で、who を3人称単数として扱うときの動詞の形は？", opts: [
+                            { title: "【判断】時制と三単現のsの処理", q: "現在時制で、3人称単数として扱うときの動詞の形は？", opts: [
                                 {t: "use", correct: false, fb: "不正解です。"},
-                                {t: "uses", correct: true, fb: "正解！ who uses the room の形になります。"}        
+                                {t: "uses", correct: true, fb: "正解！ when she uses the room の形になります。"}        
                             ]}
                         ],
                         repro: {
@@ -1866,14 +1865,14 @@ grammar1: {
                             q: "空所に入る最も適切な語の組み合わせは？",
                             opts: [
                                 {t: "lives he", correct: false, fb: "不正解です。"},
-                                {t: "he live", correct: false, fb: "不正解です。"},
+                                {t: "does he live", correct: false, fb: "不正解です。"},
                                 {t: "he lives", correct: true, fb: "正解！間接疑問文（疑問詞＋S＋V）の再現成功です！"}
                             ]
                         }
                     },
                     {
                         id: 20,
-                        passage: `Q20. 「私が空を飛ことができればなあ。」<br><strong>"I (  ) I (  ) fly in the sky."</strong>`,
+                        passage: `Q20. 「私が空を飛ぶことができればなあ。」<br><strong>"I (  ) I (  ) fly in the sky."</strong>`,
                         steps: [
                             { title: "【着眼】仮定法過去（currentの反対の願い）の表現", q: "「〜できたらなあ（現在の仮定の願い）」を表すときの定番の動詞は？", opts: [
                                 {t: "hope", correct: false, fb: "惜しい！hopeは現実的な願い（未来など）に使います。"},
@@ -1885,7 +1884,7 @@ grammar1: {
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「私が鳥であればなあ。」<br>I ( ) I ( ) a bird.",
+                            passage: "【類題テスト】<br>「私が鳥だったらなあ。」<br>I ( ) I ( ) a bird.",
                             q: "空所に入る最も適切な語の組み合わせは？",
                             opts: [
                                 {t: "hope / am", correct: false, fb: "不正解です。"},
