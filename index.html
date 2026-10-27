@@ -944,7 +944,7 @@ grammarChoice: {
                                 q: "どう判断しますか。", 
                                 opts: [
                                     {t: "前が過去形なので過去形を使う", correct: false, fb: "不正解です。"},
-                                    {t: "decideの目的語なので不定詞を使う", correct: true, fb: "正解！ decide＋不定詞です。"}
+                                    {t: "decideの目的語なので不定詞を使う", correct: true, fb: "正解！ want, need, hope, decideの目的語には不定詞を使います。"}
                                 ]
                             },
                             { 
@@ -985,7 +985,7 @@ grammarChoice: {
                                 q: "どう判断しますか。", 
                                 opts: [
                                     {t: "yesterdayがあるので過去形を使う", correct: false, fb: "不正解です。"},
-                                    {t: "enjoyの目的語なので動名詞を使う", correct: true, fb: "正解！ enjoy＋動名詞です。"}
+                                    {t: "enjoyの目的語なので動名詞を使う", correct: true, fb: "正解！ enjoy, stop（やめる）, finishの目的語には動名詞を使います。"}
                                 ]
                             },
                             { 
@@ -1043,7 +1043,7 @@ grammarChoice: {
                             passage: "【類題テスト】<br><strong>He went out without ( say ) anything.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
-                                {t: "saying", correct: true, fb: "正解！ 前置詞withoutの後ろです。"},
+                                {t: "saying", correct: true, fb: "正解！ 前置詞without（～せずに）の後ろです。"},
                                 {t: "to say", correct: false, fb: "不正解です。"},
                                 {t: "say", correct: false, fb: "不正解です。"}
                             ]
@@ -1108,7 +1108,7 @@ grammarChoice: {
                                 q: "どう判断しますか。", 
                                 opts: [
                                     {t: "前に主語となる人がいるので三単現のsを使う", correct: false, fb: "不正解です。"},
-                                    {t: "ask＋人の形なので不定詞を使う", correct: true, fb: "正解！ ask＋人＋不定詞です。"}
+                                    {t: "ask＋人の形なので不定詞を使う", correct: true, fb: "正解！ ask＋人＋to不定詞です。"}
                                 ]
                             },
                             { 
@@ -1117,7 +1117,7 @@ grammarChoice: {
                                 opts: [
                                     {t: "buy", correct: false, fb: "不正解です。"},
                                     {t: "buys", correct: false, fb: "不正解です。"},
-                                    {t: "to buy", correct: true, fb: "正解！ ask＋人＋不定詞です。"}
+                                    {t: "to buy", correct: true, fb: "正解！ ask＋人＋to不定詞です。"}
                                 ]
                             }
                         ],
@@ -1125,7 +1125,7 @@ grammarChoice: {
                             passage: "【類題テスト】<br><strong>She told me ( come ) here at once.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
-                                {t: "to come", correct: true, fb: "正解！ tell＋人＋不定詞です。"},
+                                {t: "to come", correct: true, fb: "正解！ tell＋人＋to不定詞です。"},
                                 {t: "comes", correct: false, fb: "不正解です。"},
                                 {t: "coming", correct: false, fb: "不正解です。"}
                             ]
@@ -1139,7 +1139,7 @@ grammarChoice: {
                                 title: "【着眼】", 
                                 q: "どこに注目しますか。", 
                                 opts: [
-                                    {t: "動詞let", correct: true, fb: "正解！ let（使役動詞）＋人に注目します。"},
+                                    {t: "動詞let", correct: true, fb: "正解！ let（～させてやる）＋人に注目します。"},
                                     {t: "主語", correct: false, fb: "不正解です。"},
                                     {t: "後につながる言葉", correct: false, fb: "不正解です。"}
                                 ]
@@ -1149,7 +1149,7 @@ grammarChoice: {
                                 q: "どう判断しますか。", 
                                 opts: [
                                     {t: "中心の動詞letがあるのでto＋動詞の原形を使う", correct: false, fb: "不正解です。"},
-                                    {t: "let（使役動詞）＋人の形なので原形不定詞を使う", correct: true, fb: "正解！ let＋人＋原形不定詞です。"}
+                                    {t: "let（使役動詞）＋人の形なので原形不定詞を使う", correct: true, fb: "正解！ let, make, haveには原形不定詞を使います。"}
                                 ]
                             },
                             { 
@@ -1166,7 +1166,7 @@ grammarChoice: {
                             passage: "【類題テスト】<br><strong>He made his son ( read ) many books.</strong>（ ）内の語を適切な形にしなさい。",
                             q: "最も適切なものはどれか？",
                             opts: [
-                                {t: "read", correct: true, fb: "正解！ make（使役動詞）＋人＋原形不定詞です。"},
+                                {t: "read", correct: true, fb: "正解！ make（～させる）＋人＋原形不定詞です。"},
                                 {t: "to read", correct: false, fb: "不正解です。"},
                                 {t: "reading", correct: false, fb: "不正解です。"}
                             ]
@@ -1480,7 +1480,7 @@ grammar1: {
                                 {t: "buyのときは to 人", correct: false, fb: "惜しい！ give, show, sendなどは to ですが buy は for です。"}
                             ]},
                             { title: "【判断】代名詞の所有格の選択", q: "「彼の息子」を英語にするための正しいパーツは？", opts: [
-                                {t: "his son", correct: true, fb: "正解！ for his son の形になります。"},
+                                {t: "his son", correct: true, fb: "正解！ 名詞の前には所有格を使って、for his son の形になります。"},
                                 {t: "him son", correct: false, fb: "不正解。所有格にする必要があります。"}
                             ]}
                         ],
@@ -1523,7 +1523,7 @@ grammar1: {
                         steps: [
                             { title: "【着眼】代名詞＋形容詞の語順ルール", q: "something や anything などの -thing で終わる代名詞を形容詞（hotなど）が後ろから修飾するときの語順は？", opts: [
                                 {t: "something hot （形容詞は後ろから置く）", correct: true, fb: "正解！ -thing は後ろから修飾する鉄則です。"},
-                                {t: "hot something", correct: false, fb: "不正解。形容詞が前には来ません。"}
+                                {t: "hot something （形容詞＋名詞の語順）", correct: false, fb: "不正解。形容詞が前には来ません。"}
                             ]},
                             { title: "【判断】不定詞（形容詞的用法）の付加", q: "「食べるための（温かい何か）」とするための不定詞の形は？", opts: [
                                 {t: "to eat", correct: true, fb: "正解！ something hot to eat のかたまりになります。"},
@@ -1534,9 +1534,9 @@ grammar1: {
                             passage: "【類題テスト】<br>「何か冷たい飲み物をいただけますか。」<br>Can I have ( )( )( ) drink?",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "something / to / cold", correct: false, fb: "不正解です。"},
-                                {t: "cold / something / to", correct: false, fb: "不正解です。"},
-                                {t: "something / cold / to", correct: true, fb: "-thingの後ろからの形容詞修飾の再現成功です！"}        
+                                {t: "something to cold", correct: false, fb: "不正解です。"},
+                                {t: "cold something to", correct: false, fb: "不正解です。"},
+                                {t: "something cold to", correct: true, fb: "-thingの後ろからの形容詞修飾の再現成功です！"}        
                             ]
                         }
                     },
@@ -1546,9 +1546,9 @@ grammar1: {
                         steps: [
                             { title: "【着眼】特殊な疑問詞（What ＋ 動詞）の構造", q: "「何が彼らをそんなに忙しくさせたのか」という解釈で動詞を使うと？", opts: [
                                 {t: "was", correct: false, fb: "不正解。「人をその状態にさせる」という動詞にはmakeを使います。"},
-                                {t: "made", correct: true, fb: "正解！ What made ＋ O ＋ 形容詞 の形です。"}        
+                                {t: "made", correct: true, fb: "正解！ What made ＋ 人 ＋ 状態 の形です。"}        
                             ]},
-                            { title: "【判断】使役動詞の目的格の選択", q: "「彼らを」にあたる目的格の人称代名詞はどれ？", opts: [
+                            { title: "【判断】makeの目的語の選択", q: "「彼らを」にあたる目的格の人称代名詞はどれ？", opts: [
                                 {t: "them", correct: true, fb: "正解！ made them so busy 目的格＋形容詞の組み合わせです。"},
                                 {t: "they", correct: false, fb: "不正解。目的語の位置なのでthemです。"}
                             ]}
@@ -1557,9 +1557,9 @@ grammar1: {
                             passage: "【類題テスト】<br>「何があなたをそんなに悲しませたのですか。」<br>What ( )( ) so sad?",
                             q: "空所に入る最も適切なものはどれか？",
                             opts: [
-                                {t: "you / made", correct: false, fb: "不正解です。"},
-                                {t: "made / you", correct: true, fb: "正解！使役動詞の疑問文の再現成功です！"},        
-                                {t: "did / make", correct: false, fb: "不正解です。"}                                         
+                                {t: "you made", correct: false, fb: "不正解です。"},
+                                {t: "made you", correct: true, fb: "正解！使役動詞の疑問文の再現成功です！"},        
+                                {t: "did make", correct: false, fb: "不正解です。"}                                         
                             ]
                         }
                     },
@@ -1580,9 +1580,9 @@ grammar1: {
                             passage: "【類題テスト】<br>「どちらの本を読むべきか教えてください。」<br>Please tell me ( )( )( ) read.",
                             q: "空所に入る正しい語の組み合わせは？",
                             opts: [
-                                {t: "book / which / to", correct: false, fb: "不正解です。"},
-                                {t: "which / book / to", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の再現成功です！"},        
-                                {t: "to / read / which", correct: false, fb: "不正解です。"}
+                                {t: "book which to", correct: false, fb: "不正解です。"},
+                                {t: "which book to", correct: true, fb: "正解！「疑問詞＋名詞＋to不定詞」の再現成功です！"},        
+                                {t: "to read which", correct: false, fb: "不正解です。"}
                             ]
                         }
                     },
@@ -1637,12 +1637,12 @@ grammar1: {
                         passage: `Q10. 「リサの父親は彼女をそこに行かせたくはなかった。」<br><strong>"Lisa's father didn't want to (  ) her (  ) there."</strong>`,
                         steps: [
                             { title: "【着眼】使役動詞（let）の語法", q: "「人に〜させてやる（させる）」という意味を表す動詞で、want to の後ろの to 不定詞の中に組み込めるものは？", opts: [
-                                {t: "make", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"},
-                                {t: "let （let 人 動詞の原形）", correct: true, fb: "正解！ want to let her go の形を作ります。"}        
+                                {t: "make （make＋O＋原形不定詞）", correct: false, fb: "惜しい！強制のmakeではなく許可のletが適しています。"},
+                                {t: "let （let＋O＋原形不定詞）", correct: true, fb: "正解！ want to let her go の形を作ります。"}        
                             ]},
                             { title: "【判断】動詞の形の選択", q: "let 人 の後ろに続く動詞の形はどうなる？", opts: [
                                 {t: "to go", correct: false, fb: "不正解。letの後ろに to は不要です。"},
-                                {t: "動詞の原形（go）", correct: true, fb: "正解！ let 人 動詞の原形 のルールです。"}
+                                {t: "go", correct: true, fb: "正解！ let＋O＋原形不定詞 の形で使います。"}
                             ]}
                         ],
                         repro: {
@@ -1663,9 +1663,9 @@ grammar1: {
                                 {t: "This", correct: false, fb: "不正解です。"},
                                 {t: "It", correct: true, fb: "正解！ It is 形容詞 for 人 to do の形式主語構文です。"}        
                             ]},
-                            { title: "【判断】不定詞の前に置く人を示す前置詞", q: "「私たちにとって」を表すとき、to不定詞の前に置く前置詞はどれ？", opts: [
-                                {t: "for", correct: true, fb: "正解！ for us to learn の形を作ります。"},
-                                {t: "to", correct: false, fb: "不正解です。"}
+                            { title: "【判断】不定詞の前に置く人を示す前置詞", q: "「私たちにとって」を表すとき、to不定詞の前に置くものはどれ？", opts: [
+                                {t: "for us", correct: true, fb: "正解！ for us to learn の形を作ります。"},
+                                {t: "to us", correct: false, fb: "不正解です。"}
                             ]}
                         ],
                         repro: {
@@ -1682,11 +1682,11 @@ grammar1: {
                         id: 12,
                         passage: `Q12. 「彼は疲れすぎていて、もう歩くことができなかった。」<br><strong>"He was (  ) tired (  ) walk anymore."</strong>`,
                         steps: [
-                            { title: "【着眼】「あまりに〜なので…できない」の構文", q: "too 〜 to … の表現で、前半の「あまりに〜」にあたる語は？", opts: [
+                            { title: "【着眼】「あまりに〜なので…できない」の構文", q: "前半の「あまりに〜」にあたる語は？", opts: [
                                 {t: "too", correct: true, fb: "正解！ too ＋ 形容詞 ＋ to ＋ 動詞の原形 です。"},
                                 {t: "so", correct: false, fb: "惜しい！soを使う場合は後ろにthat節が続きます。"}
                             ]},
-                            { title: "【判断】後半の「…に」にあたる接続詞・前置詞", q: "tired の後ろに続く不定詞の to はどれ？", opts: [
+                            { title: "【判断】「...できない」にあたる表現", q: "walkの前に置く語はどれ？", opts: [
                                 {t: "for", correct: false, fb: "不正解です。"},
                                 {t: "to", correct: true, fb: "正解！ too tired to walk の形になります。"}        
                             ]}
@@ -1728,13 +1728,13 @@ grammar1: {
                         id: 14,
                         passage: `Q14. 「彼は私に彼を手伝うよう頼みました。」<br><strong>"He (  ) me (  ) help him."</strong>`,
                         steps: [
-                            { title: "【着眼】ask 人 ＋ to不定詞 の文型", q: "「人に〜するように頼む」を表す動詞 ask の正しい過去形は？", opts: [
-                                {t: "asked", correct: true, fb: "正解！ ask 人 to 動詞の原形 の形をとります。"},
-                                {t: "ask", correct: false, fb: "不正解。時制に合わせてaskedにします。"}
+                            { title: "【着眼】ask 人 ＋ to不定詞 の文型", q: "「人に〜するように頼む」を表す動詞は？", opts: [
+                                {t: "ask", correct: true, fb: "正解！ ask＋人＋to不定詞 の形をとります。"},
+                                {t: "tell", correct: false, fb: "不正解。tell＋人＋to不定詞 で「人に～するように言う」をいう表現になります。"}
                             ]},
                             { title: "【判断】目的語の後ろに続く動詞の形", q: "me の後ろに続く、手伝うことを表す不定詞の形は？", opts: [
                                 {t: "to help", correct: true, fb: "正解！ asked me to help の形になります。"},
-                                {t: "help", correct: false, fb: "不正解。使役動詞ではないため to が必要です。"}
+                                {t: "help", correct: false, fb: "不正解。ask, tell, wantは人にさせることをto不定詞で表します。"}
                             ]}
                         ],
                         repro: {
@@ -1786,7 +1786,7 @@ grammar1: {
                                 title: "【判断】数が多いことを表す as many as の選択", 
                                 q: "books（数えられる名詞の複数形）の多さを比較するとき、as と as の間に挟む語は？", 
                                 opts: [
-                                    { t: "A: much", correct: false, fb: "不正解です。" },
+                                    { t: "A: much", correct: false, fb: "不正解。後ろに数えらない名詞の場合はmuchです。" },
                                     { t: "B: many", correct: true, fb: "正解！ 後ろに数えられる名詞の複数形（books）が続いています。" }
                                 ]
                             }
@@ -1806,12 +1806,12 @@ grammar1: {
                         passage: `Q17. 「彼は窓を閉めるのを忘れました。」<br><strong>"He forgot (  )(  ) the window."</strong>`,
                         steps: [
                             { title: "【着眼】forget の後ろに続く動詞の形", q: "「（これから）〜し忘れる」を表すとき、forget の目的に取る動詞の形は？", opts: [
-                                {t: "不定詞（to do）", correct: true, fb: "正解！ forget to do で「〜し忘れる」になります。（ちなみにdoingは「〜したことを忘れる」）"},
+                                {t: "不定詞（to do）", correct: true, fb: "正解！ forget to do で「〜し忘れる」になります。（doingは「〜したことを忘れる」）"},
                                 {t: "動名詞（doing）", correct: false, fb: "惜しい！それは過去の記憶の忘却です。"}
                             ]},
                             { title: "【判断】閉める動作を表す動詞の選択", q: "窓を閉めるを表す正しい組み合わせは？", opts: [
-                                {t: "to / close", correct: true, fb: "正解！ forgot to close the window の完成です。"},
-                                {t: "closing / to", correct: false, fb: "不正解です。"}
+                                {t: "to close", correct: true, fb: "正解！ forgot to close the window の完成です。"},
+                                {t: "closing to", correct: false, fb: "不正解です。"}
                             ]}
                         ],
                         repro: {
@@ -1829,7 +1829,7 @@ grammar1: {
                         passage: `Q18. 「彼女はいつも私にその本が面白いと言います。」<br><strong>"She always (  ) me (  ) the book is interesting."</strong>`,
                         steps: [
                             { title: "【着眼】tell と say の使い分け", q: "後ろに「人（me）」を直接とって「人に〜を言う」という意味を表す動詞は？", opts: [
-                                {t: "say", correct: false, fb: "惜しい！sayは人称代名詞をすぐ後ろにとりません。"},
+                                {t: "say", correct: false, fb: "惜しい！sayは人を目的語にとりません。"},
                                 {t: "tell", correct: true, fb: "正解！ tell 人 ＋ that節 の形をとります。（sayは to 人 が必要）"}        
                             ]},
                             { title: "【判断】that 節を導く接続詞の選択", q: "me の後ろで文を繋ぐ接続詞はどれ？", opts: [
@@ -1838,11 +1838,11 @@ grammar1: {
                             ]}
                         ],
                         repro: {
-                            passage: "【類題テスト】<br>「彼は私に彼は忙しいと言いました。」<br>He ( ) me ( ) he was busy.",
+                            passage: "【類題テスト】<br>「トムは私に彼が忙しいと言いました。」<br>Tom ( ) me ( ) he was busy.",
                             q: "空所に入る最も適切な語の組み合わせは？",
                             opts: [
                                 {t: "said / that", correct: false, fb: "不正解です。"},
-                                {t: "told / that", correct: true, fb: "正解！ tell 人 that 構文の再現成功です！"},
+                                {t: "told / that", correct: true, fb: "正解！ tell＋人＋that 構文の再現成功です！"},
                                 {t: "spoke / to", correct: false, fb: "不正解です。"}
                             ]
                         }
@@ -1856,8 +1856,8 @@ grammar1: {
                                 {t: "疑問詞 ＋ (助)動詞 ＋ 主語", correct: false, fb: "不正解。通常の疑問文の語順にしてはいけません。"}
                             ]},
                             { title: "【判断】時制と三単現のsの処理", q: "現在時制で、3人称単数として扱うときの動詞の形は？", opts: [
-                                {t: "use", correct: false, fb: "不正解です。"},
-                                {t: "uses", correct: true, fb: "正解！ when she uses the room の形になります。"}        
+                                {t: "she use", correct: false, fb: "不正解です。"},
+                                {t: "she uses", correct: true, fb: "正解！ when she uses the room の形になります。"}        
                             ]}
                         ],
                         repro: {
@@ -1874,12 +1874,12 @@ grammar1: {
                         id: 20,
                         passage: `Q20. 「私が空を飛ぶことができればなあ。」<br><strong>"I (  ) I (  ) fly in the sky."</strong>`,
                         steps: [
-                            { title: "【着眼】仮定法過去（currentの反対の願い）の表現", q: "「〜できたらなあ（現在の仮定の願い）」を表すときの定番の動詞は？", opts: [
+                            { title: "【着眼】仮定法過去（現在の事実ではない）の表現", q: "「〜できたらなあ（現在の事実ではない）」を表すときの動詞は？", opts: [
                                 {t: "hope", correct: false, fb: "惜しい！hopeは現実的な願い（未来など）に使います。"},
                                 {t: "wish", correct: true, fb: "正解！ I wish ＋ 仮定法の文 で「〜ならなあ」を表します。"}        
                             ]},
-                            { title: "【判断】助動詞の過去形の選択", q: "that節（または続く文）の中で過去の事実とは違う現在の能力を表すときの助動詞は？", opts: [
-                                {t: "can", correct: false, fb: "不正解。仮定法なので過去形の could です。"},
+                            { title: "【判断】助動詞の過去形の選択", q: "that節（または続く文）の中で現在の事実とは違う現在の能力を表すときの助動詞は？", opts: [
+                                {t: "can", correct: false, fb: "不正解。仮定法過去なので過去形の could です。"},
                                 {t: "could", correct: true, fb: "正解！ I wish I could... の形にします。"}        
                             ]}
                         ],
@@ -1888,7 +1888,7 @@ grammar1: {
                             q: "空所に入る最も適切な語の組み合わせは？",
                             opts: [
                                 {t: "hope / am", correct: false, fb: "不正解です。"},
-                                {t: "wish / were", correct: true, fb: "正解！仮定法過去の wish ＋ were の再現成功です！"},
+                                {t: "wish / were", correct: true, fb: "正解！仮定法過去の wish ＋ were（仮定法ではwereを使います） の再現成功です！"},
                                 {t: "wish / could", correct: false, fb: "不正解です。"}
                             ]
                         }
