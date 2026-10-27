@@ -1974,8 +1974,8 @@ grammar2: {
                                 {t: "We をそのまま使う", correct: false, fb: "不正解。we have snow は天候の it snows に書き換えられます。"}
                             ]},
                             { title: "【判断】動詞 snow の活用", q: "「雪が降る」という動詞 snow を使った正しい表現は？", opts: [
-                                {t: "It is snow a lot in February.", correct: false, fb: "不正解。snowは一般動詞です。"},
-                                {t: "It snows a lot in February.", correct: true, fb: "正解！ snows と3単現の s がつきます。"}        
+                                {t: "It is a lot of snow in February.", correct: false, fb: "不正解。snowを一般動詞として使います。"},
+                                {t: "It snows a lot in February.（It is very snowy in February.）", correct: true, fb: "正解！ snows と3単現の s がつきます。"}        
                             ]}
                         ],
                         repro: {
@@ -1992,8 +1992,8 @@ grammar2: {
                         passage: `Q5. 次の文の書き換えとして最も適切なものを選びなさい。<br><strong>"Don’t be noisy."</strong><br>↓ ほぼ同じ意味の文にすると？`,
                         steps: [
                             { title: "【着眼】否定の命令文と禁止の助動詞", q: "「〜してはいけない」という強い禁止を表すとき、Don't の代わりに使える助動詞は？", opts: [
-                                {t: "must not （してはならない）", correct: true, fb: "正解！ must not で強い禁止を表します。"},
-                                {t: "can not", correct: false, fb: "惜しい！「〜できない」ではなく「してはならない（must not）」が適切です。"}
+                                {t: "must not", correct: true, fb: "正解！ must not で強い禁止を表します。"},
+                                {t: "cannot", correct: false, fb: "惜しい！「〜であるはずがない」ではなく「してはならない（must not）」が適切です。"}
                             ]},
                             { title: "【判断】主語の補完", q: "命令文（Youが省略されている）を通常の文に直すときの主語は？", opts: [
                                 {t: "We must not be noisy.", correct: false, fb: "不正解。聞き手に対する禁止なので you です。"},
@@ -2083,9 +2083,9 @@ grammar2: {
                                 {t: "I のままにする", correct: false, fb: "不正解。モノが主語になる表現です。"},
                                 {t: "感情の原因となった The news を主語にする", correct: true, fb: "正解！ The news made me happy. の形にします。"}        
                             ]},
-                            { title: "【判断】使役動詞 make の活用とC（補語）の選択", q: "過去の出来事なので make をどう変化させ、後ろに何をつなげる？", opts: [
-                                {t: "made ＋ me ＋ happy", correct: true, fb: "正解！ The news made me happy. が完成します。"},
-                                {t: "made ＋ me ＋ happily", correct: false, fb: "不正解。C（補語）の位置には形容詞の happy が入ります。"}
+                            { title: "【判断】使役動詞 make の活用とC（補語）の選択", q: "madeの後ろに何をつなげる？", opts: [
+                                {t: "made me happy", correct: true, fb: "正解！ The news made me happy. が完成します。"},
+                                {t: "made me happily", correct: false, fb: "不正解。C（補語）の位置には形容詞の happy が入ります。happilyは副詞です。"}
                             ]}
                         ],
                         repro: {
@@ -2216,8 +2216,8 @@ grammar2: {
                                 {t: "want （want ＋ to do）", correct: false, fb: "不正解。enjoy が適切です。"}
                             ]},
                             { title: "【判断】過去形と動名詞の処理", q: "過去形の文なので enjoy を過去形にし、play を目的語にする正しい形は？", opts: [
-                                {t: "enjoyed / to play", correct: false, fb: "不正解。enjoy の目的語は to 不定詞ではなく動名詞（〜ing）です。"},
-                                {t: "enjoyed / playing", correct: true, fb: "正解！ He enjoyed playing soccer. の完成です。"}        
+                                {t: "enjoyed to play", correct: false, fb: "不正解。enjoy の目的語は to 不定詞ではなく動名詞（〜ing）です。"},
+                                {t: "enjoyed playing", correct: true, fb: "正解！ He enjoyed playing soccer. の完成です。"}        
                             ]}
                         ],
                         repro: {
@@ -2281,7 +2281,7 @@ grammar2: {
                                 {t: "For", correct: false, fb: "不正解。for は期間の数字などが続きます。"},
                                 {t: "While （While ＋ S ＋ V）", correct: true, fb: "正解！ during ＋ 名詞 ➔ while ＋ S ＋ V の超頻出パターンです。"}        
                             ]},
-                            { title: "【判断】主語 I に続く過去形の動詞の選択", q: "「滞在した（ stayed ）」または「いた（ was ）」の過去形の選択肢として正しいのは？", opts: [
+                            { title: "【判断】主語 I に続く過去形の動詞の選択", q: "「滞在した」または「いた」の過去形の選択肢として正しいのは？", opts: [
                                 {t: "While / stayed （または was）", correct: true, fb: "正解！ While I stayed in Tokyo... が完成します。"},
                                 {t: "During / stayed", correct: false, fb: "不正解。during の後ろに S＋V は置けません。"}
                             ]}
@@ -2326,7 +2326,7 @@ grammar2: {
                                 {t: "ever", correct: false, fb: "不正解。ever は肯定文・疑問文で使います。"}
                             ]},
                             { title: "【判断】「そのような／これほどの（ such ）」の配置", q: "a beautiful flower の前に置いて「このような美しい花」を表す単語は？", opts: [
-                                {t: "so", correct: false, fb: "惜しい！ so の場合は so beautiful a flower の語順になります。"},
+                                {t: "so （ so ＋ 形容詞 ＋ a ＋ 名詞 ）", correct: false, fb: "惜しい！ so の場合は so beautiful a flower の語順になります。"},
                                 {t: "such （ such a ＋ 形容詞 ＋ 名詞 ）", correct: true, fb: "正解！ such a beautiful flower（これほど美しい花）の完成です。"}        
                             ]}
                         ],
